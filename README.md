@@ -1,6 +1,6 @@
 # Saodo, Chiljagakdeuk, and the Hado 5-Coloring Puzzle
 
-A single repository that collects the source data, modern combinatorial redefinitions, verification code, and visualizations for three related Korean/Chinese mathematical diagrams:
+A single repository that collects the source data, modern combinatorial redefinitions, verification code, and visualizations for three related Korean mathematical diagrams:
 
 1. **Hado / Saodo 5-coloring puzzle** (`hado-saodo-5-coloring/`) – a symmetric cross of 20 numbered circles partitioned by mod-5 residue.
 2. **Chiljagakdeuk (七子各得, "Seven Each Gets")** (`chiljagakdeuk-seven-each-gets/`) – five clusters of seven numbers, each summing to 120.
