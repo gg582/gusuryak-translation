@@ -220,16 +220,16 @@ Saodo:         {'p': 5, 'centers_complete': True, 'q_uniform': True, 'q': 3, 'su
 
 This post synthesizes results from the following projects.
 
-- `하도사오도-지만-사실-5-컬러링-문제/`
+- `01-saodo-family/hado-saodo-5-coloring/`
   - `figures/modern_redefinition.en.md`
   - `docs/detailed_analysis.en.md`
   - `docs/explanation.en.md`
   - `figures/math_problems.en.md`
   - `docs/report.en.md`
-- `칠자각득-일곱이-따로따로/`
+- `02-gakdeuk-series/chiljagakdeuk-seven-each-gets/`
   - `modern_redefinition.en.md`
   - `report.en.md`
-- `사오도와-칠자각득의-일반화/`
+- `04-unification/saodo-chiljagakdeuk-generalization/`
   - `docs/generalization.en.md`
   - `compare_structures.py`
 

@@ -1,152 +1,152 @@
-# 근세 퍼즐에서 현대 조합론까지: 사오도와 칠자각득 이야기
+# From Early-Modern Puzzles to Modern Combinatorics: The Story of Saodo and Chiljagakdeuk
 
-스도쿠를 풀다 본 적 있으신가요? 9×9 칸에 1부터 9까지 숫자를 채우는 단순한 규칙이 전 세계를 사로잡았죠. 오늘은 한국 산학 서적에서 발견된, 스도쿠와는 다른 매력을 지닌 두 퍼즐을 소개합니다. 이름하여 **사오도**와 **칠자각득**. 둘 다 숫자를 배치하는 퍼즐인데, 놀랍게도 비슷한 골격을 가지고 있습니다.
-
----
-
-## 1. 사오도: 20개 원 안에 숨겨진 5가지 색
-
-사오도는 대칭 십자가 모양으로 20개의 원이 배치되어 있고, 각 원 안에는 1부터 20까지 숫자가 하나씩 들어 있습니다. 처음 볼 때는 그냥 이상한 숫자 배치처럼 보입니다.
-
-![사오도 5색 채움](./assets/puzzle_filled_groups.png)
-
-그런데 여기에 **5가지 색**을 칠해 볼까요? 규칙은 간단합니다. 숫자를 5로 나눈 나머지가 같은 원끼리 같은 색으로 칠하는 것입니다.
-
-- 물(파랑): 1, 6, 11, 16
-- 불(빨강): 2, 7, 12, 17
-- 나무(초록): 3, 8, 13, 18
-- 금속(회색): 4, 9, 14, 19
-- 흙(황토): 5, 10, 15, 20
-
-놀라운 점은 각 색이 정확히 4개씩 나뉜다는 것입니다. 20개를 5로 나누면 딱 4개씩이죠. 이건 우연이 아니라 누군가 의도적으로 설계한 흔적입니다. 여기에 더해 1부터 20까지의 합은 **210**입니다. 원문에는 "共積二百十"이라는 메모가 남아 있습니다. 마치 스도쿠의 "각 행, 열, 3×3 칸에 1~9가 한 번씩" 같은 초기 검산 조건 같은 느낌이죠.
+Have you ever solved a Sudoku? A simple rule—fill a 9×9 grid with the numbers 1 through 9—has captivated the world. Today, I'd like to introduce two puzzles discovered in Korean mathematical texts that have a different charm from Sudoku. Their names are **Saodo** and **Chiljagakdeuk**. Both involve placing numbers, and, surprisingly, they share a similar skeleton.
 
 ---
 
-## 2. 칠자각득: 35개 숫자의 5방향 클러스터
+## 1. Saodo: Five Colors Hidden Inside 20 Circles
 
-사오도의 형제 같은 퍼즐이 **칠자각득**입니다. 이쪽은 35개의 숫자가 5개 방향(상하좌우중)으로 나뉘어 있고, 각 방향마다 중심 1개와 주변 6개, 총 7개의 숫자가 있습니다. 이름 그대로 "일곱(七) 개씩 각(各) 얻는(得)" 구조입니다.
+Saodo has twenty circles arranged in a symmetrical cross, with each circle containing one of the numbers 1 through 20. At first glance, it looks like a strange number arrangement.
 
-![칠자각득 기본 배치](./assets/base_layout.png)
+![Saodo five-coloring](./assets/puzzle_filled_groups.png)
 
-칠자각득의 진짜 재미는 **방향별 합**에 있습니다. 각 방향의 7개 숫자를 더하면 모두 **120**이 됩니다. 마치 스도쿠의 각 행 합이 45가 되는 것처럼요. 더 나아가 중심 숫자들이 1, 2, 3, 4, 5를 정확히 한 번씩 가지고 있어서, 5로 나눈 나머지가 완전히 커버됩니다.
+But what if we paint it with **five colors**? The rule is simple: circles whose numbers leave the same remainder when divided by 5 receive the same color.
 
----
+- Water (blue): 1, 6, 11, 16
+- Fire (red): 2, 7, 12, 17
+- Wood (green): 3, 8, 13, 18
+- Metal (gray): 4, 9, 14, 19
+- Earth (yellow-ocher): 5, 10, 15, 20
 
-## 3. 규칙 찾기: 둘은 어떻게 닮았을까?
-
-이제 퍼즐 마니아라면 당연히 이런 질문을 하게 됩니다.
-
-> "사오도도 칠자각득처럼 어떤 합 규칙이 있을까?"
-
-유감스럽게도 사오도는 원문에서도 원시적인 5개 그룹 분류를 할 뿐, 칠자각득만큼 깔끔한 방향별 합 규칙을 가지고 있지 않습니다. 각 색 그룹의 합을 볼까요?
-
-- 물: 34
-- 불: 38
-- 나무: 42
-- 금속: 46
-- 흙: 50
-
-4씩 늘어나는 재미있는 패턴은 있지만, 모두 같지는 않습니다. 그리고 사오도에는 칠자각득처럼 명시적인 "중심-주변" 연결선도 없습니다. 즉, 사오도는 칠자각득의 **약한 버전** 또는 **다른 파라미터 설정**이라고 볼 수 있습니다.
-
-![오행 관계도](./assets/puzzle_relations.png)
-
-그래도 흥미로운 점은, 두 퍼즐이 모두 **5개 그룹**, **mod 5 잉여 분류**, **전체 합 불변량**이라는 골격을 공유한다는 것입니다. 마치 스도쿠와 카쿠로가 "1~N의 숫자를 규칙적으로 배치"한다는 공통 철학을 공유하면서도 구체적 규칙은 다른 것처럼요.
+The surprising thing is that each color appears exactly four times. Twenty divided by five is exactly four. This is no coincidence; it is evidence that someone designed it intentionally. Moreover, the sum of the numbers from 1 to 20 is **210**. The original text carries a note: "共積二百十" (total sum two hundred ten). It feels like an early verification condition, similar to Sudoku's rule that "each row, column, and 3×3 box contains the numbers 1–9 once."
 
 ---
 
-## 4. 일반화: 퍼즐을 파라미터로 보기
+## 2. Chiljagakdeuk: A Five-Direction Cluster of 35 Numbers
 
-여기서 더 나아가 볼까요? 두 퍼즐을 하나의 공식으로 묶을 수 있습니다.
+**Chiljagakdeuk** is like Saodo's sibling. Here, thirty-five numbers are divided into five directions (up, down, left, right, and center), with each direction containing one center number and six surrounding numbers—seven in total. As the name says, it is a structure of "seven obtained each."
+
+![Chiljagakdeuk base layout](./assets/base_layout.png)
+
+The real fun of Chiljagakdeuk lies in the **direction sums**. The seven numbers in each direction all add up to **120**, just as each row of a Sudoku sums to 45. Furthermore, the five center numbers contain 1, 2, 3, 4, and 5 exactly once, so the remainders modulo 5 are completely covered.
+
+---
+
+## 3. Finding the Rules: How Are They Alike?
+
+Now any puzzle enthusiast would naturally ask:
+
+> "Does Saodo also have a sum rule like Chiljagakdeuk?"
+
+Unfortunately, Saodo—even in the original text—only presents a primitive grouping of five sets and does not have a neat per-direction sum rule like Chiljagakdeuk. Let's look at the sum of each color group:
+
+- Water: 34
+- Fire: 38
+- Wood: 42
+- Metal: 46
+- Earth: 50
+
+There is an interesting pattern—it increases by 4 each time—but the sums are not all equal. And Saodo lacks explicit center–surrounding connecting lines like Chiljagakdeuk. In other words, Saodo can be seen as a **weaker version** or a **different parameter setting** of Chiljagakdeuk.
+
+![Five-elements relation diagram](./assets/puzzle_relations.png)
+
+Still, what is fascinating is that both puzzles share the skeleton of **five groups**, **mod-5 residue classification**, and **a total-sum invariant**. It is similar to how Sudoku and Kakuro share the common philosophy of "placing the numbers 1 through N according to rules" while having different concrete rules.
+
+---
+
+## 4. Generalization: Viewing the Puzzles as Parameters
+
+Can we go further? The two puzzles can be captured in one formula.
 
 ```
 Π(p, q, T)
 ```
 
-- **p**: 방향(또는 그룹)의 수
-- **q**: 각 방향의 주변 슬롯 수
-- **T**: 각 방향(큰러스터)의 목표 합
+- **p**: the number of directions (or groups)
+- **q**: the number of surrounding slots in each direction
+- **T**: the target sum for each direction (cluster)
 
-칠자각득은 `Π(5, 6, 120)`입니다. 5개 방향, 주변 6개, 합 120. 완벽하게 맞아떨어지죠.
+Chiljagakdeuk is `Π(5, 6, 120)`: five directions, six surrounding slots, sum 120. It fits perfectly.
 
-사오도는 어떨까요? 5개 색 그룹이 있고, 각 그룹에 4개 원소가 있으니 중심 1개 + 주변 3개로 볼 수 있습니다. 따라서 `Π(5, 3, T_d)`인데, 여기서 `T_d`는 방향마다 다릅니다(34, 38, 42, 46, 50). 같은 족 안의 **비균일한 예**라고 할 수 있죠.
+What about Saodo? It has five color groups, each with four elements, so we can view it as one center plus three surroundings. Thus it is `Π(5, 3, T_d)`, where `T_d` differs by direction (34, 38, 42, 46, 50). It can be called a **non-uniform example** within the same family.
 
-이렇게 파라미터로 보니 퍼즐 디자인이 갑자기 깔끔해집니다. 마치 "이동 퍼즐", "로직 퍼즐", "숫자 배치 퍼즐"을 분류하듯이요.
-
----
-
-## 5. 확장 가능성: 더 많은 Π(p, q, T) 퍼즐을 만들 수 있을까?
-
-이제 상상력을 발휘해 봅시다. `Π(p, q, T)`라는 틀이 있다면, 우리는 새로운 퍼즐을 디자인할 수 있을까요?
-
-예를 들어:
-- `Π(4, 5, 80)`: 4개 방향, 주변 5개, 합 80
-- `Π(6, 4, 100)`: 6개 방향, 주변 4개, 합 100
-- `Π(5, 5, 90)`: 5개 방향, 주변 5개, 합 90
-
-물론 모든 조합이 가능한 건 아닙니다. 숫자 집합의 총합과 각 클러스터의 합 사이에 일관성이 필요합니다. 하지만 이것 자체가 하나의 수학 문제가 됩니다.
-
-> 주어진 `p, q, T`에 대해 퍼즐이 존재하기 위한 조건은 무엇인가?
-
-이런 질문은 스도쿠의 "유일해 조건"이나 "최소 힌트 개수" 같은 문제와도 닮아 있습니다. 퍼즐 디자이너에게는 꿈같은 주제죠.
+Seeing it this way makes puzzle design suddenly tidy. It is like classifying "sliding puzzles," "logic puzzles," and "number-placement puzzles."
 
 ---
 
-## 6. 이 퍼즐이 좋은 점
+## 5. Expandability: Can We Make More Π(p, q, T) Puzzles?
 
-### 6.1 눈으로 보는 즐거움
+Now let's use our imagination. If we have the framework `Π(p, q, T)`, can we design new puzzles?
 
-색을 칠하면 숨겨진 구조가 눈에 띕니다. 사오도의 대칭 십자가 배치 안에서 같은 색들이 어떻게 흩어져 있는지 관찰하는 것만으로도 재미있습니다.
+For example:
+- `Π(4, 5, 80)`: 4 directions, 5 surrounding slots, sum 80
+- `Π(6, 4, 100)`: 6 directions, 4 surrounding slots, sum 100
+- `Π(5, 5, 90)`: 5 directions, 5 surrounding slots, sum 90
 
-### 6.2 고대와 현대의 다리
+Of course, not every combination is possible. The total sum of the number set must be consistent with the sum of each cluster. But that itself becomes a mathematical problem.
 
-사오도는 작성자(문정 최석정)의 언급을 보면 중국 하도와 오행 사상에서 유래했다고 밝힙니다, 칠자각득도 동아시아 산학 서적의 맥락에서 등장합니다. 이런 고대 도식이 현대의 **그래프 컬러링**, **블록 설계**, **불변량** 개념과 연결된다는 점이 매력적입니다.
+> For given `p, q, T`, what is the condition for a puzzle to exist?
 
-### 6.3 열린 해석
-
-명확한 "정답"이나 "룰"이 없어서 오히려 다양한 수학적 해석을 시도해 볼 수 있습니다. 한 사람은 그래프 문제로, 다른 사람은 대수적 구조로, 또 다른 사람은 조합 설계로 접근할 수 있습니다.
-
----
-
-## 7. 이 퍼즐이 아쉬운 점
-
-### 7.1 룰이 불분명합니다
-
-스도쿠가 "각 행, 열, 3×3 칸에 1~9가 한 번씩"이라는 명확한 규칙을 가진 것과 달리, 사오도와 칠자각득은 "원래 의도가 무엇인지" 불분명합니다. 숫자 기울기나 방향 표시의 의미도 아직 밝혀지지 않았습니다.
-
-### 7.2 원문만으로는 완성도를 판단하기 어렵습니다
-
-칠자각득은 합 불변량이라는 강력한 조건이 있어 "완성된 퍼즐"이라는 느낌을 주지만, 사오도는 그렇지 않습니다. 이것이 의도된 불완전성인지, 아니면 원문이 일부 손상된 것인지 알 수 없습니다.
-
-### 7.3 너무 많은 해석 가능성
-
-열린 해석이 장점이 될 수도 있지만, "무엇이든 될 수 있다"는 것은 동시에 "무엇이 정답인지 모르겠다"는 의미이기도 합니다. 연구자나 퍼즐 애호가에게는 흥미로울 수 있지만, 일반 독자에게는 난해할 수 있습니다.
+This question resembles Sudoku's "uniqueness condition" or "minimum number of clues." For a puzzle designer, it is a dream topic.
 
 ---
 
-## 8. 수학 교본으로서의 가치
+## 6. What Makes These Puzzles Good
 
-이런 퍼즐이 학교 수학 교본에 들어간다면 어떤 점이 좋을까요?
+### 6.1 Visual Pleasure
 
-### 8.1 나머지 연산의 시각화
+Once colored, hidden structures pop out. It is fun just to observe how the same colors are scattered within Saodo's symmetrical cross arrangement.
 
-`mod 5`를 단순히 계산 문제로만 다루지 않고, 색칠 공부처럼 시각적으로 경험할 수 있습니다. "나머지가 같은 숫자끼리 같은 색"이라는 규칙은 초등학생도 쉽게 이해할 수 있습니다.
+### 6.2 A Bridge Between Ancient and Modern
 
-### 8.2 합과 불변량
+Saodo, judging from the author's (Munjeong Choe Seokjeong) mention, is said to originate from the Chinese Hado (河圖, the River Chart) and Ohaeng (the Five Phases) thought, and Chiljagakdeuk also appears in the context of East Asian mathematical texts. The charm lies in how these ancient diagrams connect to modern concepts such as **graph coloring**, **block designs**, and **invariants**.
 
-1부터 20까지의 합이 210이라는 사실, 또는 칠자각득의 각 방향 합이 120이라는 사실은 **불변량**이라는 중요한 수학 개념을 자연스럽게 소개합니다.
+### 6.3 Open Interpretation
 
-### 8.3 퍼즐로서의 수학적 사고
-
-"이 규칙을 만족하도록 숫자를 배치할 수 있는가?" 같은 질문은 **존재성**, **유일성**, **필요충분조건** 같은 고등 수학적 사고를 길러줍니다. 스도쿠가 이미 교육 현장에서 그런 역할을 하고 있듯이, 사오도와 칠자각득도 훌륭한 소재가 될 수 있습니다.
-
-### 8.4 수학사와 문화 연결
-
-중국 하도, 오행, 조선 산학 서적 등 역사적 맥락을 더하면, 수학이 단순한 기호 놀이가 아니라 문화와 연결되어 발전해 왔다는 점을 보여줄 수 있습니다.
+Because there is no clear "correct answer" or "rule," various mathematical interpretations can be attempted. One person may approach it as a graph problem, another as an algebraic structure, and yet another as a combinatorial design.
 
 ---
 
-## 마무리
+## 7. What Is Disappointing About These Puzzles
 
-사오도와 칠자각득은 아직 잘 알려지지 않은 퍼즐입니다. 하지만 아는 사람이 적으면서도 조건은 단순하고, 가지고 놀기에는 오히려 매력적입니다. 우리는 여기서 **색칠하기**, **합 구하기**, **패턴 찾기**, **일반화하기** 등 다양한 수학적 놀이를 할 수 있습니다.
+### 7.1 The Rules Are Unclear
 
-혹시 이 글을 읽고 "나라면 이런 룰을 추가해 볼 것 같은데?" 하는 아이디어가 떠올랐다면, 당신은 이미 이 퍼즐의 공동 연구자입니다. 다음에 또 재미있는 퍼즐로 찾아뵙겠습니다.
+Unlike Sudoku, which has the clear rule that "each row, column, and 3×3 box contains the numbers 1–9 once," Saodo and Chiljagakdeuk are unclear about what the original intention was. The meaning of number tilts or direction markings has not yet been clarified.
+
+### 7.2 The Original Text Alone Makes It Hard to Judge Completeness
+
+Chiljagakdeuk gives the feeling of a "completed puzzle" because of its strong invariant condition, the directional sum. Saodo does not. We cannot tell whether this is intended incompleteness or whether the original text has been partially damaged.
+
+### 7.3 Too Many Interpretive Possibilities
+
+Open interpretation can be an advantage, but "anything could be right" also means "we don't know what the right answer is." It may be intriguing for researchers and puzzle enthusiasts, but it can be difficult for general readers.
+
+---
+
+## 8. Value as a Mathematics Textbook
+
+What would be good about including such puzzles in a school mathematics textbook?
+
+### 8.1 Visualizing Remainder Operations
+
+`mod 5` can be experienced visually, like a coloring activity, rather than treated only as a calculation problem. The rule "numbers with the same remainder get the same color" is easy enough for elementary school students to understand.
+
+### 8.2 Sums and Invariants
+
+The fact that the sum of 1 through 20 is 210, or that each direction in Chiljagakdeuk sums to 120, naturally introduces the important mathematical concept of an **invariant**.
+
+### 8.3 Mathematical Thinking Through Puzzles
+
+Questions like "Can numbers be arranged to satisfy this rule?" cultivate advanced mathematical thinking such as **existence**, **uniqueness**, and **necessary and sufficient conditions**. Just as Sudoku already plays such a role in education, Saodo and Chiljagakdeuk can be excellent material.
+
+### 8.4 Connecting Mathematics with History and Culture
+
+Adding historical context such as the Chinese Hado, Ohaeng, and Joseon mathematical texts can show that mathematics is not mere symbol play but developed in connection with culture.
+
+---
+
+## Conclusion
+
+Saodo and Chiljagakdeuk are still little-known puzzles. But precisely because few people know them, and because their conditions are simple, they are all the more charming to play with. Here we can engage in various mathematical pastimes: **coloring**, **finding sums**, **spotting patterns**, and **generalizing**.
+
+If reading this has given you an idea like, "I would add a rule like this," then you are already a co-researcher of this puzzle. I'll return with another interesting puzzle next time.

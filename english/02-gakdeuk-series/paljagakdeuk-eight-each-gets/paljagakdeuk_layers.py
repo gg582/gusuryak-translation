@@ -1,13 +1,13 @@
 from __future__ import annotations
 
 """
-Paljagakdeuk basic visualization
+Paljagakdeuk (八子各得) — Basic visualization
 
-text text Paljagakdeuktext source cross structuretext textnumbers labeltext mod 5 colorstext
-text basic visualization scripttext.
+This script displays the original cross structure of Paljagakdeuk
+using Hanja labels and mod 5 colors.
 
-modern graph and combinatorial deep analysistext analyze_paljagakdeuk.py,
-analysis_report.md, blog.md text text.
+For modern graph and combinatorial deep analysis, see
+analyze_paljagakdeuk.py, analysis_report.md, and blog.md.
 """
 
 from pathlib import Path
@@ -18,27 +18,27 @@ from matplotlib.patches import Circle, FancyBboxPatch
 
 
 PALACES = {
-    "Top": [
+    "Upper Palace": [
         [39, 7, 34],
         [12, None, 19],
         [24, 2, 27],
     ],
-    "Left": [
+    "Left Palace": [
         [33, 18, 28],
         [8, None, 3],
         [38, 13, 23],
     ],
-    "Center": [
+    "Center Palace": [
         [30, 5, 21],
         [16, None, 15],
         [31, 10, 36],
     ],
-    "Right": [
+    "Right Palace": [
         [22, 14, 37],
         [4, None, 9],
         [29, 17, 32],
     ],
-    "Bottom": [
+    "Lower Palace": [
         [26, 1, 25],
         [20, None, 11],
         [35, 6, 40],
@@ -47,11 +47,11 @@ PALACES = {
 
 # Each 3×3 palace is positioned as one arm of the cross.
 PALACE_ORIGINS = {
-    "Top": (3, 6),
-    "Left": (0, 3),
-    "Center": (3, 3),
-    "Right": (6, 3),
-    "Bottom": (3, 0),
+    "Upper Palace": (3, 6),
+    "Left Palace": (0, 3),
+    "Center Palace": (3, 3),
+    "Right Palace": (6, 3),
+    "Lower Palace": (3, 0),
 }
 
 # These colors reproduce the five residue classes marked in the notebook.
@@ -63,7 +63,19 @@ RESIDUE_STYLE = {
     0: {"face": "#F3D58A", "edge": "#A67C00", "name": "mod 5 = 0"},
 }
 
-HANJA_DIGITS = {i: str(i) for i in range(0, 101)}
+HANJA_DIGITS = {
+    0: "零",
+    1: "一",
+    2: "二",
+    3: "三",
+    4: "四",
+    5: "五",
+    6: "六",
+    7: "七",
+    8: "八",
+    9: "九",
+    10: "十",
+}
 
 
 def to_hanja(number: int) -> str:
@@ -71,7 +83,7 @@ def to_hanja(number: int) -> str:
         return HANJA_DIGITS[number]
 
     tens, ones = divmod(number, 10)
-    prefix = "text" if tens == 1 else HANJA_DIGITS[tens] + "text"
+    prefix = "十" if tens == 1 else HANJA_DIGITS[tens] + "十"
     return prefix if ones == 0 else prefix + HANJA_DIGITS[ones]
 
 
@@ -165,7 +177,7 @@ def draw_palace_boundary(
     ax.text(
         origin_x + 1.0,
         origin_y + 2.67,
-        f"{palace_name} · 8numbers · sum 164",
+        f"{palace_name} · 8 numbers · sum 164",
         ha="center",
         va="bottom",
         fontproperties=font,
@@ -229,7 +241,7 @@ def draw_diagram(
         )
 
     ax.set_title(
-        "Paljagakdeuk — 1through 40, five palacestext 8numbers·sum 164",
+        "Paljagakdeuk (八子各得) — 1 to 40, five palaces, 8 numbers each, palace sum 164",
         fontproperties=font,
         fontsize=17,
         pad=18,
@@ -239,7 +251,7 @@ def draw_diagram(
     info.text(
         0.0,
         0.98,
-        "structuretext text",
+        "Structure and Verification",
         ha="left",
         va="top",
         fontproperties=font,
@@ -248,11 +260,11 @@ def draw_diagram(
     )
 
     summary_lines = [
-        "• used numbers: 1–40, used once each",
-        "• total sum: 820",
-        "• palace text: 5",
-        "• each palace: 3×3text centertext text 8numbers",
-        "• each palace sum: 164",
+        "• Numbers used: 1–40, each once",
+        "• Total sum: 820",
+        "• Number of palaces: 5",
+        "• Each palace: 8 numbers in a 3×3 grid with empty center",
+        "• Sum per palace: 164",
         "• 5 × 164 = 820",
     ]
 
@@ -272,7 +284,7 @@ def draw_diagram(
     info.text(
         0.0,
         y - 0.01,
-        "mod 5 text",
+        "mod 5 Layers",
         ha="left",
         va="top",
         fontproperties=font,
@@ -312,7 +324,7 @@ def draw_diagram(
     info.text(
         0.0,
         y,
-        "generalization in the notes",
+        "Generalization from the Notebook",
         ha="left",
         va="top",
         fontproperties=font,
@@ -345,7 +357,7 @@ def draw_diagram(
     info.text(
         0.02,
         y - 0.005,
-        "therefore  M(n+1) = M(n) + 8",
+        "Therefore  M(n+1) = M(n) + 8",
         ha="left",
         va="top",
         fontproperties=font,

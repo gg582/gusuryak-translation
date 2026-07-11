@@ -4,7 +4,7 @@
 
 ## 1. Purpose
 
-This document describes a Python script and visualization that strictly follow the reconstruction policy of the Problem Constraints and the five mod-5 residue groups of Saodo (Hado) defined in `사오도와-칠자각득의-일반화`.
+This document describes a Python script and visualization that strictly follow the reconstruction policy of the Problem Constraints and the five mod-5 residue groups of Saodo (Hado) defined in `../../../04-unification/saodo-chiljagakdeuk-generalization`.
 
 Only data explicitly present in the source is preserved; inferred structures are kept separate.
 
@@ -128,5 +128,5 @@ The script performs consistency checks at runtime:
 |---|---|
 | `figures/reconstruct_source.py` | Conservative reconstruction script |
 | `figures/puzzle_reconstruction.png` | Generated visualization |
-| `docs/reconstruction_policy.ko.md` | Korean version of this document |
+| `docs/reconstruction_policy.en.md` | English version of this document |
 | `docs/reconstruction_policy.en.md` | This document |

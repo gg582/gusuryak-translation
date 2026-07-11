@@ -36,8 +36,8 @@ All cultural or rhetorical interpretations are stripped away; only observable da
 │   ├── modern_redefinition.en.md           # Formal definition
 │   ├── report.en.md                        # Integrated report
 │   ├── visualize.py                        # Modern visualization code
-│   ├── 七子各得_예시.pdf                    # Example PDF
-│   └── 七子各得_예시.png                    # Example PNG
+│   ├── chiljagakdeuk_example.pdf           # Example PDF
+│   └── chiljagakdeuk_example.png           # Example PNG
 └── saodo-chiljagakdeuk-generalization/     # Unified framework
     ├── docs/
     │   └── generalization.en.md            # General definition and comparison

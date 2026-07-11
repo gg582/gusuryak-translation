@@ -1,0 +1,22 @@
+# Valid Magic Square Correction
+
+## Baekjasaengseong-gyosu Correction
+
+```
+ 40  58  51  74  67  15   8   1  99  92
+ 41  64  57  55  73  16  14   7  80  98
+ 47  70  63  56  54  22  20  88  81   4
+ 28  71  69  62  60   3  21  19  87  85
+ 34  52  75  68  61   9   2  25  93  86
+ 65  33  26  49  42  90  83  76  24  17
+ 66  39  32  30  48  91  89  82   5  23
+ 72  45  38  31  29  97  95  13   6  79
+ 53  46  44  37  35  78  96  94  12  10
+ 59  27  50  43  36  84  77 100  18  11
+```
+
+- Order: 10×10
+- Magic constant: 505
+- Normal set (1~100): Yes
+- Magic square: Yes
+- Associated: No

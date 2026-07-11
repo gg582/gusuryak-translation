@@ -3,11 +3,11 @@ from __future__ import annotations
 """
 Gujagakdeuk basic visualization
 
-text text Gujagakdeuktext source cross structuretext mod 5 colorstext text
-basic visualization scripttext.
+This file is a basic visualization script showing the original cross structure
+of Gujagakdeuk with mod 5 colors.
 
-modern graph and combinatorial deep analysistext analyze_gujagakdeuk.py,
-analysis_report.md, blog.md text text.
+For modern graph and combinatorial deep analysis, see analyze_gujagakdeuk.py,
+analysis_report.md, and blog.md.
 """
 
 from pathlib import Path
@@ -17,7 +17,8 @@ from matplotlib.font_manager import FontProperties
 from matplotlib.patches import Circle, FancyBboxPatch
 
 
-# hand drawingtext text 45numberstext text transcriptiontext five palaces layouttext.
+# A five-palace layout that faithfully transcribes the 45 numbers written in
+# the hand drawing.
 PALACES = {
     "Top": [
         [12, 44, 9],
@@ -46,7 +47,7 @@ PALACES = {
     ],
 }
 
-# hand drawingtext textnumberstext layouttext normalized coordinatestext.
+# Coordinates normalizing the cross-shaped layout of the hand drawing.
 PALACE_ORIGINS = {
     "Top": (3, 6),
     "Left": (0, 3),
@@ -55,7 +56,7 @@ PALACE_ORIGINS = {
     "Bottom": (3, 0),
 }
 
-# text residue class text classes into text.
+# Preserves the residue class color classification from the notes.
 RESIDUE_STYLE = {
     1: {
         "name": "mod 5 ≡ 1",
@@ -89,7 +90,7 @@ RESIDUE_STYLE = {
     },
 }
 
-# text text residue classtext sum.
+# Sums by residue class written in the notes.
 RESIDUE_SUMS = {
     1: 189,
     2: 198,
@@ -99,7 +100,7 @@ RESIDUE_SUMS = {
 }
 
 
-def find_korean_font() -> FontProperties:
+def find_cjk_font() -> FontProperties:
     candidates = [
         "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
         "/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc",
@@ -114,7 +115,7 @@ def find_korean_font() -> FontProperties:
             return FontProperties(fname=candidate)
 
     raise RuntimeError(
-        "Korean font not found. Install Noto Sans CJK KR or NanumGothic."
+        "CJK font not found. Install Noto Sans CJK KR or NanumGothic."
     )
 
 
@@ -132,21 +133,21 @@ def validate() -> None:
     ]
 
     if sorted(all_values) != list(range(1, 46)):
-        raise ValueError("1through 45text text text text text text text.")
+        raise ValueError("The numbers 1 through 45 must appear exactly once.")
 
     if sum(all_values) != 1035:
-        raise ValueError("1through 45text total sumtext 1035text text.")
+        raise ValueError("The total sum of 1 through 45 must be 1035.")
 
     for palace_name, grid in PALACES.items():
         values = [value for row in grid for value in row]
         palace_sum = sum(values)
 
         if len(values) != 9:
-            raise ValueError(f"{palace_name} must contain exactly 9numberstext text text.")
+            raise ValueError(f"{palace_name} must contain exactly 9 numbers.")
 
         if palace_sum != 207:
             raise ValueError(
-                f"{palace_name} sum is {palace_sum}text, 207text not."
+                f"{palace_name} sum is {palace_sum}, which is not 207."
             )
 
     for residue, expected_sum in RESIDUE_SUMS.items():
@@ -154,8 +155,8 @@ def validate() -> None:
 
         if actual_sum != expected_sum:
             raise ValueError(
-                f"residue {residue} sum is {actual_sum}text, "
-                f"recorded value {expected_sum}text does not match."
+                f"Sum of residue {residue} is {actual_sum}, "
+                f"which differs from the recorded value {expected_sum}."
             )
 
 
@@ -198,7 +199,7 @@ def draw_palace_box(
     ax.text(
         origin_x + 1.0,
         origin_y + 2.64,
-        f"{palace_name} · 9 · sum 207",
+        f"{palace_name} · 9 numbers · sum 207",
         ha="center",
         va="bottom",
         fontproperties=font,
@@ -226,11 +227,11 @@ def draw_legend(
 
     y = 0.91
     summary = [
-        "used numbers: 1–45, used once each",
-        "total sum: 1035",
-        "palace text: 5",
-        "each palace: 3×3, text 9",
-        "each palace sum(nine_sum): 207",
+        "Numbers used: 1–45, once each",
+        "Total sum: 1035",
+        "Number of palaces: 5",
+        "Each palace: 3×3, 9 total",
+        "Each palace sum (nine_sum): 207",
         "5 × 207 = 1035",
     ]
 
@@ -308,7 +309,7 @@ def draw_legend(
     ax.text(
         0.0,
         y,
-        "residue class sum",
+        "Residue class sums",
         ha="left",
         va="top",
         fontproperties=font,
@@ -340,7 +341,7 @@ def draw_legend(
     ax.text(
         0.02,
         y - 0.005,
-        "common difference: +9",
+        "Common difference: +9",
         ha="left",
         va="top",
         fontproperties=font,
@@ -352,7 +353,7 @@ def draw_legend(
     ax.text(
         0.0,
         y,
-        "relations in the notes",
+        "Relations in the notes",
         ha="left",
         va="top",
         fontproperties=font,
@@ -387,7 +388,7 @@ def draw_diagram(
 ) -> None:
     validate()
 
-    font = find_korean_font()
+    font = find_cjk_font()
     positions = build_positions()
 
     fig = plt.figure(figsize=(13.5, 9.5), dpi=220)
@@ -432,7 +433,7 @@ def draw_diagram(
         )
 
     diagram_ax.set_title(
-        "Gujagakdeuk — hand drawing transcription text mod 5 layer separation",
+        "Gujagakdeuk — Hand-drawing transcription and mod 5 layer separation",
         fontproperties=font,
         fontsize=18,
         pad=18,

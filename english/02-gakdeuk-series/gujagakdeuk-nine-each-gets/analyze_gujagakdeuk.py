@@ -1,10 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Gujagakdeuk — modern graph and combinatorial deep analysis
+Gujagakdeuk — Modern graph and combinatorial deep analysis
 
-《Gusuryeok》text text text Gujagakdeuk(Gujagakdeuk)text text text text textinterpretation.
-analysis text: 1through 45text text 5 palace(text)text 9numberstext layouttext text structure.
+A reinterpretation of Gujagakdeuk (九子各得), one of the diagrams in the
+Gusuryeok (九數略) series, in modern mathematical language.
+
+Analysis target: a cross structure arranging the numbers 1 through 45 into
+5 palaces with 9 numbers each.
 """
 
 import os
@@ -18,7 +21,7 @@ import numpy as np
 from matplotlib.lines import Line2D
 
 # ============================================================
-# 0. font and output setup
+# 0. Font and output settings
 # ============================================================
 
 fm._load_fontmanager(try_read_cache=False)
@@ -41,7 +44,7 @@ def save_fig(name):
 
 
 # ============================================================
-# 1. source text structuretext
+# 1. Source data structuring
 # ============================================================
 
 PALACES = {
@@ -81,11 +84,11 @@ PALACE_ORIGINS = {
 }
 
 RESIDUE_STYLE = {
-    1: {"face": "#E5E5E5", "edge": "#444444", "name": "Water", "en": "Water"},
-    2: {"face": "#F6D0D0", "edge": "#B54141", "name": "Fire", "en": "Fire"},
-    3: {"face": "#D5E3FA", "edge": "#3D6DB3", "name": "Wood", "en": "Wood"},
-    4: {"face": "#D7D7D7", "edge": "#1F1F1F", "name": "Metal", "en": "Metal"},
-    0: {"face": "#F7E3A0", "edge": "#B58A00", "name": "Earth", "en": "Earth"},
+    1: {"face": "#E5E5E5", "edge": "#444444", "name": "Water"},
+    2: {"face": "#F6D0D0", "edge": "#B54141", "name": "Fire"},
+    3: {"face": "#D5E3FA", "edge": "#3D6DB3", "name": "Wood"},
+    4: {"face": "#D7D7D7", "edge": "#1F1F1F", "name": "Metal"},
+    0: {"face": "#F7E3A0", "edge": "#B58A00", "name": "Earth"},
 }
 
 WUXING_COLOR = {
@@ -127,7 +130,7 @@ def palace_values(palace_name: str) -> list[int]:
 
 
 def palace_cells(palace_name: str) -> list[tuple[int, int, int]]:
-    """palace text (value, row, column) text."""
+    """List of (value, row, column) inside a palace."""
     cells = []
     for r, row in enumerate(PALACES[palace_name]):
         for c, value in enumerate(row):
@@ -144,13 +147,13 @@ def cell_role(row: int, col: int) -> str:
 
 
 # ============================================================
-# 2. text construction
+# 2. Graph construction
 # ============================================================
 
 INTRA_EDGES: list[tuple[int, int]] = []
 FULL_EDGES: list[tuple[int, int]] = []
 
-# same palace internal adjacency edges (3×3 textnumbers).
+# Adjacency edges inside the same palace (3×3 grid).
 for palace_name, grid in PALACES.items():
     for r, row in enumerate(grid):
         for c, value in enumerate(row):
@@ -161,7 +164,7 @@ for palace_name, grid in PALACES.items():
                 down = grid[r + 1][c]
                 INTRA_EDGES.append(tuple(sorted((value, down))))
 
-# full grid adjacent text (palace crossing palace boundaries).
+# Adjacency edges of the full grid (crossing palace boundaries).
 pos_to_value = {pos: value for value, pos in POSITIONS.items()}
 for value, (x, y) in POSITIONS.items():
     for dx, dy in [(1, 0), (0, 1), (-1, 0), (0, -1)]:
@@ -193,48 +196,48 @@ def value_to_palace(value: int) -> str:
 
 
 # ============================================================
-# 3. textsumtext·text text analysis
+# 3. Combinatorics and graph theory analysis
 # ============================================================
 
 def validate():
     all_values = [v for grid in PALACES.values() for row in grid for v in row]
-    assert sorted(all_values) == list(range(1, 46)), "1~45text must appear exactly once each"
-    assert sum(all_values) == 1035, "total sum is 1035"
+    assert sorted(all_values) == list(range(1, 46)), "1~45 must each appear exactly once"
+    assert sum(all_values) == 1035, "Total sum must be 1035"
     for palace_name, grid in PALACES.items():
         vals = [v for row in grid for v in row]
-        assert len(vals) == 9, f"{palace_name}text 9numbers"
-        assert sum(vals) == 207, f"{palace_name} sumtext 207"
+        assert len(vals) == 9, f"{palace_name} must have 9 numbers"
+        assert sum(vals) == 207, f"{palace_name} sum must be 207"
 
 
 validate()
 
 print("=" * 60)
-print("Gujagakdeuk modern graph and combinatorial analysis")
+print("Gujagakdeuk — Modern graph and combinatorial analysis")
 print("=" * 60)
-print(f"node count: {G_full.number_of_nodes()}")
-print(f"edge count(palace internaltext): {G_intra.number_of_edges()}")
-print(f"edge count(full grid): {G_full.number_of_edges()}")
-print(f"connected components(palace internaltext): {nx.number_connected_components(G_intra)}")
-print(f"connected components(full grid): {nx.number_connected_components(G_full)}")
+print(f"Node count: {G_full.number_of_nodes()}")
+print(f"Edge count (intra-palace only): {G_intra.number_of_edges()}")
+print(f"Edge count (full grid): {G_full.number_of_edges()}")
+print(f"Connected components (intra-palace only): {nx.number_connected_components(G_intra)}")
+print(f"Connected components (full grid): {nx.number_connected_components(G_full)}")
 
 deg_seq_intra = sorted([d for _, d in G_intra.degree()], reverse=True)
 deg_seq_full = sorted([d for _, d in G_full.degree()], reverse=True)
-print(f"degree text(palace internaltext): {deg_seq_intra}")
-print(f"degree text(full grid): {deg_seq_full}")
+print(f"Degree sequence (intra-palace only): {deg_seq_intra}")
+print(f"Degree sequence (full grid): {deg_seq_full}")
 
-print("\nby five phase number sum:")
+print("\nSum by wuxing (five phases):")
 for r in [1, 2, 3, 4, 5]:
     nodes = [n for n in range(1, 46) if residue_1based(n) == r]
     wx = RESIDUE_STYLE[r % 5]["name"]
     print(f"  {wx}({r}): sum={sum(nodes)}, numbers={nodes}")
 
-print("\nby palace five phases distribution:")
+print("\nWuxing distribution by palace:")
 for palace_name in PALACES:
     vals = palace_values(palace_name)
     counts = Counter(wuxing_of(v) for v in vals)
     print(f"  {palace_name}: {dict(counts)}")
 
-print("\nby palace center value:")
+print("\nCenter value by palace:")
 for palace_name in PALACES:
     center = [v for v, r, c in palace_cells(palace_name) if cell_role(r, c) == "center"][0]
     print(f"  {palace_name}: center={center}({wuxing_of(center)})")
@@ -250,7 +253,7 @@ try:
 except Exception:
     girth = None
 
-# five phases text classification output
+# Wuxing edge classification output
 wx_edge_counts = {}
 for u, v in G_full.edges():
     wu, wv = wuxing_of(u), wuxing_of(v)
@@ -288,12 +291,12 @@ for u, v in G_full.edges():
         key = "neutral"
     wx_edge_counts[key] = wx_edge_counts.get(key, 0) + 1
 
-print("\nfive phases edge distribution:")
+print("\nWuxing edge distribution:")
 for key, cnt in wx_edge_counts.items():
     print(f"  {key}: {cnt}")
 
 # ============================================================
-# 4. text based analysis (corner / edge midpoint / center)
+# 4. Position-based analysis (corner / edge midpoint / center)
 # ============================================================
 
 CORNER_SUMS: dict[str, int] = {}
@@ -315,7 +318,7 @@ for palace_name in PALACES:
     EDGE_SUMS[palace_name] = sum(edge_vals)
     CENTER_VALUES[palace_name] = center_val  # type: ignore[assignment]
 
-print("\nby palace text sum:")
+print("\nSum by position within palaces:")
 for palace_name in PALACES:
     print(
         f"  {palace_name}: corner={CORNER_SUMS[palace_name]}, "
@@ -323,7 +326,7 @@ for palace_name in PALACES:
     )
 
 # ============================================================
-# 5. generalized family
+# 5. Generalized family
 # ============================================================
 
 FAMILY = [(m0, 189 + (m0 - 1) * 9) for m0 in range(1, 6)]
@@ -333,7 +336,7 @@ for m0, total in FAMILY:
     print(f"  M0={m0}({wx}): palace sum={total}")
 
 # ============================================================
-# 6. visualization
+# 6. Visualization
 # ============================================================
 
 PALACE_COLORS = {
@@ -405,7 +408,7 @@ def draw_nodes(ax, highlight_palace=None, highlight_values=None, node_size=1000)
         )
 
 
-# --- 01: source graph ---
+# --- 01: Source graph ---
 fig, ax = plt.subplots(figsize=(12, 12))
 draw_palace_boundaries(ax)
 for u, v in FULL_EDGES:
@@ -419,7 +422,7 @@ for u, v in FULL_EDGES:
         ax.plot([x1, x2], [y1, y2], color="#333333", linewidth=1.8, alpha=0.5, zorder=1)
 draw_nodes(ax)
 ax.set_title(
-    "Gujagakdeuk - source cross structure\nfive palaces · 9numbers · each palace sum 207 · total sum 1035",
+    "Gujagakdeuk — Source cross structure\n5 palaces · 9 numbers · each palace sum 207 · total sum 1035",
     fontsize=16,
     fontweight="bold",
 )
@@ -435,7 +438,7 @@ ax.legend(handles=legend_elements, loc="lower right", fontsize=10, framealpha=0.
 save_fig("01_original_graph.png")
 plt.close()
 
-# --- 02: by five phase subgraph decomposition ---
+# --- 02: Wuxing subgraph decomposition ---
 fig, axes = plt.subplots(2, 3, figsize=(18, 12))
 axes = axes.flatten()
 ax = axes[0]
@@ -445,7 +448,7 @@ for u, v in FULL_EDGES:
     x2, y2 = POSITIONS[v]
     ax.plot([x1, x2], [y1, y2], color="#CCCCCC", linewidth=1, alpha=0.5, zorder=0)
 draw_nodes(ax)
-ax.set_title("full graph", fontsize=13, fontweight="bold")
+ax.set_title("Full graph", fontsize=13, fontweight="bold")
 ax.set_xlim(-0.8, 8.8)
 ax.set_ylim(-0.8, 8.8)
 ax.set_aspect("equal")
@@ -511,12 +514,12 @@ for idx, wx in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
     ax.set_aspect("equal")
     ax.axis("off")
 
-plt.suptitle("five phases(text)text subgraph decomposition", fontsize=16, fontweight="bold", y=1.02)
+plt.suptitle("Wuxing (five phases) subgraph decomposition", fontsize=16, fontweight="bold", y=1.02)
 plt.tight_layout()
 save_fig("02_wuxing_decomposition.png")
 plt.close()
 
-# --- 03: adjacency matrix + spectrum ---
+# --- 03: Adjacency matrix + spectrum ---
 fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 ax = axes[0]
 adj = nx.adjacency_matrix(G_full, nodelist=sorted(G_full.nodes())).todense()
@@ -555,7 +558,7 @@ plt.tight_layout()
 save_fig("03_adjacency_spectrum.png")
 plt.close()
 
-# --- 04: cycle analysis ---
+# --- 04: Cycle analysis ---
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
 
 ax = axes[0, 0]
@@ -568,7 +571,7 @@ for u, v in FULL_EDGES:
     if palace_u == palace_v:
         ax.plot([x1, x2], [y1, y2], color=PALACE_COLORS[palace_u], linewidth=3, alpha=0.8, zorder=1)
 draw_nodes(ax)
-ax.set_title("five-palace 3×3 Grid text", fontsize=13, fontweight="bold")
+ax.set_title("Five-palace 3×3 grid graph", fontsize=13, fontweight="bold")
 ax.set_xlim(-0.8, 8.8)
 ax.set_ylim(-0.8, 8.8)
 ax.set_aspect("equal")
@@ -613,7 +616,7 @@ for n in range(1, 46):
         )
     )
     ax.text(x, y, str(n), ha="center", va="center", fontsize=8, zorder=2)
-ax.set_title(f"text text example: 40-5-1-36-40 (sum={sum(cycle4)})", fontsize=13, fontweight="bold")
+ax.set_title(f"Minimum cycle example: 40-5-1-36-40 (sum={sum(cycle4)})", fontsize=13, fontweight="bold")
 ax.set_xlim(-0.8, 8.8)
 ax.set_ylim(-0.8, 8.8)
 ax.set_aspect("equal")
@@ -625,7 +628,7 @@ palace_sums = [sum(palace_values(p)) for p in palace_names]
 palace_bar_colors = [PALACE_COLORS[p] for p in palace_names]
 ax.bar(palace_names, palace_sums, color=palace_bar_colors, edgecolor="black", linewidth=1.5)
 ax.axhline(y=207, color="red", linestyle="--", linewidth=2)
-ax.set_title("each palace 9numbers sum", fontsize=13, fontweight="bold")
+ax.set_title("Nine-number sum of each palace", fontsize=13, fontweight="bold")
 for bar, val in zip(ax.patches, palace_sums):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
@@ -637,12 +640,12 @@ for bar, val in zip(ax.patches, palace_sums):
     )
 
 ax = axes[1, 1]
-# Center 3×3 gridtext text based text
+# Center 3×3 grid cycle-based decomposition
 cycles = nx.cycle_basis(G_intra.subgraph(palace_values("Center")))
 ax.text(
     0.5,
     0.5,
-    f"Center 3×3 Grid\ncycle count: {len(cycles)}\nminimum cycle length: {min(len(c) for c in cycles)}",
+    f"Center 3×3 grid\ncycle count: {len(cycles)}\nminimum cycle length: {min(len(c) for c in cycles)}",
     ha="center",
     va="center",
     fontsize=14,
@@ -657,7 +660,7 @@ plt.tight_layout()
 save_fig("04_cycle_analysis.png")
 plt.close()
 
-# --- 05: centrality + sum invariants ---
+# --- 05: Centrality + sum invariants ---
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
 
 ax = axes[0, 0]
@@ -685,7 +688,7 @@ wx_names = list(wx_sums.keys())
 wx_vals = list(wx_sums.values())
 wx_colors_bar = [WUXING_COLOR[w] for w in wx_names]
 ax.bar(wx_names, wx_vals, color=wx_colors_bar, edgecolor="black", linewidth=1.5)
-ax.set_title("by five phase number sum (189, 198, 207, 216, 225)", fontsize=12, fontweight="bold")
+ax.set_title("Sum by wuxing (189, 198, 207, 216, 225)", fontsize=12, fontweight="bold")
 for bar, val in zip(ax.patches, wx_vals):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
@@ -704,7 +707,7 @@ components = {
     "Center": sum(palace_values("Center")),
     "Right": sum(palace_values("Right")),
     "Bottom": sum(palace_values("Bottom")),
-    "text": sum(range(1, 46)),
+    "Total": sum(range(1, 46)),
 }
 ax.bar(
     list(components.keys()),
@@ -713,7 +716,7 @@ ax.bar(
     edgecolor="black",
     linewidth=1.5,
 )
-ax.set_title("structural subset sums", fontsize=12, fontweight="bold")
+ax.set_title("Structural subset sums", fontsize=12, fontweight="bold")
 ax.set_ylabel("Sum", fontsize=10)
 plt.setp(ax.xaxis.get_majorticklabels(), rotation=15, ha="right")
 
@@ -721,7 +724,7 @@ plt.tight_layout()
 save_fig("05_centrality_invariants.png")
 plt.close()
 
-# --- 06: five phases generatingovercoming ---
+# --- 06: Wuxing generating-overcoming ---
 fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 ax = axes[0]
 wuxing_graph = nx.DiGraph()
@@ -783,7 +786,7 @@ legend_elements = [
     Line2D([0], [0], color="#CC4444", lw=2, linestyle="--", label="overcoming"),
 ]
 ax.legend(handles=legend_elements, loc="upper right", fontsize=11)
-ax.set_title("five phases generatingovercoming relation diagram", fontsize=13, fontweight="bold")
+ax.set_title("Wuxing generating-overcoming relation diagram", fontsize=13, fontweight="bold")
 ax.set_xlim(-3, 3.5)
 ax.set_ylim(-2.5, 3)
 ax.axis("off")
@@ -798,12 +801,12 @@ ax.pie(
     explode=[0.05] * len(wx_edge_counts),
     textprops={"fontsize": 12, "fontweight": "bold"},
 )
-ax.set_title(f"five phases edge distribution (N={G_full.number_of_edges()})", fontsize=13, fontweight="bold")
+ax.set_title(f"Wuxing edge distribution (N={G_full.number_of_edges()})", fontsize=13, fontweight="bold")
 plt.tight_layout()
 save_fig("06_wuxing_relations.png")
 plt.close()
 
-# --- 07: extension and generalization ---
+# --- 07: Extension and generalization ---
 fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 
 ax = axes[0]
@@ -811,7 +814,7 @@ m0_labels = [f"M0={m0}" for m0, _ in FAMILY]
 m0_values = [total for _, total in FAMILY]
 m0_colors = [WUXING_COLOR[RESIDUE_STYLE[m0 % 5]["name"]] for m0, _ in FAMILY]
 ax.bar(m0_labels, m0_values, color=m0_colors, edgecolor="black", linewidth=1.5)
-ax.set_title("generalized family: palace sum by M0\nM(n+1) = M(n) + 9", fontsize=13, fontweight="bold")
+ax.set_title("Generalized family: arithmetic sequence of palace sums\nM(n+1) = M(n) + 9", fontsize=13, fontweight="bold")
 for bar, val in zip(ax.patches, m0_values):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
@@ -831,20 +834,20 @@ for i, t in enumerate(theta):
     r = 2.5 + i * 1.5
     circle = plt.Circle((0, 0), r, fill=False, color=["#CC4444", "#4488CC", "#44AA44"][i], linewidth=2, linestyle="--")
     ax.add_patch(circle)
-    ax.text(r * np.cos(np.pi / 4), r * np.sin(np.pi / 4), f"{45 * (i + 1)}numbers", fontsize=10, fontweight="bold")
+    ax.text(r * np.cos(np.pi / 4), r * np.sin(np.pi / 4), f"{45 * (i + 1)} numbers", fontsize=10, fontweight="bold")
 ax.add_patch(plt.Circle((0, 0), 0.5, facecolor="#CC9944", edgecolor="black", linewidth=2))
 ax.text(0, 0, "CORE\n45", ha="center", va="center", fontsize=10, fontweight="bold")
 ax.set_xlim(-6, 6)
 ax.set_ylim(-6, 6)
 ax.set_aspect("equal")
 ax.axis("off")
-ax.set_title("concentric extension: 45knumbers structure", fontsize=13, fontweight="bold")
+ax.set_title("Concentric extension: 45k-number structure", fontsize=13, fontweight="bold")
 
 plt.tight_layout()
 save_fig("07_local_extensions.png")
 plt.close()
 
-# --- 08: positional patterns (corner / edge midpoint / center) ---
+# --- 08: Positional patterns (corner / edge midpoint / center) ---
 fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 
 ax = axes[0]
@@ -854,19 +857,19 @@ edge_vals_list = [EDGE_SUMS[p] for p in palace_names]
 center_vals_list = [CENTER_VALUES[p] for p in palace_names]
 x = np.arange(len(palace_names))
 width = 0.25
-ax.bar(x - width, corner_vals_list, width, label="corner 4numbers", color="#CC4444", edgecolor="black")
-ax.bar(x, edge_vals_list, width, label="edge midpoint 4numbers", color="#4488CC", edgecolor="black")
-ax.bar(x + width, center_vals_list, width, label="center 1numbers", color="#44AA44", edgecolor="black")
+ax.bar(x - width, corner_vals_list, width, label="corner 4 numbers", color="#CC4444", edgecolor="black")
+ax.bar(x, edge_vals_list, width, label="edge midpoint 4 numbers", color="#4488CC", edgecolor="black")
+ax.bar(x + width, center_vals_list, width, label="center 1 number", color="#44AA44", edgecolor="black")
 ax.set_xticks(x)
 ax.set_xticklabels(palace_names)
-ax.set_title("by palace text sum", fontsize=13, fontweight="bold")
+ax.set_title("Sum by position within palaces", fontsize=13, fontweight="bold")
 ax.legend()
 ax.set_ylabel("Sum", fontsize=10)
 
 ax = axes[1]
-# center value distribution
+# Center value distribution
 ax.bar(palace_names, center_vals_list, color=[PALACE_COLORS[p] for p in palace_names], edgecolor="black")
-ax.set_title(f"each palace center value: {sorted(center_vals_list)}", fontsize=13, fontweight="bold")
+ax.set_title(f"Center value of each palace: {sorted(center_vals_list)}", fontsize=13, fontweight="bold")
 for bar, val in zip(ax.patches, center_vals_list):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
@@ -884,5 +887,5 @@ plt.close()
 
 print("\n" + "=" * 60)
 print("All images generated!")
-print(f"output directory: {OUTPUT_DIR}/")
+print(f"Output directory: {OUTPUT_DIR}/")
 print("=" * 60)
