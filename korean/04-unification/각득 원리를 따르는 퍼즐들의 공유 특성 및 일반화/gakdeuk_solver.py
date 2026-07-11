@@ -275,7 +275,9 @@ class GakdeukSolver:
         for c in range(5):
             prob += pulp.lpSum(x[v][c] for v in all_vertices) == n, f"size_{c}"
             prob += pulp.lpSum(v * x[v][c] for v in all_vertices) == S, f"sum_{c}"
-
+        # Heuristic: enforce smallest vertex (1) to be in cluster 0 if not missing
+        if 1 not in fixed_missing and (not auto_missing or (auto_missing and 1 not in required_set)):
+            prob += x[1][0] == 1, "heuristic_vertex1_cluster0"
         # Multiplicity bounds
         for v in all_vertices:
             prob += pulp.lpSum(x[v][c] for c in range(5)) <= max_multiplicity, f"max_mult_{v}"
@@ -445,6 +447,13 @@ def visualize_solution(sol: GakdeukSolution, output_path: str | None = None) -> 
     """해를 matplotlib로 시각화."""
     try:
         import matplotlib.pyplot as plt
+        import matplotlib
+        # Attempt to use a Korean font for proper glyph rendering.
+        # If NanumGothic is not available, fall back to the default sans-serif.
+        try:
+            matplotlib.rcParams["font.family"] = "NanumGothic"
+        except Exception:
+            matplotlib.rcParams["font.family"] = "sans-serif"
     except ImportError:
         print("[오류] matplotlib이 설치되어 있지 않습니다.", file=sys.stderr)
         return

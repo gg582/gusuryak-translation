@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-**Jisu-yong-yukdo (地數用六圖)** and **Jisu-guimun-do (地數龜文圖)** are both diagram puzzles handed down in the *Gusuryeok* (九數略) family of late-Joseon mathematical texts. Both place numbers at the vertices of hexagons so that **the sum of the six numbers forming each hexagon is the same**.
+**Jisu-yong-yukdo (地數用六圖)** and **Jisu-guimun-do (地數龜文圖)** are both diagram puzzles handed down in the *Gusuryak* (九數略) family of late-Joseon mathematical texts. Both place numbers at the vertices of hexagons so that **the sum of the six numbers forming each hexagon is the same**.
 
 | Item | Jisu-yong-yukdo | Jisu-guimun-do (representative examples) |
 |---|---|---|

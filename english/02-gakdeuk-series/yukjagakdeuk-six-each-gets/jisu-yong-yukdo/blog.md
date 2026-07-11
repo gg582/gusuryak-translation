@@ -2,7 +2,7 @@
 
 ## Introduction: Five Hexagons, All Summing to 63?
 
-The **Jisu-yong-yukdo (地數用六圖)** handed down in the *Gusuryeok* (九數略) family has the following simple yet astonishing rule.
+The **Jisu-yong-yukdo (地數用六圖)** handed down in the *Gusuryak* (九數略) family has the following simple yet astonishing rule.
 
 > Place the numbers 1 through 20 into five hexagons, six per hexagon, and **the sum of the six numbers in every hexagon is 63**.
 

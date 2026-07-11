@@ -2,7 +2,7 @@
 
 ## 1. Overview and Historical/Conceptual Background
 
-**Jisu-yong-yukdo (地數用六圖)** is a traditional arithmetic diagram puzzle handed down in the *Gusuryeok* (九數略) family of late-Joseon mathematical texts. “Jisu (地數)” refers to the numbers of Earth, contrasted with the numbers of Heaven (天數, odd numbers 1, 3, 5, 7, 9); it symbolizes even numbers and the principle of yin. “Yong-yuk (用六)” means that the number 6 is used as the core unit. “Yukjagakdeuk (六子各得)” means that each hexagon, holding six numbers, “obtains” the same sum 63.
+**Jisu-yong-yukdo (地數用六圖)** is a traditional arithmetic diagram puzzle handed down in the *Gusuryak* (九數略) family of late-Joseon mathematical texts. “Jisu (地數)” refers to the numbers of Earth, contrasted with the numbers of Heaven (天數, odd numbers 1, 3, 5, 7, 9); it symbolizes even numbers and the principle of yin. “Yong-yuk (用六)” means that the number 6 is used as the core unit. “Yukjagakdeuk (六子各得)” means that each hexagon, holding six numbers, “obtains” the same sum 63.
 
 The core rules of this diagram are as follows.
 

@@ -4,7 +4,7 @@
 Gujagakdeuk — Modern graph and combinatorial deep analysis
 
 A reinterpretation of Gujagakdeuk (九子各得), one of the diagrams in the
-Gusuryeok (九數略) series, in modern mathematical language.
+Gusuryak (九數略) series, in modern mathematical language.
 
 Analysis target: a cross structure arranging the numbers 1 through 45 into
 5 palaces with 9 numbers each.

@@ -5,7 +5,7 @@ Earth-Number Six-Use Diagram (Jisu-yong-yukdo) / Six-Each-Gets —
 modern graph and combinatorial deep analysis
 
 A modern mathematical reinterpretation of Jisu-yong-yukdo (地數用六圖)
-from the *Gusuryeok* (九數略) family of diagrams.
+from the *Gusuryak* (九數略) family of diagrams.
 Analysis target: the numbers 1 through 20 placed in 5 hexagons of 6 numbers each,
 forming a honeycomb intersection structure.
 """
@@ -1249,7 +1249,7 @@ else:
 
 blog_md = f"""# Deep Dive into Jisu-yong-yukdo ({HANJA_TITLE})
 
-Jisu-yong-yukdo is a traditional mathematical puzzle from the *Gusuryeok* family, placing the numbers 1 through 20 into five hexagons so that each hexagon sums to 63.
+Jisu-yong-yukdo is a traditional mathematical puzzle from the *Gusuryak* family, placing the numbers 1 through 20 into five hexagons so that each hexagon sums to 63.
 
 ## Core Structure
 

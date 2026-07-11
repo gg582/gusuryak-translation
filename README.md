@@ -1,6 +1,8 @@
 # Gusuryak Puzzle Collection
 
-A repository collecting modern combinatorial redefinitions, verification code, reports, and visualizations for a family of Korean/Chinese mathematical diagrams found in classical texts such as 《구수력(九數略)》.
+A repository collecting modern combinatorial redefinitions, verification code, reports, and visualizations for a family of Korean/Chinese mathematical diagrams found in classical texts such as 《구수략(九數略)》.
+
+**TODO: VISUALIZERS ARE BROKEN. NEED HEURISTIC VISUALIZER**
 
 The collection is organized into two language editions:
 

@@ -4,7 +4,7 @@
 Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) — modern combinatorial and positional analysis
 
 A modern mathematical reinterpretation of Ojagakdeuk (五子各得), also known as
-Cheonsu-yong-odo (天水用五圖), from the *Gusuryeok* (九數略) family of diagrams.
+Cheonsu-yong-odo (天水用五圖), from the *Gusuryak* (九數略) family of diagrams.
 Analysis target: a diagram placing 21 of the numbers 1–24 in the Cheonsu-yong-odo form.
 
 This script analyzes only positional, wuxing (five-phase), and combinatorial
