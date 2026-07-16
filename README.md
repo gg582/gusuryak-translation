@@ -2,8 +2,6 @@
 
 A repository collecting modern combinatorial redefinitions, verification code, reports, and visualizations for a family of Korean/Chinese mathematical diagrams found in classical texts such as 《구수략(九數略)》.
 
-**TODO: VISUALIZERS ARE BROKEN. NEED HEURISTIC VISUALIZER**
-
 The collection is organized into two language editions:
 
 - **`english/`** — English-language reports, code, and figures.
@@ -16,6 +14,7 @@ Within each edition the puzzles are grouped by lineage:
 3. **Gakdeuk series** — the "Each Gets" puzzles with fixed per-cluster sums.
 4. **Magic squares** — classical magic-square constructions and corrections.
 5. **Unification** — parameterized frameworks that contain the above as special cases.
+6. **Extra five / extra two** — additional diagrams that follow the same Gakdeuk principle.
 
 All cultural or rhetorical interpretations are treated as secondary; the primary focus is observable data and mathematical structure.
 
@@ -35,18 +34,27 @@ A few puzzles here are especially fun to revisit from a modern combinatorics per
 
 ```text
 .
+├── LICENSE                                     # Public-domain waiver
+├── METHOD.md                                   # Research method (English)
+├── METHOD.ko.md                                # Research method (Korean)
+├── README.md                                   # This file
+├── README.ko.md                                # Korean version of this file
+├── requirements.txt                            # Python dependencies
+├── rotation_analysis.py                        # Shared rotation-analysis utilities
 ├── english/                                    # English edition
 │   ├── README.md
 │   ├── LICENSE.md
 │   ├── blog_post.en.md                         # Synthesis blog post
 │   ├── english_figure_generators.py            # Shared figure utilities
 │   ├── 00-first-post/                          # Introduction and assets
-│   │   └── index.md
+│   │   ├── index.md
+│   │   └── assets/
 │   ├── 01-saodo-family/                        # Hado / Luoshu lineage
 │   │   ├── hado-saodo-5-coloring/              # Hado / Saodo 5-coloring puzzle
 │   │   ├── nakseo-sagudo/                      # Nakseo Sagudo (洛書四九圖)
 │   │   ├── nakseo-ogudo/                       # Nakseo Ogudo (洛書五九圖)
 │   │   ├── nakseo-chilgudo/                    # Nakseo Chilgudo (洛書七九圖)
+│   │   ├── nakseo-palgudo/                     # Nakseo Palgudo (洛書八九圖)
 │   │   └── saodo-gakdeuk-dual-reading/         # Side-by-side Gakdeuk / Saodo conversion
 │   ├── 02-gakdeuk-series/                      # "Each Gets" puzzles
 │   │   ├── chiljagakdeuk-seven-each-gets/      # Chiljagakdeuk (七子各得)
@@ -56,22 +64,46 @@ A few puzzles here are especially fun to revisit from a modern combinatorics per
 │   │   ├── yukjagakdeuk-six-each-gets/         # Yukjagakdeuk (六子各得 / Jisu-yongyukdo & Jisu-guimundo)
 │   │   │   ├── jisu-yong-yukdo/
 │   │   │   └── jisu-guimun-and-yongyukdo/
+│   │   ├── jisu-guimundo-source-interpretation/# Jisu-guimundo original-text interpretation
 │   │   └── jisuguimundo-9hex-interpretation/   # 30-vertex 9-hex Jisuguimundo (지수귀문도)
 │   ├── 03-magic-squares/                       # Magic-square analysis
+│   │   ├── 00-basics/                          # Magic-square basics by order
+│   │   │   ├── 01-3x3-magic-square/
+│   │   │   ├── 02-4x4-magic-square/
+│   │   │   ├── 03-5x5-magic-square/
+│   │   │   ├── 04-6x6-magic-square/ → ../01-yukyukdo-six-six-board/
+│   │   │   ├── 05-7x7-magic-square/
+│   │   │   ├── 06-8x8-magic-square/
+│   │   │   └── 07-9x9-magic-square/ → ../02-gusudo-nine-palace/
 │   │   ├── 01-yukyukdo-six-six-board/
 │   │   ├── 02-gusudo-nine-palace/
 │   │   ├── 03-baekjajasuyin-yang-chakjong/
 │   │   ├── 04-baekjasaengseong-sunsu/
 │   │   ├── 05-baekjasaengseong-gyosu/
 │   │   ├── 06-baekjayin-yang-jamo-chakjong/
+│   │   ├── 07-gugusubyeongungyangdo/
 │   │   ├── ANALYSIS_SUMMARY.md
 │   │   ├── analyze_squares.py
 │   │   ├── generate_and_visualize.py
 │   │   └── square.md
-│   └── 04-unification/                         # Unified frameworks
-│       ├── saodo-chiljagakdeuk-generalization/ # Π(p, q, T) framework
-│       └── gakdeuk-principle-shared-properties/# Shared properties of Gakdeuk puzzles
+│   ├── 04-unification/                         # Unified frameworks
+│   │   ├── base_solver.py                      # Shared MILP base solver
+│   │   ├── unified_solver.py                   # Unified solver entry point
+│   │   ├── misc-interesting-points.md          # Open questions and observations
+│   │   ├── saodo-sajagakdeuk-ojagakdeuk-interchange.md # Saodo ↔ Saja/Oja conversion
+│   │   ├── saodo-chiljagakdeuk-generalization/ # Π(p, q, T) framework
+│   │   └── gakdeuk-principle-shared-properties/# Shared properties of Gakdeuk puzzles
+│   ├── 05-extra-five/                          # Five additional Gakdeuk-style diagrams
+│   │   ├── gichaek-yong-paldo/
+│   │   ├── beomsu-yong-odo/
+│   │   ├── jangchaek-yong-chil-do/
+│   │   ├── jungsang-yong-gudo/
+│   │   └── jungui-yong-yukdo/
+│   └── extra-two/                              # Two additional diagrams
+│       ├── junggwae-yong-paldo/
+│       └── huchaek-yong-gudo/
 └── korean/                                     # Korean edition
+    ├── README.md
     ├── LICENSE.ko.md
     ├── blog_post.ko.md                         # Synthesis blog post
     ├── 01-saodo-family/                        # 하도/낙서 계열
@@ -79,28 +111,43 @@ A few puzzles here are especially fun to revisit from a modern combinatorics per
     │   ├── 낙서사구도/
     │   ├── 낙서오구도/
     │   ├── 낙서칠구도/
-    │   └── 사오도와-각득의-상호해석/             # 각득 ↔ 사오도 상호 변환 정리
+    │   ├── 낙서팔구도/
+    │   └── 사오도와-각득의-상호해석/
     ├── 02-gakdeuk-series/                      # 각득 계열
     │   ├── 구자각득/
     │   ├── 팔자각득/
     │   ├── 칠자각득-일곱이-따로따로/
     │   ├── 오자각득(천수용오도)/
     │   ├── 육자각득(지수용육도와 지수귀문도)/
-    │   └── 지수귀문도-9hex-원문해석/             # 30정점 9육각형 지수귀문도
+    │   ├── 지수귀문도-9hex-원문해석/
+    │   └── 지수귀문도-원문-해석/
     ├── 03-magic-squares/                       # 마방진 계열
+    │   ├── 00-basics/
     │   ├── 01-yukyukdo/
     │   ├── 02-gusudo/
     │   ├── 03-baekjajasuyin-yang-chakjong/
     │   ├── 04-baekjasaengseong-sunsu/
     │   ├── 05-baekjasaengseong-gyosu/
     │   ├── 06-baekjayin-yang-jamo-chakjong/
+    │   ├── 07-gugusubyeongungyangdo/
     │   ├── ANALYSIS_SUMMARY.md
     │   ├── analyze_squares.py
     │   ├── generate_and_visualize.py
     │   └── square.md
-    └── 04-unification/                         # 통합 일반화
-        ├── 사오도와-칠자각득의-일반화/
-        └── 각득 원리를 따르는 퍼즐들의 공유 특성 및 일반화/
+    ├── 04-unification/                         # 통합 일반화
+    │   ├── misc-interesting-points.md
+    │   ├── 사오도-사자각득-오자각득-상호변환.md
+    │   ├── 사오도와-칠자각득의-일반화/
+    │   └── 각득 원리를 따르는 퍼즐들의 공유 특성 및 일반화/
+    ├── 05-extra-five/                          # 추가 5종
+    │   ├── 기책용팔도/
+    │   ├── 범수용오도/
+    │   ├── 장책용칠도/
+    │   ├── 중상용구도/
+    │   └── 중의용육도/
+    └── extra-two/                              # 추가 2종
+        ├── 중괘용팔도/
+        └── 후책용구도/
 ```
 
 ---
@@ -117,6 +164,7 @@ Diagrams built on a symmetric arrangement of numbered circles partitioned by mod
 | Nakseo Sagudo (洛書四九圖) | `english/01-saodo-family/nakseo-sagudo/` | `korean/01-saodo-family/낙서사구도/` |
 | Nakseo Ogudo (洛書五九圖) | `english/01-saodo-family/nakseo-ogudo/` | `korean/01-saodo-family/낙서오구도/` |
 | Nakseo Chilgudo (洛書七九圖) | `english/01-saodo-family/nakseo-chilgudo/` | `korean/01-saodo-family/낙서칠구도/` |
+| Nakseo Palgudo (洛書八九圖) | `english/01-saodo-family/nakseo-palgudo/` | `korean/01-saodo-family/낙서팔구도/` |
 | Gakdeuk ↔ Saodo dual reading | `english/01-saodo-family/saodo-gakdeuk-dual-reading/` | `korean/01-saodo-family/사오도와-각득의-상호해석/` |
 
 Key facts:
@@ -125,6 +173,7 @@ Key facts:
 - Nakseo Sagudo is a 20-node bipartite graph with an outer Hamiltonian 20-cycle and an inner 4-cycle of sum 42.
 - Nakseo Ogudo places the numbers `1` through `33`, each used once, in nine plus-shaped palaces; every palace sums to `85`, and the repeated-count palace total is `765`.
 - Nakseo Chilgudo places the numbers `1` through `63` in nine palaces arranged on a 3×3 Luoshu grid; each palace has seven numbers and is intended to sum to `224` (7 × 32). The current data files contain transcription errors (duplicates `23, 38, 43` and omissions `45, 51, 58`); a corrected partition restoring all nine sums to `224` is given in the directory.
+- Nakseo Palgudo places the numbers `1` through `80` in five 8×4 block structures, each palace/cluster summing to `164`.
 
 #### Nakseo Chilgudo in the two readings
 
@@ -157,6 +206,7 @@ Diagrams in which a set of numbers is split into clusters, each cluster having t
 | Paljagakdeuk (八子各得, 8 each) | `english/02-gakdeuk-series/paljagakdeuk-eight-each-gets/` | `korean/02-gakdeuk-series/팔자각득/` |
 | Ojagakdeuk (五子各得, 5 each / Cheonsu-yongodo) | `english/02-gakdeuk-series/ojagakdeuk-five-each-gets/` | `korean/02-gakdeuk-series/오자각득(천수용오도)/` |
 | Yukjagakdeuk (六子各得, 6 each / Jisu-yongyukdo & Jisu-guimundo) | `english/02-gakdeuk-series/yukjagakdeuk-six-each-gets/` | `korean/02-gakdeuk-series/육자각득(지수용육도와 지수귀문도)/` |
+| Jisu-guimundo source interpretation | `english/02-gakdeuk-series/jisu-guimundo-source-interpretation/` | `korean/02-gakdeuk-series/지수귀문도-원문-해석/` |
 | Jisuguimundo 9-hex (地數龜文圖) | `english/02-gakdeuk-series/jisuguimundo-9hex-interpretation/` | `korean/02-gakdeuk-series/지수귀문도-9hex-원문해석/` |
 
 Key facts:
@@ -165,6 +215,7 @@ Key facts:
 - **Paljagakdeuk**: 5 clusters of 8 numbers, each summing to 164; each cluster forms an 8-cycle.
 - **Ojagakdeuk**: 21 numbers from `1..24` (omitting 3, 10, 22) placed in the Cheonsu-yongodo form, total sum 265, with left/right region sums both equal to 86.
 - **Yukjagakdeuk**: the numbers `1..20` placed in five hexagons, each summing to 63; the figure has 8 shared vertices and forms a planar graph with `V = 20`, `E = 24`, `F = 6`. Jisu-guimundo generalizes the same rule to other hexagonal tilings.
+- **Jisu-guimundo source interpretation**: original-text analysis of the Jisu-guimundo (地數龜文圖) diagram.
 - **Jisuguimundo 9-hex**: a representative 30-vertex, 9-hexagon tiling with magic constant `S = 93`; 30 distinct numbers are written (作) and 54 positions are used (用), giving 24 overlaps. The folder contains the exact graph, a verified solution, modular analysis (mod 2/3/4/5/6/9/12), CRT reconstructions, and per-hexagon rotation analysis.
 
 ---
@@ -175,18 +226,21 @@ Classical magic-square diagrams recorded in the source texts, together with mode
 
 | Puzzle | English path | Korean path |
 |--------|--------------|-------------|
+| Magic-square basics | `english/03-magic-squares/00-basics/` | `korean/03-magic-squares/00-basics/` |
 | Yukyukdo (Six-Six Board, 六六圖) | `english/03-magic-squares/01-yukyukdo-six-six-board/` | `korean/03-magic-squares/01-yukyukdo/` |
 | Gusudo (Nine Palace, 九數圖) | `english/03-magic-squares/02-gusudo-nine-palace/` | `korean/03-magic-squares/02-gusudo/` |
 | Baekjajasuyin-yang-chakjong (百子子數陰陽錯綜圖) | `english/03-magic-squares/03-baekjajasuyin-yang-chakjong/` | `korean/03-magic-squares/03-baekjajasuyin-yang-chakjong/` |
 | Baekjasaengseong-sunsu (百子生成純數圖) | `english/03-magic-squares/04-baekjasaengseong-sunsu/` | `korean/03-magic-squares/04-baekjasaengseong-sunsu/` |
 | Baekjasaengseong-gyosu (百子生成交數圖) | `english/03-magic-squares/05-baekjasaengseong-gyosu/` | `korean/03-magic-squares/05-baekjasaengseong-gyosu/` |
 | Baekjayin-yang-jamo-chakjong (百子陰陽子母錯綜圖) | `english/03-magic-squares/06-baekjayin-yang-jamo-chakjong/` | `korean/03-magic-squares/06-baekjayin-yang-jamo-chakjong/` |
+| Gugusubyeongungyangdo (九宮变迁运粮图) | `english/03-magic-squares/07-gugusubyeongungyangdo/` | `korean/03-magic-squares/07-gugusubyeongungyangdo/` |
 
 Key facts:
 - Magic constants: `M_6 = 111`, `M_9 = 369`, `M_10 = 505`.
 - **Yukyukdo** (`6×6`) and **Gusudo** (`9×9`) are normal magic squares; a `6×6` associated square is impossible.
 - **Gusudo** Example 1 is fully associated (`a_{i,j} + a_{8-i,8-j} = 82`); Example 2 can be corrected to associated.
 - The four `10×10` squares are not normal magic squares; valid corrections using `1..100` with all rows, columns, and diagonals summing to `505` are provided in `corrected.md` files.
+- **Gugusubyeongungyangdo** is an additional transformation diagram based on the nine-palace framework.
 - None of the six squares is pan-diagonal.
 
 ---
@@ -199,6 +253,8 @@ Parameterized frameworks that contain the earlier puzzles as special cases.
 |--------|--------------|-------------|
 | Saodo–Chiljagakdeuk generalization | `english/04-unification/saodo-chiljagakdeuk-generalization/` | `korean/04-unification/사오도와-칠자각득의-일반화/` |
 | Gakdeuk-principle shared properties | `english/04-unification/gakdeuk-principle-shared-properties/` | `korean/04-unification/각득 원리를 따르는 퍼즐들의 공유 특성 및 일반화/` |
+| Saodo ↔ Saja/Oja interchange | `english/04-unification/saodo-sajagakdeuk-ojagakdeuk-interchange.md` | `korean/04-unification/사오도-사자각득-오자각득-상호변환.md` |
+| Miscellaneous interesting points | `english/04-unification/misc-interesting-points.md` | `korean/04-unification/misc-interesting-points.md` |
 
 Key facts:
 - The `Π(p, q, T)` framework captures both Saodo color classes and Chiljagakdeuk.
@@ -209,6 +265,25 @@ Key facts:
 | Saodo color classes | 5 | 3 | 34, 38, 42, 46, 50 (variable) |
 
 - The shared-properties directory unifies the whole Gakdeuk family (Gujagakdeuk, Ojagakdeuk, Yukjagakdeuk, Chiljagakdeuk, Paljagakdeuk) through common invariants such as `S = n × μ` and the duplication equation `5S = T + D`, and provides a MILP solver for searching new placements.
+- `base_solver.py` and `unified_solver.py` provide shared MILP infrastructure across the unification experiments.
+
+---
+
+### 05. Extra five and extra two
+
+Additional diagrams that obey the same Gakdeuk-style equal-sum constraints.
+
+| Puzzle | English path | Korean path |
+|--------|--------------|-------------|
+| Gichaek-yong-paldo (奇策用八圖) | `english/05-extra-five/gichaek-yong-paldo/` | `korean/05-extra-five/기책용팔도/` |
+| Beomsu-yong-odo (泛水用五圖) | `english/05-extra-five/beomsu-yong-odo/` | `korean/05-extra-five/범수용오도/` |
+| Jangchaek-yong-chil-do (長策用七圖) | `english/05-extra-five/jangchaek-yong-chil-do/` | `korean/05-extra-five/장책용칠도/` |
+| Jungsang-yong-gudo (象上用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
+| Jungui-yong-yukdo (中用六圖) | `english/05-extra-five/jungui-yong-yukdo/` | `korean/05-extra-five/중의용육도/` |
+| Junggwae-yong-paldo (中卦用八圖) | `english/extra-two/junggwae-yong-paldo/` | `korean/extra-two/중괘용팔도/` |
+| Huchaek-yong-gudo (後策用九圖) | `english/extra-two/huchaek-yong-gudo/` | `korean/extra-two/후책용구도/` |
+
+These directories collect source data, analyses, and visualizations for the extra diagrams.
 
 ---
 
@@ -292,13 +367,13 @@ The historical diagrams themselves are small, concrete objects: verifying any st
 | **Hado / Saodo 5-coloring** | Check involutions σ, τ and the block-design intersection matrix | **P** | Finite, constant-size checks. |
 | **Hado / Saodo 5-coloring** | Decide confluence of the interpretive term-rewriting rules | **P** (for this finite system) | General TRS confluence is undecidable, but the two-rule system here is finite and can be exhausted. |
 | **Nakseo Sagudo (Sajagakdeuk)** | Verify every palace sums to 42 | **P** | 9 palaces × 4 numbers. |
-| **Nakseo Sagudo (Sajagakdeuk)** | Decide existence of a placement of 1..20 into 9 overlapping 4-sets all summing to 42 | **NP-complete** | Exact-cover / integer-programming with overlap constraints; the MILP solver in `04-unification` handles small instances. |
-| **Nakseo Sagudo (Sajagakdeuk)** | Decide Hamiltonicity of the inferred boundary 20-cycle graph | **NP-complete** (general) | Hamiltonian cycle is NP-complete in general; for this specific 20-node graph the answer is known by inspection. |
+| **Nakseo Sagudo** | Decide existence of a placement of 1..20 into 9 overlapping 4-sets all summing to 42 | **NP-complete** | Exact-cover / integer-programming with overlap constraints; the MILP solver in `04-unification` handles small instances. |
+| **Nakseo Sagudo** | Decide Hamiltonicity of the inferred boundary 20-cycle graph | **NP-complete** (general) | Hamiltonian cycle is NP-complete in general; for this specific 20-node graph the answer is known by inspection. |
 | **Nakseo Ogudo (Ojagakdeuk)** | Verify every palace sums to 85 and the 9-palace total is 765 | **P** | Direct summation. |
-| **Nakseo Ogudo (Ojagakdeuk)** | Decide existence of a placement of 1..33 into nine plus-shaped palaces all summing to 85 | **NP-complete** | Same structure as Sagudo with a different overlap graph. |
-| **Nakseo Chilgudo (Chiljagakdeuk)** | Verify every palace sums to 224 | **P** | Direct summation; 9 palaces × 7 numbers. |
-| **Nakseo Chilgudo (Chiljagakdeuk)** | Decide whether 1..63 can be partitioned into nine 7-element blocks, each summing to 224, with fixed Luoshu centers | **NP-complete** | Equal-sum set partition with fixed elements; the current data is a corrupted witness. |
-| **Nakseo Chilgudo (Chiljagakdeuk)** | Find the corrected partition given in `korean/01-saodo-family/낙서칠구도/chiljagakdeuk.md` | **NP-hard** | Solved by MILP while preserving 50 of 54 surrounding numbers. |
+| **Nakseo Ogudo** | Decide existence of a placement of 1..33 into nine plus-shaped palaces all summing to 85 | **NP-complete** | Same structure as Sagudo with a different overlap graph. |
+| **Nakseo Chilgudo (Chiljagakdeuk)** | Verify every palace sums to 224 | **P** | 9 palaces × 7 numbers. |
+| **Nakseo Chilgudo** | Decide whether 1..63 can be partitioned into nine 7-element blocks, each summing to 224, with fixed Luoshu centers | **NP-complete** | Equal-sum set partition with fixed elements; the current data is a corrupted witness. |
+| **Nakseo Chilgudo** | Find the corrected partition given in `korean/01-saodo-family/낙서칠구도/chiljagakdeuk.md` | **NP-hard** | Solved by MILP while preserving 50 of 54 surrounding numbers. |
 | **Chiljagakdeuk** | Verify the 5 clusters of 7 numbers each sum to 120 | **P** | O(35) additions. |
 | **Chiljagakdeuk** | Decide existence of a `Π(5, 6, 120)` placement | **NP-complete** | Multiway number partitioning with repetition and mod-5 center constraints. |
 | **Chiljagakdeuk** | Find a valid placement | **NP-hard** | Solved by the MILP solver for the known instance; general search is NP-hard. |
@@ -313,7 +388,6 @@ The historical diagrams themselves are small, concrete objects: verifying any st
 | **Magic squares** | Verify a filled square is normal magic | **P** | O(n²) row/column/diagonal checks. |
 | **Magic squares** | Construct a normal magic square of order n | **P** | Deterministic methods (Siamese, Strachey, etc.) run in O(n²) for every n ≠ 2. |
 | **Magic squares** | Complete a partially filled magic square | **NP-complete** | Generalizes Latin-square completion, which is NP-complete. |
-| **Magic squares** | Correct one of the 10×10 source squares to a valid magic square while preserving a given set of entries | **NP-hard** | Search version of the completion problem. |
 | **Π(p, q, T) / Gakdeuk MILP** | Decide whether a puzzle exists for arbitrary `(p, q, T)` | **NP-complete** | Captures exact cover and bounded multiway partitioning. |
 | **Π(p, q, T) / Gakdeuk MILP** | Find an optimal or feasible placement | **NP-hard** | Mixed-integer linear programming is NP-hard in general. |
 | **Π(p, q, T) / Gakdeuk MILP** | Verify a candidate placement against the constraints | **P** | Linear-time constraint evaluation. |
