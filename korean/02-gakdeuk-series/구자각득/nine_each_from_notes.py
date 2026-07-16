@@ -19,27 +19,27 @@ from matplotlib.patches import Circle, FancyBboxPatch
 
 # 손그림에 적힌 45개 숫자를 그대로 전사한 5궁 배치다.
 PALACES = {
-    "상궁": [
+    "upper_palace": [
         [12, 44, 9],
         [19, 21, 29],
         [37, 2, 34],
     ],
-    "좌궁": [
+    "left_palace": [
         [13, 43, 8],
         [18, 25, 26],
         [38, 3, 33],
     ],
-    "중궁": [
+    "center_palace": [
         [15, 41, 6],
         [16, 23, 30],
         [40, 5, 31],
     ],
-    "우궁": [
+    "right_palace": [
         [14, 42, 7],
         [17, 24, 28],
         [39, 4, 32],
     ],
-    "하궁": [
+    "lower_palace": [
         [11, 45, 10],
         [20, 22, 27],
         [36, 1, 35],
@@ -48,11 +48,19 @@ PALACES = {
 
 # 손그림의 십자형 배치를 정규화한 좌표다.
 PALACE_ORIGINS = {
-    "상궁": (3, 6),
-    "좌궁": (0, 3),
-    "중궁": (3, 3),
-    "우궁": (6, 3),
-    "하궁": (3, 0),
+    "upper_palace": (3, 6),
+    "left_palace": (0, 3),
+    "center_palace": (3, 3),
+    "right_palace": (6, 3),
+    "lower_palace": (3, 0),
+}
+
+DISPLAY_LABELS = {
+    "upper_palace": "상궁",
+    "left_palace": "좌궁",
+    "center_palace": "중궁",
+    "right_palace": "우궁",
+    "lower_palace": "하궁",
 }
 
 # 노트의 residue class 색 분류를 유지한다.
@@ -114,7 +122,7 @@ def find_korean_font() -> FontProperties:
             return FontProperties(fname=candidate)
 
     raise RuntimeError(
-        "Korean font not found. Install Noto Sans CJK KR or NanumGothic."
+        "한글 글꼴을 찾지 못했습니다. Noto Sans CJK KR 또는 나눔고딕을 설치하십시오."
     )
 
 
@@ -142,11 +150,11 @@ def validate() -> None:
         palace_sum = sum(values)
 
         if len(values) != 9:
-            raise ValueError(f"{palace_name}에는 정확히 9개 수가 있어야 한다.")
+            raise ValueError(f"{DISPLAY_LABELS[palace_name]}에는 정확히 9개 수가 있어야 한다.")
 
         if palace_sum != 207:
             raise ValueError(
-                f"{palace_name}의 합은 {palace_sum}이며, 207이 아니다."
+                f"{DISPLAY_LABELS[palace_name]}의 합은 {palace_sum}이며, 207이 아니다."
             )
 
     for residue, expected_sum in RESIDUE_SUMS.items():
@@ -198,7 +206,7 @@ def draw_palace_box(
     ax.text(
         origin_x + 1.0,
         origin_y + 2.64,
-        f"{palace_name} · 9개 · 합 207",
+        f"{DISPLAY_LABELS[palace_name]} · 9개 · 합 207",
         ha="center",
         va="bottom",
         fontproperties=font,
@@ -250,7 +258,7 @@ def draw_legend(
     ax.text(
         0.0,
         y,
-        "mod 5 residue groups",
+        "mod 5 잉여 그룹",
         ha="left",
         va="top",
         fontproperties=font,
@@ -308,7 +316,7 @@ def draw_legend(
     ax.text(
         0.0,
         y,
-        "residue class 합",
+        "잉여 클래스 합",
         ha="left",
         va="top",
         fontproperties=font,

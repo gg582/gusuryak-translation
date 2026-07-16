@@ -242,7 +242,7 @@ def generate_palace_family(folder, palaces, total_n, target_sum, title):
     grouped_bars(folder, "08_position_patterns.png", palace_names, series, f"{title}: positional sum patterns")
 
 
-def generate_paljagakdeuk(folder="."):
+def generate_eight_each_gets(folder="."):
     palaces = {
         "Top": [[39, 7, 34], [12, None, 19], [24, 2, 27]],
         "Left": [[33, 18, 28], [8, None, 3], [38, 13, 23]],
@@ -253,7 +253,7 @@ def generate_paljagakdeuk(folder="."):
     generate_palace_family(folder, palaces, 40, 164, "Paljagakdeuk")
 
 
-def generate_gujagakdeuk(folder="."):
+def generate_nine_each_gets(folder="."):
     palaces = {
         "Top": [[12, 44, 9], [19, 21, 29], [37, 2, 34]],
         "Left": [[13, 43, 8], [18, 25, 26], [38, 3, 33]],
@@ -275,7 +275,7 @@ def text_panel(folder, name, title, items):
     save(fig, folder, name)
 
 
-def generate_nakseo_sagudo(folder="."):
+def generate_four_each_gets_luoshu(folder="."):
     pos = {
         19: (-2, 3), 2: (-3, 2), 14: (-2, 1), 5: (-1, 0), 16: (0, 1), 7: (-1, 2),
         17: (2, 3), 4: (1, 2), 9: (3, 2), 12: (2, 1), 10: (1, 0),

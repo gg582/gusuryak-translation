@@ -91,7 +91,7 @@ RESIDUE_STYLE = {
     0: {"face": "#F7E3A0", "edge": "#B58A00", "name": "Earth"},
 }
 
-WUXING_COLOR = {
+PHASE_COLOR = {
     "Water": "#4488CC",
     "Fire": "#CC4444",
     "Wood": "#44AA44",
@@ -100,7 +100,7 @@ WUXING_COLOR = {
 }
 
 
-def wuxing_of(n: int) -> str:
+def phase_of(n: int) -> str:
     r = n % 5
     return RESIDUE_STYLE[r]["name"]
 
@@ -178,13 +178,13 @@ G_intra = nx.Graph()
 G_intra.add_edges_from(INTRA_EDGES)
 for n in range(1, 46):
     G_intra.add_node(n)
-    G_intra.nodes[n]["wuxing"] = wuxing_of(n)
+    G_intra.nodes[n]["phase"] = phase_of(n)
 
 G_full = nx.Graph()
 G_full.add_edges_from(FULL_EDGES)
 for n in range(1, 46):
     G_full.add_node(n)
-    G_full.nodes[n]["wuxing"] = wuxing_of(n)
+    G_full.nodes[n]["phase"] = phase_of(n)
 
 
 def value_to_palace(value: int) -> str:
@@ -228,24 +228,24 @@ print(f"Degree sequence (full grid): {deg_seq_full}")
 print("\nSum by wuxing (five phases):")
 for r in [1, 2, 3, 4, 5]:
     nodes = [n for n in range(1, 46) if residue_1based(n) == r]
-    wx = RESIDUE_STYLE[r % 5]["name"]
-    print(f"  {wx}({r}): sum={sum(nodes)}, numbers={nodes}")
+    ph = RESIDUE_STYLE[r % 5]["name"]
+    print(f"  {ph}({r}): sum={sum(nodes)}, numbers={nodes}")
 
 print("\nWuxing distribution by palace:")
 for palace_name in PALACES:
     vals = palace_values(palace_name)
-    counts = Counter(wuxing_of(v) for v in vals)
+    counts = Counter(phase_of(v) for v in vals)
     print(f"  {palace_name}: {dict(counts)}")
 
 print("\nCenter value by palace:")
 for palace_name in PALACES:
     center = [v for v, r, c in palace_cells(palace_name) if cell_role(r, c) == "center"][0]
-    print(f"  {palace_name}: center={center}({wuxing_of(center)})")
+    print(f"  {palace_name}: center={center}({phase_of(center)})")
 
 betw_full = nx.betweenness_centrality(G_full)
 print("\nBetweenness Centrality (Top 10):")
 for n, v in sorted(betw_full.items(), key=lambda x: -x[1])[:10]:
-    print(f"  {n}({wuxing_of(n)}): {v:.3f}")
+    print(f"  {n}({phase_of(n)}): {v:.3f}")
 
 try:
     girth = min(len(c) for c in nx.cycle_basis(G_full))
@@ -254,9 +254,9 @@ except Exception:
     girth = None
 
 # Wuxing edge classification output
-wx_edge_counts = {}
+ph_edge_counts = {}
 for u, v in G_full.edges():
-    wu, wv = wuxing_of(u), wuxing_of(v)
+    wu, wv = phase_of(u), phase_of(v)
     if wu == wv:
         key = "same-phase"
     elif (wu, wv) in [
@@ -289,10 +289,10 @@ for u, v in G_full.edges():
         key = "overcoming"
     else:
         key = "neutral"
-    wx_edge_counts[key] = wx_edge_counts.get(key, 0) + 1
+    ph_edge_counts[key] = ph_edge_counts.get(key, 0) + 1
 
 print("\nWuxing edge distribution:")
-for key, cnt in wx_edge_counts.items():
+for key, cnt in ph_edge_counts.items():
     print(f"  {key}: {cnt}")
 
 # ============================================================
@@ -332,8 +332,8 @@ for palace_name in PALACES:
 FAMILY = [(m0, 189 + (m0 - 1) * 9) for m0 in range(1, 6)]
 print("\nM0 generalized family:")
 for m0, total in FAMILY:
-    wx = RESIDUE_STYLE[m0 % 5]["name"]
-    print(f"  M0={m0}({wx}): palace sum={total}")
+    ph = RESIDUE_STYLE[m0 % 5]["name"]
+    print(f"  M0={m0}({ph}): palace sum={total}")
 
 # ============================================================
 # 6. Visualization
@@ -431,8 +431,8 @@ ax.set_ylim(-0.8, 8.8)
 ax.set_aspect("equal")
 ax.axis("off")
 legend_elements = [
-    mpatches.Patch(facecolor=WUXING_COLOR[wx], edgecolor="black", label=f"{wx}")
-    for wx in ["Water", "Fire", "Wood", "Metal", "Earth"]
+    mpatches.Patch(facecolor=PHASE_COLOR[ph], edgecolor="black", label=f"{ph}")
+    for ph in ["Water", "Fire", "Wood", "Metal", "Earth"]
 ]
 ax.legend(handles=legend_elements, loc="lower right", fontsize=10, framealpha=0.9)
 save_fig("01_original_graph.png")
@@ -454,11 +454,11 @@ ax.set_ylim(-0.8, 8.8)
 ax.set_aspect("equal")
 ax.axis("off")
 
-for idx, wx in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
+for idx, ph in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
     ax = axes[idx + 1]
     draw_palace_boundaries(ax)
-    wx_nodes = [n for n in range(1, 46) if wuxing_of(n) == wx]
-    other_nodes = [n for n in range(1, 46) if n not in wx_nodes]
+    ph_nodes = [n for n in range(1, 46) if phase_of(n) == ph]
+    other_nodes = [n for n in range(1, 46) if n not in ph_nodes]
 
     for u, v in FULL_EDGES:
         x1, y1 = POSITIONS[u]
@@ -479,13 +479,13 @@ for idx, wx in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
         )
         ax.text(x, y, str(n), ha="center", va="center", fontsize=8, color="#AAAAAA", zorder=2)
 
-    for n in wx_nodes:
+    for n in ph_nodes:
         x, y = POSITIONS[n]
         ax.add_patch(
             plt.Circle(
                 (x, y),
                 0.34,
-                facecolor=WUXING_COLOR[wx],
+                facecolor=PHASE_COLOR[ph],
                 edgecolor="black",
                 linewidth=2.5,
                 zorder=2,
@@ -499,15 +499,15 @@ for idx, wx in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
             va="center",
             fontsize=10,
             fontweight="bold",
-            color="white" if wx in ["Water", "Wood"] else "black",
+            color="white" if ph in ["Water", "Wood"] else "black",
             zorder=3,
         )
 
     ax.set_title(
-        f"{wx} · sum {sum(wx_nodes)}",
+        f"{ph} · sum {sum(ph_nodes)}",
         fontsize=12,
         fontweight="bold",
-        color=WUXING_COLOR[wx],
+        color=PHASE_COLOR[ph],
     )
     ax.set_xlim(-0.8, 8.8)
     ax.set_ylim(-0.8, 8.8)
@@ -528,8 +528,8 @@ ax.set_xticks(range(45))
 ax.set_yticks(range(45))
 ax.set_xticklabels(sorted(G_full.nodes()), fontsize=6)
 ax.set_yticklabels(sorted(G_full.nodes()), fontsize=6)
-wx_sorted = [wuxing_of(n) for n in sorted(G_full.nodes())]
-boundaries = [i - 0.5 for i in range(1, 45) if wx_sorted[i] != wx_sorted[i - 1]]
+ph_sorted = [phase_of(n) for n in sorted(G_full.nodes())]
+boundaries = [i - 0.5 for i in range(1, 45) if ph_sorted[i] != ph_sorted[i - 1]]
 for b in boundaries:
     ax.axhline(y=b, color="blue", linewidth=1.5, alpha=0.7)
     ax.axvline(x=b, color="blue", linewidth=1.5, alpha=0.7)
@@ -666,7 +666,7 @@ fig, axes = plt.subplots(2, 2, figsize=(16, 14))
 ax = axes[0, 0]
 degrees = dict(G_full.degree())
 nodes_sorted = sorted(G_full.nodes(), key=lambda n: degrees[n], reverse=True)
-colors_sorted = [WUXING_COLOR[wuxing_of(n)] for n in nodes_sorted]
+colors_sorted = [PHASE_COLOR[phase_of(n)] for n in nodes_sorted]
 ax.bar(range(45), [degrees[n] for n in nodes_sorted], color=colors_sorted, edgecolor="black")
 ax.set_xticks(range(45))
 ax.set_xticklabels([str(n) for n in nodes_sorted], fontsize=7)
@@ -675,7 +675,7 @@ ax.set_ylabel("Degree", fontsize=10)
 
 ax = axes[0, 1]
 betw_sorted = sorted(G_full.nodes(), key=lambda n: betw_full[n], reverse=True)
-colors_b = [WUXING_COLOR[wuxing_of(n)] for n in betw_sorted]
+colors_b = [PHASE_COLOR[phase_of(n)] for n in betw_sorted]
 ax.bar(range(45), [betw_full[n] for n in betw_sorted], color=colors_b, edgecolor="black")
 ax.set_xticks(range(45))
 ax.set_xticklabels([str(n) for n in betw_sorted], fontsize=7)
@@ -683,13 +683,13 @@ ax.set_title("Betweenness Centrality", fontsize=12, fontweight="bold")
 ax.set_ylabel("Centrality", fontsize=10)
 
 ax = axes[1, 0]
-wx_sums = {wx: sum([n for n in range(1, 46) if wuxing_of(n) == wx]) for wx in ["Water", "Fire", "Wood", "Metal", "Earth"]}
-wx_names = list(wx_sums.keys())
-wx_vals = list(wx_sums.values())
-wx_colors_bar = [WUXING_COLOR[w] for w in wx_names]
-ax.bar(wx_names, wx_vals, color=wx_colors_bar, edgecolor="black", linewidth=1.5)
+ph_sums = {ph: sum([n for n in range(1, 46) if phase_of(n) == ph]) for ph in ["Water", "Fire", "Wood", "Metal", "Earth"]}
+ph_names = list(ph_sums.keys())
+ph_vals = list(ph_sums.values())
+ph_colors_bar = [PHASE_COLOR[w] for w in ph_names]
+ax.bar(ph_names, ph_vals, color=ph_colors_bar, edgecolor="black", linewidth=1.5)
 ax.set_title("Sum by wuxing (189, 198, 207, 216, 225)", fontsize=12, fontweight="bold")
-for bar, val in zip(ax.patches, wx_vals):
+for bar, val in zip(ax.patches, ph_vals):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
         bar.get_height() + 2,
@@ -698,7 +698,7 @@ for bar, val in zip(ax.patches, wx_vals):
         fontsize=12,
         fontweight="bold",
     )
-ax.plot(range(5), wx_vals, "o--", color="black", alpha=0.5, linewidth=2)
+ax.plot(range(5), ph_vals, "o--", color="black", alpha=0.5, linewidth=2)
 
 ax = axes[1, 1]
 components = {
@@ -727,8 +727,8 @@ plt.close()
 # --- 06: Wuxing generating-overcoming ---
 fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 ax = axes[0]
-wuxing_graph = nx.DiGraph()
-wuxing_relations = [
+phase_graph = nx.DiGraph()
+phase_relations = [
     ("Water", "Wood", "generating"),
     ("Wood", "Fire", "generating"),
     ("Fire", "Earth", "generating"),
@@ -740,14 +740,14 @@ wuxing_relations = [
     ("Wood", "Earth", "overcoming"),
     ("Earth", "Water", "overcoming"),
 ]
-for u, v, r in wuxing_relations:
-    wuxing_graph.add_edge(u, v, relation=r)
-wx_pos = {"Water": (0, 2), "Wood": (2, 1), "Fire": (1, -1), "Earth": (-1, -1), "Metal": (-2, 1)}
-sheng_edges = [(u, v) for u, v, r in wuxing_relations if r == "generating"]
-ke_edges = [(u, v) for u, v, r in wuxing_relations if r == "overcoming"]
+for u, v, r in phase_relations:
+    phase_graph.add_edge(u, v, relation=r)
+ph_pos = {"Water": (0, 2), "Wood": (2, 1), "Fire": (1, -1), "Earth": (-1, -1), "Metal": (-2, 1)}
+sheng_edges = [(u, v) for u, v, r in phase_relations if r == "generating"]
+ke_edges = [(u, v) for u, v, r in phase_relations if r == "overcoming"]
 nx.draw_networkx_edges(
-    wuxing_graph,
-    wx_pos,
+    phase_graph,
+    ph_pos,
     edgelist=sheng_edges,
     edge_color="#44AA44",
     width=3,
@@ -758,8 +758,8 @@ nx.draw_networkx_edges(
     ax=ax,
 )
 nx.draw_networkx_edges(
-    wuxing_graph,
-    wx_pos,
+    phase_graph,
+    ph_pos,
     edgelist=ke_edges,
     edge_color="#CC4444",
     width=2,
@@ -770,17 +770,17 @@ nx.draw_networkx_edges(
     connectionstyle="arc3,rad=-0.15",
     ax=ax,
 )
-wx_node_colors = [WUXING_COLOR[w] for w in wuxing_graph.nodes()]
+ph_node_colors = [PHASE_COLOR[w] for w in phase_graph.nodes()]
 nx.draw_networkx_nodes(
-    wuxing_graph,
-    wx_pos,
-    node_color=wx_node_colors,
+    phase_graph,
+    ph_pos,
+    node_color=ph_node_colors,
     node_size=3000,
     edgecolors="black",
     linewidths=2.5,
     ax=ax,
 )
-nx.draw_networkx_labels(wuxing_graph, wx_pos, font_size=14, font_weight="normal", ax=ax)
+nx.draw_networkx_labels(phase_graph, ph_pos, font_size=14, font_weight="normal", ax=ax)
 legend_elements = [
     Line2D([0], [0], color="#44AA44", lw=3, label="generating"),
     Line2D([0], [0], color="#CC4444", lw=2, linestyle="--", label="overcoming"),
@@ -794,11 +794,11 @@ ax.axis("off")
 ax = axes[1]
 colors_pie = ["#44AA44", "#CC4444", "#CC9944", "#4488CC"]
 ax.pie(
-    list(wx_edge_counts.values()),
-    labels=list(wx_edge_counts.keys()),
+    list(ph_edge_counts.values()),
+    labels=list(ph_edge_counts.keys()),
     autopct="%1.0f%%",
-    colors=colors_pie[: len(wx_edge_counts)],
-    explode=[0.05] * len(wx_edge_counts),
+    colors=colors_pie[: len(ph_edge_counts)],
+    explode=[0.05] * len(ph_edge_counts),
     textprops={"fontsize": 12, "fontweight": "bold"},
 )
 ax.set_title(f"Wuxing edge distribution (N={G_full.number_of_edges()})", fontsize=13, fontweight="bold")
@@ -812,7 +812,7 @@ fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 ax = axes[0]
 m0_labels = [f"M0={m0}" for m0, _ in FAMILY]
 m0_values = [total for _, total in FAMILY]
-m0_colors = [WUXING_COLOR[RESIDUE_STYLE[m0 % 5]["name"]] for m0, _ in FAMILY]
+m0_colors = [PHASE_COLOR[RESIDUE_STYLE[m0 % 5]["name"]] for m0, _ in FAMILY]
 ax.bar(m0_labels, m0_values, color=m0_colors, edgecolor="black", linewidth=1.5)
 ax.set_title("Generalized family: arithmetic sequence of palace sums\nM(n+1) = M(n) + 9", fontsize=13, fontweight="bold")
 for bar, val in zip(ax.patches, m0_values):

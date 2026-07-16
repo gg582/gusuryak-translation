@@ -45,7 +45,30 @@ Also, the average of 1–20 is 10.5. Since each hexagon has six numbers, the “
 
 ---
 
-## 3. Reading Jisu-yong-yukdo Through Wuxing
+## 3. The Make/Use Distinction: 20 Made, 30 Used
+
+Jisu-yong-yukdo also distinguishes the numbers that are *written* (作) from the positions that are *used* (用).
+
+| Quantity | Value |
+|---|---:|---:|
+| Numbers written (作) | 20 (1 through 20, each once) |
+| Positions used (用) | 30 (5 hexagons × 6 numbers) |
+| Duplicate positions | 30 − 20 = 10 |
+| Plain sum of written numbers | 210 |
+| Repeated hexagon-total sum | 315 |
+| Extra from duplication, D | 315 − 210 = **105** |
+
+The 10 duplicate positions come from the 8 shared vertices. Two of them, **8 and 11**, each appear in three hexagons, contributing two extra copies; the other six shared vertices (**3, 10, 12, 13, 14, 15**) appear in two hexagons, contributing one extra copy each. Thus
+
+```
+2×8 + 2×11 + (3 + 10 + 12 + 13 + 14 + 15) = 105
+```
+
+which explains why the overlap-weighted total 315 exceeds the plain written sum 210 by exactly 105.
+
+---
+
+## 4. Reading Jisu-yong-yukdo Through Wuxing
 
 Jisu-yong-yukdo is not just a placement of numbers; it is also connected to the wuxing (Water, Fire, Wood, Metal, Earth). Classifying numbers by remainder modulo 5 (with 0 treated as Earth) gives the following.
 
@@ -63,7 +86,7 @@ What is more interesting is the **wuxing distribution of shared vertices**. Amon
 
 ---
 
-## 4. Jisu-yong-yukdo as a Graph
+## 5. Jisu-yong-yukdo as a Graph
 
 If we treat the sides of the hexagons as lines and the numbers as points, Jisu-yong-yukdo becomes a **graph** in modern mathematics.
 
@@ -84,7 +107,7 @@ In graph theory, **betweenness centrality** measures how often a vertex lies on 
 
 ---
 
-## 5. Cycles and Planar Graphs
+## 6. Cycles and Planar Graphs
 
 Each hexagon forms a cycle of length 6. The five hexagons are independent cycles that together form the **cycle basis** of Jisu-yong-yukdo.
 
@@ -98,7 +121,7 @@ This gives 5 hexagonal faces plus 1 outer face, for a total of 6 faces. Thus Jis
 
 ---
 
-## 6. Generation and Overcoming: The Wuxing Meaning of Edges
+## 7. Generation and Overcoming: The Wuxing Meaning of Edges
 
 Classifying the 24 edges by the wuxing relationship of their endpoints gives the following.
 
@@ -116,7 +139,7 @@ The fact that overcoming accounts for half is interesting. It shows that Jisu-yo
 
 ---
 
-## 7. Visualization Guide
+## 8. Visualization Guide
 
 The images in the same directory show Jisu-yong-yukdo from many angles.
 
@@ -135,15 +158,16 @@ Viewing these images in order, one can gradually grasp the structure of Jisu-yon
 
 ---
 
-## 8. Conclusion: A Meeting of Traditional Numerology and Modern Mathematics
+## 9. Conclusion: A Meeting of Traditional Numerology and Modern Mathematics
 
 Jisu-yong-yukdo may look like a simple puzzle of placing 1–20 into hexagons, but it hides the following multi-layered structures.
 
 1. **Sum invariant**: the rule that every hexagon sums to 63.
-2. **Shared-vertex structure**: 8 shared vertices create the duplication coefficient and connect the graph.
-3. **Wuxing arithmetic progression**: mod 5 classification produces the regular sequence 34, 38, 42, 46, 50.
-4. **Planar graph**: an Eulerian structure with 20 vertices, 24 edges, and 6 faces.
-5. **Central core**: the center hexagon is the hub connecting the four outer hexagons.
-6. **Cycle basis**: five 6-cycles generate all cycles of the graph.
+2. **Make/use distinction**: 20 numbers are written into 30 positions, giving duplication weight D = 105.
+3. **Shared-vertex structure**: 8 shared vertices create the duplication coefficient and connect the graph.
+4. **Wuxing arithmetic progression**: mod 5 classification produces the regular sequence 34, 38, 42, 46, 50.
+5. **Planar graph**: an Eulerian structure with 20 vertices, 24 edges, and 6 faces.
+6. **Central core**: the center hexagon is the hub connecting the four outer hexagons.
+7. **Cycle basis**: five 6-cycles generate all cycles of the graph.
 
 Through these layers, Jisu-yong-yukdo can be re-read as a **mathematical object exploring the harmony and spatial connectedness of numbers**, going beyond a traditional mental-calculation or diagrammatic pastime.

@@ -1,0 +1,54 @@
+============================================================
+Per-cluster rotation analysis: 하도/사오도 5-컬러링
+============================================================
+
+Cluster: 수
+  Cyclic order (4 elements): 16 -> 1 -> 6 -> 11
+  Sum: 34
+  Residue pattern (mod 5): W-W-W-W
+  Opposite-pair sums: [22, 12]
+  No nontrivial rotational invariance.
+  Note: 십자 중심 주변 각도 순서로 4개 노드 배열
+
+Cluster: 화
+  Cyclic order (4 elements): 2 -> 17 -> 12 -> 7
+  Sum: 38
+  Residue pattern (mod 5): F-F-F-F
+  Opposite-pair sums: [14, 24]
+  No nontrivial rotational invariance.
+  Note: 십자 중심 주변 각도 순서로 4개 노드 배열
+
+Cluster: 목
+  Cyclic order (4 elements): 8 -> 18 -> 3 -> 13
+  Sum: 42
+  Residue pattern (mod 5): Wd-Wd-Wd-Wd
+  Opposite-pair sums: [11, 31]
+  No nontrivial rotational invariance.
+  Note: 십자 중심 주변 각도 순서로 4개 노드 배열
+
+Cluster: 금
+  Cyclic order (4 elements): 14 -> 4 -> 9 -> 19
+  Sum: 46
+  Residue pattern (mod 5): M-M-M-M
+  Opposite-pair sums: [23, 23]
+    -> All opposite pairs sum to 23
+  No nontrivial rotational invariance.
+  Note: 십자 중심 주변 각도 순서로 4개 노드 배열
+
+Cluster: 토
+  Cyclic order (4 elements): 5 -> 10 -> 20 -> 15
+  Sum: 50
+  Residue pattern (mod 5): E-E-E-E
+  Opposite-pair sums: [25, 25]
+    -> All opposite pairs sum to 25
+  No nontrivial rotational invariance.
+  Note: 십자 중심 주변 각도 순서로 4개 노드 배열
+
+Global rotational symmetry for 하도/사오도 5-컬러링
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.
+
+숫자 방향 메모:
+  모든 숫자는 약 θ = -30°(수평선에서 시계방향)로 기울어져 있다.
+  이 균일한 기울기는 전체 도상 회전 하에 보존되지만,
+  수 배치 자체는 비자명한 회전 대칭을 갖지 않는다.

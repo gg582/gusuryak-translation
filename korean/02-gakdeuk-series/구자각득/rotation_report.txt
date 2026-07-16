@@ -1,0 +1,48 @@
+============================================================
+Per-cluster rotation analysis: 구자각득 (九子各得)
+============================================================
+
+Cluster: 상궁
+  Cyclic order (8 elements): 44 -> 9 -> 29 -> 34 -> 2 -> 37 -> 19 -> 12
+  Sum: 186
+  Residue pattern (mod 5): M-M-M-M-F-F-M-F
+  Opposite-pair sums: [46, 46, 48, 46]
+  No nontrivial rotational invariance.
+  Note: 중심 칸 = 21
+
+Cluster: 좌궁
+  Cyclic order (8 elements): 43 -> 8 -> 26 -> 33 -> 3 -> 38 -> 18 -> 13
+  Sum: 182
+  Residue pattern (mod 5): Wd-Wd-W-Wd-Wd-Wd-Wd-Wd
+  Opposite-pair sums: [46, 46, 44, 46]
+  No nontrivial rotational invariance.
+  Note: 중심 칸 = 25
+
+Cluster: 중궁
+  Cyclic order (8 elements): 41 -> 6 -> 30 -> 31 -> 5 -> 40 -> 16 -> 15
+  Sum: 184
+  Residue pattern (mod 5): W-W-E-W-E-E-W-E
+  Opposite-pair sums: [46, 46, 46, 46]
+    -> All opposite pairs sum to 46
+  No nontrivial rotational invariance.
+  Note: 중심 칸 = 23
+
+Cluster: 우궁
+  Cyclic order (8 elements): 42 -> 7 -> 28 -> 32 -> 4 -> 39 -> 17 -> 14
+  Sum: 183
+  Residue pattern (mod 5): F-F-Wd-F-M-M-F-M
+  Opposite-pair sums: [46, 46, 45, 46]
+  No nontrivial rotational invariance.
+  Note: 중심 칸 = 24
+
+Cluster: 하궁
+  Cyclic order (8 elements): 45 -> 10 -> 27 -> 35 -> 1 -> 36 -> 20 -> 11
+  Sum: 185
+  Residue pattern (mod 5): E-E-F-E-W-W-E-W
+  Opposite-pair sums: [46, 46, 47, 46]
+  No nontrivial rotational invariance.
+  Note: 중심 칸 = 22
+
+Global rotational symmetry for 구자각득 (九子各得)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.

@@ -79,23 +79,33 @@ GROUPS: dict[int, list[int]] = {
 }
 
 RESIDUE_STYLE: dict[int, dict[str, str]] = {
-    1: {"face": "#E0E0E0", "edge": "#333333", "name": "수", "en": "Water"},
-    2: {"face": "#F4D0D0", "edge": "#B33B3B", "name": "화", "en": "Fire"},
-    3: {"face": "#D4E4F8", "edge": "#3A6FAE", "name": "목", "en": "Wood"},
-    4: {"face": "#E5E5E5", "edge": "#666666", "name": "금", "en": "Metal"},
-    0: {"face": "#F6E5A3", "edge": "#C39A00", "name": "토", "en": "Earth"},
+    1: {"face": "#E0E0E0", "edge": "#333333", "name": "Water", "ko": "수"},
+    2: {"face": "#F4D0D0", "edge": "#B33B3B", "name": "Fire", "ko": "화"},
+    3: {"face": "#D4E4F8", "edge": "#3A6FAE", "name": "Wood", "ko": "목"},
+    4: {"face": "#E5E5E5", "edge": "#666666", "name": "Metal", "ko": "금"},
+    0: {"face": "#F6E5A3", "edge": "#C39A00", "name": "Earth", "ko": "토"},
 }
 
-WUXING_COLOR = {
-    "수": "#4488CC",
-    "화": "#CC4444",
-    "목": "#44AA44",
-    "금": "#888888",
-    "토": "#CC9944",
+DISPLAY_LABELS = {
+    "Water": "수",
+    "Fire": "화",
+    "Wood": "목",
+    "Metal": "금",
+    "Earth": "토",
+    "generation": "상생",
+    "overcoming": "상극",
+}
+
+PHASE_COLOR = {
+    "Water": "#4488CC",
+    "Fire": "#CC4444",
+    "Wood": "#44AA44",
+    "Metal": "#888888",
+    "Earth": "#CC9944",
 }
 
 
-def wuxing_of(n: int) -> str:
+def phase_of(n: int) -> str:
     return RESIDUE_STYLE[n % 5]["name"]
 
 
@@ -130,13 +140,13 @@ print("\n오행별 수 합:")
 for r in [1, 2, 3, 4, 5]:
     nodes = [n for n in POSITIONS if residue_1based(n) == r]
     wx = RESIDUE_STYLE[r % 5]["name"]
-    print(f"  {wx}({r}): 합={sum(nodes)}, 수들={sorted(nodes)}")
+    print(f"  {DISPLAY_LABELS[wx]}({r}): 합={sum(nodes)}, 수들={sorted(nodes)}")
 
 print("\n오행별 위치 분포:")
 for r in [1, 2, 3, 4, 0]:
     nums = GROUPS[r]
     wx = RESIDUE_STYLE[r]["name"]
-    print(f"  {wx}: {len(nums)}개 - {sorted(nums)}")
+    print(f"  {DISPLAY_LABELS[wx]}: {len(nums)}개 - {sorted(nums)}")
 
 # 수평 단(y좌표)별 집계
 LEVELS: dict[float, list[int]] = {}
@@ -216,8 +226,8 @@ ax.set_ylim(-2.4, 6.8)
 ax.set_aspect("equal")
 ax.axis("off")
 legend_elements = [
-    mpatches.Patch(facecolor=WUXING_COLOR[wx], edgecolor="black", label=f"{wx}")
-    for wx in ["수", "화", "목", "금", "토"]
+    mpatches.Patch(facecolor=PHASE_COLOR[wx], edgecolor="black", label=f"{DISPLAY_LABELS[wx]}")
+    for wx in ["Water", "Fire", "Wood", "Metal", "Earth"]
 ]
 ax.legend(handles=legend_elements, loc="lower right", fontsize=10, framealpha=0.9)
 save_fig("01_original_graph.png")
@@ -235,9 +245,9 @@ ax.set_ylim(-2.4, 6.8)
 ax.set_aspect("equal")
 ax.axis("off")
 
-for idx, wx in enumerate(["수", "화", "목", "금", "토"]):
+for idx, wx in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
     ax = axes[idx + 1]
-    wx_nodes = [n for n in POSITIONS if wuxing_of(n) == wx]
+    wx_nodes = [n for n in POSITIONS if phase_of(n) == wx]
     other_nodes = [n for n in POSITIONS if n not in wx_nodes]
 
     for n in other_nodes:
@@ -260,7 +270,7 @@ for idx, wx in enumerate(["수", "화", "목", "금", "토"]):
             plt.Circle(
                 (x, y),
                 0.34,
-                facecolor=WUXING_COLOR[wx],
+                facecolor=PHASE_COLOR[wx],
                 edgecolor="black",
                 linewidth=2.5,
                 zorder=2,
@@ -274,15 +284,15 @@ for idx, wx in enumerate(["수", "화", "목", "금", "토"]):
             va="center",
             fontsize=10,
             fontweight="bold",
-            color="white" if wx in ["수", "목"] else "black",
+            color="white" if wx in ["Water", "Wood"] else "black",
             zorder=3,
         )
 
     ax.set_title(
-        f"{wx} · 합 {sum(wx_nodes)}",
+        f"{DISPLAY_LABELS[wx]} · 합 {sum(wx_nodes)}",
         fontsize=12,
         fontweight="bold",
-        color=WUXING_COLOR[wx],
+        color=PHASE_COLOR[wx],
     )
     ax.set_xlim(-5.0, 5.0)
     ax.set_ylim(-2.4, 6.8)
@@ -330,15 +340,15 @@ from matplotlib.colors import BoundaryNorm
 sm = plt.cm.ScalarMappable(cmap="tab10", norm=BoundaryNorm([0.5, 1.5, 2.5, 3.5, 4.5, 5.5], 5))
 sm.set_array([])
 cbar = plt.colorbar(sm, ax=ax, ticks=[1, 2, 3, 4, 5], shrink=0.8)
-cbar.ax.set_yticklabels(["수", "화", "목", "금", "토"])
+cbar.ax.set_yticklabels([DISPLAY_LABELS[w] for w in ["Water", "Fire", "Wood", "Metal", "Earth"]])
 
 ax = axes[1]
 # 각 오행의 x좌표 분포
-for wx in ["수", "화", "목", "금", "토"]:
-    nodes = [n for n in POSITIONS if wuxing_of(n) == wx]
+for wx in ["Water", "Fire", "Wood", "Metal", "Earth"]:
+    nodes = [n for n in POSITIONS if phase_of(n) == wx]
     xvals = [POSITIONS[n][0] for n in nodes]
     yvals = [POSITIONS[n][1] for n in nodes]
-    ax.scatter(xvals, yvals, c=WUXING_COLOR[wx], s=200, edgecolors="black", linewidths=1.5, label=wx, zorder=2)
+    ax.scatter(xvals, yvals, c=PHASE_COLOR[wx], s=200, edgecolors="black", linewidths=1.5, label=DISPLAY_LABELS[wx], zorder=2)
     for n in nodes:
         ax.text(POSITIONS[n][0], POSITIONS[n][1], str(n), ha="center", va="center",
                 fontsize=8, fontweight="bold", zorder=3)
@@ -403,7 +413,7 @@ level_names = [f"y={y}" for y in LEVEL_ORDER]
 colors_level = ["#CC4444", "#4488CC", "#44AA44", "#CC9944", "#888888", "#AA44AA", "#44AAAA", "#CC8844"]
 ax.barh(level_names, level_sums, color=colors_level[:len(level_names)], edgecolor="black", linewidth=1.5)
 ax.set_title("수평 단별 합", fontsize=13, fontweight="bold")
-ax.set_xlabel("Sum", fontsize=11)
+ax.set_xlabel("합", fontsize=11)
 for i, val in enumerate(level_sums):
     ax.text(val + 1, i, str(val), va="center", fontsize=11, fontweight="bold")
 
@@ -415,10 +425,10 @@ plt.close()
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
 
 ax = axes[0, 0]
-wx_sums = {wx: sum([n for n in POSITIONS if wuxing_of(n) == wx]) for wx in ["수", "화", "목", "금", "토"]}
+wx_sums = {wx: sum([n for n in POSITIONS if phase_of(n) == wx]) for wx in ["Water", "Fire", "Wood", "Metal", "Earth"]}
 wx_names = list(wx_sums.keys())
 wx_vals = list(wx_sums.values())
-wx_colors_bar = [WUXING_COLOR[w] for w in wx_names]
+wx_colors_bar = [PHASE_COLOR[w] for w in wx_names]
 ax.bar(wx_names, wx_vals, color=wx_colors_bar, edgecolor="black", linewidth=1.5)
 ax.set_title("오행별 수 합 (55, 38, 62, 70, 40)", fontsize=12, fontweight="bold")
 for bar, val in zip(ax.patches, wx_vals):
@@ -446,7 +456,7 @@ ax.bar(
     linewidth=1.5,
 )
 ax.set_title("좌·중·우 대칭 합 (좌=우=86)", fontsize=12, fontweight="bold")
-ax.set_ylabel("Sum", fontsize=10)
+ax.set_ylabel("합", fontsize=10)
 for bar, val in zip(ax.patches, components.values()):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
@@ -462,7 +472,7 @@ ax = axes[1, 0]
 level_sums_v = [sum(LEVELS[y]) for y in LEVEL_ORDER]
 ax.bar(level_names, level_sums_v, color="#CC4444", edgecolor="black", linewidth=1.5)
 ax.set_title("수평 단별 합", fontsize=12, fontweight="bold")
-ax.set_ylabel("Sum", fontsize=10)
+ax.set_ylabel("합", fontsize=10)
 plt.setp(ax.xaxis.get_majorticklabels(), rotation=15, ha="right")
 for bar, val in zip(ax.patches, level_sums_v):
     ax.text(
@@ -482,9 +492,9 @@ for r in [1, 2, 3, 4, 0]:
     missing_same = [n for n in range(1, 26) if n % 5 == r and n not in base]
     extended = base + missing_same[: 5 - len(base)]
     extended_counts.append((RESIDUE_STYLE[r]["name"], len(extended)))
-labels = [f"{wx}\n({cnt}개)" for wx, cnt in extended_counts]
+labels = [f"{DISPLAY_LABELS[wx]}\n({cnt}개)" for wx, cnt in extended_counts]
 counts = [cnt for _, cnt in extended_counts]
-colors_cnt = [WUXING_COLOR[wx] for wx, _ in extended_counts]
+colors_cnt = [PHASE_COLOR[wx] for wx, _ in extended_counts]
 ax.bar(labels, counts, color=colors_cnt, edgecolor="black", linewidth=1.5)
 ax.set_title("완전 5×5 확장 시 오행별 개수", fontsize=12, fontweight="bold")
 for bar, val in zip(ax.patches, counts):
@@ -504,31 +514,31 @@ plt.close()
 # --- 06: 오행 상생상극 관계도 ---
 fig, ax = plt.subplots(figsize=(10, 8))
 wuxing_graph_relations = [
-    ("수", "목", "생"),
-    ("목", "화", "생"),
-    ("화", "토", "생"),
-    ("토", "금", "생"),
-    ("금", "수", "생"),
-    ("수", "화", "극"),
-    ("화", "금", "극"),
-    ("금", "목", "극"),
-    ("목", "토", "극"),
-    ("토", "수", "극"),
+    ("Water", "Wood", "generation"),
+    ("Wood", "Fire", "generation"),
+    ("Fire", "Earth", "generation"),
+    ("Earth", "Metal", "generation"),
+    ("Metal", "Water", "generation"),
+    ("Water", "Fire", "overcoming"),
+    ("Fire", "Metal", "overcoming"),
+    ("Metal", "Wood", "overcoming"),
+    ("Wood", "Earth", "overcoming"),
+    ("Earth", "Water", "overcoming"),
 ]
 # 수동으로 화살표 그리기
-wx_pos = {"수": (0, 2), "목": (2, 1), "화": (1, -1), "토": (-1, -1), "금": (-2, 1)}
+wx_pos = {"Water": (0, 2), "Wood": (2, 1), "Fire": (1, -1), "Earth": (-1, -1), "Metal": (-2, 1)}
 for u, v, r in wuxing_graph_relations:
     x1, y1 = wx_pos[u]
     x2, y2 = wx_pos[v]
-    color = "#44AA44" if r == "생" else "#CC4444"
-    style = "-" if r == "생" else "--"
-    rad = 0.15 if r == "생" else -0.15
+    color = "#44AA44" if r == "generation" else "#CC4444"
+    style = "-" if r == "generation" else "--"
+    rad = 0.15 if r == "generation" else -0.15
     # 화살표
     ax.annotate(
         "",
         xy=(x2, y2),
         xytext=(x1, y1),
-        arrowprops=dict(arrowstyle="->", color=color, lw=2.5 if r == "생" else 2,
+        arrowprops=dict(arrowstyle="->", color=color, lw=2.5 if r == "generation" else 2,
                         connectionstyle=f"arc3,rad={rad}"),
     )
 
@@ -537,13 +547,13 @@ for wx, (x, y) in wx_pos.items():
         plt.Circle(
             (x, y),
             0.35,
-            facecolor=WUXING_COLOR[wx],
+            facecolor=PHASE_COLOR[wx],
             edgecolor="black",
             linewidth=2.5,
             zorder=2,
         )
     )
-    ax.text(x, y, wx, ha="center", va="center", fontsize=14, fontweight="bold", zorder=3)
+    ax.text(x, y, DISPLAY_LABELS[wx], ha="center", va="center", fontsize=14, fontweight="bold", zorder=3)
 
 legend_elements = [
     Line2D([0], [0], color="#44AA44", lw=3, label="상생"),
@@ -570,9 +580,9 @@ for r in [1, 2, 3, 4, 0]:
     extended = base + missing_same_residue[: 5 - len(base)]
     extended_totals.append((RESIDUE_STYLE[r]["name"], sum(extended), len(extended)))
 
-labels = [f"{wx}\n({cnt}개)" for wx, _, cnt in extended_totals]
+labels = [f"{DISPLAY_LABELS[wx]}\n({cnt}개)" for wx, _, cnt in extended_totals]
 values = [t for _, t, _ in extended_totals]
-colors_ext = [WUXING_COLOR[wx] for wx, _, _ in extended_totals]
+colors_ext = [PHASE_COLOR[wx] for wx, _, _ in extended_totals]
 ax.bar(labels, values, color=colors_ext, edgecolor="black", linewidth=1.5)
 ax.set_title("완전 5×5 오행 확장 (가상 25수)", fontsize=13, fontweight="bold")
 for bar, val in zip(ax.patches, values):
@@ -584,7 +594,7 @@ for bar, val in zip(ax.patches, values):
         fontsize=12,
         fontweight="bold",
     )
-ax.set_ylabel("Sum", fontsize=10)
+ax.set_ylabel("합", fontsize=10)
 
 ax = axes[1]
 layer_names = ["상단 정점\n(y=6.0)", "상부 연결대\n(y=5.0~4.2)", "중앙 수평대\n(y=3.3~2.0)", "하부 연결대\n(y=0.8~-0.4)", "하단 정점\n(y=-1.7)"]
@@ -608,7 +618,7 @@ for bar, val in zip(ax.patches, layer_values):
         fontsize=11,
         fontweight="bold",
     )
-ax.set_xlabel("Sum", fontsize=10)
+ax.set_xlabel("합", fontsize=10)
 
 plt.tight_layout()
 save_fig("07_local_extensions.png")
@@ -629,8 +639,8 @@ ax2.bar(x + width / 2, level_counts, width, label="노드 수", color="#4488CC",
 ax.set_xticks(x)
 ax.set_xticklabels(palace_names, rotation=15, ha="right")
 ax.set_title("수평 단별 합 및 노드 수", fontsize=13, fontweight="bold")
-ax.set_ylabel("Sum", fontsize=10)
-ax2.set_ylabel("Count", fontsize=10)
+ax.set_ylabel("합", fontsize=10)
+ax2.set_ylabel("개수", fontsize=10)
 lines1, labels1 = ax.get_legend_handles_labels()
 lines2, labels2 = ax2.get_legend_handles_labels()
 ax.legend(lines1 + lines2, labels1 + labels2, loc="upper right")
@@ -649,7 +659,7 @@ ax.bar(
     linewidth=1.5,
 )
 ax.set_title("좌·중·우 대칭 합", fontsize=13, fontweight="bold")
-ax.set_ylabel("Sum", fontsize=10)
+ax.set_ylabel("합", fontsize=10)
 for bar, val in zip(ax.patches, components.values()):
     ax.text(
         bar.get_x() + bar.get_width() / 2,

@@ -27,7 +27,7 @@ import pulp
 
 # Jisu-yong-yukdo (5 hexagons): 20 nodes, each hexagon sums to 63
 # Source: HEXAGONS from analyze.py, converted from 1-based values to 0-based indices
-YUKDO_HEXAGONS: list[list[int]] = [
+SIX_EACH_GETS_HEXAGONS: list[list[int]] = [
     [4, 17, 15, 2, 7, 12],    # upper-left
     [0, 12, 7, 13, 19, 6],    # upper-right
     [2, 7, 13, 14, 10, 11],   # center
@@ -72,7 +72,7 @@ HEX7_HEXAGONS: list[list[int]] = [
 STRUCTURES: dict[int, dict[str, Any]] = {
     13: {"name": "3-hex triangle", "hexagons": HEX3_HEXAGONS, "s_range": (34, 50)},
     16: {"name": "4-hex rhombus", "hexagons": HEX4_HEXAGONS, "s_range": (40, 62)},
-    20: {"name": "Jisu-yong-yukdo (5-hex)", "hexagons": YUKDO_HEXAGONS, "s_range": (63, 63)},
+    20: {"name": "Jisu-yong-yukdo (5-hex)", "hexagons": SIX_EACH_GETS_HEXAGONS, "s_range": (63, 63)},
     22: {"name": "6-hex triangle", "hexagons": None, "s_range": (57, 71)},
     24: {"name": "7-hex regular hexagon", "hexagons": HEX7_HEXAGONS, "s_range": (65, 85)},
     30: {"name": "9-hex turtle shell", "hexagons": None, "s_range": (77, 109)},
@@ -110,7 +110,7 @@ def magic_sum_bounds(m: int, hexagons: list[list[int]]) -> tuple[int, int]:
     return s_min, s_max
 
 
-def solve_jisuguimundo(
+def solve_magic_hexagon(
     m: int,
     hexagons: list[list[int]],
     target_s: int | None = None,
@@ -292,7 +292,7 @@ def main() -> None:
             verbose=args.verbose,
         )
     else:
-        solutions = solve_jisuguimundo(
+        solutions = solve_magic_hexagon(
             args.m,
             hexagons,
             target_s=target_s,

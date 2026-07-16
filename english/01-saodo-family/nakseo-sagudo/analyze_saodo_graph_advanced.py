@@ -65,7 +65,7 @@ NINE_PALACES = {
 G = nx.Graph()
 G.add_edges_from(EDGES)
 
-wuxing = {
+phase = {
     1: 'Water', 6: 'Water', 11: 'Water', 16: 'Water',
     2: 'Fire', 7: 'Fire', 12: 'Fire', 17: 'Fire',
     3: 'Wood', 8: 'Wood', 13: 'Wood', 18: 'Wood',
@@ -73,18 +73,18 @@ wuxing = {
     5: 'Earth', 10: 'Earth', 15: 'Earth', 20: 'Earth',
 }
 
-wuxing_color = {
+phase_color = {
     'Water': '#4488CC', 'Fire': '#CC4444', 'Wood': '#44AA44',
     'Metal': '#888888', 'Earth': '#CC9944',
 }
 
-wuxing_en = {
+PHASE_EN = {
     'Water': 'Water', 'Fire': 'Fire', 'Wood': 'Wood', 'Metal': 'Metal', 'Earth': 'Earth'
 }
 
 for node in G.nodes():
-    G.nodes[node]['wuxing'] = wuxing[node]
-    G.nodes[node]['color'] = wuxing_color[wuxing[node]]
+    G.nodes[node]['phase'] = phase[node]
+    G.nodes[node]['color'] = phase_color[phase[node]]
     G.nodes[node]['remainder'] = node % 5 if node % 5 != 0 else 5
 
 node_colors = [G.nodes[n]['color'] for n in G.nodes()]
@@ -137,13 +137,13 @@ close = nx.closeness_centrality(G)
 eigen = nx.eigenvector_centrality(G, max_iter=1000)
 print("  Betweenness Top 5:")
 for v, c in sorted(betw.items(), key=lambda x: -x[1])[:5]:
-    print(f"    {v}({wuxing[v]}): {c:.4f}")
+    print(f"    {v}({phase[v]}): {c:.4f}")
 print("  Closeness:")
 for v, c in sorted(close.items(), key=lambda x: -x[1])[:5]:
-    print(f"    {v}({wuxing[v]}): {c:.4f}")
+    print(f"    {v}({phase[v]}): {c:.4f}")
 print("  Eigenvector:")
 for v, c in sorted(eigen.items(), key=lambda x: -x[1])[:5]:
-    print(f"    {v}({wuxing[v]}): {c:.4f}")
+    print(f"    {v}({phase[v]}): {c:.4f}")
 
 # Cycles
 print(f"\n[Cycles]")
@@ -361,17 +361,17 @@ plt.tight_layout(); save_fig('11_dual_graph.png'); plt.close()
 # --- 12: Five-element block matrix and generation/overcoming adjacency matrix ---
 fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 ax = axes[0]
-wx_list = ['Water', 'Fire', 'Wood', 'Metal', 'Earth']
+ph_list = ['Water', 'Fire', 'Wood', 'Metal', 'Earth']
 block = np.zeros((5, 5), dtype=int)
 for u, v in G.edges():
-    i = wx_list.index(wuxing[u])
-    j = wx_list.index(wuxing[v])
+    i = ph_list.index(phase[u])
+    j = ph_list.index(phase[v])
     block[i, j] += 1
     if i != j:
         block[j, i] += 1
 im = ax.imshow(block, cmap='YlOrRd', interpolation='nearest')
-ax.set_xticks(range(5)); ax.set_xticklabels(wx_list, fontsize=12)
-ax.set_yticks(range(5)); ax.set_yticklabels(wx_list, fontsize=12)
+ax.set_xticks(range(5)); ax.set_xticklabels(ph_list, fontsize=12)
+ax.set_yticks(range(5)); ax.set_yticklabels(ph_list, fontsize=12)
 for i in range(5):
     for j in range(5):
         ax.text(j, i, str(block[i, j]), ha='center', va='center', fontsize=12, fontweight='bold')
@@ -386,10 +386,10 @@ rel_matrix = {r: np.zeros((n, n), dtype=int) for r in relation_types}
 node_order = sorted(G.nodes())
 for u, v in G.edges():
     i, j = node_order.index(u), node_order.index(v)
-    if wuxing[u] == wuxing[v]:
+    if phase[u] == phase[v]:
         rel_matrix['Same type'][i, j] = rel_matrix['Same type'][j, i] = 1
-    elif (wuxing[u], wuxing[v]) in [('Water','Wood'), ('Wood','Fire'), ('Fire','Earth'), ('Earth','Metal'), ('Metal','Water')] or \
-         (wuxing[v], wuxing[u]) in [('Water','Wood'), ('Wood','Fire'), ('Fire','Earth'), ('Earth','Metal'), ('Metal','Water')]:
+    elif (phase[u], phase[v]) in [('Water','Wood'), ('Wood','Fire'), ('Fire','Earth'), ('Earth','Metal'), ('Metal','Water')] or \
+         (phase[v], phase[u]) in [('Water','Wood'), ('Wood','Fire'), ('Fire','Earth'), ('Earth','Metal'), ('Metal','Water')]:
         rel_matrix['Mutual generation'][i, j] = rel_matrix['Mutual generation'][j, i] = 1
     else:
         rel_matrix['Mutual overcoming'][i, j] = rel_matrix['Mutual overcoming'][j, i] = 1
@@ -498,11 +498,11 @@ ax.set_title('SW face: concentration of four Wood (木) group vertices\nGraph-th
 ax = axes[1]
 # Stacked bar of five-element distribution per face
 face_names = ['NW', 'NE', 'SW', 'SE']
-wx_counts = {name: Counter(wuxing[v] for v in HEXAGONS[name]) for name in face_names}
+ph_counts = {name: Counter(phase[v] for v in HEXAGONS[name]) for name in face_names}
 bottom = np.zeros(4)
-for wx in wx_list:
-    vals = [wx_counts[name].get(wx, 0) for name in face_names]
-    ax.bar(face_names, vals, bottom=bottom, label=wx, color=wuxing_color[wx], edgecolor='black', linewidth=1)
+for ph in ph_list:
+    vals = [ph_counts[name].get(ph, 0) for name in face_names]
+    ax.bar(face_names, vals, bottom=bottom, label=ph, color=phase_color[ph], edgecolor='black', linewidth=1)
     bottom += vals
 ax.set_ylabel('Count', fontsize=11)
 ax.set_title('Five-element distribution in each face of the 3×2 rectangular structure', fontsize=13, fontweight='bold')

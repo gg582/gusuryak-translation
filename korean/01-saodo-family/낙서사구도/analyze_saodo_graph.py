@@ -93,26 +93,27 @@ G = nx.Graph()
 G.add_edges_from(EDGES)
 
 # 오행 (mod 5) 색상 분류
-wuxing = {
-    1: '수', 6: '수', 11: '수', 16: '수',
-    2: '화', 7: '화', 12: '화', 17: '화',
-    3: '목', 8: '목', 13: '목', 18: '목',
-    4: '금', 9: '금', 14: '금', 19: '금',
-    5: '토', 10: '토', 15: '토', 20: '토',
+phase = {
+    1: 'Water', 6: 'Water', 11: 'Water', 16: 'Water',
+    2: 'Fire', 7: 'Fire', 12: 'Fire', 17: 'Fire',
+    3: 'Wood', 8: 'Wood', 13: 'Wood', 18: 'Wood',
+    4: 'Metal', 9: 'Metal', 14: 'Metal', 19: 'Metal',
+    5: 'Earth', 10: 'Earth', 15: 'Earth', 20: 'Earth',
 }
 
-wuxing_color = {
-    '수': '#4488CC', '화': '#CC4444', '목': '#44AA44',
-    '금': '#888888', '토': '#CC9944',
+phase_color = {
+    'Water': '#4488CC', 'Fire': '#CC4444', 'Wood': '#44AA44',
+    'Metal': '#888888', 'Earth': '#CC9944',
 }
 
-wuxing_en = {
-    '수': 'Water', '화': 'Fire', '목': 'Wood', '금': 'Metal', '토': 'Earth'
+DISPLAY_LABELS = {
+    'Water': '수', 'Fire': '화', 'Wood': '목', 'Metal': '금', 'Earth': '토',
+    'generation': '상생', 'overcoming': '상극', 'same_phase': '동질', 'neutral': '중립',
 }
 
 for node in G.nodes():
-    G.nodes[node]['wuxing'] = wuxing[node]
-    G.nodes[node]['color'] = wuxing_color[wuxing[node]]
+    G.nodes[node]['phase'] = phase[node]
+    G.nodes[node]['color'] = phase_color[phase[node]]
     G.nodes[node]['remainder'] = node % 5 if node % 5 != 0 else 5
 
 # ============================================
@@ -145,9 +146,9 @@ print(f"\n외곽 20-Cycle 합: {sum(PERIMETER_20)}")
 print(f"내장 4-Cycle 합: {sum(INNER_4)}")
 
 print("\n오행별 합 (등차수열):")
-for wx in ['수', '화', '목', '금', '토']:
-    wx_nodes = [n for n in G.nodes() if wuxing[n] == wx]
-    print(f"  {wx}: {sum(wx_nodes)} ({wx_nodes})")
+for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']:
+    wx_nodes = [n for n in G.nodes() if phase[n] == ph]
+    print(f"  {ph}: {sum(wx_nodes)} ({wx_nodes})")
 
 print("\n九宫 각 궁 합 (주석 기반):")
 for name, palace in NINE_PALACES.items():
@@ -156,7 +157,7 @@ for name, palace in NINE_PALACES.items():
 betw = nx.betweenness_centrality(G)
 print(f"\nBetweenness Centrality (Top 5):")
 for n, v in sorted(betw.items(), key=lambda x: -x[1])[:5]:
-    print(f"  {n}({wuxing[n]}): {v:.3f}")
+    print(f"  {n}({phase[n]}): {v:.3f}")
 
 # ============================================
 # 3. 시각화 이미지 7장 생성
@@ -185,7 +186,7 @@ shared_nodes = [5, 16, 10, 11]
 nx.draw_networkx_nodes(G, POSITIONS, nodelist=shared_nodes, node_color='white', node_size=1500, edgecolors='red', linewidths=3, ax=ax)
 ax.set_title('낙서사구도 (洛書四九圖) - 교정된 원본 그래프\n3×2 사각형 구조 + 외곽 20-Cycle + 내장 4-Cycle', fontsize=16, fontweight='bold')
 ax.set_xlim(-3.5, 3.5); ax.set_ylim(-3.5, 3.5); ax.axis('off')
-legend_elements = [mpatches.Patch(facecolor=wuxing_color[wx], edgecolor='black', label=f'{wx} ({wuxing_en[wx]})') for wx in ['수', '화', '목', '금', '토']]
+legend_elements = [mpatches.Patch(facecolor=phase_color[ph], edgecolor='black', label=f'{DISPLAY_LABELS[ph]}') for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']]
 legend_elements += [Line2D([0], [0], marker='o', color='w', markeredgecolor='red', markerfacecolor='white', markersize=10, label='공유 정점(차수 4)')]
 ax.legend(handles=legend_elements, loc='lower right', fontsize=10, framealpha=0.9, edgecolor='black')
 save_fig('01_original_graph.png'); plt.close()
@@ -200,19 +201,19 @@ nx.draw_networkx_nodes(G, POSITIONS, node_color=node_colors, node_size=1200, edg
 nx.draw_networkx_labels(G, POSITIONS, font_size=11, font_weight='bold', ax=ax)
 ax.set_title('전체 그래프', fontsize=13, fontweight='bold'); ax.axis('off')
 
-for idx, wx in enumerate(['수', '화', '목', '금', '토']):
+for idx, ph in enumerate(['Water', 'Fire', 'Wood', 'Metal', 'Earth']):
     ax = axes[idx + 1]
-    wx_nodes = [n for n in G.nodes() if wuxing[n] == wx]
+    wx_nodes = [n for n in G.nodes() if phase[n] == ph]
     wx_edges = [(u, v) for u, v in G.edges() if u in wx_nodes and v in wx_nodes]
     cross_edges = [(u, v) for u, v in G.edges() if (u in wx_nodes) != (v in wx_nodes)]
     nx.draw_networkx_edges(G, POSITIONS, edge_color='#EEEEEE', width=1, alpha=0.3, ax=ax)
-    if cross_edges: nx.draw_networkx_edges(G, POSITIONS, edgelist=cross_edges, edge_color=wuxing_color[wx], width=2, alpha=0.3, style=':', ax=ax)
-    if wx_edges: nx.draw_networkx_edges(G, POSITIONS, edgelist=wx_edges, edge_color=wuxing_color[wx], width=3.5, alpha=0.95, ax=ax)
+    if cross_edges: nx.draw_networkx_edges(G, POSITIONS, edgelist=cross_edges, edge_color=phase_color[ph], width=2, alpha=0.3, style=':', ax=ax)
+    if wx_edges: nx.draw_networkx_edges(G, POSITIONS, edgelist=wx_edges, edge_color=phase_color[ph], width=3.5, alpha=0.95, ax=ax)
     other_nodes = [n for n in G.nodes() if n not in wx_nodes]
     if other_nodes: nx.draw_networkx_nodes(G, POSITIONS, nodelist=other_nodes, node_color='#F0F0F0', node_size=500, edgecolors='#CCCCCC', linewidths=1, ax=ax)
-    nx.draw_networkx_nodes(G, POSITIONS, nodelist=wx_nodes, node_color=wuxing_color[wx], node_size=1800, edgecolors='black', linewidths=2.5, ax=ax)
+    nx.draw_networkx_nodes(G, POSITIONS, nodelist=wx_nodes, node_color=phase_color[ph], node_size=1800, edgecolors='black', linewidths=2.5, ax=ax)
     nx.draw_networkx_labels(G, POSITIONS, font_size=10, font_weight='bold', ax=ax)
-    ax.set_title(f'{wx} ({wuxing_en[wx]})', fontsize=12, fontweight='bold', color=wuxing_color[wx]); ax.axis('off')
+    ax.set_title(f'{DISPLAY_LABELS[ph]}', fontsize=12, fontweight='bold', color=phase_color[ph]); ax.axis('off')
 
 plt.suptitle('오행(五行)별 서브그래프 분해', fontsize=16, fontweight='bold', y=1.02)
 plt.tight_layout(); save_fig('02_wuxing_decomposition.png'); plt.close()
@@ -224,18 +225,18 @@ adj = nx.adjacency_matrix(G, nodelist=sorted(G.nodes())).todense()
 im = ax.imshow(adj, cmap='YlOrRd', interpolation='nearest')
 ax.set_xticks(range(20)); ax.set_yticks(range(20))
 ax.set_xticklabels(sorted(G.nodes()), fontsize=9); ax.set_yticklabels(sorted(G.nodes()), fontsize=9)
-wx_sorted = [wuxing[n] for n in sorted(G.nodes())]
+wx_sorted = [phase[n] for n in sorted(G.nodes())]
 boundaries = [i - 0.5 for i in range(1, 20) if wx_sorted[i] != wx_sorted[i-1]]
 for b in boundaries: ax.axhline(y=b, color='blue', linewidth=1.5, alpha=0.7); ax.axvline(x=b, color='blue', linewidth=1.5, alpha=0.7)
 plt.colorbar(im, ax=ax, shrink=0.8)
-ax.set_title('Adjacency Matrix', fontsize=13, fontweight='bold')
+ax.set_title('인접 행렬', fontsize=13, fontweight='bold')
 
 ax = axes[1]
 eigenvalues = np.linalg.eigvalsh(adj)
 ax.bar(range(len(eigenvalues)), sorted(eigenvalues, reverse=True), color='#4488CC', edgecolor='black', alpha=0.8)
 ax.axhline(y=0, color='red', linestyle='--', linewidth=1)
-ax.set_xlabel('Index', fontsize=11); ax.set_ylabel('Eigenvalue', fontsize=11)
-ax.set_title(f'Graph Spectrum\nλ_max={max(eigenvalues):.2f}, λ_min={min(eigenvalues):.2f}', fontsize=13, fontweight='bold')
+ax.set_xlabel('지표', fontsize=11); ax.set_ylabel('고유값', fontsize=11)
+ax.set_title(f'그래프 스펙트럼\nλ_max={max(eigenvalues):.2f}, λ_min={min(eigenvalues):.2f}', fontsize=13, fontweight='bold')
 ax.grid(True, alpha=0.3)
 plt.tight_layout(); save_fig('03_adjacency_spectrum.png'); plt.close()
 
@@ -274,7 +275,7 @@ cumsum = np.cumsum([n for n in PERIMETER_20])
 ax.plot(range(20), cumsum, 'o-', color='#CC4444', linewidth=2.5, markersize=8, markeredgecolor='black')
 ax.fill_between(range(20), cumsum, alpha=0.2, color='#CC4444')
 ax.set_xticks(range(20)); ax.set_xticklabels([str(n) for n in PERIMETER_20], fontsize=9)
-ax.set_title(f'외곽 20-Cycle 누적 합 (Total={sum(PERIMETER_20)})', fontsize=13, fontweight='bold')
+ax.set_title(f'외곽 20-Cycle 누적 합 (총합={sum(PERIMETER_20)})', fontsize=13, fontweight='bold')
 ax.grid(True, alpha=0.3); ax.axhline(y=sum(PERIMETER_20)/2, color='blue', linestyle='--', alpha=0.5)
 
 plt.tight_layout(); save_fig('04_cycle_analysis.png'); plt.close()
@@ -287,12 +288,12 @@ nodes_sorted = sorted(G.nodes(), key=lambda n: betw[n], reverse=True)
 colors_sorted = [G.nodes[n]['color'] for n in nodes_sorted]
 ax.bar(range(20), [betw[n] for n in nodes_sorted], color=colors_sorted, edgecolor='black')
 ax.set_xticks(range(20)); ax.set_xticklabels([str(n) for n in nodes_sorted], fontsize=9)
-ax.set_title('Betweenness Centrality', fontsize=12, fontweight='bold'); ax.set_ylabel('Centrality', fontsize=10)
+ax.set_title('매개 중심성', fontsize=12, fontweight='bold'); ax.set_ylabel('중심성', fontsize=10)
 
 ax = axes[0, 1]
-wx_sums = {wx: sum([n for n in G.nodes() if wuxing[n] == wx]) for wx in ['수', '화', '목', '금', '토']}
-wx_names = list(wx_sums.keys()); wx_vals = list(wx_sums.values()); wx_colors_bar = [wuxing_color[w] for w in wx_names]
-ax.bar(wx_names, wx_vals, color=wx_colors_bar, edgecolor='black', linewidth=1.5)
+wx_sums = {ph: sum([n for n in G.nodes() if phase[n] == ph]) for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']}
+wx_names = list(wx_sums.keys()); wx_vals = list(wx_sums.values()); wx_colors_bar = [phase_color[w] for w in wx_names]
+ax.bar([DISPLAY_LABELS[w] for w in wx_names], wx_vals, color=wx_colors_bar, edgecolor='black', linewidth=1.5)
 ax.set_title('오행별 수 합 (34, 38, 42, 46, 50)', fontsize=12, fontweight='bold')
 for bar, val in zip(ax.patches, wx_vals): ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.5, str(val), ha='center', fontsize=12, fontweight='bold')
 ax.plot(range(5), wx_vals, 'o--', color='black', alpha=0.5, linewidth=2)
@@ -302,7 +303,7 @@ components = {'NW 면': sum(HEXAGONS['NW']), 'NE 면': sum(HEXAGONS['NE']),
               'SW 면': sum(HEXAGONS['SW']), 'SE 면': sum(HEXAGONS['SE']),
               '외곽 20-Cycle': sum(PERIMETER_20), '내장 4-Cycle': sum(INNER_4), '전체': sum(range(1, 21))}
 ax.bar(list(components.keys()), list(components.values()), color=['#CC4444', '#4488CC', '#44AA44', '#CC9944', '#888888', '#CC9944', '#333333'], edgecolor='black', linewidth=1.5)
-ax.set_title('구조적 부분집합 합', fontsize=12, fontweight='bold'); ax.set_ylabel('Sum', fontsize=10)
+ax.set_title('구조적 부분집합 합', fontsize=12, fontweight='bold'); ax.set_ylabel('합', fontsize=10)
 plt.setp(ax.xaxis.get_majorticklabels(), rotation=15, ha='right')
 
 ax = axes[1, 1]
@@ -317,20 +318,20 @@ plt.tight_layout(); save_fig('05_centrality_invariants.png'); plt.close()
 # --- 06: 오행 상생상극 ---
 fig, axes = plt.subplots(1, 2, figsize=(18, 8))
 ax = axes[0]
-wuxing_graph = nx.DiGraph()
-wuxing_relations = [
-    ('수', '목', '생'), ('목', '화', '생'), ('화', '토', '생'), ('토', '금', '생'), ('금', '수', '생'),
-    ('수', '화', '극'), ('화', '금', '극'), ('금', '목', '극'), ('목', '토', '극'), ('토', '수', '극'),
+phase_graph = nx.DiGraph()
+phase_relations = [
+    ('Water', 'Wood', 'generation'), ('Wood', 'Fire', 'generation'), ('Fire', 'Earth', 'generation'), ('Earth', 'Metal', 'generation'), ('Metal', 'Water', 'generation'),
+    ('Water', 'Fire', 'overcoming'), ('Fire', 'Metal', 'overcoming'), ('Metal', 'Wood', 'overcoming'), ('Wood', 'Earth', 'overcoming'), ('Earth', 'Water', 'overcoming'),
 ]
-for u, v, r in wuxing_relations: wuxing_graph.add_edge(u, v, relation=r)
-wx_pos = {'수': (0, 2), '목': (2, 1), '화': (1, -1), '토': (-1, -1), '금': (-2, 1)}
-sheng_edges = [(u, v) for u, v, r in wuxing_relations if r == '생']
-ke_edges = [(u, v) for u, v, r in wuxing_relations if r == '극']
-nx.draw_networkx_edges(wuxing_graph, wx_pos, edgelist=sheng_edges, edge_color='#44AA44', width=3, alpha=0.8, arrows=True, arrowsize=20, connectionstyle='arc3,rad=0.15', ax=ax)
-nx.draw_networkx_edges(wuxing_graph, wx_pos, edgelist=ke_edges, edge_color='#CC4444', width=2, alpha=0.6, style='--', arrows=True, arrowsize=15, connectionstyle='arc3,rad=-0.15', ax=ax)
-wx_node_colors = [wuxing_color[w] for w in wuxing_graph.nodes()]
-nx.draw_networkx_nodes(wuxing_graph, wx_pos, node_color=wx_node_colors, node_size=3000, edgecolors='black', linewidths=2.5, ax=ax)
-nx.draw_networkx_labels(wuxing_graph, wx_pos, font_size=14, font_weight='normal', ax=ax)
+for u, v, r in phase_relations: phase_graph.add_edge(u, v, relation=r)
+wx_pos = {'Water': (0, 2), 'Wood': (2, 1), 'Fire': (1, -1), 'Earth': (-1, -1), 'Metal': (-2, 1)}
+sheng_edges = [(u, v) for u, v, r in phase_relations if r == '생']
+ke_edges = [(u, v) for u, v, r in phase_relations if r == '극']
+nx.draw_networkx_edges(phase_graph, wx_pos, edgelist=sheng_edges, edge_color='#44AA44', width=3, alpha=0.8, arrows=True, arrowsize=20, connectionstyle='arc3,rad=0.15', ax=ax)
+nx.draw_networkx_edges(phase_graph, wx_pos, edgelist=ke_edges, edge_color='#CC4444', width=2, alpha=0.6, style='--', arrows=True, arrowsize=15, connectionstyle='arc3,rad=-0.15', ax=ax)
+wx_node_colors = [phase_color[w] for w in phase_graph.nodes()]
+nx.draw_networkx_nodes(phase_graph, wx_pos, node_color=wx_node_colors, node_size=3000, edgecolors='black', linewidths=2.5, ax=ax)
+nx.draw_networkx_labels(phase_graph, wx_pos, font_size=14, font_weight='normal', ax=ax)
 legend_elements = [Line2D([0], [0], color='#44AA44', lw=3, label='상생'), Line2D([0], [0], color='#CC4444', lw=2, linestyle='--', label='상극')]
 ax.legend(handles=legend_elements, loc='upper right', fontsize=11)
 ax.set_title('오행 상생상극 관계도', fontsize=13, fontweight='bold'); ax.set_xlim(-3, 3.5); ax.set_ylim(-2.5, 3); ax.axis('off')
@@ -338,14 +339,14 @@ ax.set_title('오행 상생상극 관계도', fontsize=13, fontweight='bold'); a
 ax = axes[1]
 wx_edge_counts = {}
 for u, v in G.edges():
-    wu, wv = wuxing[u], wuxing[v]
-    if wu == wv: key = f'{wu}동질'
-    elif (wu, wv) in [('수','목'), ('목','화'), ('화','토'), ('토','금'), ('금','수')] or (wv, wu) in [('수','목'), ('목','화'), ('화','토'), ('토','금'), ('금','수')]: key = '상생'
-    elif (wu, wv) in [('수','화'), ('화','금'), ('금','목'), ('목','토'), ('토','수')] or (wv, wu) in [('수','화'), ('화','금'), ('금','목'), ('목','토'), ('토','수')]: key = '상극'
-    else: key = '중성'
+    wu, wv = phase[u], phase[v]
+    if wu == wv: key = 'same_phase'
+    elif (wu, wv) in [('Water','Wood'), ('Wood','Fire'), ('Fire','Earth'), ('Earth','Metal'), ('Metal','Water')] or (wv, wu) in [('Water','Wood'), ('Wood','Fire'), ('Fire','Earth'), ('Earth','Metal'), ('Metal','Water')]: key = 'generation'
+    elif (wu, wv) in [('Water','Fire'), ('Fire','Metal'), ('Metal','Wood'), ('Wood','Earth'), ('Earth','Water')] or (wv, wu) in [('Water','Fire'), ('Fire','Metal'), ('Metal','Wood'), ('Wood','Earth'), ('Earth','Water')]: key = 'overcoming'
+    else: key = 'neutral'
     wx_edge_counts[key] = wx_edge_counts.get(key, 0) + 1
 colors_pie = ['#44AA44', '#CC4444', '#CC9944', '#4488CC']
-ax.pie(list(wx_edge_counts.values()), labels=list(wx_edge_counts.keys()), autopct='%1.0f%%',
+ax.pie(list(wx_edge_counts.values()), labels=[DISPLAY_LABELS[k] for k in wx_edge_counts.keys()], autopct='%1.0f%%',
        colors=colors_pie[:len(wx_edge_counts)], explode=[0.05]*len(wx_edge_counts),
        textprops={'fontsize': 12, 'fontweight': 'bold'})
 ax.set_title(f'오행 엣지 분포 (N={G.number_of_edges()})', fontsize=13, fontweight='bold')
@@ -392,16 +393,17 @@ fig, axes = plt.subplots(1, 2, figsize=(18, 8))
 ax = axes[0]
 # 河圖 4-5: 4방 5행 배치
 hutu_pos = {
-    '1/6\n수': (0, 2), '2/7\n화': (0, -2),
-    '3/8\n목': (-2, 0), '4/9\n금': (2, 0),
-    '5/10\n토': (0, 0),
+    '1/6\nWater': (0, 2), '2/7\nFire': (0, -2),
+    '3/8\nWood': (-2, 0), '4/9\nMetal': (2, 0),
+    '5/10\nEarth': (0, 0),
 }
 for label, (x, y) in hutu_pos.items():
-    wx = label.split('\n')[1]
-    ax.add_patch(plt.Circle((x, y), 0.6, facecolor=wuxing_color[wx], edgecolor='black', linewidth=2))
+    ph = label.split('\n')[1]
+    label = label.replace(ph, DISPLAY_LABELS[ph])
+    ax.add_patch(plt.Circle((x, y), 0.6, facecolor=phase_color[ph], edgecolor='black', linewidth=2))
     ax.text(x, y, label, ha='center', va='center', fontsize=11, fontweight='bold')
 # 연결선: 상생순환
-for a, b in [('1/6\n수','3/8\n목'), ('3/8\n목','2/7\n화'), ('2/7\n화','5/10\n토'), ('5/10\n토','4/9\n금'), ('4/9\n금','1/6\n수')]:
+for a, b in [('1/6\nWater','3/8\nWood'), ('3/8\nWood','2/7\nFire'), ('2/7\nFire','5/10\nEarth'), ('5/10\nEarth','4/9\nMetal'), ('4/9\nMetal','1/6\nWater')]:
     x1, y1 = hutu_pos[a]; x2, y2 = hutu_pos[b]
     ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
                 arrowprops=dict(arrowstyle='->', color='#44AA44', lw=2, connectionstyle='arc3,rad=0.15'))
@@ -411,13 +413,13 @@ ax.set_title('河圖 4-5 基礎 (四象+五居中央)\n4×5=20, 4+5=9', fontsize
 ax = axes[1]
 # 5궁 = 오행 그룹
 wx_groups = {
-    '수': [1, 6, 11, 16], '화': [2, 7, 12, 17], '목': [3, 8, 13, 18],
-    '금': [4, 9, 14, 19], '토': [5, 10, 15, 20]
+    'Water': [1, 6, 11, 16], 'Fire': [2, 7, 12, 17], 'Wood': [3, 8, 13, 18],
+    'Metal': [4, 9, 14, 19], 'Earth': [5, 10, 15, 20]
 }
 positions_5 = [(0, 2), (-2, 0.5), (2, 0.5), (-1, -2), (1, -2)]
-for (wx, nodes), (x, y) in zip(wx_groups.items(), positions_5):
-    ax.add_patch(plt.Circle((x, y), 0.7, facecolor=wuxing_color[wx], edgecolor='black', linewidth=2))
-    ax.text(x, y+0.15, f'{wx}\n{" ".join(map(str, nodes))}\n합={sum(nodes)}', ha='center', va='center', fontsize=10, fontweight='bold')
+for (ph, nodes), (x, y) in zip(wx_groups.items(), positions_5):
+    ax.add_patch(plt.Circle((x, y), 0.7, facecolor=phase_color[ph], edgecolor='black', linewidth=2))
+    ax.text(x, y+0.15, f'{DISPLAY_LABELS[ph]}\n{" ".join(map(str, nodes))}\n합={sum(nodes)}', ha='center', va='center', fontsize=10, fontweight='bold')
 ax.set_xlim(-3, 3); ax.set_ylim(-3.5, 3.5); ax.set_aspect('equal'); ax.axis('off')
 ax.set_title('五宮: 오행별 4자 그룹\n총합 210, 평균 42', fontsize=14, fontweight='bold')
 plt.tight_layout(); save_fig('origin_01_hutu_5palaces.png'); plt.close()
@@ -437,7 +439,7 @@ for name, (x, y) in grid_pos.items():
     # 4자 배치
     offsets = [(-0.4, 0.3), (0.4, 0.3), (-0.4, -0.3), (0.4, -0.3)]
     for node, (dx, dy) in zip(palace_nodes, offsets):
-        circle = plt.Circle((x+dx, y+dy), 0.22, facecolor=wuxing_color[wuxing[node]], edgecolor='black', linewidth=1.5)
+        circle = plt.Circle((x+dx, y+dy), 0.22, facecolor=phase_color[phase[node]], edgecolor='black', linewidth=1.5)
         ax.add_patch(circle)
         ax.text(x+dx, y+dy, str(node), ha='center', va='center', fontsize=11, fontweight='bold')
     ax.text(x, y+0.72, f'{name}', ha='center', va='center', fontsize=13, fontweight='bold')
@@ -456,10 +458,10 @@ plt.tight_layout(); save_fig('origin_02_9palace_grid.png'); plt.close()
 # --- origin_03: 右旋 변환 ---
 fig, ax = plt.subplots(1, 1, figsize=(12, 10))
 # 왼쪽: 5궁
-left_pos = {'수': (0, 2), '목': (-1.5, 0.5), '화': (1.5, 0.5), '금': (-0.8, -1.5), '토': (0.8, -1.5)}
-for wx, (x, y) in left_pos.items():
-    ax.add_patch(plt.Circle((x-5, y), 0.6, facecolor=wuxing_color[wx], edgecolor='black', linewidth=2))
-    ax.text(x-5, y, wx, ha='center', va='center', fontsize=14, fontweight='bold')
+left_pos = {'Water': (0, 2), 'Wood': (-1.5, 0.5), 'Fire': (1.5, 0.5), 'Metal': (-0.8, -1.5), 'Earth': (0.8, -1.5)}
+for ph, (x, y) in left_pos.items():
+    ax.add_patch(plt.Circle((x-5, y), 0.6, facecolor=phase_color[ph], edgecolor='black', linewidth=2))
+    ax.text(x-5, y, ph, ha='center', va='center', fontsize=14, fontweight='bold')
 # 오른쪽: 九宫 (3x3)
 for name, (x, y) in grid_pos.items():
     ax.add_patch(plt.Rectangle((x+2.1, y-0.4), 0.8, 0.8, fill=True, facecolor='lightyellow', edgecolor='black', linewidth=1.5))
@@ -475,11 +477,11 @@ plt.tight_layout(); save_fig('origin_03_right_rotation.png'); plt.close()
 # --- origin_04: 互化 1890 ---
 fig, ax = plt.subplots(1, 1, figsize=(14, 10))
 # 5궁 (왼쪽 세로)
-wx_list = ['수', '화', '목', '금', '토']
-for i, wx in enumerate(wx_list):
+ph_list = ['Water', 'Fire', 'Wood', 'Metal', 'Earth']
+for i, ph in enumerate(ph_list):
     y = 2 - i * 1.0
-    ax.add_patch(plt.Circle((-3, y), 0.35, facecolor=wuxing_color[wx], edgecolor='black', linewidth=2))
-    ax.text(-3, y, wx, ha='center', va='center', fontsize=12, fontweight='bold')
+    ax.add_patch(plt.Circle((-3, y), 0.35, facecolor=phase_color[ph], edgecolor='black', linewidth=2))
+    ax.text(-3, y, DISPLAY_LABELS[ph], ha='center', va='center', fontsize=12, fontweight='bold')
 # 9궁 (위쪽 가로)
 palace_names = list(grid_pos.keys())
 for j, name in enumerate(palace_names):
@@ -525,7 +527,7 @@ for name, (x, y) in grid_pos.items():
     for k, node in enumerate(palace_nodes):
         angle = 2 * np.pi * k / 4
         px, py = x + 0.45 * np.cos(angle), y + 0.45 * np.sin(angle)
-        ax.add_patch(plt.Circle((px, py), 0.15, facecolor=wuxing_color[wuxing[node]], edgecolor='black', linewidth=1))
+        ax.add_patch(plt.Circle((px, py), 0.15, facecolor=phase_color[phase[node]], edgecolor='black', linewidth=1))
         ax.text(px, py, str(node), ha='center', va='center', fontsize=9, fontweight='bold')
 ax.set_xlim(-3, 3); ax.set_ylim(-3, 3); ax.set_aspect('equal'); ax.axis('off')
 ax.set_title('九宫 42-불변량 분포', fontsize=13, fontweight='bold')
@@ -549,17 +551,17 @@ palace_names_ordered = ['NW', 'N', 'NE', 'W', 'C', 'E', 'SW', 'S', 'SE']
 wx_counts_per_palace = {name: {} for name in palace_names_ordered}
 for name in palace_names_ordered:
     for node in NINE_PALACES[name]:
-        wx = wuxing[node]
-        wx_counts_per_palace[name][wx] = wx_counts_per_palace[name].get(wx, 0) + 1
+        ph = phase[node]
+        wx_counts_per_palace[name][ph] = wx_counts_per_palace[name].get(ph, 0) + 1
 
 bottom = np.zeros(9)
-for wx in ['수', '화', '목', '금', '토']:
-    counts = [wx_counts_per_palace[name].get(wx, 0) for name in palace_names_ordered]
-    ax.bar(palace_names_ordered, counts, bottom=bottom, label=wx, color=wuxing_color[wx], edgecolor='black', linewidth=1)
+for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']:
+    counts = [wx_counts_per_palace[name].get(ph, 0) for name in palace_names_ordered]
+    ax.bar(palace_names_ordered, counts, bottom=bottom, label=DISPLAY_LABELS[ph], color=phase_color[ph], edgecolor='black', linewidth=1)
     bottom += counts
 ax.set_title('九宫 각 궁의 오행 분포', fontsize=13, fontweight='bold')
 ax.legend(loc='upper right')
-ax.set_ylabel('Count')
+ax.set_ylabel('개수')
 
 plt.tight_layout(); save_fig('origin_05_42_invariants.png'); plt.close()
 
@@ -620,11 +622,11 @@ plt.tight_layout(); save_fig('origin_translated_01_terms.png'); plt.close()
 # --- origin_translated_02: 5개 residue class에서 9개 block으로 ---
 fig, axes = plt.subplots(1, 2, figsize=(18, 9))
 ax = axes[0]
-for i, wx in enumerate(['수', '화', '목', '금', '토']):
-    nodes = [n for n in sorted(G.nodes()) if wuxing[n] == wx]
+for i, ph in enumerate(['Water', 'Fire', 'Wood', 'Metal', 'Earth']):
+    nodes = [n for n in sorted(G.nodes()) if phase[n] == ph]
     y = 4 - i
-    ax.add_patch(plt.Rectangle((-0.7, y-0.35), 4.1, 0.7, facecolor=wuxing_color[wx], edgecolor='black', alpha=0.85))
-    ax.text(-1.0, y, f'{wx}', ha='right', va='center', fontsize=14, fontweight='bold')
+    ax.add_patch(plt.Rectangle((-0.7, y-0.35), 4.1, 0.7, facecolor=phase_color[ph], edgecolor='black', alpha=0.85))
+    ax.text(-1.0, y, f'{DISPLAY_LABELS[ph]}', ha='right', va='center', fontsize=14, fontweight='bold')
     ax.text(1.35, y, f'{{{", ".join(map(str, nodes))}}}', ha='center', va='center', fontsize=14, fontweight='bold')
     ax.text(3.75, y, f'Σ={sum(nodes)}', ha='left', va='center', fontsize=12)
 ax.set_xlim(-1.5, 5.2); ax.set_ylim(-0.8, 4.8); ax.axis('off')
@@ -724,7 +726,7 @@ ax = axes[0]
 incidence = np.ones((5, 9))
 im = ax.imshow(incidence, cmap='Blues', vmin=0, vmax=1)
 ax.set_xticks(range(9)); ax.set_xticklabels([f'B_{n}' for n in palace_names_ordered], rotation=45, ha='right')
-ax.set_yticks(range(5)); ax.set_yticklabels([f'{wx} class' for wx in ['수', '화', '목', '금', '토']])
+ax.set_yticks(range(5)); ax.set_yticklabels([f'{ph} class' for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']])
 for i in range(5):
     for j in range(9):
         ax.text(j, i, '1', ha='center', va='center', fontsize=10, fontweight='bold')

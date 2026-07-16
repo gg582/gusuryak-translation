@@ -1,0 +1,121 @@
+============================================================
+Per-cluster rotation analysis: Nakseo Sagudo (洛書四九圖)
+============================================================
+
+Cluster: NW face
+  Cyclic order (6 elements): 16 -> 7 -> 19 -> 2 -> 14 -> 5
+  Sum: 63
+  Residue pattern (mod 5): W-F-M-F-M-E
+  Opposite-pair sums: [18, 21, 24]
+  No nontrivial rotational invariance.
+
+Cluster: NE face
+  Cyclic order (6 elements): 16 -> 10 -> 12 -> 9 -> 17 -> 4
+  Sum: 68
+  Residue pattern (mod 5): W-E-F-M-F-M
+  Opposite-pair sums: [25, 27, 16]
+  No nontrivial rotational invariance.
+
+Cluster: SW face
+  Cyclic order (6 elements): 5 -> 18 -> 3 -> 13 -> 8 -> 11
+  Sum: 58
+  Residue pattern (mod 5): E-Wd-Wd-Wd-Wd-W
+  Opposite-pair sums: [18, 26, 14]
+  No nontrivial rotational invariance.
+
+Cluster: SE face
+  Cyclic order (6 elements): 10 -> 6 -> 1 -> 20 -> 15 -> 11
+  Sum: 63
+  Residue pattern (mod 5): E-W-W-E-E-W
+  Opposite-pair sums: [30, 21, 12]
+  No nontrivial rotational invariance.
+
+Cluster: Outer 20-cycle
+  Cyclic order (20 elements): 16 -> 7 -> 19 -> 2 -> 14 -> 5 -> 18 -> 3 -> 13 -> 8 -> 11 -> 15 -> 20 -> 1 -> 6 -> 10 -> 12 -> 9 -> 17 -> 4
+  Sum: 210
+  Residue pattern (mod 5): W-F-M-F-M-E-Wd-Wd-Wd-Wd-W-E-E-W-W-E-F-M-F-M
+  Opposite-pair sums: [27, 22, 39, 3, 20, 15, 30, 12, 30, 12]
+  No nontrivial rotational invariance.
+
+Cluster: NW palace
+  Cyclic order (4 elements): 7 -> 19 -> 2 -> 14
+  Sum: 42
+  Residue pattern (mod 5): F-M-F-M
+  Opposite-pair sums: [9, 33]
+  No nontrivial rotational invariance.
+
+Cluster: N palace
+  Cyclic order (4 elements): 4 -> 19 -> 17 -> 2
+  Sum: 42
+  Residue pattern (mod 5): M-M-F-F
+  Opposite-pair sums: [21, 21]
+    -> All opposite pairs sum to 21
+  No nontrivial rotational invariance.
+
+Cluster: NE palace
+  Cyclic order (4 elements): 4 -> 12 -> 9 -> 17
+  Sum: 42
+  Residue pattern (mod 5): M-F-M-F
+  Opposite-pair sums: [13, 29]
+  No nontrivial rotational invariance.
+
+Cluster: W palace
+  Cyclic order (4 elements): 7 -> 18 -> 3 -> 14
+  Sum: 42
+  Residue pattern (mod 5): F-Wd-Wd-M
+  Opposite-pair sums: [10, 32]
+  No nontrivial rotational invariance.
+
+Cluster: C palace
+  Cyclic order (4 elements): 16 -> 10 -> 11 -> 5
+  Sum: 42
+  Residue pattern (mod 5): W-E-W-E
+  Opposite-pair sums: [27, 15]
+  No nontrivial rotational invariance.
+
+Cluster: E palace
+  Cyclic order (4 elements): 9 -> 12 -> 6 -> 15
+  Sum: 42
+  Residue pattern (mod 5): M-F-W-E
+  Opposite-pair sums: [15, 27]
+  No nontrivial rotational invariance.
+
+Cluster: SW palace
+  Cyclic order (4 elements): 8 -> 18 -> 3 -> 13
+  Sum: 42
+  Residue pattern (mod 5): Wd-Wd-Wd-Wd
+  Opposite-pair sums: [11, 31]
+  No nontrivial rotational invariance.
+
+Cluster: S palace
+  Cyclic order (4 elements): 1 -> 13 -> 8 -> 20
+  Sum: 42
+  Residue pattern (mod 5): W-Wd-Wd-E
+  Opposite-pair sums: [9, 33]
+  No nontrivial rotational invariance.
+
+Cluster: SE palace
+  Cyclic order (4 elements): 6 -> 1 -> 20 -> 15
+  Sum: 42
+  Residue pattern (mod 5): W-W-E-E
+  Opposite-pair sums: [26, 16]
+  No nontrivial rotational invariance.
+
+Global rotational symmetry for Nakseo Sagudo (洛書四九圖)
+--------------------------------------------------
+NOTE: These are geometric cluster-center mappings under a counterclockwise rotation. They describe where each cluster's center moves; they do NOT imply the labels/stars inside the clusters are preserved or that the puzzle has a true label-rotation symmetry.
+  90° counterclockwise rotation:
+    NW face -> SW face
+    NE face -> NW face
+    SW face -> SE face
+    SE face -> NE face
+  180° counterclockwise rotation:
+    NW face -> SE face
+    NE face -> SW face
+    SW face -> NE face
+    SE face -> NW face
+  270° counterclockwise rotation:
+    NW face -> NE face
+    NE face -> SE face
+    SW face -> NW face
+    SE face -> SW face

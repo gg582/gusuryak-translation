@@ -1,0 +1,42 @@
+============================================================
+Per-cluster rotation analysis: Jisu-yong-yukdo (Six-Each-Gets)
+============================================================
+
+Cluster: upper-left
+  Cyclic order (6 elements): 13 -> 5 -> 18 -> 16 -> 3 -> 8
+  Sum: 63
+  Residue pattern (mod 5): Wd-E-Wd-W-Wd-Wd
+  Opposite-pair sums: [29, 8, 26]
+  No nontrivial rotational invariance.
+
+Cluster: upper-right
+  Cyclic order (6 elements): 1 -> 13 -> 8 -> 14 -> 20 -> 7
+  Sum: 63
+  Residue pattern (mod 5): W-Wd-Wd-M-E-F
+  Opposite-pair sums: [15, 33, 15]
+  No nontrivial rotational invariance.
+
+Cluster: center
+  Cyclic order (6 elements): 14 -> 15 -> 11 -> 12 -> 3 -> 8
+  Sum: 63
+  Residue pattern (mod 5): M-E-W-F-Wd-Wd
+  Opposite-pair sums: [26, 18, 19]
+  No nontrivial rotational invariance.
+
+Cluster: lower-left
+  Cyclic order (6 elements): 12 -> 11 -> 10 -> 2 -> 19 -> 9
+  Sum: 63
+  Residue pattern (mod 5): F-W-E-F-M-M
+  Opposite-pair sums: [14, 30, 19]
+  No nontrivial rotational invariance.
+
+Cluster: lower-right
+  Cyclic order (6 elements): 15 -> 4 -> 17 -> 6 -> 10 -> 11
+  Sum: 63
+  Residue pattern (mod 5): E-M-F-W-E-W
+  Opposite-pair sums: [21, 14, 28]
+  No nontrivial rotational invariance.
+
+Global rotational symmetry for Jisu-yong-yukdo (Six-Each-Gets)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.

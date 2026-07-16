@@ -1,0 +1,44 @@
+============================================================
+Per-cluster rotation analysis: Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram)
+============================================================
+
+Cluster: Water (r=1)
+  Cyclic order (5 elements): 6 -> 11 -> 16 -> 1 -> 21
+  Sum: 55
+  Residue pattern (mod 5): W-W-W-W-W
+  No nontrivial rotational invariance.
+  Note: Residue class arranged by angular position; no intrinsic cycle in original text.
+
+Cluster: Fire (r=2)
+  Cyclic order (4 elements): 12 -> 7 -> 2 -> 17
+  Sum: 38
+  Residue pattern (mod 5): F-F-F-F
+  Opposite-pair sums: [14, 24]
+  No nontrivial rotational invariance.
+  Note: Residue class arranged by angular position; no intrinsic cycle in original text.
+
+Cluster: Wood (r=3)
+  Cyclic order (4 elements): 8 -> 18 -> 13 -> 23
+  Sum: 62
+  Residue pattern (mod 5): Wd-Wd-Wd-Wd
+  Opposite-pair sums: [21, 41]
+  No nontrivial rotational invariance.
+  Note: Residue class arranged by angular position; no intrinsic cycle in original text.
+
+Cluster: Metal (r=4)
+  Cyclic order (5 elements): 19 -> 14 -> 24 -> 9 -> 4
+  Sum: 70
+  Residue pattern (mod 5): M-M-M-M-M
+  No nontrivial rotational invariance.
+  Note: Residue class arranged by angular position; no intrinsic cycle in original text.
+
+Cluster: Earth (r=5)
+  Cyclic order (3 elements): 20 -> 5 -> 15
+  Sum: 40
+  Residue pattern (mod 5): E-E-E
+  No nontrivial rotational invariance.
+  Note: Residue class arranged by angular position; no intrinsic cycle in original text.
+
+Global rotational symmetry for Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.

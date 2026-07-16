@@ -1,7 +1,7 @@
-// unified_solver.py
-"""Unified solver for Gakdeuk families (Korean version)
+# unified_solver.py
+"""Unified solver for each-gets families (Korean version)
 
-This script uses the shared `base_solver.GakdeukSolver` implementation
+This script uses the shared `base_solver.EachGetsSolver` implementation
 and iterates over all known families defined in `base_solver.known_families()`.
 For each family it solves the MILP, visualizes the solution and stores the
 results in a unified JSON file as well as PNG images.
@@ -15,7 +15,7 @@ import json
 from pathlib import Path
 
 # Import the shared solver and utilities
-from .base_solver import GakdeukSolver, known_families, visualize_solution
+from .base_solver import EachGetsSolver, known_families, visualize_solution
 
 
 def main():
@@ -24,7 +24,7 @@ def main():
 
     all_solutions = []
     for family in known_families():
-        solver = GakdeukSolver(
+        solver = EachGetsSolver(
             name=family["name"],
             n=family["n"],
             N_max=family["N_max"],

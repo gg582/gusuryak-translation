@@ -1,0 +1,60 @@
+============================================================
+Per-cluster rotation analysis: Chiljagakdeuk (Seven-Each-Gets)
+============================================================
+
+Cluster: C1
+  Cyclic order (7 elements): 2 -> 29 -> 1 -> 24 -> 34 -> 11 -> 19
+  Sum: 120
+  Residue pattern (mod 5): F-M-W-M-M-W-M
+  No nontrivial rotational invariance.
+  Note: center=2, direction=top
+
+Cluster: C2
+  Cyclic order (7 elements): 3 -> 6 -> 33 -> 23 -> 13 -> 34 -> 8
+  Sum: 120
+  Residue pattern (mod 5): Wd-W-Wd-Wd-Wd-M-Wd
+  No nontrivial rotational invariance.
+  Note: center=3, direction=left
+
+Cluster: C3
+  Cyclic order (7 elements): 5 -> 22 -> 7 -> 20 -> 30 -> 26 -> 10
+  Sum: 120
+  Residue pattern (mod 5): E-F-F-E-E-W-E
+  No nontrivial rotational invariance.
+  Note: center=5, direction=center
+
+Cluster: C4
+  Cyclic order (7 elements): 4 -> 15 -> 28 -> 9 -> 18 -> 32 -> 14
+  Sum: 120
+  Residue pattern (mod 5): M-E-Wd-M-Wd-F-M
+  No nontrivial rotational invariance.
+  Note: center=4, direction=right
+
+Cluster: C5
+  Cyclic order (7 elements): 1 -> 35 -> 16 -> 21 -> 24 -> 6 -> 17
+  Sum: 120
+  Residue pattern (mod 5): W-E-W-W-M-W-F
+  No nontrivial rotational invariance.
+  Note: center=1, direction=bottom
+
+Global rotational symmetry for Chiljagakdeuk (Seven-Each-Gets)
+--------------------------------------------------
+NOTE: These are geometric cluster-center mappings under a counterclockwise rotation. They describe where each cluster's center moves; they do NOT imply the labels/stars inside the clusters are preserved or that the puzzle has a true label-rotation symmetry.
+  90° counterclockwise rotation:
+    C1 -> C2
+    C2 -> C5
+    C3 -> C3 (fixed)
+    C4 -> C1
+    C5 -> C4
+  180° counterclockwise rotation:
+    C1 -> C5
+    C2 -> C4
+    C3 -> C3 (fixed)
+    C4 -> C2
+    C5 -> C1
+  270° counterclockwise rotation:
+    C1 -> C4
+    C2 -> C1
+    C3 -> C3 (fixed)
+    C4 -> C5
+    C5 -> C2

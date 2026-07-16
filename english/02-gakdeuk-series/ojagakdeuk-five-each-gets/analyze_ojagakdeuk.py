@@ -87,7 +87,7 @@ RESIDUE_STYLE: dict[int, dict[str, str]] = {
     0: {"face": "#F6E5A3", "edge": "#C39A00", "name": "Earth", "en": "Earth"},
 }
 
-WUXING_COLOR = {
+PHASE_COLOR = {
     "Water": "#4488CC",
     "Fire": "#CC4444",
     "Wood": "#44AA44",
@@ -96,7 +96,7 @@ WUXING_COLOR = {
 }
 
 
-def wuxing_of(n: int) -> str:
+def phase_of(n: int) -> str:
     return RESIDUE_STYLE[n % 5]["name"]
 
 
@@ -131,14 +131,14 @@ print("Because the original has no edges, graph-theoretic metrics (degree, betwe
 print("\nSum by wuxing:")
 for r in [1, 2, 3, 4, 5]:
     nodes = [n for n in POSITIONS if residue_1based(n) == r]
-    wx = RESIDUE_STYLE[r % 5]["name"]
-    print(f"  {wx}({r}): sum={sum(nodes)}, numbers={sorted(nodes)}")
+    ph = RESIDUE_STYLE[r % 5]["name"]
+    print(f"  {ph}({r}): sum={sum(nodes)}, numbers={sorted(nodes)}")
 
 print("\nPositional distribution by wuxing:")
 for r in [1, 2, 3, 4, 0]:
     nums = GROUPS[r]
-    wx = RESIDUE_STYLE[r]["name"]
-    print(f"  {wx}: {len(nums)} numbers - {sorted(nums)}")
+    ph = RESIDUE_STYLE[r]["name"]
+    print(f"  {ph}: {len(nums)} numbers - {sorted(nums)}")
 
 # Sum by horizontal level (y-coordinate)
 LEVELS: dict[float, list[int]] = {}
@@ -218,8 +218,8 @@ ax.set_ylim(-2.4, 6.8)
 ax.set_aspect("equal")
 ax.axis("off")
 legend_elements = [
-    mpatches.Patch(facecolor=WUXING_COLOR[wx], edgecolor="black", label=f"{wx}")
-    for wx in ["Water", "Fire", "Wood", "Metal", "Earth"]
+    mpatches.Patch(facecolor=PHASE_COLOR[ph], edgecolor="black", label=f"{ph}")
+    for ph in ["Water", "Fire", "Wood", "Metal", "Earth"]
 ]
 ax.legend(handles=legend_elements, loc="lower right", fontsize=10, framealpha=0.9)
 save_fig("01_original_graph.png")
@@ -237,10 +237,10 @@ ax.set_ylim(-2.4, 6.8)
 ax.set_aspect("equal")
 ax.axis("off")
 
-for idx, wx in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
+for idx, ph in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
     ax = axes[idx + 1]
-    wx_nodes = [n for n in POSITIONS if wuxing_of(n) == wx]
-    other_nodes = [n for n in POSITIONS if n not in wx_nodes]
+    ph_nodes = [n for n in POSITIONS if phase_of(n) == ph]
+    other_nodes = [n for n in POSITIONS if n not in ph_nodes]
 
     for n in other_nodes:
         x, y = POSITIONS[n]
@@ -256,13 +256,13 @@ for idx, wx in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
         )
         ax.text(x, y, str(n), ha="center", va="center", fontsize=8, color="#AAAAAA", zorder=2)
 
-    for n in wx_nodes:
+    for n in ph_nodes:
         x, y = POSITIONS[n]
         ax.add_patch(
             plt.Circle(
                 (x, y),
                 0.34,
-                facecolor=WUXING_COLOR[wx],
+                facecolor=PHASE_COLOR[ph],
                 edgecolor="black",
                 linewidth=2.5,
                 zorder=2,
@@ -276,15 +276,15 @@ for idx, wx in enumerate(["Water", "Fire", "Wood", "Metal", "Earth"]):
             va="center",
             fontsize=10,
             fontweight="bold",
-            color="white" if wx in ["Water", "Wood"] else "black",
+            color="white" if ph in ["Water", "Wood"] else "black",
             zorder=3,
         )
 
     ax.set_title(
-        f"{wx} · sum {sum(wx_nodes)}",
+        f"{ph} · sum {sum(ph_nodes)}",
         fontsize=12,
         fontweight="bold",
-        color=WUXING_COLOR[wx],
+        color=PHASE_COLOR[ph],
     )
     ax.set_xlim(-5.0, 5.0)
     ax.set_ylim(-2.4, 6.8)
@@ -336,11 +336,11 @@ cbar.ax.set_yticklabels(["Water", "Fire", "Wood", "Metal", "Earth"])
 
 ax = axes[1]
 # x-coordinate distribution for each wuxing
-for wx in ["Water", "Fire", "Wood", "Metal", "Earth"]:
-    nodes = [n for n in POSITIONS if wuxing_of(n) == wx]
+for ph in ["Water", "Fire", "Wood", "Metal", "Earth"]:
+    nodes = [n for n in POSITIONS if phase_of(n) == ph]
     xvals = [POSITIONS[n][0] for n in nodes]
     yvals = [POSITIONS[n][1] for n in nodes]
-    ax.scatter(xvals, yvals, c=WUXING_COLOR[wx], s=200, edgecolors="black", linewidths=1.5, label=wx, zorder=2)
+    ax.scatter(xvals, yvals, c=PHASE_COLOR[ph], s=200, edgecolors="black", linewidths=1.5, label=ph, zorder=2)
     for n in nodes:
         ax.text(POSITIONS[n][0], POSITIONS[n][1], str(n), ha="center", va="center",
                 fontsize=8, fontweight="bold", zorder=3)
@@ -417,13 +417,13 @@ plt.close()
 fig, axes = plt.subplots(2, 2, figsize=(16, 14))
 
 ax = axes[0, 0]
-wx_sums = {wx: sum([n for n in POSITIONS if wuxing_of(n) == wx]) for wx in ["Water", "Fire", "Wood", "Metal", "Earth"]}
-wx_names = list(wx_sums.keys())
-wx_vals = list(wx_sums.values())
-wx_colors_bar = [WUXING_COLOR[w] for w in wx_names]
-ax.bar(wx_names, wx_vals, color=wx_colors_bar, edgecolor="black", linewidth=1.5)
+ph_sums = {ph: sum([n for n in POSITIONS if phase_of(n) == ph]) for ph in ["Water", "Fire", "Wood", "Metal", "Earth"]}
+ph_names = list(ph_sums.keys())
+ph_vals = list(ph_sums.values())
+ph_colors_bar = [PHASE_COLOR[w] for w in ph_names]
+ax.bar(ph_names, ph_vals, color=ph_colors_bar, edgecolor="black", linewidth=1.5)
 ax.set_title("Sum by wuxing (55, 38, 62, 70, 40)", fontsize=12, fontweight="bold")
-for bar, val in zip(ax.patches, wx_vals):
+for bar, val in zip(ax.patches, ph_vals):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
         bar.get_height() + 1,
@@ -484,9 +484,9 @@ for r in [1, 2, 3, 4, 0]:
     missing_same = [n for n in range(1, 26) if n % 5 == r and n not in base]
     extended = base + missing_same[: 5 - len(base)]
     extended_counts.append((RESIDUE_STYLE[r]["name"], len(extended)))
-labels = [f"{wx}\n({cnt})" for wx, cnt in extended_counts]
+labels = [f"{ph}\n({cnt})" for ph, cnt in extended_counts]
 counts = [cnt for _, cnt in extended_counts]
-colors_cnt = [WUXING_COLOR[wx] for wx, _ in extended_counts]
+colors_cnt = [PHASE_COLOR[ph] for ph, _ in extended_counts]
 ax.bar(labels, counts, color=colors_cnt, edgecolor="black", linewidth=1.5)
 ax.set_title("Count by wuxing in the complete 5×5 extension", fontsize=12, fontweight="bold")
 for bar, val in zip(ax.patches, counts):
@@ -505,7 +505,7 @@ plt.close()
 
 # --- 06: Wuxing mutual-generation and mutual-overcoming diagram ---
 fig, ax = plt.subplots(figsize=(10, 8))
-wuxing_graph_relations = [
+phase_graph_relations = [
     ("Water", "Wood", "Generation"),
     ("Wood", "Fire", "Generation"),
     ("Fire", "Earth", "Generation"),
@@ -518,10 +518,10 @@ wuxing_graph_relations = [
     ("Earth", "Water", "Overcoming"),
 ]
 # Draw arrows manually
-wx_pos = {"Water": (0, 2), "Wood": (2, 1), "Fire": (1, -1), "Earth": (-1, -1), "Metal": (-2, 1)}
-for u, v, r in wuxing_graph_relations:
-    x1, y1 = wx_pos[u]
-    x2, y2 = wx_pos[v]
+ph_pos = {"Water": (0, 2), "Wood": (2, 1), "Fire": (1, -1), "Earth": (-1, -1), "Metal": (-2, 1)}
+for u, v, r in phase_graph_relations:
+    x1, y1 = ph_pos[u]
+    x2, y2 = ph_pos[v]
     color = "#44AA44" if r == "Generation" else "#CC4444"
     style = "-" if r == "Generation" else "--"
     rad = 0.15 if r == "Generation" else -0.15
@@ -533,18 +533,18 @@ for u, v, r in wuxing_graph_relations:
                         connectionstyle=f"arc3,rad={rad}"),
     )
 
-for wx, (x, y) in wx_pos.items():
+for ph, (x, y) in ph_pos.items():
     ax.add_patch(
         plt.Circle(
             (x, y),
             0.35,
-            facecolor=WUXING_COLOR[wx],
+            facecolor=PHASE_COLOR[ph],
             edgecolor="black",
             linewidth=2.5,
             zorder=2,
         )
     )
-    ax.text(x, y, wx, ha="center", va="center", fontsize=14, fontweight="bold", zorder=3)
+    ax.text(x, y, ph, ha="center", va="center", fontsize=14, fontweight="bold", zorder=3)
 
 legend_elements = [
     Line2D([0], [0], color="#44AA44", lw=3, label="Generation"),
@@ -571,9 +571,9 @@ for r in [1, 2, 3, 4, 0]:
     extended = base + missing_same_residue[: 5 - len(base)]
     extended_totals.append((RESIDUE_STYLE[r]["name"], sum(extended), len(extended)))
 
-labels = [f"{wx}\n({cnt})" for wx, _, cnt in extended_totals]
+labels = [f"{ph}\n({cnt})" for ph, _, cnt in extended_totals]
 values = [t for _, t, _ in extended_totals]
-colors_ext = [WUXING_COLOR[wx] for wx, _, _ in extended_totals]
+colors_ext = [PHASE_COLOR[ph] for ph, _, _ in extended_totals]
 ax.bar(labels, values, color=colors_ext, edgecolor="black", linewidth=1.5)
 ax.set_title("Complete 5×5 wuxing extension (virtual 25 numbers)", fontsize=13, fontweight="bold")
 for bar, val in zip(ax.patches, values):

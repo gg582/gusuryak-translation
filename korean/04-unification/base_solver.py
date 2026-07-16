@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Shared base solver for Gakdeuk series with original simple visualization.
+"""Shared base solver for each-gets series with original simple visualization.
 The implementation mirrors the original `gakdeuk_solver.py` logic (MILP via pulp)
 and provides `visualize_solution` that draws clusters as simple polygons with
 center points, exactly as the user demanded.
@@ -15,7 +15,7 @@ import numpy as np
 
 
 @dataclass
-class GakdeukSolution:
+class EachGetsSolution:
     n: int
     S: int
     adjacency: List[Tuple[int, int]]
@@ -23,7 +23,7 @@ class GakdeukSolution:
     shared_vertices: List[int]
 
 
-class GakdeukSolver:
+class EachGetsSolver:
     """MILP solver for a given puzzle size `n` and target sum `S`.
     It constructs variables for each vertex, enforces residue class constraints,
     adjacency constraints, and optional symmetry breaking.
@@ -39,7 +39,7 @@ class GakdeukSolver:
         self.max_multiplicity = max_multiplicity
         self.symmetry = symmetry
         self.residue_balance = residue_balance
-        self.model = pulp.LpProblem("Gakdeuk", pulp.LpMinimize)
+        self.model = pulp.LpProblem("EachGets", pulp.LpMinimize)
         self._build_variables()
         self._add_constraints()
         # Dummy objective (we just need feasibility)
@@ -87,7 +87,7 @@ class GakdeukSolver:
                 self.model += pulp.lpSum(self.X[v] for v in range(1, self.n * 5 + 1) if v % 5 == r) == self.T[r]
                 self.model += pulp.lpSum(self.shared[v] for v in range(1, self.n * 5 + 1) if v % 5 == r) == self.U[r]
 
-    def solve(self) -> Optional[GakdeukSolution]:
+    def solve(self) -> Optional[EachGetsSolution]:
         res = self.model.solve(pulp.PULP_CBC_CMD(msg=False))
         if pulp.LpStatus[res] != "Optimal":
             return None
@@ -96,10 +96,10 @@ class GakdeukSolver:
             start = i * self.n + 1
             clusters.append(tuple(int(self.X[v].value()) for v in range(start, start + self.n)))
         shared_vertices = [v for v in range(1, self.n * 5 + 1) if self.shared[v].value() == 1]
-        return GakdeukSolution(self.n, self.S, self.adjacency, clusters, shared_vertices)
+        return EachGetsSolution(self.n, self.S, self.adjacency, clusters, shared_vertices)
 
     @classmethod
-    def search_s(cls, n: int, adjacency: List[Tuple[int, int]], S_start: int, S_end: int, **kwargs) -> List[GakdeukSolution]:
+    def search_s(cls, n: int, adjacency: List[Tuple[int, int]], S_start: int, S_end: int, **kwargs) -> List[EachGetsSolution]:
         sols = []
         for S in range(S_start, S_end + 1):
             solver = cls(n, S, adjacency, **kwargs)
@@ -113,7 +113,7 @@ class GakdeukSolver:
 # Original simple visualization (polygons + centre)
 # ---------------------------------------------------------------------------
 
-def visualize_solution(sol: GakdeukSolution, output_path: Optional[str] = None) -> None:
+def visualize_solution(sol: EachGetsSolution, output_path: Optional[str] = None) -> None:
     """Draw clusters as simple polygons with a centre point.
     Shared vertices are highlighted in red.
     """

@@ -1,13 +1,13 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-N-Gakdeuk (各得) Puzzle MILP Solver — integrated geometry, Wuxing, and visualization
+N-Each-Gets (各得) Puzzle MILP Solver — integrated geometry, phase, and visualization
 
 Uses Python + PuLP instead of SageMath.
 
 Features:
   1. Cluster adjacency-graph-based sharing constraints
-  2. mod 5 remainder (Wuxing) equivalence-class constraints
+  2. mod 5 remainder (phase) equivalence-class constraints
   3. Pairwise shared-vertex-count constraints
   4. Up/down / left/right residue symmetry constraints
   5. Multiple-solution enumeration and JSON save
@@ -36,7 +36,7 @@ import pulp
 
 
 @dataclass(frozen=True)
-class GakdeukSolution:
+class EachGetsSolution:
     """Solution returned by the solver."""
 
     n: int
@@ -175,7 +175,7 @@ def parse_pair_shared_counts(s: str) -> dict[tuple[int, int], int]:
 # 2. Solver
 # ============================================================
 
-class GakdeukSolver:
+class EachGetsSolver:
     def __init__(self, solver_name: str | None = None, verbose: int = 0):
         self.solver_name = solver_name
         self.verbose = verbose
@@ -203,9 +203,9 @@ class GakdeukSolver:
         residue_slack: int = 1,
         pair_shared_counts: dict[tuple[int, int], int] | None = None,
         symmetry: str | None = None,
-        forbid_solutions: list[GakdeukSolution] | None = None,
+        forbid_solutions: list[EachGetsSolution] | None = None,
         time_limit: int | None = None,
-    ) -> GakdeukSolution | None:
+    ) -> EachGetsSolution | None:
         """
         Find a single solution. Solutions given in forbid_solutions are excluded.
         """
@@ -222,7 +222,7 @@ class GakdeukSolver:
         subsets = connected_subsets(adjacency, max_multiplicity)
         subset_keys = [tuple(sorted(s)) for s in subsets]
 
-        prob = pulp.LpProblem("GakdeukGeo", pulp.LpStatusOptimal)
+        prob = pulp.LpProblem("EachGetsGeo", pulp.LpStatusOptimal)
 
         a = pulp.LpVariable.dicts(
             "a", (all_vertices, subset_keys), lowBound=0, upBound=1, cat=pulp.LpBinary
@@ -404,7 +404,7 @@ class GakdeukSolver:
         shared = tuple(v for v, m in multiplicity.items() if m >= 2)
         shared_ints = tuple(int(v) for v in shared)
 
-        return GakdeukSolution(
+        return EachGetsSolution(
             n=n,
             N_max=N_max,
             S=S,
@@ -422,9 +422,9 @@ class GakdeukSolver:
         S: int,
         max_solutions: int,
         **kwargs,
-    ) -> list[GakdeukSolution]:
+    ) -> list[EachGetsSolution]:
         """Enumerate multiple solutions."""
-        solutions: list[GakdeukSolution] = []
+        solutions: list[EachGetsSolution] = []
         for _ in range(max_solutions):
             sol = self.solve(
                 n=n,
@@ -443,7 +443,7 @@ class GakdeukSolver:
 # 3. Visualization
 # ============================================================
 
-def visualize_solution(sol: GakdeukSolution, output_path: str | None = None) -> None:
+def visualize_solution(sol: EachGetsSolution, output_path: str | None = None) -> None:
     """Visualize a solution with matplotlib."""
     try:
         import matplotlib.pyplot as plt
@@ -462,7 +462,7 @@ def visualize_solution(sol: GakdeukSolution, output_path: str | None = None) -> 
         _draw_generic(sol, output_path)
 
 
-def _draw_cross(sol: GakdeukSolution, output_path: str | None) -> None:
+def _draw_cross(sol: EachGetsSolution, output_path: str | None) -> None:
     import matplotlib.pyplot as plt
     positions = {
         0: (0, 0),
@@ -474,7 +474,7 @@ def _draw_cross(sol: GakdeukSolution, output_path: str | None) -> None:
     _draw_layout(sol, positions, output_path)
 
 
-def _draw_honeycomb(sol: GakdeukSolution, output_path: str | None) -> None:
+def _draw_honeycomb(sol: EachGetsSolution, output_path: str | None) -> None:
     import matplotlib.pyplot as plt
     # Central hexagon + 4 directional hexagons
     positions = {
@@ -487,7 +487,7 @@ def _draw_honeycomb(sol: GakdeukSolution, output_path: str | None) -> None:
     _draw_layout(sol, positions, output_path)
 
 
-def _draw_generic(sol: GakdeukSolution, output_path: str | None) -> None:
+def _draw_generic(sol: EachGetsSolution, output_path: str | None) -> None:
     import matplotlib.pyplot as plt
     import numpy as np
     # Circular layout
@@ -497,7 +497,7 @@ def _draw_generic(sol: GakdeukSolution, output_path: str | None) -> None:
 
 
 def _draw_layout(
-    sol: GakdeukSolution,
+    sol: EachGetsSolution,
     positions: dict[int, tuple[float, float]],
     output_path: str | None,
 ) -> None:
@@ -565,7 +565,7 @@ def _draw_layout(
 def known_families() -> list[dict]:
     return [
         {
-            "name": "Ojagakdeuk (Cheonsuyongodo)",
+            "name": "Five-each-gets (Heaven-Water Five-Use Diagram)",
             "n": 5,
             "N_max": 24,
             "S": 65,
@@ -575,7 +575,7 @@ def known_families() -> list[dict]:
             "residue_balance": True,
         },
         {
-            "name": "Yukjagakdeuk (Jisuyongyukdo)",
+            "name": "Six-each-gets (Jisu-Yong-Yukdo)",
             "n": 6,
             "N_max": 20,
             "S": 63,
@@ -586,7 +586,7 @@ def known_families() -> list[dict]:
             "pair_shared_counts": "0-1:2,0-2:2,0-3:2,0-4:2,1-2:2,3-4:2",
         },
         {
-            "name": "Chiljagakdeuk",
+            "name": "Seven-each-gets",
             "n": 7,
             "N_max": 35,
             "S": 120,
@@ -599,7 +599,7 @@ def known_families() -> list[dict]:
             "residue_balance": True,
         },
         {
-            "name": "Paljagakdeuk",
+            "name": "Eight-each-gets",
             "n": 8,
             "N_max": 40,
             "S": 164,
@@ -609,7 +609,7 @@ def known_families() -> list[dict]:
             "residue_balance": True,
         },
         {
-            "name": "Gujagakdeuk",
+            "name": "Nine-each-gets",
             "n": 9,
             "N_max": 45,
             "S": 207,
@@ -626,7 +626,7 @@ def known_families() -> list[dict]:
 # ============================================================
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="N-Gakdeuk MILP Solver (geometry, Wuxing, visualization)")
+    parser = argparse.ArgumentParser(description="N-Each-Gets MILP Solver (geometry, phase, visualization)")
     parser.add_argument("--n", type=int, help="Number of vertices per subset")
     parser.add_argument("--max", dest="N_max", type=int, help="Maximum number value to use")
     parser.add_argument("--sum", dest="S", type=int, help="Target sum for each subset")
@@ -661,10 +661,10 @@ def main() -> int:
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
 
-    solver = GakdeukSolver(verbose=1 if args.verbose else 0)
+    solver = EachGetsSolver(verbose=1 if args.verbose else 0)
 
     if args.all:
-        all_solutions: list[GakdeukSolution] = []
+        all_solutions: list[EachGetsSolution] = []
         for fam in known_families():
             print("=" * 70)
             print(f"[Solving] {fam['name']} (n={fam['n']}, S={fam['S']})")

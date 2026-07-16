@@ -1,0 +1,44 @@
+============================================================
+Per-cluster rotation analysis: 오자각득 (五子各得 / 천수용오도)
+============================================================
+
+Cluster: 수 (r=1)
+  Cyclic order (5 elements): 6 -> 11 -> 16 -> 1 -> 21
+  Sum: 55
+  Residue pattern (mod 5): W-W-W-W-W
+  No nontrivial rotational invariance.
+  Note: 잉여 클래스를 각도 순서로 배열; 원본에 고유 사이클은 없음.
+
+Cluster: 화 (r=2)
+  Cyclic order (4 elements): 12 -> 7 -> 2 -> 17
+  Sum: 38
+  Residue pattern (mod 5): F-F-F-F
+  Opposite-pair sums: [14, 24]
+  No nontrivial rotational invariance.
+  Note: 잉여 클래스를 각도 순서로 배열; 원본에 고유 사이클은 없음.
+
+Cluster: 목 (r=3)
+  Cyclic order (4 elements): 8 -> 18 -> 13 -> 23
+  Sum: 62
+  Residue pattern (mod 5): Wd-Wd-Wd-Wd
+  Opposite-pair sums: [21, 41]
+  No nontrivial rotational invariance.
+  Note: 잉여 클래스를 각도 순서로 배열; 원본에 고유 사이클은 없음.
+
+Cluster: 금 (r=4)
+  Cyclic order (5 elements): 19 -> 14 -> 24 -> 9 -> 4
+  Sum: 70
+  Residue pattern (mod 5): M-M-M-M-M
+  No nontrivial rotational invariance.
+  Note: 잉여 클래스를 각도 순서로 배열; 원본에 고유 사이클은 없음.
+
+Cluster: 토 (r=5)
+  Cyclic order (3 elements): 20 -> 5 -> 15
+  Sum: 40
+  Residue pattern (mod 5): E-E-E
+  No nontrivial rotational invariance.
+  Note: 잉여 클래스를 각도 순서로 배열; 원본에 고유 사이클은 없음.
+
+Global rotational symmetry for 오자각득 (五子各得 / 천수용오도)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.

@@ -1,0 +1,141 @@
+============================================================
+Per-cluster rotation analysis: Nakseo Chilgudo — corrupted data
+============================================================
+
+Cluster: center 4
+  Cyclic order (7 elements): 4 -> 31 -> 43 -> 22 -> 60 -> 27 -> 37
+  Sum: 224
+  Residue pattern (mod 5): 4-1-3-2-5-2-2
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 4
+
+Cluster: center 9
+  Cyclic order (7 elements): 9 -> 15 -> 43 -> 38 -> 55 -> 10 -> 54
+  Sum: 224
+  Residue pattern (mod 5): 4-5-3-3-5-5-4
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 9
+
+Cluster: center 2
+  Cyclic order (7 elements): 2 -> 28 -> 29 -> 39 -> 62 -> 17 -> 47
+  Sum: 224
+  Residue pattern (mod 5): 2-3-4-4-2-2-2
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 2
+
+Cluster: center 3
+  Cyclic order (7 elements): 3 -> 30 -> 40 -> 26 -> 61 -> 16 -> 48
+  Sum: 224
+  Residue pattern (mod 5): 3-5-5-1-1-1-3
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 3
+
+Cluster: center 5
+  Cyclic order (7 elements): 5 -> 32 -> 41 -> 23 -> 59 -> 14 -> 50
+  Sum: 224
+  Residue pattern (mod 5): 5-2-1-3-4-4-5
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 5
+
+Cluster: center 7
+  Cyclic order (7 elements): 7 -> 34 -> 38 -> 24 -> 57 -> 20 -> 44
+  Sum: 224
+  Residue pattern (mod 5): 2-4-3-4-2-5-4
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 7
+
+Cluster: center 8
+  Cyclic order (7 elements): 8 -> 35 -> 49 -> 12 -> 56 -> 11 -> 53
+  Sum: 224
+  Residue pattern (mod 5): 3-5-4-2-1-1-3
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 8
+
+Cluster: center 1
+  Cyclic order (7 elements): 1 -> 52 -> 25 -> 19 -> 63 -> 18 -> 46
+  Sum: 224
+  Residue pattern (mod 5): 1-2-5-4-3-3-1
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 1
+
+Cluster: center 6
+  Cyclic order (7 elements): 6 -> 33 -> 42 -> 21 -> 36 -> 13 -> 23
+  Sum: 174
+  Residue pattern (mod 5): 1-3-2-1-1-3-3
+  No nontrivial rotational invariance.
+  Note: sum = 174; center mod 9 = 6
+
+Global rotational symmetry for Nakseo Chilgudo — corrupted data
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.
+
+============================================================
+Per-cluster rotation analysis: Nakseo Chilgudo — corrected partition
+============================================================
+
+Cluster: Upper-left (4)
+  Cyclic order (7 elements): 4 -> 22 -> 27 -> 31 -> 37 -> 43 -> 60
+  Sum: 224
+  Residue pattern (mod 5): 4-2-2-1-2-3-5
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 4
+
+Cluster: Upper-center (9)
+  Cyclic order (7 elements): 9 -> 10 -> 15 -> 36 -> 45 -> 54 -> 55
+  Sum: 224
+  Residue pattern (mod 5): 4-5-5-1-5-4-5
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 9
+
+Cluster: Upper-right (2)
+  Cyclic order (7 elements): 2 -> 17 -> 28 -> 29 -> 39 -> 47 -> 62
+  Sum: 224
+  Residue pattern (mod 5): 2-2-3-4-4-2-2
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 2
+
+Cluster: Middle-left (3)
+  Cyclic order (7 elements): 3 -> 16 -> 26 -> 30 -> 40 -> 48 -> 61
+  Sum: 224
+  Residue pattern (mod 5): 3-1-1-5-5-3-1
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 3
+
+Cluster: Center (5)
+  Cyclic order (7 elements): 5 -> 14 -> 23 -> 32 -> 41 -> 50 -> 59
+  Sum: 224
+  Residue pattern (mod 5): 5-4-3-2-1-5-4
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 5
+
+Cluster: Middle-right (7)
+  Cyclic order (7 elements): 7 -> 20 -> 24 -> 34 -> 38 -> 44 -> 57
+  Sum: 224
+  Residue pattern (mod 5): 2-5-4-4-3-4-2
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 7
+
+Cluster: Lower-left (8)
+  Cyclic order (7 elements): 8 -> 11 -> 12 -> 35 -> 49 -> 53 -> 56
+  Sum: 224
+  Residue pattern (mod 5): 3-1-2-5-4-3-1
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 8
+
+Cluster: Lower-center (1)
+  Cyclic order (7 elements): 1 -> 18 -> 19 -> 25 -> 46 -> 52 -> 63
+  Sum: 224
+  Residue pattern (mod 5): 1-3-4-5-1-2-3
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 1
+
+Cluster: Lower-right (6)
+  Cyclic order (7 elements): 6 -> 13 -> 21 -> 33 -> 42 -> 51 -> 58
+  Sum: 224
+  Residue pattern (mod 5): 1-3-1-3-2-1-3
+  No nontrivial rotational invariance.
+  Note: sum = 224; center mod 9 = 6
+
+Global rotational symmetry for Nakseo Chilgudo — corrected partition
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.

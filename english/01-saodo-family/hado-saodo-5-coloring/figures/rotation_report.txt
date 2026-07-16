@@ -1,0 +1,54 @@
+============================================================
+Per-cluster rotation analysis: Hado / Saodo 5-coloring
+============================================================
+
+Cluster: Water
+  Cyclic order (4 elements): 16 -> 1 -> 6 -> 11
+  Sum: 34
+  Residue pattern (mod 5): W-W-W-W
+  Opposite-pair sums: [22, 12]
+  No nontrivial rotational invariance.
+  Note: 4 nodes arranged by angle around cross center
+
+Cluster: Fire
+  Cyclic order (4 elements): 2 -> 17 -> 12 -> 7
+  Sum: 38
+  Residue pattern (mod 5): F-F-F-F
+  Opposite-pair sums: [14, 24]
+  No nontrivial rotational invariance.
+  Note: 4 nodes arranged by angle around cross center
+
+Cluster: Wood
+  Cyclic order (4 elements): 8 -> 18 -> 3 -> 13
+  Sum: 42
+  Residue pattern (mod 5): Wd-Wd-Wd-Wd
+  Opposite-pair sums: [11, 31]
+  No nontrivial rotational invariance.
+  Note: 4 nodes arranged by angle around cross center
+
+Cluster: Metal
+  Cyclic order (4 elements): 14 -> 4 -> 9 -> 19
+  Sum: 46
+  Residue pattern (mod 5): M-M-M-M
+  Opposite-pair sums: [23, 23]
+    -> All opposite pairs sum to 23
+  No nontrivial rotational invariance.
+  Note: 4 nodes arranged by angle around cross center
+
+Cluster: Earth
+  Cyclic order (4 elements): 5 -> 10 -> 20 -> 15
+  Sum: 50
+  Residue pattern (mod 5): E-E-E-E
+  Opposite-pair sums: [25, 25]
+    -> All opposite pairs sum to 25
+  No nontrivial rotational invariance.
+  Note: 4 nodes arranged by angle around cross center
+
+Global rotational symmetry for Hado / Saodo 5-coloring
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.
+
+Numeral orientation note:
+  All numerals share approximately θ = -30° (clockwise from horizontal).
+  This uniform skew is preserved under any rotation of the whole diagram,
+  but the label placement itself has no nontrivial rotational symmetry.

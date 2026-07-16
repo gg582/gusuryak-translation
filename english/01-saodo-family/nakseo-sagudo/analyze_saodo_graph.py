@@ -93,7 +93,7 @@ G = nx.Graph()
 G.add_edges_from(EDGES)
 
 # Five elements (mod 5) color classification
-wuxing = {
+phase = {
     1: 'Water', 6: 'Water', 11: 'Water', 16: 'Water',
     2: 'Fire', 7: 'Fire', 12: 'Fire', 17: 'Fire',
     3: 'Wood', 8: 'Wood', 13: 'Wood', 18: 'Wood',
@@ -101,18 +101,18 @@ wuxing = {
     5: 'Earth', 10: 'Earth', 15: 'Earth', 20: 'Earth',
 }
 
-wuxing_color = {
+phase_color = {
     'Water': '#4488CC', 'Fire': '#CC4444', 'Wood': '#44AA44',
     'Metal': '#888888', 'Earth': '#CC9944',
 }
 
-wuxing_en = {
+PHASE_EN = {
     'Water': 'Water', 'Fire': 'Fire', 'Wood': 'Wood', 'Metal': 'Metal', 'Earth': 'Earth'
 }
 
 for node in G.nodes():
-    G.nodes[node]['wuxing'] = wuxing[node]
-    G.nodes[node]['color'] = wuxing_color[wuxing[node]]
+    G.nodes[node]['phase'] = phase[node]
+    G.nodes[node]['color'] = phase_color[phase[node]]
     G.nodes[node]['remainder'] = node % 5 if node % 5 != 0 else 5
 
 # ============================================
@@ -145,9 +145,9 @@ print(f"\nOuter 20-cycle sum: {sum(PERIMETER_20)}")
 print(f"Inner 4-cycle sum: {sum(INNER_4)}")
 
 print("\nSums by five-element group (arithmetic sequence):")
-for wx in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']:
-    wx_nodes = [n for n in G.nodes() if wuxing[n] == wx]
-    print(f"  {wx}: {sum(wx_nodes)} ({wx_nodes})")
+for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']:
+    ph_nodes = [n for n in G.nodes() if phase[n] == ph]
+    print(f"  {ph}: {sum(ph_nodes)} ({ph_nodes})")
 
 print("\nSum of each of the nine palaces (based on commentary):")
 for name, palace in NINE_PALACES.items():
@@ -156,7 +156,7 @@ for name, palace in NINE_PALACES.items():
 betw = nx.betweenness_centrality(G)
 print(f"\nBetweenness Centrality (Top 5):")
 for n, v in sorted(betw.items(), key=lambda x: -x[1])[:5]:
-    print(f"  {n}({wuxing[n]}): {v:.3f}")
+    print(f"  {n}({phase[n]}): {v:.3f}")
 
 # ============================================
 # 3. Generate 7 visualization images
@@ -185,7 +185,7 @@ shared_nodes = [5, 16, 10, 11]
 nx.draw_networkx_nodes(G, POSITIONS, nodelist=shared_nodes, node_color='white', node_size=1500, edgecolors='red', linewidths=3, ax=ax)
 ax.set_title('Nakseo Sagudo (洛書四九圖) - Corrected original graph\n3×2 rectangular structure + outer 20-cycle + inner 4-cycle', fontsize=16, fontweight='bold')
 ax.set_xlim(-3.5, 3.5); ax.set_ylim(-3.5, 3.5); ax.axis('off')
-legend_elements = [mpatches.Patch(facecolor=wuxing_color[wx], edgecolor='black', label=f'{wx} ({wuxing_en[wx]})') for wx in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']]
+legend_elements = [mpatches.Patch(facecolor=phase_color[ph], edgecolor='black', label=f'{ph} ({PHASE_EN[ph]})') for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']]
 legend_elements += [Line2D([0], [0], marker='o', color='w', markeredgecolor='red', markerfacecolor='white', markersize=10, label='Shared vertex (degree 4)')]
 ax.legend(handles=legend_elements, loc='lower right', fontsize=10, framealpha=0.9, edgecolor='black')
 save_fig('01_original_graph.png'); plt.close()
@@ -200,19 +200,19 @@ nx.draw_networkx_nodes(G, POSITIONS, node_color=node_colors, node_size=1200, edg
 nx.draw_networkx_labels(G, POSITIONS, font_size=11, font_weight='bold', ax=ax)
 ax.set_title('Full graph', fontsize=13, fontweight='bold'); ax.axis('off')
 
-for idx, wx in enumerate(['Water', 'Fire', 'Wood', 'Metal', 'Earth']):
+for idx, ph in enumerate(['Water', 'Fire', 'Wood', 'Metal', 'Earth']):
     ax = axes[idx + 1]
-    wx_nodes = [n for n in G.nodes() if wuxing[n] == wx]
-    wx_edges = [(u, v) for u, v in G.edges() if u in wx_nodes and v in wx_nodes]
-    cross_edges = [(u, v) for u, v in G.edges() if (u in wx_nodes) != (v in wx_nodes)]
+    ph_nodes = [n for n in G.nodes() if phase[n] == ph]
+    ph_edges = [(u, v) for u, v in G.edges() if u in ph_nodes and v in ph_nodes]
+    cross_edges = [(u, v) for u, v in G.edges() if (u in ph_nodes) != (v in ph_nodes)]
     nx.draw_networkx_edges(G, POSITIONS, edge_color='#EEEEEE', width=1, alpha=0.3, ax=ax)
-    if cross_edges: nx.draw_networkx_edges(G, POSITIONS, edgelist=cross_edges, edge_color=wuxing_color[wx], width=2, alpha=0.3, style=':', ax=ax)
-    if wx_edges: nx.draw_networkx_edges(G, POSITIONS, edgelist=wx_edges, edge_color=wuxing_color[wx], width=3.5, alpha=0.95, ax=ax)
-    other_nodes = [n for n in G.nodes() if n not in wx_nodes]
+    if cross_edges: nx.draw_networkx_edges(G, POSITIONS, edgelist=cross_edges, edge_color=phase_color[ph], width=2, alpha=0.3, style=':', ax=ax)
+    if ph_edges: nx.draw_networkx_edges(G, POSITIONS, edgelist=ph_edges, edge_color=phase_color[ph], width=3.5, alpha=0.95, ax=ax)
+    other_nodes = [n for n in G.nodes() if n not in ph_nodes]
     if other_nodes: nx.draw_networkx_nodes(G, POSITIONS, nodelist=other_nodes, node_color='#F0F0F0', node_size=500, edgecolors='#CCCCCC', linewidths=1, ax=ax)
-    nx.draw_networkx_nodes(G, POSITIONS, nodelist=wx_nodes, node_color=wuxing_color[wx], node_size=1800, edgecolors='black', linewidths=2.5, ax=ax)
+    nx.draw_networkx_nodes(G, POSITIONS, nodelist=ph_nodes, node_color=phase_color[ph], node_size=1800, edgecolors='black', linewidths=2.5, ax=ax)
     nx.draw_networkx_labels(G, POSITIONS, font_size=10, font_weight='bold', ax=ax)
-    ax.set_title(f'{wx} ({wuxing_en[wx]})', fontsize=12, fontweight='bold', color=wuxing_color[wx]); ax.axis('off')
+    ax.set_title(f'{ph} ({PHASE_EN[ph]})', fontsize=12, fontweight='bold', color=phase_color[ph]); ax.axis('off')
 
 plt.suptitle('Subgraph decomposition by the Five Elements (五行)', fontsize=16, fontweight='bold', y=1.02)
 plt.tight_layout(); save_fig('02_wuxing_decomposition.png'); plt.close()
@@ -224,8 +224,8 @@ adj = nx.adjacency_matrix(G, nodelist=sorted(G.nodes())).todense()
 im = ax.imshow(adj, cmap='YlOrRd', interpolation='nearest')
 ax.set_xticks(range(20)); ax.set_yticks(range(20))
 ax.set_xticklabels(sorted(G.nodes()), fontsize=9); ax.set_yticklabels(sorted(G.nodes()), fontsize=9)
-wx_sorted = [wuxing[n] for n in sorted(G.nodes())]
-boundaries = [i - 0.5 for i in range(1, 20) if wx_sorted[i] != wx_sorted[i-1]]
+ph_sorted = [phase[n] for n in sorted(G.nodes())]
+boundaries = [i - 0.5 for i in range(1, 20) if ph_sorted[i] != ph_sorted[i-1]]
 for b in boundaries: ax.axhline(y=b, color='blue', linewidth=1.5, alpha=0.7); ax.axvline(x=b, color='blue', linewidth=1.5, alpha=0.7)
 plt.colorbar(im, ax=ax, shrink=0.8)
 ax.set_title('Adjacency Matrix', fontsize=13, fontweight='bold')
@@ -290,12 +290,12 @@ ax.set_xticks(range(20)); ax.set_xticklabels([str(n) for n in nodes_sorted], fon
 ax.set_title('Betweenness Centrality', fontsize=12, fontweight='bold'); ax.set_ylabel('Centrality', fontsize=10)
 
 ax = axes[0, 1]
-wx_sums = {wx: sum([n for n in G.nodes() if wuxing[n] == wx]) for wx in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']}
-wx_names = list(wx_sums.keys()); wx_vals = list(wx_sums.values()); wx_colors_bar = [wuxing_color[w] for w in wx_names]
-ax.bar(wx_names, wx_vals, color=wx_colors_bar, edgecolor='black', linewidth=1.5)
+ph_sums = {ph: sum([n for n in G.nodes() if phase[n] == ph]) for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']}
+ph_names = list(ph_sums.keys()); ph_vals = list(ph_sums.values()); ph_colors_bar = [phase_color[w] for w in ph_names]
+ax.bar(ph_names, ph_vals, color=ph_colors_bar, edgecolor='black', linewidth=1.5)
 ax.set_title('Sums by five-element group (34, 38, 42, 46, 50)', fontsize=12, fontweight='bold')
-for bar, val in zip(ax.patches, wx_vals): ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.5, str(val), ha='center', fontsize=12, fontweight='bold')
-ax.plot(range(5), wx_vals, 'o--', color='black', alpha=0.5, linewidth=2)
+for bar, val in zip(ax.patches, ph_vals): ax.text(bar.get_x() + bar.get_width()/2, bar.get_height() + 0.5, str(val), ha='center', fontsize=12, fontweight='bold')
+ax.plot(range(5), ph_vals, 'o--', color='black', alpha=0.5, linewidth=2)
 
 ax = axes[1, 0]
 components = {'NW face': sum(HEXAGONS['NW']), 'NE face': sum(HEXAGONS['NE']),
@@ -317,36 +317,36 @@ plt.tight_layout(); save_fig('05_centrality_invariants.png'); plt.close()
 # --- 06: Five-element mutual generation and mutual overcoming ---
 fig, axes = plt.subplots(1, 2, figsize=(18, 8))
 ax = axes[0]
-wuxing_graph = nx.DiGraph()
-wuxing_relations = [
+phase_graph = nx.DiGraph()
+phase_relations = [
     ('Water', 'Wood', 'generation'), ('Wood', 'Fire', 'generation'), ('Fire', 'Earth', 'generation'), ('Earth', 'Metal', 'generation'), ('Metal', 'Water', 'generation'),
     ('Water', 'Fire', 'overcoming'), ('Fire', 'Metal', 'overcoming'), ('Metal', 'Wood', 'overcoming'), ('Wood', 'Earth', 'overcoming'), ('Earth', 'Water', 'overcoming'),
 ]
-for u, v, r in wuxing_relations: wuxing_graph.add_edge(u, v, relation=r)
-wx_pos = {'Water': (0, 2), 'Wood': (2, 1), 'Fire': (1, -1), 'Earth': (-1, -1), 'Metal': (-2, 1)}
-sheng_edges = [(u, v) for u, v, r in wuxing_relations if r == 'generation']
-ke_edges = [(u, v) for u, v, r in wuxing_relations if r == 'overcoming']
-nx.draw_networkx_edges(wuxing_graph, wx_pos, edgelist=sheng_edges, edge_color='#44AA44', width=3, alpha=0.8, arrows=True, arrowsize=20, connectionstyle='arc3,rad=0.15', ax=ax)
-nx.draw_networkx_edges(wuxing_graph, wx_pos, edgelist=ke_edges, edge_color='#CC4444', width=2, alpha=0.6, style='--', arrows=True, arrowsize=15, connectionstyle='arc3,rad=-0.15', ax=ax)
-wx_node_colors = [wuxing_color[w] for w in wuxing_graph.nodes()]
-nx.draw_networkx_nodes(wuxing_graph, wx_pos, node_color=wx_node_colors, node_size=3000, edgecolors='black', linewidths=2.5, ax=ax)
-nx.draw_networkx_labels(wuxing_graph, wx_pos, font_size=14, font_weight='normal', ax=ax)
+for u, v, r in phase_relations: phase_graph.add_edge(u, v, relation=r)
+ph_pos = {'Water': (0, 2), 'Wood': (2, 1), 'Fire': (1, -1), 'Earth': (-1, -1), 'Metal': (-2, 1)}
+sheng_edges = [(u, v) for u, v, r in phase_relations if r == 'generation']
+ke_edges = [(u, v) for u, v, r in phase_relations if r == 'overcoming']
+nx.draw_networkx_edges(phase_graph, ph_pos, edgelist=sheng_edges, edge_color='#44AA44', width=3, alpha=0.8, arrows=True, arrowsize=20, connectionstyle='arc3,rad=0.15', ax=ax)
+nx.draw_networkx_edges(phase_graph, ph_pos, edgelist=ke_edges, edge_color='#CC4444', width=2, alpha=0.6, style='--', arrows=True, arrowsize=15, connectionstyle='arc3,rad=-0.15', ax=ax)
+ph_node_colors = [phase_color[w] for w in phase_graph.nodes()]
+nx.draw_networkx_nodes(phase_graph, ph_pos, node_color=ph_node_colors, node_size=3000, edgecolors='black', linewidths=2.5, ax=ax)
+nx.draw_networkx_labels(phase_graph, ph_pos, font_size=14, font_weight='normal', ax=ax)
 legend_elements = [Line2D([0], [0], color='#44AA44', lw=3, label='Mutual generation'), Line2D([0], [0], color='#CC4444', lw=2, linestyle='--', label='Mutual overcoming')]
 ax.legend(handles=legend_elements, loc='upper right', fontsize=11)
 ax.set_title('Five-element mutual generation and mutual overcoming', fontsize=13, fontweight='bold'); ax.set_xlim(-3, 3.5); ax.set_ylim(-2.5, 3); ax.axis('off')
 
 ax = axes[1]
-wx_edge_counts = {}
+ph_edge_counts = {}
 for u, v in G.edges():
-    wu, wv = wuxing[u], wuxing[v]
+    wu, wv = phase[u], phase[v]
     if wu == wv: key = f'{wu} (same)'
     elif (wu, wv) in [('Water','Wood'), ('Wood','Fire'), ('Fire','Earth'), ('Earth','Metal'), ('Metal','Water')] or (wv, wu) in [('Water','Wood'), ('Wood','Fire'), ('Fire','Earth'), ('Earth','Metal'), ('Metal','Water')]: key = 'Mutual generation'
     elif (wu, wv) in [('Water','Fire'), ('Fire','Metal'), ('Metal','Wood'), ('Wood','Earth'), ('Earth','Water')] or (wv, wu) in [('Water','Fire'), ('Fire','Metal'), ('Metal','Wood'), ('Wood','Earth'), ('Earth','Water')]: key = 'Mutual overcoming'
     else: key = 'Neutral'
-    wx_edge_counts[key] = wx_edge_counts.get(key, 0) + 1
+    ph_edge_counts[key] = ph_edge_counts.get(key, 0) + 1
 colors_pie = ['#44AA44', '#CC4444', '#CC9944', '#4488CC']
-ax.pie(list(wx_edge_counts.values()), labels=list(wx_edge_counts.keys()), autopct='%1.0f%%',
-       colors=colors_pie[:len(wx_edge_counts)], explode=[0.05]*len(wx_edge_counts),
+ax.pie(list(ph_edge_counts.values()), labels=list(ph_edge_counts.keys()), autopct='%1.0f%%',
+       colors=colors_pie[:len(ph_edge_counts)], explode=[0.05]*len(ph_edge_counts),
        textprops={'fontsize': 12, 'fontweight': 'bold'})
 ax.set_title(f'Five-element edge distribution (N={G.number_of_edges()})', fontsize=13, fontweight='bold')
 plt.tight_layout(); save_fig('06_wuxing_relations.png'); plt.close()
@@ -391,18 +391,18 @@ print("-" * 60)
 fig, axes = plt.subplots(1, 2, figsize=(18, 8))
 ax = axes[0]
 # Hetu 4-5: four directions and five elements layout
-hutu_pos = {
+river_diagram_positions = {
     '1/6\nWater': (0, 2), '2/7\nFire': (0, -2),
     '3/8\nWood': (-2, 0), '4/9\nMetal': (2, 0),
     '5/10\nEarth': (0, 0),
 }
-for label, (x, y) in hutu_pos.items():
-    wx = label.split('\n')[1]
-    ax.add_patch(plt.Circle((x, y), 0.6, facecolor=wuxing_color[wx], edgecolor='black', linewidth=2))
+for label, (x, y) in river_diagram_positions.items():
+    ph = label.split('\n')[1]
+    ax.add_patch(plt.Circle((x, y), 0.6, facecolor=phase_color[ph], edgecolor='black', linewidth=2))
     ax.text(x, y, label, ha='center', va='center', fontsize=11, fontweight='bold')
 # Connection lines: mutual generation cycle
 for a, b in [('1/6\nWater','3/8\nWood'), ('3/8\nWood','2/7\nFire'), ('2/7\nFire','5/10\nEarth'), ('5/10\nEarth','4/9\nMetal'), ('4/9\nMetal','1/6\nWater')]:
-    x1, y1 = hutu_pos[a]; x2, y2 = hutu_pos[b]
+    x1, y1 = river_diagram_positions[a]; x2, y2 = river_diagram_positions[b]
     ax.annotate('', xy=(x2, y2), xytext=(x1, y1),
                 arrowprops=dict(arrowstyle='->', color='#44AA44', lw=2, connectionstyle='arc3,rad=0.15'))
 ax.set_xlim(-3, 3); ax.set_ylim(-3, 3); ax.set_aspect('equal'); ax.axis('off')
@@ -410,14 +410,14 @@ ax.set_title('Hetu 4-5 basis (Four Images + Five at center)\n4×5=20, 4+5=9', fo
 
 ax = axes[1]
 # Five palaces = five-element groups
-wx_groups = {
+ph_groups = {
     'Water': [1, 6, 11, 16], 'Fire': [2, 7, 12, 17], 'Wood': [3, 8, 13, 18],
     'Metal': [4, 9, 14, 19], 'Earth': [5, 10, 15, 20]
 }
 positions_5 = [(0, 2), (-2, 0.5), (2, 0.5), (-1, -2), (1, -2)]
-for (wx, nodes), (x, y) in zip(wx_groups.items(), positions_5):
-    ax.add_patch(plt.Circle((x, y), 0.7, facecolor=wuxing_color[wx], edgecolor='black', linewidth=2))
-    ax.text(x, y+0.15, f'{wx}\n{" ".join(map(str, nodes))}\nSum={sum(nodes)}', ha='center', va='center', fontsize=10, fontweight='bold')
+for (ph, nodes), (x, y) in zip(ph_groups.items(), positions_5):
+    ax.add_patch(plt.Circle((x, y), 0.7, facecolor=phase_color[ph], edgecolor='black', linewidth=2))
+    ax.text(x, y+0.15, f'{ph}\n{" ".join(map(str, nodes))}\nSum={sum(nodes)}', ha='center', va='center', fontsize=10, fontweight='bold')
 ax.set_xlim(-3, 3); ax.set_ylim(-3.5, 3.5); ax.set_aspect('equal'); ax.axis('off')
 ax.set_title('Five palaces: four-node groups by five-element\nTotal sum 210, average 42', fontsize=14, fontweight='bold')
 plt.tight_layout(); save_fig('origin_01_hutu_5palaces.png'); plt.close()
@@ -437,7 +437,7 @@ for name, (x, y) in grid_pos.items():
     # Four-node layout
     offsets = [(-0.4, 0.3), (0.4, 0.3), (-0.4, -0.3), (0.4, -0.3)]
     for node, (dx, dy) in zip(palace_nodes, offsets):
-        circle = plt.Circle((x+dx, y+dy), 0.22, facecolor=wuxing_color[wuxing[node]], edgecolor='black', linewidth=1.5)
+        circle = plt.Circle((x+dx, y+dy), 0.22, facecolor=phase_color[phase[node]], edgecolor='black', linewidth=1.5)
         ax.add_patch(circle)
         ax.text(x+dx, y+dy, str(node), ha='center', va='center', fontsize=11, fontweight='bold')
     ax.text(x, y+0.72, f'{name}', ha='center', va='center', fontsize=13, fontweight='bold')
@@ -457,9 +457,9 @@ plt.tight_layout(); save_fig('origin_02_9palace_grid.png'); plt.close()
 fig, ax = plt.subplots(1, 1, figsize=(12, 10))
 # Left: five palaces
 left_pos = {'Water': (0, 2), 'Wood': (-1.5, 0.5), 'Fire': (1.5, 0.5), 'Metal': (-0.8, -1.5), 'Earth': (0.8, -1.5)}
-for wx, (x, y) in left_pos.items():
-    ax.add_patch(plt.Circle((x-5, y), 0.6, facecolor=wuxing_color[wx], edgecolor='black', linewidth=2))
-    ax.text(x-5, y, wx, ha='center', va='center', fontsize=14, fontweight='bold')
+for ph, (x, y) in left_pos.items():
+    ax.add_patch(plt.Circle((x-5, y), 0.6, facecolor=phase_color[ph], edgecolor='black', linewidth=2))
+    ax.text(x-5, y, ph, ha='center', va='center', fontsize=14, fontweight='bold')
 # Right: nine palaces (3x3)
 for name, (x, y) in grid_pos.items():
     ax.add_patch(plt.Rectangle((x+2.1, y-0.4), 0.8, 0.8, fill=True, facecolor='lightyellow', edgecolor='black', linewidth=1.5))
@@ -475,11 +475,11 @@ plt.tight_layout(); save_fig('origin_03_right_rotation.png'); plt.close()
 # --- origin_04: Mutual transformation 1890 ---
 fig, ax = plt.subplots(1, 1, figsize=(14, 10))
 # Five palaces (left column)
-wx_list = ['Water', 'Fire', 'Wood', 'Metal', 'Earth']
-for i, wx in enumerate(wx_list):
+ph_list = ['Water', 'Fire', 'Wood', 'Metal', 'Earth']
+for i, ph in enumerate(ph_list):
     y = 2 - i * 1.0
-    ax.add_patch(plt.Circle((-3, y), 0.35, facecolor=wuxing_color[wx], edgecolor='black', linewidth=2))
-    ax.text(-3, y, wx, ha='center', va='center', fontsize=12, fontweight='bold')
+    ax.add_patch(plt.Circle((-3, y), 0.35, facecolor=phase_color[ph], edgecolor='black', linewidth=2))
+    ax.text(-3, y, ph, ha='center', va='center', fontsize=12, fontweight='bold')
 # Nine palaces (top row)
 palace_names = list(grid_pos.keys())
 for j, name in enumerate(palace_names):
@@ -525,7 +525,7 @@ for name, (x, y) in grid_pos.items():
     for k, node in enumerate(palace_nodes):
         angle = 2 * np.pi * k / 4
         px, py = x + 0.45 * np.cos(angle), y + 0.45 * np.sin(angle)
-        ax.add_patch(plt.Circle((px, py), 0.15, facecolor=wuxing_color[wuxing[node]], edgecolor='black', linewidth=1))
+        ax.add_patch(plt.Circle((px, py), 0.15, facecolor=phase_color[phase[node]], edgecolor='black', linewidth=1))
         ax.text(px, py, str(node), ha='center', va='center', fontsize=9, fontweight='bold')
 ax.set_xlim(-3, 3); ax.set_ylim(-3, 3); ax.set_aspect('equal'); ax.axis('off')
 ax.set_title('Nine-palace 42-invariant distribution', fontsize=13, fontweight='bold')
@@ -546,16 +546,16 @@ ax.set_title('Mathematical flow of the commentary', fontsize=13, fontweight='bol
 # Five-element distribution in each palace
 ax = axes[1, 1]
 palace_names_ordered = ['NW', 'N', 'NE', 'W', 'C', 'E', 'SW', 'S', 'SE']
-wx_counts_per_palace = {name: {} for name in palace_names_ordered}
+ph_counts_per_palace = {name: {} for name in palace_names_ordered}
 for name in palace_names_ordered:
     for node in NINE_PALACES[name]:
-        wx = wuxing[node]
-        wx_counts_per_palace[name][wx] = wx_counts_per_palace[name].get(wx, 0) + 1
+        ph = phase[node]
+        ph_counts_per_palace[name][ph] = ph_counts_per_palace[name].get(ph, 0) + 1
 
 bottom = np.zeros(9)
-for wx in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']:
-    counts = [wx_counts_per_palace[name].get(wx, 0) for name in palace_names_ordered]
-    ax.bar(palace_names_ordered, counts, bottom=bottom, label=wx, color=wuxing_color[wx], edgecolor='black', linewidth=1)
+for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']:
+    counts = [ph_counts_per_palace[name].get(ph, 0) for name in palace_names_ordered]
+    ax.bar(palace_names_ordered, counts, bottom=bottom, label=ph, color=phase_color[ph], edgecolor='black', linewidth=1)
     bottom += counts
 ax.set_title('Five-element distribution in each of the nine palaces', fontsize=13, fontweight='bold')
 ax.legend(loc='upper right')
@@ -620,11 +620,11 @@ plt.tight_layout(); save_fig('origin_translated_01_terms.png'); plt.close()
 # --- origin_translated_02: From 5 residue classes to 9 blocks ---
 fig, axes = plt.subplots(1, 2, figsize=(18, 9))
 ax = axes[0]
-for i, wx in enumerate(['Water', 'Fire', 'Wood', 'Metal', 'Earth']):
-    nodes = [n for n in sorted(G.nodes()) if wuxing[n] == wx]
+for i, ph in enumerate(['Water', 'Fire', 'Wood', 'Metal', 'Earth']):
+    nodes = [n for n in sorted(G.nodes()) if phase[n] == ph]
     y = 4 - i
-    ax.add_patch(plt.Rectangle((-0.7, y-0.35), 4.1, 0.7, facecolor=wuxing_color[wx], edgecolor='black', alpha=0.85))
-    ax.text(-1.0, y, f'{wx}', ha='right', va='center', fontsize=14, fontweight='bold')
+    ax.add_patch(plt.Rectangle((-0.7, y-0.35), 4.1, 0.7, facecolor=phase_color[ph], edgecolor='black', alpha=0.85))
+    ax.text(-1.0, y, f'{ph}', ha='right', va='center', fontsize=14, fontweight='bold')
     ax.text(1.35, y, f'{{{", ".join(map(str, nodes))}}}', ha='center', va='center', fontsize=14, fontweight='bold')
     ax.text(3.75, y, f'Σ={sum(nodes)}', ha='left', va='center', fontsize=12)
 ax.set_xlim(-1.5, 5.2); ax.set_ylim(-0.8, 4.8); ax.axis('off')
@@ -724,7 +724,7 @@ ax = axes[0]
 incidence = np.ones((5, 9))
 im = ax.imshow(incidence, cmap='Blues', vmin=0, vmax=1)
 ax.set_xticks(range(9)); ax.set_xticklabels([f'B_{n}' for n in palace_names_ordered], rotation=45, ha='right')
-ax.set_yticks(range(5)); ax.set_yticklabels([f'{wx} class' for wx in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']])
+ax.set_yticks(range(5)); ax.set_yticklabels([f'{ph} class' for ph in ['Water', 'Fire', 'Wood', 'Metal', 'Earth']])
 for i in range(5):
     for j in range(9):
         ax.text(j, i, '1', ha='center', va='center', fontsize=10, fontweight='bold')

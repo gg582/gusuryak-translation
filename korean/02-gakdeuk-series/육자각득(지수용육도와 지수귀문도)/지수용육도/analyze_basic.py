@@ -50,11 +50,19 @@ POSITIONS: Final = {
 
 # 각 육각형은 시계 방향의 6개 정점으로 정의한다.
 HEXAGONS: Final = {
-    "상좌": (5, 18, 16, 3, 8, 13),
-    "상우": (1, 13, 8, 14, 20, 7),
-    "중앙": (3, 8, 14, 15, 11, 12),
-    "하좌": (12, 11, 10, 2, 19, 9),
-    "하우": (15, 4, 17, 6, 10, 11),
+    "upper_left": (5, 18, 16, 3, 8, 13),
+    "upper_right": (1, 13, 8, 14, 20, 7),
+    "center": (3, 8, 14, 15, 11, 12),
+    "lower_left": (12, 11, 10, 2, 19, 9),
+    "lower_right": (15, 4, 17, 6, 10, 11),
+}
+
+DISPLAY_LABELS: Final = {
+    "upper_left": "상좌",
+    "upper_right": "상우",
+    "center": "중앙",
+    "lower_left": "하좌",
+    "lower_right": "하우",
 }
 
 # 노트에 표시된 mod 5 색 구분을 유지한다.
@@ -194,7 +202,7 @@ def draw_hexagon_regions(ax: Axes) -> None:
         ax.text(
             center_x,
             center_y,
-            "sum 63",
+            f"합 {TARGET_SUM}",
             ha="center",
             va="center",
             fontsize=9.5,
@@ -303,7 +311,7 @@ def draw_legend(ax: Axes, font: FontProperties) -> None:
     ax.text(
         0.0,
         y,
-        "mod 5 residue groups",
+        "mod 5 잉여 클래스",
         transform=ax.transAxes,
         ha="left",
         va="top",
@@ -378,7 +386,7 @@ def draw_legend(ax: Axes, font: FontProperties) -> None:
         ax.text(
             0.0,
             y,
-            f"{name}: {expression} = 63",
+            f"{DISPLAY_LABELS[name]}: {expression} = 63",
             transform=ax.transAxes,
             ha="left",
             va="top",

@@ -18,27 +18,27 @@ from matplotlib.patches import Circle, FancyBboxPatch
 
 
 PALACES = {
-    "상궁": [
+    "upper_palace": [
         [39, 7, 34],
         [12, None, 19],
         [24, 2, 27],
     ],
-    "좌궁": [
+    "left_palace": [
         [33, 18, 28],
         [8, None, 3],
         [38, 13, 23],
     ],
-    "중궁": [
+    "center_palace": [
         [30, 5, 21],
         [16, None, 15],
         [31, 10, 36],
     ],
-    "우궁": [
+    "right_palace": [
         [22, 14, 37],
         [4, None, 9],
         [29, 17, 32],
     ],
-    "하궁": [
+    "lower_palace": [
         [26, 1, 25],
         [20, None, 11],
         [35, 6, 40],
@@ -47,11 +47,19 @@ PALACES = {
 
 # Each 3×3 palace is positioned as one arm of the cross.
 PALACE_ORIGINS = {
-    "상궁": (3, 6),
-    "좌궁": (0, 3),
-    "중궁": (3, 3),
-    "우궁": (6, 3),
-    "하궁": (3, 0),
+    "upper_palace": (3, 6),
+    "left_palace": (0, 3),
+    "center_palace": (3, 3),
+    "right_palace": (6, 3),
+    "lower_palace": (3, 0),
+}
+
+DISPLAY_LABELS = {
+    "upper_palace": "상궁",
+    "left_palace": "좌궁",
+    "center_palace": "중궁",
+    "right_palace": "우궁",
+    "lower_palace": "하궁",
 }
 
 # These colors reproduce the five residue classes marked in the notebook.
@@ -136,20 +144,20 @@ def validate() -> None:
     ]
 
     if sorted(all_values) != list(range(1, 41)):
-        raise ValueError("The diagram must contain every integer from 1 to 40 exactly once.")
+        raise ValueError("도상은 1부터 40까지의 수를 정확히 한 번씩 포함해야 합니다.")
 
     if sum(all_values) != 820:
-        raise ValueError("The total of 1 through 40 must be 820.")
+        raise ValueError("1부터 40까지의 합은 820이어야 합니다.")
 
     for palace_name, grid in PALACES.items():
         values = palace_values(grid)
 
         if len(values) != 8:
-            raise ValueError(f"{palace_name} must contain exactly eight numbers.")
+            raise ValueError(f"{DISPLAY_LABELS[palace_name]}은 정확히 8개의 수를 포함해야 합니다.")
 
         if sum(values) != 164:
             raise ValueError(
-                f"{palace_name} sums to {sum(values)}, not 164."
+                f"{DISPLAY_LABELS[palace_name]}의 합은 {sum(values)}로, 164가 아닙니다."
             )
 
 
@@ -177,7 +185,7 @@ def draw_palace_boundary(
     ax.text(
         origin_x + 1.0,
         origin_y + 2.67,
-        f"{palace_name} · 8자 · 합 164",
+        f"{DISPLAY_LABELS[palace_name]} · 8자 · 합 164",
         ha="center",
         va="bottom",
         fontproperties=font,

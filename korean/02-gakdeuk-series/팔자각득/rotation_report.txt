@@ -1,0 +1,42 @@
+============================================================
+Per-cluster rotation analysis: 팔자각득 (八子各得)
+============================================================
+
+Cluster: 상궁
+  Cyclic order (8 elements): 7 -> 34 -> 19 -> 27 -> 2 -> 24 -> 12 -> 39
+  Sum: 164
+  Residue pattern (mod 5): F-M-M-F-F-M-F-M
+  Opposite-pair sums: [9, 58, 31, 66]
+  No nontrivial rotational invariance.
+
+Cluster: 좌궁
+  Cyclic order (8 elements): 18 -> 28 -> 3 -> 23 -> 13 -> 38 -> 8 -> 33
+  Sum: 164
+  Residue pattern (mod 5): Wd-Wd-Wd-Wd-Wd-Wd-Wd-Wd
+  Opposite-pair sums: [31, 66, 11, 56]
+  No nontrivial rotational invariance.
+
+Cluster: 중궁
+  Cyclic order (8 elements): 5 -> 21 -> 15 -> 36 -> 10 -> 31 -> 16 -> 30
+  Sum: 164
+  Residue pattern (mod 5): E-W-E-W-E-W-W-E
+  Opposite-pair sums: [15, 52, 31, 66]
+  No nontrivial rotational invariance.
+
+Cluster: 우궁
+  Cyclic order (8 elements): 14 -> 37 -> 9 -> 32 -> 17 -> 29 -> 4 -> 22
+  Sum: 164
+  Residue pattern (mod 5): M-F-M-F-F-M-M-F
+  Opposite-pair sums: [31, 66, 13, 54]
+  No nontrivial rotational invariance.
+
+Cluster: 하궁
+  Cyclic order (8 elements): 1 -> 25 -> 11 -> 40 -> 6 -> 35 -> 20 -> 26
+  Sum: 164
+  Residue pattern (mod 5): W-E-W-E-W-E-E-W
+  Opposite-pair sums: [7, 60, 31, 66]
+  No nontrivial rotational invariance.
+
+Global rotational symmetry for 팔자각득 (八子各得)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.

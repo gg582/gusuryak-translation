@@ -11,11 +11,11 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from gakdeuk_solver import GakdeukSolution, visualize_solution
+from gakdeuk_solver import EachGetsSolution, visualize_solution
 
 
 def main() -> int:
-    parser = argparse.ArgumentParser(description="Post-hoc visualization tool for saved Gakdeuk puzzle solutions in JSON")
+    parser = argparse.ArgumentParser(description="Post-hoc visualization tool for saved each-gets puzzle solutions in JSON")
     parser.add_argument("json_file", type=str, help="Path to the JSON file to visualize")
     parser.add_argument("--viz-prefix", type=str, default="viz_post", help="Prefix for the saved visualization files")
     args = parser.parse_args()
@@ -44,7 +44,7 @@ def main() -> int:
 
     for idx, s_dict in enumerate(solutions_data, 1):
         try:
-            sol = GakdeukSolution(
+            sol = EachGetsSolution(
                 n=s_dict["n"],
                 N_max=s_dict["N_max"],
                 S=s_dict["S"],

@@ -11,7 +11,7 @@ import argparse
 import json
 import sys
 from pathlib import Path
-from gakdeuk_solver import GakdeukSolution, visualize_solution
+from gakdeuk_solver import EachGetsSolution, visualize_solution
 
 
 def main() -> int:
@@ -45,7 +45,7 @@ def main() -> int:
 
     for idx, s_dict in enumerate(solutions_data, 1):
         try:
-            sol = GakdeukSolution(
+            sol = EachGetsSolution(
                 n=s_dict["n"],
                 N_max=s_dict["N_max"],
                 S=s_dict["S"],

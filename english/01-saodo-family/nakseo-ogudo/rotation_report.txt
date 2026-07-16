@@ -1,0 +1,79 @@
+============================================================
+Per-cluster rotation analysis: Nakseo-ogudo (洛書五九圖)
+============================================================
+
+Cluster: upper_left
+  Cyclic order (4 elements): 23 -> 16 -> 22 -> 20
+  Sum: 81
+  Residue pattern (mod 5): Wd-W-F-E
+  Opposite-pair sums: [45, 36]
+  No nontrivial rotational invariance.
+  Note: center value = 4
+
+Cluster: upper_center
+  Cyclic order (4 elements): 28 -> 14 -> 18 -> 16
+  Sum: 76
+  Residue pattern (mod 5): Wd-M-Wd-W
+  Opposite-pair sums: [46, 30]
+  No nontrivial rotational invariance.
+  Note: center value = 9
+
+Cluster: upper_right
+  Cyclic order (4 elements): 21 -> 33 -> 15 -> 14
+  Sum: 83
+  Residue pattern (mod 5): W-Wd-E-M
+  Opposite-pair sums: [36, 47]
+  No nontrivial rotational invariance.
+  Note: center value = 2
+
+Cluster: middle_left
+  Cyclic order (4 elements): 22 -> 19 -> 10 -> 31
+  Sum: 82
+  Residue pattern (mod 5): F-M-E-W
+  Opposite-pair sums: [32, 50]
+  No nontrivial rotational invariance.
+  Note: center value = 3
+
+Cluster: center
+  Cyclic order (4 elements): 18 -> 26 -> 17 -> 19
+  Sum: 80
+  Residue pattern (mod 5): Wd-W-F-M
+  Opposite-pair sums: [35, 45]
+  No nontrivial rotational invariance.
+  Note: center value = 5
+
+Cluster: middle_right
+  Cyclic order (4 elements): 15 -> 25 -> 12 -> 26
+  Sum: 78
+  Residue pattern (mod 5): E-E-F-W
+  Opposite-pair sums: [27, 51]
+  No nontrivial rotational invariance.
+  Note: center value = 7
+
+Cluster: lower_left
+  Cyclic order (4 elements): 10 -> 11 -> 27 -> 29
+  Sum: 77
+  Residue pattern (mod 5): E-W-F-M
+  Opposite-pair sums: [37, 40]
+  No nontrivial rotational invariance.
+  Note: center value = 8
+
+Cluster: lower_center
+  Cyclic order (4 elements): 17 -> 24 -> 32 -> 11
+  Sum: 84
+  Residue pattern (mod 5): F-M-F-W
+  Opposite-pair sums: [49, 35]
+  No nontrivial rotational invariance.
+  Note: center value = 1
+
+Cluster: lower_right
+  Cyclic order (4 elements): 12 -> 30 -> 13 -> 24
+  Sum: 79
+  Residue pattern (mod 5): F-E-Wd-M
+  Opposite-pair sums: [25, 54]
+  No nontrivial rotational invariance.
+  Note: center value = 6
+
+Global rotational symmetry for Nakseo-ogudo (洛書五九圖)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.

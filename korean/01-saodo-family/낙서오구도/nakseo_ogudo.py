@@ -15,15 +15,27 @@ TOTAL_SUM: Final = 765
 
 # Nine palace centers. Each palace is a plus-shaped set of five nodes.
 PALACE_CENTERS: Final = {
-    "상좌궁": (1, 2),
-    "상중궁": (3, 2),
-    "상우궁": (5, 2),
-    "중좌궁": (1, 1),
-    "중궁":   (3, 1),
-    "중우궁": (5, 1),
-    "하좌궁": (1, 0),
-    "하중궁": (3, 0),
-    "하우궁": (5, 0),
+    "upper_left": (1, 2),
+    "upper_center": (3, 2),
+    "upper_right": (5, 2),
+    "middle_left": (1, 1),
+    "center": (3, 1),
+    "middle_right": (5, 1),
+    "lower_left": (1, 0),
+    "lower_center": (3, 0),
+    "lower_right": (5, 0),
+}
+
+DISPLAY_LABELS: Final = {
+    "upper_left": "상좌궁",
+    "upper_center": "상중궁",
+    "upper_right": "상우궁",
+    "middle_left": "중좌궁",
+    "center": "중궁",
+    "middle_right": "중우궁",
+    "lower_left": "하좌궁",
+    "lower_center": "하중궁",
+    "lower_right": "하우궁",
 }
 
 # The handwritten diagram transcribed onto a regular lattice.
@@ -77,17 +89,17 @@ VALUES: Final = {
 
 # Each palace is defined by its center and four orthogonal neighbors.
 PALACES: Final = {
-    "상좌궁": ((1, 2), (0, 2), (2, 2), (1, 3), (1, 1.5)),
-    "상중궁": ((3, 2), (2, 2), (4, 2), (3, 3), (3, 1.5)),
-    "상우궁": ((5, 2), (4, 2), (6, 2), (5, 3), (5, 1.5)),
+    "upper_left": ((1, 2), (0, 2), (2, 2), (1, 3), (1, 1.5)),
+    "upper_center": ((3, 2), (2, 2), (4, 2), (3, 3), (3, 1.5)),
+    "upper_right": ((5, 2), (4, 2), (6, 2), (5, 3), (5, 1.5)),
 
-    "중좌궁": ((1, 1), (0, 1), (2, 1), (1, 1.5), (1, 0.5)),
-    "중궁":   ((3, 1), (2, 1), (4, 1), (3, 1.5), (3, 0.5)),
-    "중우궁": ((5, 1), (4, 1), (6, 1), (5, 1.5), (5, 0.5)),
+    "middle_left": ((1, 1), (0, 1), (2, 1), (1, 1.5), (1, 0.5)),
+    "center": ((3, 1), (2, 1), (4, 1), (3, 1.5), (3, 0.5)),
+    "middle_right": ((5, 1), (4, 1), (6, 1), (5, 1.5), (5, 0.5)),
 
-    "하좌궁": ((1, 0), (0, 0), (2, 0), (1, 0.5), (1, -1)),
-    "하중궁": ((3, 0), (2, 0), (4, 0), (3, 0.5), (3, -1)),
-    "하우궁": ((5, 0), (4, 0), (6, 0), (5, 0.5), (5, -1)),
+    "lower_left": ((1, 0), (0, 0), (2, 0), (1, 0.5), (1, -1)),
+    "lower_center": ((3, 0), (2, 0), (4, 0), (3, 0.5), (3, -1)),
+    "lower_right": ((5, 0), (4, 0), (6, 0), (5, 0.5), (5, -1)),
 }
 
 RESIDUE_STYLE: Final = {
@@ -263,7 +275,7 @@ def draw_palace_boundaries(ax: Axes, font: FontProperties) -> None:
         ax.text(
             x,
             label_y,
-            f"{palace_name}  합 85",
+            f"{DISPLAY_LABELS[palace_name]}  합 85",
             ha="center",
             va="center",
             fontproperties=font,
@@ -348,7 +360,7 @@ def draw_legend(ax: Axes, font: FontProperties) -> None:
     ax.text(
         0.0,
         y,
-        "residue groups",
+        "잉여 클래스",
         transform=ax.transAxes,
         ha="left",
         va="top",

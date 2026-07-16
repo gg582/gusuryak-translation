@@ -116,14 +116,14 @@ def validate() -> None:
 
     if sorted(grouped_numbers) != sorted(POSITIONS):
         raise ValueError(
-            "GROUPS and POSITIONS must contain the same numbers exactly once."
+            "GROUPS와 POSITIONS는 정확히 같은 수를 각각 한 번씩 포함해야 합니다."
         )
 
     for number in POSITIONS:
         expected = residue_of(number)
         if number not in GROUPS[expected]:
             raise ValueError(
-                f"{number} is not placed in its correct residue group."
+                f"{number}가 올바른 잉여 클래스에 배치되지 않았습니다."
             )
 
 
@@ -173,7 +173,7 @@ def draw(
         )
 
     diagram_ax.set_title(
-        "O-ja-gakdeuk mod 5 residue-group diagram",
+        "오자각득 mod 5 잉여 클래스 도식",
         fontproperties=font,
         fontsize=18,
         pad=16,
@@ -184,7 +184,7 @@ def draw(
     legend_ax.text(
         0.0,
         0.98,
-        "Residue groups",
+        "잉여 클래스",
         transform=legend_ax.transAxes,
         ha="left",
         va="top",
@@ -240,7 +240,7 @@ def draw(
     legend_ax.text(
         0.0,
         0.08,
-        f"Visible nodes: {len(POSITIONS)}",
+        f"보이는 노드: {len(POSITIONS)}개",
         transform=legend_ax.transAxes,
         ha="left",
         va="bottom",

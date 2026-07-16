@@ -14,7 +14,7 @@ from typing import Final
 
 
 @dataclass(frozen=True)
-class GakdeukFamily:
+class EachGetsFamily:
     """각득 계열 하나의 데이터를 담는 데이터 클래스."""
 
     name: str
@@ -33,8 +33,8 @@ class GakdeukFamily:
 # 1. 데이터 정의
 # ============================================================
 
-FAMILIES: Final[tuple[GakdeukFamily, ...]] = (
-    GakdeukFamily(
+FAMILIES: Final[tuple[EachGetsFamily, ...]] = (
+    EachGetsFamily(
         name="오자각득(천수용오도)",
         n=5,
         k=5,
@@ -46,7 +46,7 @@ FAMILIES: Final[tuple[GakdeukFamily, ...]] = (
         duplicated_values=(),  # solver가 찾아야 함
         note="부분 집합 합=65, 5×65=325, D=60",
     ),
-    GakdeukFamily(
+    EachGetsFamily(
         name="육자각득(지수용육도)",
         n=6,
         k=5,
@@ -58,7 +58,7 @@ FAMILIES: Final[tuple[GakdeukFamily, ...]] = (
         duplicated_values=(3, 8, 10, 11, 12, 13, 14, 15),
         note="8개 공유 정점, 차수 3",
     ),
-    GakdeukFamily(
+    EachGetsFamily(
         name="칠자각득",
         n=7,
         k=5,
@@ -70,7 +70,7 @@ FAMILIES: Final[tuple[GakdeukFamily, ...]] = (
         duplicated_values=(1, 6, 24, 34),
         note="중심 1 + 주변 6, 중복 값 4개",
     ),
-    GakdeukFamily(
+    EachGetsFamily(
         name="팔자각득",
         n=8,
         k=5,
@@ -82,7 +82,7 @@ FAMILIES: Final[tuple[GakdeukFamily, ...]] = (
         duplicated_values=(),
         note="3x3 Grid 중심 제외 8자, 궁 간 엣지 12개",
     ),
-    GakdeukFamily(
+    EachGetsFamily(
         name="구자각득",
         n=9,
         k=5,
@@ -96,13 +96,22 @@ FAMILIES: Final[tuple[GakdeukFamily, ...]] = (
     ),
 )
 
-WUXING_NAMES: Final[tuple[str, ...]] = ("수", "화", "목", "금", "토")
+PHASE_NAMES: Final[tuple[str, ...]] = ("Water", "Fire", "Wood", "Metal", "Earth")
+
+# 사용자 출력용 한글 라벨.
+DISPLAY_LABELS = {
+    "Water": "수",
+    "Fire": "화",
+    "Wood": "목",
+    "Metal": "금",
+    "Earth": "토",
+}
 
 
-def wuxing_of(n: int) -> str:
-    """수를 오행으로 분류 (1→수, 2→화, 3→목, 4→금, 0→토)."""
+def phase_of(n: int) -> str:
+    """수를 오행으로 분류 (1→Water, 2→Fire, 3→Wood, 4→Metal, 0→Earth)."""
     r = n % 5
-    return WUXING_NAMES[r - 1]
+    return PHASE_NAMES[r - 1]
 
 
 def residue_1based(n: int) -> int:
@@ -111,7 +120,7 @@ def residue_1based(n: int) -> int:
     return 5 if r == 0 else r
 
 
-def wuxing_sum_sequence(m: int) -> list[int]:
+def phase_sum_sequence(m: int) -> list[int]:
     """
     1부터 5*m까지의 수를 mod 5로 분류했을 때
     각 오행 군의 합 시퀀스를 반환.
@@ -120,14 +129,14 @@ def wuxing_sum_sequence(m: int) -> list[int]:
     return [base + m * r for r in range(1, 6)]
 
 
-def duplicated_total(family: GakdeukFamily) -> int:
+def duplicated_total(family: EachGetsFamily) -> int:
     """중복으로 더해진 총량 D = k*S - T 를 반환."""
     if family.subset_sum is None:
         return 0
     return family.duplicated_sum - family.total_sum
 
 
-def average_per_subset(family: GakdeukFamily) -> float | None:
+def average_per_subset(family: EachGetsFamily) -> float | None:
     """각 부분 집합의 평균값 S/n 을 반환."""
     if family.subset_sum is None:
         return None
@@ -164,17 +173,18 @@ def print_summary_table() -> None:
     print()
 
 
-def print_wuxing_table() -> None:
+def print_phase_table() -> None:
     """각 계열의 오행 합 등차수열을 출력."""
     print("=" * 80)
     print("오행(五行) mod 5 합 분포")
     print("=" * 80)
-    print(f"{'계열':<18} | {'m':>3} | 수 | 화 | 목 | 금 | 토 | 공차")
+    labels = " | ".join(DISPLAY_LABELS[p] for p in PHASE_NAMES)
+    print(f"{'계열':<18} | {'m':>3} | {labels} | 공차")
     print("-" * 72)
     for fam in FAMILIES:
         # 완전 5×m 범위 기준 (오자각득은 25까지 확장)
         m = fam.m
-        seq = wuxing_sum_sequence(m)
+        seq = phase_sum_sequence(m)
         diff = seq[1] - seq[0]
         print(
             f"{fam.name:<18} | {m:>3} | "
@@ -245,11 +255,12 @@ def generate_markdown_report() -> str:
     lines.append("")
 
     lines.append("## 2. 오행 mod 5 합 분포\n")
-    lines.append("| 계열 | m | 수 | 화 | 목 | 금 | 토 | 공차 |")
+    header_labels = " | ".join(DISPLAY_LABELS[p] for p in PHASE_NAMES)
+    lines.append(f"| 계열 | m | {header_labels} | 공차 |")
     lines.append("|---|---|---|---|---|---|---|---|")
     for fam in FAMILIES:
         m = fam.m
-        seq = wuxing_sum_sequence(m)
+        seq = phase_sum_sequence(m)
         diff = seq[1] - seq[0]
         lines.append(
             f"| {fam.name} | {m} | {seq[0]} | {seq[1]} | {seq[2]} | {seq[3]} | {seq[4]} | {diff} |"
@@ -293,7 +304,7 @@ def generate_markdown_report() -> str:
 
 if __name__ == "__main__":
     print_summary_table()
-    print_wuxing_table()
+    print_phase_table()
     print_equation_check()
     print_generalization()
 

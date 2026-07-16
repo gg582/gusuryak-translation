@@ -36,7 +36,7 @@ import pulp
 
 
 @dataclass(frozen=True)
-class GakdeukSolution:
+class EachGetsSolution:
     """Solver가 반환하는 해."""
 
     n: int
@@ -175,7 +175,7 @@ def parse_pair_shared_counts(s: str) -> dict[tuple[int, int], int]:
 # 2. Solver
 # ============================================================
 
-class GakdeukSolver:
+class EachGetsSolver:
     def __init__(self, solver_name: str | None = None, verbose: int = 0):
         self.solver_name = solver_name
         self.verbose = verbose
@@ -203,9 +203,9 @@ class GakdeukSolver:
         residue_slack: int = 1,
         pair_shared_counts: dict[tuple[int, int], int] | None = None,
         symmetry: str | None = None,
-        forbid_solutions: list[GakdeukSolution] | None = None,
+        forbid_solutions: list[EachGetsSolution] | None = None,
         time_limit: int | None = None,
-    ) -> GakdeukSolution | None:
+    ) -> EachGetsSolution | None:
         """
         단일 해를 찾습니다. forbid_solutions에 주어진 해들은 제외.
         """
@@ -222,7 +222,7 @@ class GakdeukSolver:
         subsets = connected_subsets(adjacency, max_multiplicity)
         subset_keys = [tuple(sorted(s)) for s in subsets]
 
-        prob = pulp.LpProblem("GakdeukGeo", pulp.LpStatusOptimal)
+        prob = pulp.LpProblem("EachGetsGeo", pulp.LpStatusOptimal)
 
         a = pulp.LpVariable.dicts(
             "a", (all_vertices, subset_keys), lowBound=0, upBound=1, cat=pulp.LpBinary
@@ -404,7 +404,7 @@ class GakdeukSolver:
         shared = tuple(v for v, m in multiplicity.items() if m >= 2)
         shared_ints = tuple(int(v) for v in shared)
 
-        return GakdeukSolution(
+        return EachGetsSolution(
             n=n,
             N_max=N_max,
             S=S,
@@ -422,9 +422,9 @@ class GakdeukSolver:
         S: int,
         max_solutions: int,
         **kwargs,
-    ) -> list[GakdeukSolution]:
+    ) -> list[EachGetsSolution]:
         """여러 해를 열거합니다."""
-        solutions: list[GakdeukSolution] = []
+        solutions: list[EachGetsSolution] = []
         for _ in range(max_solutions):
             sol = self.solve(
                 n=n,
@@ -443,7 +443,7 @@ class GakdeukSolver:
 # 3. 시각화
 # ============================================================
 
-def visualize_solution(sol: GakdeukSolution, output_path: str | None = None) -> None:
+def visualize_solution(sol: EachGetsSolution, output_path: str | None = None) -> None:
     """해를 matplotlib로 시각화."""
     try:
         import matplotlib.pyplot as plt
@@ -469,7 +469,7 @@ def visualize_solution(sol: GakdeukSolution, output_path: str | None = None) -> 
         _draw_generic(sol, output_path)
 
 
-def _draw_cross(sol: GakdeukSolution, output_path: str | None) -> None:
+def _draw_cross(sol: EachGetsSolution, output_path: str | None) -> None:
     import matplotlib.pyplot as plt
     positions = {
         0: (0, 0),
@@ -481,7 +481,7 @@ def _draw_cross(sol: GakdeukSolution, output_path: str | None) -> None:
     _draw_layout(sol, positions, output_path)
 
 
-def _draw_honeycomb(sol: GakdeukSolution, output_path: str | None) -> None:
+def _draw_honeycomb(sol: EachGetsSolution, output_path: str | None) -> None:
     import matplotlib.pyplot as plt
     # 중앙 + 4방향 육각형
     positions = {
@@ -494,7 +494,7 @@ def _draw_honeycomb(sol: GakdeukSolution, output_path: str | None) -> None:
     _draw_layout(sol, positions, output_path)
 
 
-def _draw_generic(sol: GakdeukSolution, output_path: str | None) -> None:
+def _draw_generic(sol: EachGetsSolution, output_path: str | None) -> None:
     import matplotlib.pyplot as plt
     import numpy as np
     # 원형 배치
@@ -504,7 +504,7 @@ def _draw_generic(sol: GakdeukSolution, output_path: str | None) -> None:
 
 
 def _draw_layout(
-    sol: GakdeukSolution,
+    sol: EachGetsSolution,
     positions: dict[int, tuple[float, float]],
     output_path: str | None,
 ) -> None:
@@ -668,10 +668,10 @@ def main() -> int:
     parser.add_argument("--verbose", action="store_true")
     args = parser.parse_args()
 
-    solver = GakdeukSolver(verbose=1 if args.verbose else 0)
+    solver = EachGetsSolver(verbose=1 if args.verbose else 0)
 
     if args.all:
-        all_solutions: list[GakdeukSolution] = []
+        all_solutions: list[EachGetsSolution] = []
         for fam in known_families():
             print("=" * 70)
             print(f"[풀이 시도] {fam['name']} (n={fam['n']}, S={fam['S']})")
