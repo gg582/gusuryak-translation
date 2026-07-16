@@ -2,7 +2,7 @@
 
 ## Method
 
-Apply the algorithms used by Yang Hui and Albrecht Dürer for the 4×4 case. The commentary itself says as much; if you are interested, see pages 302–303 of the facsimile edition published by Sungshin Women’s University.
+Apply the algorithms used by Yang Hui and Albrecht Dürer for the 4×4 case. The commentary itself says as much; if you are interested, see pages 302–303 of the facsimile edition published by Sungshin Women's University.
 
 ## Yang Square (陽圖)
 

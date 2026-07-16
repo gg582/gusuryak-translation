@@ -29,12 +29,12 @@ This folder contains a self-contained study of the representative **30-vertex, 9
 
 ## Original text
 
-> 六子各得九十三數 — “Each six-number group obtains 93.”  
-> 九宮共得八百三十七數 — “The nine palaces together obtain 837.”  
-> 中眷三宮，三宮爲主則 — “The centre watches over three palaces; three palaces are the master.”  
-> 左右十二子 分爲二宮 若爲以 — “The twelve left/right numbers are divided into two palaces.”  
-> 四正爲四宮，中間六子合爲一宮 — “The four orthogonals are four palaces; the six middle numbers form one palace.”  
-> 凡九宮化爲十二宮 — “Thus the nine palaces are transformed into twelve palaces.”
+> 六子各得九十三數 — "Each six-number group obtains 93."
+> 九宮共得八百三十七數 — "The nine palaces together obtain 837."
+> 中眷三宮，三宮爲主則 — "The centre watches over three palaces; three palaces are the master."
+> 左右十二子 分爲二宮 若爲以 — "The twelve left/right numbers are divided into two palaces."
+> 四正爲四宮，中間六子合爲一宮 — "The four orthogonals are four palaces; the six middle numbers form one palace."
+> 凡九宮化爲十二宮 — "Thus the nine palaces are transformed into twelve palaces."
 
 See `origin_text.md` for the full Chinese / English parallel text.
 
@@ -105,7 +105,7 @@ The odd/even nodes are distributed fairly evenly across the left/right and top/b
 
 ### mod 6, 9, 12
 
-The same residue machinery is applied to moduli 6 (= 2×3), 9 (= 3²), and 12 (= 2²×3).  
+The same residue machinery is applied to moduli 6 (= 2×3), 9 (= 3²), and 12 (= 2²×3).
 The generated images `mod6_distribution.png`, `mod9_distribution.png`, and `mod12_distribution.png` show the spatial layout of each classification.
 
 ---

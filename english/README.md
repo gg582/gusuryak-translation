@@ -8,7 +8,7 @@ This is the English edition of a repository that redefines in modern combinatori
 Under each language edition the puzzles are grouped into the following families:
 
 1. **01-saodo-family** — diagrams from the Hado/Nakseo mod-5 coloring tradition
-2. **02-gakdeuk-series** — *gakdeuk* (各得, “each gets”) puzzles
+2. **02-gakdeuk-series** — *gakdeuk* (各得, "each gets") puzzles
 3. **03-magic-squares** — classical magic squares and corrected completions
 4. **04-unification** — a generalization framework that contains the above families as special cases
 
@@ -25,9 +25,9 @@ Nakseo-sagudo and Nakseo-ogudo in `01-saodo-family/` can be read in two ways. Th
 
 This reading views a diagram as a placement of numbers in which every subset has the same sum.
 
-- **Sajagakdeuk (四子各得, “Four Each Gets”)**: each of the nine palaces of Nakseo-sagudo receives four numbers summing to 42.
-- **Ojagakdeuk (五子各得, “Five Each Gets”)**: each of the nine palaces of Nakseo-ogudo receives five numbers summing to 85.
-- **Chiljagakdeuk (七子各得, “Seven Each Gets”)**: each of the nine palaces of Nakseo-chilgudo receives seven numbers summing to 224 (= 7 × 32). It partitions the numbers 1 through 63 without overlap.
+- **Sajagakdeuk (四子各得, "Four Each Gets")**: each of the nine palaces of Nakseo-sagudo receives four numbers summing to 42.
+- **Ojagakdeuk (五子各得, "Five Each Gets")**: each of the nine palaces of Nakseo-ogudo receives five numbers summing to 85.
+- **Chiljagakdeuk (七子各得, "Seven Each Gets")**: each of the nine palaces of Nakseo-chilgudo receives seven numbers summing to 224 (= 7 × 32). It partitions the numbers 1 through 63 without overlap.
 
 From a modern point of view this reading has the more advanced features. What it emphasizes is:
 
@@ -41,9 +41,9 @@ From a modern point of view this reading has the more advanced features. What it
 
 This reading views the diagram as an interaction of 4 (*sa*) and 5 (*o*), i.e. within the framework of traditional wuxing-directional cosmology.
 
-- **Sado (四道, “Four Ways”)**: the four directions, four seasons, 4-cycle, four numbers per palace.
-- **Odo (五道, “Five Ways”)**: the five phases (water, fire, wood, metal, earth), five directions, five numbers per palace.
-- **Jiugong (九宫, “Nine Palaces”)**: a 3×3 Luoshu magic-square space. This appears most clearly in Nakseo-chilgudo, where each palace receives seven numbers and the center numbers themselves form a classical magic square.
+- **Sado (四道, "Four Ways")**: the four directions, four seasons, 4-cycle, four numbers per palace.
+- **Odo (五道, "Five Ways")**: the five phases (water, fire, wood, metal, earth), five directions, five numbers per palace.
+- **Jiugong (九宫, "Nine Palaces")**: a 3×3 Luoshu magic-square space. This appears most clearly in Nakseo-chilgudo, where each palace receives seven numbers and the center numbers themselves form a classical magic square.
 
 This reading emphasizes:
 
@@ -54,7 +54,7 @@ This reading emphasizes:
 
 ### 3. Which Reading Is More Advanced by the Early-Modern Publication Standard of 1700?
 
-It depends on what “advanced” means.
+It depends on what "advanced" means.
 
 | Criterion | Gakdeuk reading | Saodo reading |
 |---|---|---|
@@ -66,7 +66,7 @@ It depends on what “advanced” means.
 From a **modern perspective**, the gakdeuk reading is more advanced, because it isolates observable invariants and places the diagram in a parameterized puzzle family.
 From the **perspective of early-modern Joseon or Qing scholarship**, the saodo reading would have been more natural and self-contained, because placing numbers within a wuxing-directional cosmology was the most familiar explanatory idiom.
 
-Both readings already exist in the original commentaries. “每宫四子 各得四十二數” and “五子各得 八十五數” are essentially gakdeuk statements, while “五宫化爲九宫”, “右旋”, and the five-phase classification are saodo statements. Therefore the two readings are not rivals but **two mutually convertible viewpoints on the same diagram**.
+Both readings already exist in the original commentaries. "每宫四子 各得四十二數" and "五子各得 八十五數" are essentially gakdeuk statements, while "五宫化爲九宫", "右旋", and the five-phase classification are saodo statements. Therefore the two readings are not rivals but **two mutually convertible viewpoints on the same diagram**.
 
 ### 4. What to Look at for a Modern Reinterpretation?
 
@@ -117,7 +117,7 @@ Only four numbers are changed: in palace 9, 23 → 51 and 36 → 58; in palace 2
 ### Saodo reading
 
 - The center numbers 1–9 form the 3×3 **Luoshu Jiugong** magic square.
-- The 9 palaces × 7 numbers = 63 numbers can be viewed as distributing seven *qi* (七氣) or the Big Dipper’s seven stars within the nine-palace system.
+- The 9 palaces × 7 numbers = 63 numbers can be viewed as distributing seven *qi* (七氣) or the Big Dipper's seven stars within the nine-palace system.
 - When every palace sums to 224, the 3×3 palace grid itself acquires magic-square properties: each row, column, and diagonal sums to 672 (= 224 × 3).
 
 ---

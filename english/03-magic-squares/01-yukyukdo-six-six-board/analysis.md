@@ -7,7 +7,7 @@ Order: 6×6
 ## Example 1
 - Value range: 1 ~ 36
 - Normal set (consecutive integers): Yes
-- Magic constant: 111
+- Reference magic constant: 111
 - Row sums: [111, 111, 111, 111, 111, 111]
 - Column sums: [111, 111, 111, 111, 111, 111]
 - Diagonal sums: [111, 111]
@@ -22,7 +22,7 @@ Order: 6×6
 ## Example 2
 - Value range: 1 ~ 36
 - Normal set (consecutive integers): Yes
-- Magic constant: 111
+- Reference magic constant: 111
 - Row sums: [111, 111, 111, 111, 111, 111]
 - Column sums: [111, 111, 111, 111, 111, 111]
 - Diagonal sums: [111, 111]

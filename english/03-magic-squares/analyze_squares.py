@@ -304,22 +304,21 @@ def describe_generation_rule(name, data):
         )
     elif name == "Baekjasaengseong-sunsu (Hundred-Numbers Pure-Generation Diagram, 百子生成純數圖)":
         return (
-            "10×10 magic square. It uses each of the numbers 1 through 100 exactly once and has magic constant 505. "
-            "All row/column/diagonal sums are 505. It has top-bottom, left-right, and diagonal center-symmetry (associated) properties. "
-            "Rows such as row 1 and row 10, and columns such as column 1 and column 10, are in reverse/complementary relationships, so the construction consists of dual-symmetric pairs."
+            "10×10 number arrangement. This example is not a normal 1-through-100 set, and its row, column, and diagonal sums are not all 505. "
+            "Some rows and columns retain symmetric relationships, but the verification does not classify it as a magic square or an associated magic square."
         )
     elif name == "Baekjasaengseong-gyosu (Hundred-Numbers Crossed-Numbers Diagram, 百子生成交數圖)":
         return (
-            "10×10 magic square. It uses each of the numbers 1 through 100 exactly once and has magic constant 505. "
-            "Similar to Baekjasaengseong-sunsu but with a different character. "
+            "10×10 number arrangement. This example is not a normal 1-through-100 set, and its row, column, and diagonal sums are not all 505. "
+            "It resembles Baekjasaengseong-sunsu but has a different character. "
             "The positions of each pair appear crossed or exchanged, as the name 'gyosu (crossed numbers)' suggests. "
-            "It has top-bottom and center-symmetry (associated) properties."
+            "The verification does not classify it as a magic square or an associated magic square."
         )
     elif name == "Baekjayin-yang-jamo-chakjong (Hundred-Numbers Yin-Yang Mother-Child Intertwining Diagram, 百子陰陽子母錯綜圖)":
         return (
-            "10×10 magic square. It uses each of the numbers 1 through 100 exactly once and has magic constant 505. "
+            "10×10 number arrangement. It uses each of the numbers 1 through 100 exactly once, but its row, column, and diagonal sums are not all 505, so it is not a magic square. "
             "As the name 'yin-yang (陰陽)' and 'jamo (mother-child)' suggests, the numbers are arranged in complementary pairs. "
-            "The center-symmetric positions sum to 101, satisfying the associated magic square property. "
+            "The center-symmetric positions sum to 190 in this example, but the verification does not classify it as an associated magic square. "
             "It looks like a structure made by superimposing two 10×10 Latin squares."
         )
     return ""
@@ -352,7 +351,7 @@ def main():
             md.append(f"## Example {r['example']}")
             md.append(f"- Value range: {r['min']} ~ {r['max']}")
             md.append(f"- Normal set (consecutive integers): {'Yes' if r['normal_set'] else 'No'}")
-            md.append(f"- Magic constant: {r['magic_constant']}")
+            md.append(f"- Reference magic constant: {r['magic_constant']}")
             md.append(f"- Row sums: {r['row_sums']}")
             md.append(f"- Column sums: {r['col_sums']}")
             md.append(f"- Diagonal sums: {r['diag_sums']}")

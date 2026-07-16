@@ -63,7 +63,7 @@ The eight boundary palaces are built from overlapping vertices of adjacent faces
 
 ## 4. From Five Palaces to Nine Palaces
 
-The phrase “五宫化 爲九宫” describes the following procedure:
+The phrase "五宫化 爲九宫" describes the following procedure:
 
 1. Start with 20 numbers classified into five wuxing (mod 5) groups.
 2. Overlap neighboring groups to form nine four-element blocks.
@@ -84,7 +84,7 @@ Sajagakdeuk reconstructs these five classes into nine overlapping palace blocks.
 
 ## 5. Neighboring Stars Overlap
 
-“鄰星相兼” means adjacent palaces share two elements each.
+"鄰星相兼" means adjacent palaces share two elements each.
 
 ```
 NW = {19, 2, 14, 7}
@@ -99,13 +99,13 @@ The fact that every palace still sums to 42 is the core invariant of Sajagakdeuk
 
 ## 6. Right Rotation and Mutual Transformation 1890
 
-“右旋” means the eight boundary palaces cycle clockwise around the center.
+"右旋" means the eight boundary palaces cycle clockwise around the center.
 
 ```
 NW → N → NE → E → SE → S → SW → W → NW
 ```
 
-“互化則一千八百九十數” counts all pairings between the five wuxing classes and the nine palace blocks, weighted by the common invariant 42.
+"互化則一千八百九十數" counts all pairings between the five wuxing classes and the nine palace blocks, weighted by the common invariant 42.
 
 ```
 5 × 9 = 45
@@ -135,11 +135,11 @@ The original annotation is its operating manual, and 42 is a designed invariant,
 
 Nakseo Sagudo simultaneously encodes the interplay of **Saodo (四/五道)** — the Four and Five Ways.
 
-- **Four-Way (사도) aspect**: Each of the nine palaces receives four numbers (四子). The central palace’s 4-cycle (5, 16, 10, 11) is the core of the Four-Way; sixteen boundary vertices and four central vertices form the 3×2 rectangular layout.
+- **Four-Way (사도) aspect**: Each of the nine palaces receives four numbers (四子). The central palace's 4-cycle (5, 16, 10, 11) is the core of the Four-Way; sixteen boundary vertices and four central vertices form the 3×2 rectangular layout.
 - **Five-Way (오도) aspect**: The twenty numbers are classified into five wuxing (mod 5) classes. The transformation of five palaces into nine palaces (五宫化爲九宫) is the action of the Five-Way.
 
 Thus Sajagakdeuk realizes a Four-Way partial-sum invariant on top of a Five-Way classification system.  
-This is why the original text calls it “河圖四五画”: the Four and the Five are drawn together and interact.
+This is why the original text calls it "河圖四五画": the Four and the Five are drawn together and interact.
 
 ---
 

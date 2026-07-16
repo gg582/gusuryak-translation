@@ -2,12 +2,12 @@
 
 Order: 10×10
 
-10×10 magic square. It uses each of the numbers 1 through 100 exactly once and has magic constant 505. Similar to Baekjasaengseong-sunsu but with a different character. The positions of each pair appear crossed or exchanged, as the name 'gyosu (crossed numbers)' suggests. It has top-bottom and center-symmetry (associated) properties.
+10×10 number arrangement. This example is not a normal 1-through-100 set, and its row, column, and diagonal sums are not all 505. It resembles Baekjasaengseong-sunsu but has a different character. The positions of each pair appear crossed or exchanged, as the name 'gyosu (crossed numbers)' suggests. The verification does not classify it as a magic square or an associated magic square.
 
 ## Example 1
 - Value range: 6 ~ 100
 - Normal set (consecutive integers): No
-- Magic constant: 505
+- Reference magic constant: 505
 - Row sums: [595, 495, 495, 495, 505, 485, 495, 495, 495, 595]
 - Column sums: [495, 495, 495, 495, 495, 595, 595, 495, 495, 495]
 - Diagonal sums: [723, 287]
@@ -18,6 +18,15 @@ Order: 10×10
 - Associated: No (center-symmetric sum = 110)
 - Bimagic: No
 - 180° rotational symmetry: No
+
+## Source and Correction Note
+
+The original array fails the normal `1..100` set check, and its line sums also
+fail the stated magic-square conditions. Considering the source properties
+together with differences between printed editions, the discrepancy is most
+consistent with a publication error or a copying error by a proofreader. The
+original array is retained as transcription evidence; `corrected.md` provides a
+separate arrangement satisfying the normal-set and line-sum conditions.
 
 ## Value Frequency Analysis (Example 1)
 - Total cells: 100

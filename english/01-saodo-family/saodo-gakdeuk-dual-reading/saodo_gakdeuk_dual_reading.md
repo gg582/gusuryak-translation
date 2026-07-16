@@ -112,7 +112,7 @@ Thus the two diagrams are two variations of the same Gakdeuk principle, differin
 
 - The **Saodo reading** uses the traditional cosmological vocabulary (directions, wuxing, nine palaces).
 - The **Gakdeuk reading** makes the underlying **partial-sum invariant** explicit inside the same framework.
-- Therefore the **Gakdeuk reading is more advanced** for the late Joseon / early 18th-century publication context: it is not merely “looks like a magic square” but states the quantitative rule that every subset has the same sum.
+- Therefore the **Gakdeuk reading is more advanced** for the late Joseon / early 18th-century publication context: it is not merely "looks like a magic square" but states the quantitative rule that every subset has the same sum.
 - For a modern reinterpretation, look at:
   1. **Integer linear equations** (`Σ_{v∈C} x_v = S` for every cluster C)
   2. **Overlap equation** (`k·S = T + D`)

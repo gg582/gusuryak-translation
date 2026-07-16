@@ -42,7 +42,7 @@
 
 Comparing the two diagrams reveals the following shared structure.
 
-1. **Five directions**: Saodo’s five color classes correspond to Chiljagakdeuk’s five clusters.
+1. **Five directions**: Saodo's five color classes correspond to Chiljagakdeuk's five clusters.
 2. **Mod-5 residue classification**: both puzzles rely on a modulo-5 partition.
 3. **Weight function**: each element is assigned a natural-number label.
 4. **Sum invariant**: Saodo has global sum 210; Chiljagakdeuk has per-direction sum 120.
@@ -92,7 +92,7 @@ The two puzzles map as follows.
 
 ## 4. Following Verdict
 
-Applying Chiljagakdeuk’s strict rule to Saodo gives the following.
+Applying Chiljagakdeuk's strict rule to Saodo gives the following.
 
 | Level | Condition | Saodo satisfies? |
 |---|---|---|

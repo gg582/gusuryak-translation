@@ -10,9 +10,9 @@
 | Number of nodes M | 20 | 13, 16, 22, 24, 30, 33, 54, etc. |
 | Numbers used | 1–20 | 1–M |
 | Magic constant S | 63 | 34–50, 40–62, 57–71, 65–85, 77–109, … |
-| Core rule | Every hexagon’s six numbers have the same sum | Every hexagon’s six numbers have the same sum |
+| Core rule | Every hexagon's six numbers have the same sum | Every hexagon's six numbers have the same sum |
 
-Jisu-guimun-do can be viewed as a **structural extension** of Jisu-yong-yukdo. If Jisu-yong-yukdo is the special form “5 hexagons, 20 nodes,” then Jisu-guimun-do is the **generalization of the same sum-invariant rule to hexagonal tilings of various sizes**.
+Jisu-guimun-do can be viewed as a **structural extension** of Jisu-yong-yukdo. If Jisu-yong-yukdo is the special form "5 hexagons, 20 nodes," then Jisu-guimun-do is the **generalization of the same sum-invariant rule to hexagonal tilings of various sizes**.
 
 ---
 
@@ -70,7 +70,7 @@ Because D depends on the positions and multiplicities of shared vertices, the po
 
 ### 3.2 Representative Jisu-guimun-do Variants
 
-According to the Korean Wikipedia entry for “Jisu-guimun-do,” the following variants are known ([Jisu-guimun-do](https://ko.wikipedia.org/wiki/%EC%A7%80%EC%88%98%EA%B7%80%EB%AC%B8%EB%8F%84)).
+According to the Korean Wikipedia entry for "Jisu-guimun-do," the following variants are known ([Jisu-guimun-do](https://ko.wikipedia.org/wiki/%EC%A7%80%EC%88%98%EA%B7%80%EB%AC%B8%EB%8F%84)).
 
 | M | Hexagons H | Shape | Magic constant S range | Notes |
 |:---:|:---:|:---|:---:|:---|
@@ -100,7 +100,7 @@ Jisu-guimun-do and Jisu-yong-yukdo share the following rules.
 
 ### 4.2 Jisu-yong-yukdo = a Special Case of Jisu-guimun-do
 
-Jisu-yong-yukdo can be seen as Jisu-guimun-do with M = 20 and H = 5. The name “Jisu-yong-yukdo” is traditionally used because “yong-yuk (用六)” means that the number 6 is taken as the core unit.
+Jisu-yong-yukdo can be seen as Jisu-guimun-do with M = 20 and H = 5. The name "Jisu-yong-yukdo" is traditionally used because "yong-yuk (用六)" means that the number 6 is taken as the core unit.
 
 Jisu-guimun-do keeps 6 as the core unit while **freely extending the number of hexagons H and the number of nodes M**. Therefore:
 
@@ -173,7 +173,7 @@ H6: [5, 18, 17, 12, 19, 4] = 75
 
 ---
 
-## 6. Can We Obtain “All” Jisu-guimun-do Solutions?
+## 6. Can We Obtain "All" Jisu-guimun-do Solutions?
 
 In principle, finding all solutions for a given M is **possible**, because the condition is a finite combinatorial one (permutations of 1 through M satisfying some constraints).
 
@@ -203,5 +203,5 @@ Solver experiments found valid placements for M = 13, 16, 20, and 24, and confir
 
 ## References
 
-- Wikipedia, “Jisu-guimun-do” (Earth-Number Turtle-Shell Diagram), [https://ko.wikipedia.org/wiki/%EC%A7%80%EC%88%98%EA%B7%80%EB%AC%B8%EB%8F%84](https://ko.wikipedia.org/wiki/%EC%A7%80%EC%88%98%EA%B7%80%EB%AC%B8%EB%8F%84)
+- Wikipedia, "Jisu-guimun-do" (Earth-Number Turtle-Shell Diagram), [https://ko.wikipedia.org/wiki/%EC%A7%80%EC%88%98%EA%B7%80%EB%AC%B8%EB%8F%84](https://ko.wikipedia.org/wiki/%EC%A7%80%EC%88%98%EA%B7%80%EB%AC%B8%EB%8F%84)
 - `jisuguimundo_solver.py`: MILP-based automatic search script in this folder.

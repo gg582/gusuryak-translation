@@ -4,7 +4,7 @@
 
 ## 1. Overview
 
-The Chiljagakdeuk (Seven-Each-Gets) puzzle is a diagram composed of five clusters. Each cluster contains seven numbers: one center and six peripheral slots, and each cluster sums to 120. Although the original note says it follows the “Hado-Saodo rule,” this report avoids such traditional terminology and redefines the puzzle using only modern combinatorial language.
+The Chiljagakdeuk (Seven-Each-Gets) puzzle is a diagram composed of five clusters. Each cluster contains seven numbers: one center and six peripheral slots, and each cluster sums to 120. Although the original note says it follows the "Hado-Saodo rule," this report avoids such traditional terminology and redefines the puzzle using only modern combinatorial language.
 
 ## 2. Data
 

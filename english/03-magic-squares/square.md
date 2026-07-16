@@ -114,8 +114,25 @@
  24 35 41  2 83 18 99 60 66 77
  93 94 85 71 52 49 30 16  7  8
  82 63 64 95 81 20  6 37 38 19
- 11 22 33 44  5 96 57 68 79 90
+11 22 33 44  5 96 57 68 79 90
 ```
+
+## Use of the corrected order-ten diagrams
+
+The four blocks above are source-transcription arrays retained for comparison
+with the *Gusuryak* material. For numerical verification and follow-up analysis
+that requires a normal magic-square arrangement, use these corrected versions:
+
+- [Baekjajasuyin-yang-chakjong correction](03-baekjajasuyin-yang-chakjong/corrected.md)
+- [Baekjasaengseong-sunsu correction](04-baekjasaengseong-sunsu/corrected.md)
+- [Baekjasaengseong-gyosu correction](05-baekjasaengseong-gyosu/corrected.md)
+- [Baekjayin-yang-jamo-chakjong correction](06-baekjayin-yang-jamo-chakjong/corrected.md)
+
+Each corrected arrangement uses every value from 1 through 100 exactly once,
+and every row, column, and main diagonal sums to 505. Three source arrays fail
+the normal-set check; the analyses record the possibility of a printing,
+publication, or proofreader-copying error. The fourth source array is a normal
+set but does not itself satisfy the magic-square conditions.
 
 ## References
 

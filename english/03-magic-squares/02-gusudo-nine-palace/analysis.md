@@ -7,7 +7,7 @@ Order: 9×9
 ## Example 1
 - Value range: 1 ~ 81
 - Normal set (consecutive integers): Yes
-- Magic constant: 369
+- Reference magic constant: 369
 - Row sums: [369, 369, 369, 369, 369, 369, 369, 369, 369]
 - Column sums: [369, 369, 369, 369, 369, 369, 369, 369, 369]
 - Diagonal sums: [369, 369]
@@ -22,7 +22,7 @@ Order: 9×9
 ## Example 2
 - Value range: 1 ~ 81
 - Normal set (consecutive integers): Yes
-- Magic constant: 369
+- Reference magic constant: 369
 - Row sums: [369, 369, 369, 369, 369, 369, 369, 369, 369]
 - Column sums: [369, 369, 369, 369, 369, 369, 369, 369, 369]
 - Diagonal sums: [369, 369]

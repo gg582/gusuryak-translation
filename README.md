@@ -239,9 +239,59 @@ Key facts:
 - Magic constants: `M_6 = 111`, `M_9 = 369`, `M_10 = 505`.
 - **Yukyukdo** (`6×6`) and **Gusudo** (`9×9`) are normal magic squares; a `6×6` associated square is impossible.
 - **Gusudo** Example 1 is fully associated (`a_{i,j} + a_{8-i,8-j} = 82`); Example 2 can be corrected to associated.
-- The four `10×10` squares are not normal magic squares; valid corrections using `1..100` with all rows, columns, and diagonals summing to `505` are provided in `corrected.md` files.
+- Three of the four source `10×10` arrays fail the normal-set check, while the fourth is a normal set but is not a magic square. Valid corrected arrangements using `1..100` with all rows, columns, and diagonals summing to `505` are provided in the `corrected.md` files.
 - **Gugusubyeongungyangdo** is an additional transformation diagram based on the nine-palace framework.
 - None of the six squares is pan-diagonal.
+
+The four source 10x10 arrays are kept as transcriptions, while their duplicated or
+non-normal readings are treated as transcription damage under the project rule that
+the intended 1..100 set is normal. The corresponding `corrected.md` files contain
+verified 1..100 normal magic-square arrangements: every row, column, and diagonal
+sums to 505. The analyses note that differences between printed editions or
+publication/proofreader copying may account for the damaged readings.
+
+### 05. Extra five diagrams
+
+Additional source diagrams in the Gakdeuk family:
+
+| Diagram | English path | Korean path |
+|---|---|---|
+| Gichaek-yongpaldo | `english/05-extra-five/gichaek-yongpaldo/` | `korean/05-extra-five/기책용팔도/` |
+| Beomsu-yongodo | `english/05-extra-five/beomsu-yong-odo/` | `korean/05-extra-five/범수용오도/` |
+| Jangchaek-yongchil-do | `english/05-extra-five/jangchaek-yong-chil-do/` | `korean/05-extra-five/장책용칠도/` |
+| Jungsang-yonggudo (象上用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
+| Jungui-yongyukdo | `english/05-extra-five/jungui-yong-yukdo/` | `korean/05-extra-five/중의용육도/` |
+
+These are fixed source diagrams. Their stated sums, overlaps, and counts can be
+checked in polynomial time; the generalized equal-sum placement problem over
+arbitrary numbers of groups and positions is an NP-complete feasibility problem
+in the usual exact-cover / integer-partition formulation.
+
+### 06. Nakseo Yukgodo
+
+| Diagram | English path | Korean path |
+|---|---|---|
+| Nakseo Yukgodo (洛書六觚圖) | `english/06-nakseo-yukgodo/` | `korean/06-nakseo-yukgodo/` |
+
+The repository contains the 270-cell solution, source commentary analysis,
+geometry tests, JSON metrics, SVG/PNG figures, and Siamese-style local-rule
+reverse engineering. Verifying a supplied placement is P. Finding a placement
+for an arbitrary-radius lattice with complementary-pair, ring, side, sector, and
+ray constraints is an NP-hard search problem; the corresponding bounded decision
+version is in NP and is treated as NP-complete for the generalized family.
+
+### 07. Extra two diagrams
+
+| Diagram | English path | Korean path |
+|---|---|---|
+| Junggwae-yongpaldo / Eight-Formation Diagram | `english/07-extra-two/junggwae-yong-paldo/` | `korean/07-extra-two/중괘용팔도/` |
+| Huchaek-yonggudo | `english/07-extra-two/huchaek-yong-gudo/` | `korean/07-extra-two/후책용구도/` |
+
+The fixed transcriptions and the separate corrected Eight-Formation layout are
+verified by direct sums, duplicate/missing-value checks, and 1..64 coverage.
+Those checks are P. The generalized problem of placing values into an arbitrary
+number of equal-sum formations is NP-complete by the same constrained partition
+formulation used for the Gakdeuk family.
 
 ---
 
@@ -280,8 +330,8 @@ Additional diagrams that obey the same Gakdeuk-style equal-sum constraints.
 | Jangchaek-yong-chil-do (長策用七圖) | `english/05-extra-five/jangchaek-yong-chil-do/` | `korean/05-extra-five/장책용칠도/` |
 | Jungsang-yong-gudo (象上用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
 | Jungui-yong-yukdo (中用六圖) | `english/05-extra-five/jungui-yong-yukdo/` | `korean/05-extra-five/중의용육도/` |
-| Junggwae-yong-paldo (中卦用八圖) | `english/extra-two/junggwae-yong-paldo/` | `korean/extra-two/중괘용팔도/` |
-| Huchaek-yong-gudo (後策用九圖) | `english/extra-two/huchaek-yong-gudo/` | `korean/extra-two/후책용구도/` |
+| Junggwae-yong-paldo (中卦用八圖) | `english/07-extra-two/junggwae-yong-paldo/` | `korean/07-extra-two/중괘용팔도/` |
+| Huchaek-yong-gudo (後策用九圖) | `english/07-extra-two/huchaek-yong-gudo/` | `korean/07-extra-two/후책용구도/` |
 
 These directories collect source data, analyses, and visualizations for the extra diagrams.
 
@@ -294,7 +344,7 @@ The puzzles in `01-saodo-family/` can be read in two ways, both of which are doc
 - `english/01-saodo-family/saodo-gakdeuk-dual-reading/saodo_gakdeuk_dual_reading.md`
 - `korean/01-saodo-family/사오도와-각득의-상호해석/saodo_gakdeuk_dual_reading.md`
 
-### The Gakdeuk (各得, “Each Gets”) reading
+### The Gakdeuk (各得, "Each Gets") reading
 
 In this reading the diagram is treated as a partition of numbers into subsets that all share the same sum.
 
@@ -309,7 +359,7 @@ This is the more modern-looking reading. It foregrounds:
 - block design and overlap structure (neighboring palaces share elements);
 - graph-theoretic properties (central core, four-direction extension, Hamiltonian cycles).
 
-### The Saodo (四/五道, “Four/Five Way”) reading
+### The Saodo (四/五道, "Four/Five Way") reading
 
 In this reading the diagram is treated as an interplay between the number 4 and the number 5, rooted in the traditional wuxing-direction cosmology.
 
@@ -326,7 +376,7 @@ This reading foregrounds:
 
 ### Which reading is more advanced for the late-imperial publication period (~1700)?
 
-The answer depends on what “advanced” means.
+The answer depends on what "advanced" means.
 
 | Criterion | Gakdeuk reading | Saodo reading |
 |---|---|---|
@@ -385,6 +435,12 @@ The historical diagrams themselves are small, concrete objects: verifying any st
 | **Ojagakdeuk (Cheonsu-yongodo)** | Decide existence of a placement of 21 numbers from 1..24 with missing set {3,10,22} and prescribed region sums | **NP-complete** | Constrained subset selection with shared boundary vertices. |
 | **Yukjagakdeuk (Jisu-yong-yukdo / Jisu-guimundo)** | Verify five hexagons each sum to 63 | **P** | Direct checks. |
 | **Yukjagakdeuk (Jisu-yong-yukdo / Jisu-guimundo)** | Decide existence of a honeycomb placement of 1..20 into five 6-cycles all summing to 63 | **NP-complete** | Honeycomb adjacency plus equal-sum hexagons; solved by MILP for the known instance. |
+| **Extra `用○圖` diagrams** | Verify the fixed source counts, overlaps, and stated sums | **P** | Finite direct arithmetic checks. |
+| **Extra `用○圖` diagrams** | Decide existence of an arbitrary equal-sum formation placement | **NP-complete** | Generalizes exact cover and bounded multiway partitioning. |
+| **Nakseo Yukgodo** | Verify a supplied 270-cell placement and all commentary-derived invariants | **P** | Linear scan over cells and structural subsets. |
+| **Nakseo Yukgodo** | Decide existence for arbitrary radius under all complementary-pair and line constraints | **NP-complete** | The bounded decision problem is in NP and contains constrained partitioning as a special case. |
+| **Junggwae-yongpaldo / Huchaek-yonggudo** | Verify a fixed transcription or corrected formation layout | **P** | Direct coverage, duplicate, and sum checks. |
+| **Junggwae-yongpaldo / Huchaek-yonggudo** | Decide existence for arbitrary formation count and target sum | **NP-complete** | Equal-sum formation placement generalizes exact cover. |
 | **Magic squares** | Verify a filled square is normal magic | **P** | O(n²) row/column/diagonal checks. |
 | **Magic squares** | Construct a normal magic square of order n | **P** | Deterministic methods (Siamese, Strachey, etc.) run in O(n²) for every n ≠ 2. |
 | **Magic squares** | Complete a partially filled magic square | **NP-complete** | Generalizes Latin-square completion, which is NP-complete. |
@@ -396,8 +452,8 @@ The historical diagrams themselves are small, concrete objects: verifying any st
 
 For every puzzle in this collection there are two different questions:
 
-1. **Verification**: “Does this concrete diagram satisfy its stated rule?” — always easy (P).
-2. **Existence / completion**: “Is there *any* diagram that satisfies the rule for these parameters?” — usually hard (NP-complete or NP-hard) when the size is not fixed.
+1. **Verification**: "Does this concrete diagram satisfy its stated rule?" — always easy (P).
+2. **Existence / completion**: "Is there *any* diagram that satisfies the rule for these parameters?" — usually hard (NP-complete or NP-hard) when the size is not fixed.
 
 This is why the repository separates the *given historical instances* (verified directly) from the *generalized search problems* (attacked with MILP, heuristic, and constructive algorithms). The historical diagrams act as witnesses for specific NP witnesses, but finding new witnesses for arbitrary parameters remains computationally difficult.
 

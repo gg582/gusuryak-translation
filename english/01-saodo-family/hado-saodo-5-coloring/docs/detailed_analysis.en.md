@@ -93,9 +93,9 @@ The positions of the mod-5 groups are:
 
 **Notable features**:
 
-1. **Wood occupies the entire left two columns of the central body** (13, 18, 8, 3), corresponding to the classical Heto direction “East = Wood.”
-2. **Fire and Metal are distributed in the top arm and central right**, corresponding to “South = Fire” and “West = Metal.”
-3. **Water and Earth are interleaved in the central columns and bottom arm**, corresponding to “North = Water” and “Center = Earth.”
+1. **Wood occupies the entire left two columns of the central body** (13, 18, 8, 3), corresponding to the classical Heto direction "East = Wood."
+2. **Fire and Metal are distributed in the top arm and central right**, corresponding to "South = Fire" and "West = Metal."
+3. **Water and Earth are interleaved in the central columns and bottom arm**, corresponding to "North = Water" and "Center = Earth."
 4. Water and Earth are **vertically interleaved**. For example, along x = -1 we see 5(Water), 11(Water), 15(Earth), 6(Water).
 
 ---
@@ -154,7 +154,7 @@ In the original diagram, all numerals are tilted by approximately **-30°**.
 
 1. **Decorative element**: It may simply be a font style.
 2. **Rotated coordinate system**: The whole figure may imply a rotated frame.
-3. **Direction / flow indicator**: Since all numerals point the same way, they may indicate a common “flow.”
+3. **Direction / flow indicator**: Since all numerals point the same way, they may indicate a common "flow."
 4. **Reading direction**: They may hint at the order in which numerals are read.
 
 ### 7.2 Current Conclusion

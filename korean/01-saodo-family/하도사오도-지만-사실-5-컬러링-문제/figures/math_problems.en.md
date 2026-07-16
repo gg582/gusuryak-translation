@@ -19,7 +19,7 @@ Prove that this function yields a **proper 5-coloring** with exactly four vertic
 ## Problem 2. Heaven-and-Earth Number Partition
 
 
-Following the original text “河圖五五卽上天數圖，六五卽上地數圖”, partition the numbers 1 through 10 into
+Following the original text "河圖五五卽上天數圖，六五卽上地數圖", partition the numbers 1 through 10 into
 
 - Heaven numbers `H = {1,3,5,7,9}`
 - Earth numbers `E = {2,4,6,8,10}`

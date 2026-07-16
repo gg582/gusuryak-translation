@@ -2,12 +2,12 @@
 
 Order: 10×10
 
-10×10 magic square. It uses each of the numbers 1 through 100 exactly once and has magic constant 505. As the name 'yin-yang (陰陽)' and 'jamo (mother-child)' suggests, the numbers are arranged in complementary pairs. The center-symmetric positions sum to 101, satisfying the associated magic square property. It looks like a structure made by superimposing two 10×10 Latin squares.
+10×10 number arrangement. It uses each of the numbers 1 through 100 exactly once, but its row, column, and diagonal sums are not all 505, so it is not a magic square. As the name 'yin-yang (陰陽)' and 'jamo (mother-child)' suggests, the numbers are arranged in complementary pairs. The center-symmetric positions sum to 190 in this example, but the verification does not classify it as an associated magic square. It looks like a structure made by superimposing two 10×10 Latin squares.
 
 ## Example 1
 - Value range: 1 ~ 100
 - Normal set (consecutive integers): Yes
-- Magic constant: 505
+- Reference magic constant: 505
 - Row sums: [505, 505, 505, 505, 495, 515, 505, 505, 505, 505]
 - Column sums: [505, 505, 525, 505, 505, 505, 505, 485, 505, 505]
 - Diagonal sums: [590, 420]

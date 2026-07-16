@@ -1,6 +1,6 @@
 # What Is the Gakdeuk (各得) Principle? A Structure Uniting Gu, O, Yuk, Chil, and Paljagakdeuk
 
-The Gakdeuk (各得) puzzles handed down in the *Gusuryak (九數略)* tradition are diagrams in which several subsets are arranged so that each one “obtains” the same sum. Gujagakdeuk (9), Ojagakdeuk (5), Yukjagakdeuk (6), Chiljagakdeuk (7), and Paljagakdeuk (8) — the number in each name indicates the size of each subset.
+The Gakdeuk (各得) puzzles handed down in the *Gusuryak (九數略)* tradition are diagrams in which several subsets are arranged so that each one "obtains" the same sum. Gujagakdeuk (9), Ojagakdeuk (5), Yukjagakdeuk (6), Chiljagakdeuk (7), and Paljagakdeuk (8) — the number in each name indicates the size of each subset.
 
 ## Core Question: What Do These Puzzles Share?
 
@@ -20,7 +20,7 @@ Why five? Five is the number of the Wuxing (Water, Fire, Wood, Metal, Earth) and
 
 ### 2. Every Subset Has the Same Sum
 
-The core rule of Gakdeuk puzzles is that **“each one obtains.”**
+The core rule of Gakdeuk puzzles is that **"each one obtains."**
 
 | Family | Subset size | Subset sum |
 |:---:|:---:|:---:|
@@ -118,7 +118,7 @@ This solver handles geometric and Wuxing constraints all at once:
 1. **Geometric sharing constraint**: shared vertices occur only between adjacent clusters. It provides built-in adjacency graphs for `cross` (cruciform), `honeycomb` (hexagonal beehive), and `grid` (3×3 grid), and also allows custom adjacent pairs.
 2. **Pairwise shared vertex counts**: for example, one can force the center-up pair to share 2 vertices and the center-left pair to share 2 vertices. This reproduces the detailed geometric structure of Jisuyongyukdo or Cheonsuyongodo.
 3. **Up/down / left/right residue symmetry**: the `--symmetry ud|lr|both` option makes the mod 5 remainder distribution symmetric across clusters, numerically reflecting the left-right or up-down mirror symmetry of traditional diagrams.
-4. **mod 5 remainder (Wuxing) equivalence-class constraint**: `--residue-balance` encourages each cluster’s Wuxing distribution to be balanced against the overall distribution.
+4. **mod 5 remainder (Wuxing) equivalence-class constraint**: `--residue-balance` encourages each cluster's Wuxing distribution to be balanced against the overall distribution.
 
 The solver also **saves solutions as JSON** (`--output`) and generates **matplotlib visualizations** (`--visualize`) in one step. Multiple valid placements can be enumerated with `--max-solutions`.
 

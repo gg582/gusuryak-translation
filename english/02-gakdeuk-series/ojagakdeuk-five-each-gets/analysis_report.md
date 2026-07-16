@@ -162,7 +162,7 @@ Extending the range to 1–25 and adding 25 to Earth gives a complete 5 × 5 = 2
 | Metal | 4, 9, 14, 19, 24 | 70 |
 | Earth | 5, 10, 15, 20, 25 | 75 |
 
-The total sum of the complete 5 × 5 structure is 55 + 60 + 65 + 70 + 75 = **325** (equivalently, the sum of 1–25). Ojagakdeuk’s sum 265 matches this complete sum minus the omitted 3 + 10 + 22 = 35.
+The total sum of the complete 5 × 5 structure is 55 + 60 + 65 + 70 + 75 = **325** (equivalently, the sum of 1–25). Ojagakdeuk's sum 265 matches this complete sum minus the omitted 3 + 10 + 22 = 35.
 
 ---
 

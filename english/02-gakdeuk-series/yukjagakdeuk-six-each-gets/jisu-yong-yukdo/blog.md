@@ -6,7 +6,7 @@ The **Jisu-yong-yukdo (地數用六圖)** handed down in the *Gusuryak* (九數�
 
 > Place the numbers 1 through 20 into five hexagons, six per hexagon, and **the sum of the six numbers in every hexagon is 63**.
 
-At first sight one asks, “How is that possible?” Five hexagons × six numbers requires 30 positions, but there are only 20 numbers. The answer is that **adjacent hexagons share vertices**. Like a honeycomb, the hexagons touch one another, and the touching vertices belong to several hexagons at once.
+At first sight one asks, "How is that possible?" Five hexagons × six numbers requires 30 positions, but there are only 20 numbers. The answer is that **adjacent hexagons share vertices**. Like a honeycomb, the hexagons touch one another, and the touching vertices belong to several hexagons at once.
 
 In this post we will look step by step at the historical background, mathematical structure, and modern graph-theoretic meaning of Jisu-yong-yukdo.
 
@@ -17,7 +17,7 @@ In this post we will look step by step at the historical background, mathematica
 - **Jisu (地數)**: The numbers of Earth, contrasted with the numbers of Heaven (天數, odd numbers); it symbolizes even numbers and the principle of yin.
 - **Yong-yuk (用六)**: The number 6 is used as the core unit — hexagons, six numbers per hexagon, and the resulting sum 63 are all linked to 6.
 - **Do (圖)**: A diagram, a picture visualizing the placement of numbers.
-- **Yukjagakdeuk (六子各得)**: “Each six obtains 63,” emphasizing the rule that each hexagon has sum 63.
+- **Yukjagakdeuk (六子各得)**: "Each six obtains 63," emphasizing the rule that each hexagon has sum 63.
 
 Thus Jisu-yong-yukdo is not a mere calculation table but a **diagram (圖像) of traditional numerology combining number symbolism with spatial placement**.
 
@@ -41,7 +41,7 @@ Notice that some numbers appear in several hexagons. For example, 3, 8, 11, 12, 
 
 The sum of 1 through 20 is 210. The total of all five hexagon sums is 63 × 5 = 315. The difference from the total sum is **315 − 210 = 105**, and this 105 is the extra amount contributed by shared vertices being counted multiple times.
 
-Also, the average of 1–20 is 10.5. Since each hexagon has six numbers, the “average hexagon” sum is 10.5 × 6 = **63**. Therefore 63 is not accidental; it is the **natural center** of the data and a **balance condition** assigning equal weight to every hexagon.
+Also, the average of 1–20 is 10.5. Since each hexagon has six numbers, the "average hexagon" sum is 10.5 × 6 = **63**. Therefore 63 is not accidental; it is the **natural center** of the data and a **balance condition** assigning equal weight to every hexagon.
 
 ---
 
@@ -111,7 +111,7 @@ In graph theory, **betweenness centrality** measures how often a vertex lies on 
 
 Each hexagon forms a cycle of length 6. The five hexagons are independent cycles that together form the **cycle basis** of Jisu-yong-yukdo.
 
-Applying Euler’s formula V − E + F = 2:
+Applying Euler's formula V − E + F = 2:
 
 ```
 20(vertices) − 24(edges) + F(faces) = 2  ⇒  F = 6
@@ -154,7 +154,7 @@ The images in the same directory show Jisu-yong-yukdo from many angles.
 | `07_local_extensions.png` | Generalization and concentric extension |
 | `08_position_patterns.png` | Shared vertices vs. unique vertex patterns |
 
-Viewing these images in order, one can gradually grasp the structure of Jisu-yong-yukdo from “Why 63?” to “How is it connected?” and “What role does wuxing play?”
+Viewing these images in order, one can gradually grasp the structure of Jisu-yong-yukdo from "Why 63?" to "How is it connected?" and "What role does wuxing play?"
 
 ---
 

@@ -2,7 +2,7 @@
 
 ## 1. Overview
 
-The **Gakdeuk (各得)** puzzles handed down in the *Gusuryak (九數略)* tradition are combinatorial diagrams in which several subsets are arranged so that each one “obtains” the same sum, as the name “each obtains” suggests. Traditionally, the families Gujagakdeuk (九子各得), Ojagakdeuk (五子各得 / Cheonsuyongodo), Yukjagakdeuk (六子各得 / Jisuyongyukdo), Chiljagakdeuk (七子各得), and Paljagakdeuk (八子各得) are transmitted; each takes 9, 5, 6, 7, and 8 numbers as one subset (palace / cluster / hexagon).
+The **Gakdeuk (各得)** puzzles handed down in the *Gusuryak (九數略)* tradition are combinatorial diagrams in which several subsets are arranged so that each one "obtains" the same sum, as the name "each obtains" suggests. Traditionally, the families Gujagakdeuk (九子各得), Ojagakdeuk (五子各得 / Cheonsuyongodo), Yukjagakdeuk (六子各得 / Jisuyongyukdo), Chiljagakdeuk (七子各得), and Paljagakdeuk (八子各得) are transmitted; each takes 9, 5, 6, 7, and 8 numbers as one subset (palace / cluster / hexagon).
 
 This report extracts the structural properties shared by these Gakdeuk families and generalizes them in the language of modern combinatorics and graph theory.
 
@@ -119,7 +119,7 @@ Moreover, each subset sum `S` often coincides with the middle term (Wood group s
 - Gujagakdeuk: S = 207 = Wood group sum 207 (exact match)
 - Chiljagakdeuk: S = 120, while the full 5×7 Wood group sum is 126. 120 = 126 − 6.
 
-The fact that `S` matches the Wood group sum in Paljagakdeuk and Gujagakdeuk allows the interpretation that they are representatives of the generalization family corresponding to “M0 = 3” (Wood).
+The fact that `S` matches the Wood group sum in Paljagakdeuk and Gujagakdeuk allows the interpretation that they are representatives of the generalization family corresponding to "M0 = 3" (Wood).
 
 ### 3.5 Common Graph-Theoretic Patterns
 
@@ -155,7 +155,7 @@ This distribution shows that Gakdeuk puzzles visualize not merely harmony but **
 
 Ojagakdeuk (Cheonsuyongodo) also has the subset sum invariant **65**, placing five numbers in each of five subsets. Since 5×65 = 325 and the sum of the 21 used numbers is 265, the duplication sum of the shared vertices is 60.
 
-This shows that the Gakdeuk principle is not realized only through “equal subset sums” but can also appear as a **spatially symmetric, axis-centered sum invariant**.
+This shows that the Gakdeuk principle is not realized only through "equal subset sums" but can also appear as a **spatially symmetric, axis-centered sum invariant**.
 
 ### 4.2 Chiljagakdeuk: Center-Periphery Split and Duplicated Values
 
@@ -243,7 +243,7 @@ Every Gakdeuk family follows the common spatial template:
         C_Down
 ```
 
-This template naturally connects the five directions (Up, Down, Left, Right, Center) with the Wuxing (Water, Fire, Wood, Metal, Earth) correspondence and the traditional cosmological “four directions + center” model.
+This template naturally connects the five directions (Up, Down, Left, Right, Center) with the Wuxing (Water, Fire, Wood, Metal, Earth) correspondence and the traditional cosmological "four directions + center" model.
 
 ---
 
@@ -259,7 +259,7 @@ One can define a family parameterized by a starting value `M0 ∈ {1,2,3,4,5}`, 
 | Paljagakdeuk | 8 | 148 | 156 | 164 | 172 | 180 |
 | Gujagakdeuk | 9 | 189 | 198 | 207 | 216 | 225 |
 
-Currently, Yukjagakdeuk’s sum 63 does not correspond directly to this simple Wuxing-centered generalization, indicating that Yukjagakdeuk has its own sum condition due to its shared-vertex structure.
+Currently, Yukjagakdeuk's sum 63 does not correspond directly to this simple Wuxing-centered generalization, indicating that Yukjagakdeuk has its own sum condition due to its shared-vertex structure.
 
 ### 6.2 Generalization by n-gon / Grid Size
 

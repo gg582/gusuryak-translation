@@ -63,7 +63,7 @@ If the nine palaces use each integer from 1 to 63 exactly once, then each palace
 2016 / 9 = 224
 ```
 
-So the intended invariant is **“every palace receives 224.”**
+So the intended invariant is **"every palace receives 224."**
 
 ### Problems in the current data
 

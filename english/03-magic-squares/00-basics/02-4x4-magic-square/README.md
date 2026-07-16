@@ -44,11 +44,11 @@ One transformation yields the yang square.
 
 ## Reference
 
-A famous artistic treatment of this 4×4 magic-square construction algorithm is found in Albrecht Dürer’s engraving *Melencolia I*, dated 1514. In the West, this construction is often called "Dürer’s algorithm" in his honor.
+A famous artistic treatment of this 4×4 magic-square construction algorithm is found in Albrecht Dürer's engraving *Melencolia I*, dated 1514. In the West, this construction is often called "Dürer's algorithm" in his honor.
 
-The most systematic early study of magic squares (*縱橫圖*) is Yang Hui’s *Yang Hui Suanfa* (楊輝算法), written around 1275 during the Southern Song dynasty. Choi Seok-jeong likely consulted this text.
+The most systematic early study of magic squares (*縱橫圖*) is Yang Hui's *Yang Hui Suanfa* (楊輝算法), written around 1275 during the Southern Song dynasty. Choi Seok-jeong likely consulted this text.
 
-## Author’s Note
+## Author's Note
 
 Research on orthogonal Latin squares and puzzles with shared vertices (such as the Jisu-guimun-do) developed quite early in Korea, but general magic squares are better known in China and Europe through celebrated treatises.
 

@@ -17,7 +17,7 @@
 - When transformed, 8 squads become 20 forms.
 - Transformed again, they become 100 forms.
 - In total, 56 squads (formations) are produced, and the overall case corresponds to 6,560.
-- This is related to the *Muhu-jin-do* (武侯陣圖), i.e., Zhuge Liang’s Eight-Formation Diagram (八陣圖).
+- This is related to the *Muhu-jin-do* (武侯陣圖), i.e., Zhuge Liang's Eight-Formation Diagram (八陣圖).
 
 ## Data Correction
 

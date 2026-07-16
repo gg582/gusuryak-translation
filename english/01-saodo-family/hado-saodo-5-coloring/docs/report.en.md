@@ -55,7 +55,7 @@ P = (C, L, Θ, X, D, G, R, I)
 
 ### 4.2 Heaven and Earth Numbers
 
-- From the original text “河圖五五卽上天數圖，六五卽上地數圖”:
+- From the original text "河圖五五卽上天數圖，六五卽上地數圖":
   - Heaven numbers `H = {1,3,5,7,9}`, `ΣH = 25 = 5²`
   - Earth numbers `E = {2,4,6,8,10}`, `ΣE = 30 = 5·6`
 - Extension to 1–20: `H' = H ∪ (H+10)`, `E' = E ∪ (E+10)` with `ΣH' = 100`, `ΣE' = 110`.

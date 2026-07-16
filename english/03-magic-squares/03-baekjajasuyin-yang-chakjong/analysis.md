@@ -7,7 +7,7 @@ Order: 10×10
 ## Example 1
 - Value range: 1 ~ 10
 - Normal set (consecutive integers): No
-- Magic constant: 505
+- Reference magic constant: 505
 - Row sums: [55, 55, 55, 55, 55, 55, 55, 55, 55, 55]
 - Column sums: [55, 55, 55, 55, 55, 55, 55, 55, 55, 55]
 - Diagonal sums: [100, 50]
@@ -22,7 +22,7 @@ Order: 10×10
 ## Example 2
 - Value range: 0 ~ 9
 - Normal set (consecutive integers): No
-- Magic constant: 495
+- Reference magic constant: 495
 - Row sums: [45, 45, 45, 45, 45, 45, 45, 45, 45, 45]
 - Column sums: [45, 45, 45, 45, 45, 45, 45, 45, 45, 45]
 - Diagonal sums: [0, 50]

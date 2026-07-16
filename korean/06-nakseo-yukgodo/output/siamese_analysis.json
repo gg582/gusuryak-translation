@@ -2,139 +2,132 @@
   "model": "fixed short move plus fixed fallback, no wraparound",
   "max_step_radius": 3,
   "n_transitions": 269,
-  "distinct_deltas": 124,
+  "distinct_deltas": 120,
   "singleton_deltas": 1,
   "top_deltas": [
     {
       "delta": [
-        -9,
-        11
+        -3,
+        5
       ],
       "count": 6
     },
     {
       "delta": [
-        3,
+        -9,
+        -5
+      ],
+      "count": 6
+    },
+    {
+      "delta": [
+        12,
         -2
       ],
-      "count": 6
-    },
-    {
-      "delta": [
-        3,
-        -8
-      ],
       "count": 4
     },
     {
       "delta": [
-        6,
-        -10
-      ],
-      "count": 4
-    },
-    {
-      "delta": [
-        2,
-        -8
-      ],
-      "count": 4
-    },
-    {
-      "delta": [
-        1,
-        -1
-      ],
-      "count": 4
-    },
-    {
-      "delta": [
-        7,
-        -8
-      ],
-      "count": 4
-    },
-    {
-      "delta": [
-        -1,
+        -5,
         9
       ],
       "count": 4
     },
     {
       "delta": [
-        1,
+        -2,
+        0
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        -1,
         4
       ],
       "count": 4
     },
     {
       "delta": [
-        7,
+        4,
+        5
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        -6,
+        15
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        -4,
+        -1
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        13,
+        -2
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        3,
+        -7
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        -1,
+        -8
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        -8,
+        10
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        -7,
+        6
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        -3,
         4
       ],
       "count": 2
     },
     {
       "delta": [
-        -10,
-        1
+        9,
+        -3
       ],
       "count": 2
     },
     {
       "delta": [
-        1,
-        12
+        -4,
+        -6
       ],
       "count": 2
     },
     {
       "delta": [
-        -2,
-        -14
-      ],
-      "count": 2
-    },
-    {
-      "delta": [
-        7,
-        8
-      ],
-      "count": 2
-    },
-    {
-      "delta": [
-        -10,
-        14
-      ],
-      "count": 2
-    },
-    {
-      "delta": [
-        -6,
-        -5
-      ],
-      "count": 2
-    },
-    {
-      "delta": [
-        -1,
-        -2
-      ],
-      "count": 2
-    },
-    {
-      "delta": [
-        13,
-        -4
-      ],
-      "count": 2
-    },
-    {
-      "delta": [
-        4,
-        3
+        -12,
+        11
       ],
       "count": 2
     },
@@ -144,76 +137,83 @@
         -7
       ],
       "count": 2
+    },
+    {
+      "delta": [
+        0,
+        3
+      ],
+      "count": 2
     }
   ],
   "distance_histogram": [
     {
       "distance": 1,
-      "count": 8
+      "count": 4
     },
     {
       "distance": 2,
-      "count": 6
+      "count": 12
     },
     {
       "distance": 3,
-      "count": 16
-    },
-    {
-      "distance": 4,
-      "count": 12
-    },
-    {
-      "distance": 5,
-      "count": 14
-    },
-    {
-      "distance": 6,
-      "count": 22
-    },
-    {
-      "distance": 7,
-      "count": 20
-    },
-    {
-      "distance": 8,
-      "count": 26
-    },
-    {
-      "distance": 9,
-      "count": 32
-    },
-    {
-      "distance": 10,
-      "count": 22
-    },
-    {
-      "distance": 11,
-      "count": 22
-    },
-    {
-      "distance": 12,
-      "count": 12
-    },
-    {
-      "distance": 13,
-      "count": 18
-    },
-    {
-      "distance": 14,
-      "count": 11
-    },
-    {
-      "distance": 15,
-      "count": 16
-    },
-    {
-      "distance": 16,
       "count": 6
     },
     {
+      "distance": 4,
+      "count": 16
+    },
+    {
+      "distance": 5,
+      "count": 22
+    },
+    {
+      "distance": 6,
+      "count": 26
+    },
+    {
+      "distance": 7,
+      "count": 22
+    },
+    {
+      "distance": 8,
+      "count": 16
+    },
+    {
+      "distance": 9,
+      "count": 28
+    },
+    {
+      "distance": 10,
+      "count": 20
+    },
+    {
+      "distance": 11,
+      "count": 6
+    },
+    {
+      "distance": 12,
+      "count": 18
+    },
+    {
+      "distance": 13,
+      "count": 20
+    },
+    {
+      "distance": 14,
+      "count": 24
+    },
+    {
+      "distance": 15,
+      "count": 8
+    },
+    {
+      "distance": 16,
+      "count": 13
+    },
+    {
       "distance": 17,
-      "count": 2
+      "count": 4
     },
     {
       "distance": 18,
@@ -221,22 +221,22 @@
     }
   ],
   "max_distance": 18,
-  "mean_distance": 8.884758364312267,
-  "local_transition_count": 30,
-  "local_transition_ratio": 0.11152416356877323,
+  "mean_distance": 9.130111524163569,
+  "local_transition_count": 22,
+  "local_transition_ratio": 0.08178438661710037,
   "best_fixed_rule": {
-    "matches": 8,
+    "matches": 6,
     "prefix_matches": 0,
     "primary": [
-      1,
-      -1
+      -2,
+      0
     ],
     "fallback": [
-      3,
-      -2
+      -1,
+      1
     ],
     "first_failure_at": 1,
-    "match_ratio": 0.02973977695167286
+    "match_ratio": 0.022304832713754646
   },
   "verdict": "실패: 최적해의 값 순서는 Siamese의 다항시간 지역 규칙으로 재생성되지 않는다. 연속 수 이동이 120종으로 흩어지고, 짧은 주 이동/보정 이동 한 쌍의 최선도 269전이 중 6개만 맞춘다.",
   "hanmun_reconstruction": [

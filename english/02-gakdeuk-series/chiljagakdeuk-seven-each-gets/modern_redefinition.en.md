@@ -94,12 +94,12 @@ Inside each cluster, the six peripheral slots are arranged approximately on a re
 
 ---
 
-## 5. Modern Reinterpretation of the “Saodo Rule”
+## 5. Modern Reinterpretation of the "Saodo Rule"
 
-The original note states that the diagram “follows the rule of Saodo.” In modern language, this means:
+The original note states that the diagram "follows the rule of Saodo." In modern language, this means:
 
-1. **Five direction-center correspondences**: the 5 clusters lie in 5 directions (top, bottom, left, right, center), and each direction’s center is one of `{1,2,3,4,5}`.
-2. **Center-periphery split**: each cluster is split into 1 center and 6 peripheral elements, a “center + 6 directions” structure.
+1. **Five direction-center correspondences**: the 5 clusters lie in 5 directions (top, bottom, left, right, center), and each direction's center is one of `{1,2,3,4,5}`.
+2. **Center-periphery split**: each cluster is split into 1 center and 6 peripheral elements, a "center + 6 directions" structure.
 3. **Directional sum invariant**: each direction (cluster) has the same total sum, 120.
 4. **mod-5 residue completeness**: the centers form a complete residue system modulo 5.
 

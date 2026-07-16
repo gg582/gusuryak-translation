@@ -83,7 +83,7 @@ Metal (4 mod 5) and Earth (0 mod 5) have 6 elements each, while Water, Fire, and
 
 ## 5. Overlap Counting and 765
 
-The phrase “九宮共得 七百六十五數” is simply the sum of the nine palace sums.
+The phrase "九宮共得 七百六十五數" is simply the sum of the nine palace sums.
 
 ```
 85 × 9 = 765
@@ -117,7 +117,7 @@ Nakseo Ogudo is a Saodo structure in which the **Five-Way (오도)** takes cente
 - **Four-Way (사도) aspect**: The nine palaces are arranged in a 3×3 grid, split into four corner palaces, four edge palaces, and one central palace. This 4+4+1 partition is the geometry of the Four-Way superimposed on the Five-Way.
 
 Thus Ojagakdeuk realizes a Five-Way partial-sum invariant inside a Four-Way 3×3 grid.  
-The original phrase “五子各得” emphasizes that the five numbers per palace are the action of the Five-Way, while “九宮共得” says the nine palaces are the Four-Way space that contains it.
+The original phrase "五子各得" emphasizes that the five numbers per palace are the action of the Five-Way, while "九宮共得" says the nine palaces are the Four-Way space that contains it.
 
 ---
 

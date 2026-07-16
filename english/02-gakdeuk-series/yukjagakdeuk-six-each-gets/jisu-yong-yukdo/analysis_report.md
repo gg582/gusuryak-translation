@@ -2,7 +2,7 @@
 
 ## 1. Overview and Historical/Conceptual Background
 
-**Jisu-yong-yukdo (地數用六圖)** is a traditional arithmetic diagram puzzle handed down in the *Gusuryak* (九數略) family of late-Joseon mathematical texts. “Jisu (地數)” refers to the numbers of Earth, contrasted with the numbers of Heaven (天數, odd numbers 1, 3, 5, 7, 9); it symbolizes even numbers and the principle of yin. “Yong-yuk (用六)” means that the number 6 is used as the core unit. “Yukjagakdeuk (六子各得)” means that each hexagon, holding six numbers, “obtains” the same sum 63.
+**Jisu-yong-yukdo (地數用六圖)** is a traditional arithmetic diagram puzzle handed down in the *Gusuryak* (九數略) family of late-Joseon mathematical texts. "Jisu (地數)" refers to the numbers of Earth, contrasted with the numbers of Heaven (天數, odd numbers 1, 3, 5, 7, 9); it symbolizes even numbers and the principle of yin. "Yong-yuk (用六)" means that the number 6 is used as the core unit. "Yukjagakdeuk (六子各得)" means that each hexagon, holding six numbers, "obtains" the same sum 63.
 
 The core rules of this diagram are as follows.
 
@@ -41,11 +41,11 @@ This is not a simple number game but a combinatorial structure combining a **tot
 
 ### 2.2 How Was the Sum 63 Determined?
 
-The sum of 1 through 20 is 210. The “duplication-included” total of the 5 hexagons is 63 × 5 = 315, so the extra amount added by shared vertices is **315 − 210 = 105**.
+The sum of 1 through 20 is 210. The "duplication-included" total of the 5 hexagons is 63 × 5 = 315, so the extra amount added by shared vertices is **315 − 210 = 105**.
 
-The sum 63 is also statistically natural. The average of the 20 numbers is 10.5, and because each hexagon has 6 vertices, the “average” hexagon sum is **10.5 × 6 = 63**. Thus 63 is the natural center of this data and a **balance condition** designed so that every hexagon has the same weight.
+The sum 63 is also statistically natural. The average of the 20 numbers is 10.5, and because each hexagon has 6 vertices, the "average" hexagon sum is **10.5 × 6 = 63**. Thus 63 is the natural center of this data and a **balance condition** designed so that every hexagon has the same weight.
 
-Moreover, 63 can be decomposed as **60 + 3**, so it can also be read as one cycle (60, the gapja cycle) plus 3. We cannot assert that this was the original author’s intention, but in traditional numerology 60 and 6 are connected with time/space cycles, the six yao (六爻), and the six spirits (六神), leaving room for interesting interpretations.
+Moreover, 63 can be decomposed as **60 + 3**, so it can also be read as one cycle (60, the gapja cycle) plus 3. We cannot assert that this was the original author's intention, but in traditional numerology 60 and 6 are connected with time/space cycles, the six yao (六爻), and the six spirits (六神), leaving room for interesting interpretations.
 
 ### 2.3 Duplication Coefficient of Shared Vertices
 
@@ -57,7 +57,7 @@ Let the **multiplicity** of each vertex be the number of hexagons it belongs to.
 315 = 210 + 105
 ```
 
-Therefore, the weighted sum of the “additional counts” of shared vertices is 105. The shared vertices are {3, 8, 10, 11, 12, 13, 14, 15}, and their duplication-weighted sum is 105.
+Therefore, the weighted sum of the "additional counts" of shared vertices is 105. The shared vertices are {3, 8, 10, 11, 12, 13, 14, 15}, and their duplication-weighted sum is 105.
 
 ---
 
@@ -89,7 +89,7 @@ Here k = 4, so S(r) = 30 + 4r (r = 1, 2, 3, 4, 5). Therefore the values 34, 38, 
 
 ### 3.3 Wuxing Distribution Within Each Hexagon
 
-We can examine which wuxing combinations occur in each hexagon. If wuxing “energy” flows between hexagons through shared vertices, the balance of the distribution reveals the harmony of the structure.
+We can examine which wuxing combinations occur in each hexagon. If wuxing "energy" flows between hexagons through shared vertices, the balance of the distribution reveals the harmony of the structure.
 
 | Hexagon | Water | Fire | Wood | Metal | Earth | Total |
 |---|---|---|---|---|---|---|
@@ -120,7 +120,7 @@ There are 8 vertices of degree 3 and 12 vertices of degree 2. This corresponds e
 
 ### 4.2 Properties as a Planar Graph
 
-Applying Euler’s formula V − E + F = 2 (including the outer face):
+Applying Euler's formula V − E + F = 2 (including the outer face):
 
 ```
 20 − 24 + F = 2  ⇒  F = 6
@@ -208,7 +208,7 @@ The center hexagon shares vertices with all four surrounding hexagons. That is, 
 | Shared vertices (2 or more hexagons) | {3, 8, 10, 11, 12, 13, 14, 15} |
 | Unique vertices (1 hexagon) | {1, 2, 4, 5, 6, 7, 9, 16, 17, 18, 19, 20} |
 
-Shared vertices act as **junctions** between hexagons and decisively influence the graph’s connectivity and centrality. Because there are 8 shared vertices, they are duplicated across 2 or 3 hexagons.
+Shared vertices act as **junctions** between hexagons and decisively influence the graph's connectivity and centrality. Because there are 8 shared vertices, they are duplicated across 2 or 3 hexagons.
 
 ### 6.2 Wuxing Distribution of Shared Vertices
 
@@ -236,13 +236,13 @@ The 12 unique vertices are as follows.
 | Metal | 4, 9, 19 |
 | Earth | 5, 20 |
 
-Unique vertices are located mostly on the outer parts of each hexagon and play a role close to the “leaves” of the graph.
+Unique vertices are located mostly on the outer parts of each hexagon and play a role close to the "leaves" of the graph.
 
 ---
 
 ## 7. Wuxing Edge Distribution
 
-Classifying the graph’s 24 edges by the wuxing relationship of their two endpoints gives the following.
+Classifying the graph's 24 edges by the wuxing relationship of their two endpoints gives the following.
 
 | Classification | Count | Ratio |
 |---|---|---|
@@ -280,9 +280,9 @@ For k = 4:
 
 ### 8.2 Extension of the Hexagonal Lattice
 
-Jisu-yong-yukdo can be viewed as a **core** of 20 vertices. Extending this structure concentrically yields larger hexagonal lattices with 20k vertices. To keep every hexagon sum constant, the numbers added in each new layer must follow the core’s wuxing distribution and sum rules.
+Jisu-yong-yukdo can be viewed as a **core** of 20 vertices. Extending this structure concentrically yields larger hexagonal lattices with 20k vertices. To keep every hexagon sum constant, the numbers added in each new layer must follow the core's wuxing distribution and sum rules.
 
-Jisu-yong-yukdo also forms a pair with **Cheonsu-yong-odo (天數用五圖)**, the “Heaven-Number Five-Use Diagram” dealing with the odd numbers 1, 3, 5, 7, 9 in pentagonal/circular structures. A natural extension is also the relationship with even-number structures based on the Earth numbers 2, 4, 6, 8, 10.
+Jisu-yong-yukdo also forms a pair with **Cheonsu-yong-odo (天數用五圖)**, the "Heaven-Number Five-Use Diagram" dealing with the odd numbers 1, 3, 5, 7, 9 in pentagonal/circular structures. A natural extension is also the relationship with even-number structures based on the Earth numbers 2, 4, 6, 8, 10.
 
 ---
 
@@ -309,9 +309,9 @@ The image files in the same directory show Jisu-yong-yukdo from various viewpoin
 Jisu-yong-yukdo may look like a simple puzzle of placing 1–20 into five hexagons, but it contains the following rich mathematical structures.
 
 1. **Sum invariant**: every hexagon has the same sum 63, the natural result of the average 10.5 × 6.
-2. **Shared-vertex structure**: 8 shared vertices create the duplication coefficient, complete the total 315, and determine the graph’s connectivity.
+2. **Shared-vertex structure**: 8 shared vertices create the duplication coefficient, complete the total 315, and determine the graph's connectivity.
 3. **Wuxing arithmetic progression**: mod 5 classification gives phase sums 34, 38, 42, 46, 50, an arithmetic progression with difference 4.
-4. **Planar graph**: 20 vertices, 24 edges, and 6 faces satisfying Euler’s formula.
+4. **Planar graph**: 20 vertices, 24 edges, and 6 faces satisfying Euler's formula.
 5. **Central core**: the center hexagon is the key hub connecting the four outer hexagons.
 6. **Cycle basis**: five 6-cycles form the cycle basis of the graph.
 

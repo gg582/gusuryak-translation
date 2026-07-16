@@ -23,7 +23,7 @@ The source text describes the **9-hex (turtle-shell) form of Jisu-guimun-do**.
 
 - Each hexagon (palace, 宮) contains **six numbers (六子)** and has sum **93**.
 - There are **nine** such palaces, so the repeated-count total is **9 × 93 = 837**.
-- The phrase “九宮化爲十二宮” says that the nine palaces can be further subdivided into **twelve groups**.
+- The phrase "九宮化爲十二宮" says that the nine palaces can be further subdivided into **twelve groups**.
 
 This structure corresponds to the graph below.
 
@@ -46,19 +46,19 @@ Reading the six source phrases against the 9-hex graph gives the following mappi
 | 四正爲四宮, 中間六子合爲一宮 | The four orthogonal-direction hexagons + the six central numbers combined into one central palace. |
 | 凡九宮化爲十二宮 | The nine hexagons are reorganized into twelve subgroups by adding four-direction, center, left/right, and finer subdivisions. |
 
-This mapping shows that the text is describing not merely a “hexagonal magic figure” but a **hierarchical spatial structure in which nine palaces are transformed into twelve groups**.
+This mapping shows that the text is describing not merely a "hexagonal magic figure" but a **hierarchical spatial structure in which nine palaces are transformed into twelve groups**.
 
 ---
 
 ## 4. The make/use distinction: 三十子作 and 五十四子用
 
-Although not explicitly stated in the six source phrases, the 9-hex Jisu-guimun-do structure separates **the numbers actually written on the graph (作, “made/used as written”)** from **the positions occupied by the structure (用, “used/employed”)**. This distinction appears repeatedly in other Saodo and Gakdeuk diagrams.
+Although not explicitly stated in the six source phrases, the 9-hex Jisu-guimun-do structure separates **the numbers actually written on the graph (作, "made/used as written")** from **the positions occupied by the structure (用, "used/employed")**. This distinction appears repeatedly in other Saodo and Gakdeuk diagrams.
 
 ### 4.0.1 三十子作: the distinct numbers written on the graph
 
-- **作 (zuo)** means “to make” or “to construct.”
+- **作 (zuo)** means "to make" or "to construct."
 - In the 9-hex Jisu-guimun-do, the numbers **1 through 30** are written exactly once at the vertices.
-- Thus **三十子作** means “the diagram is constructed from thirty numbers (子).”
+- Thus **三十子作** means "the diagram is constructed from thirty numbers (子)."
 - The total of these distinct numbers is
 
 ```
@@ -67,7 +67,7 @@ T = 1 + 2 + … + 30 = 30 × 31 / 2 = 465
 
 ### 4.0.2 五十四子用: the structural positions used
 
-- **用 (yong)** means “to use” or “to employ.”
+- **用 (yong)** means "to use" or "to employ."
 - Because nine hexagons each contain six numbers, the total number of structural positions is
 
 ```
@@ -121,13 +121,13 @@ This make/use distinction is not unique to Jisu-guimun-do. The same structure ap
 | Jisu-yong-yukdo | 20 | 30 (5 hexagons × 6) | 63 | Numbers 1–20 |
 | Jisu-guimun-do 9-hex | 30 | 54 (9 hexagons × 6) | 93 | Numbers 1–30 |
 
-In every case, “用” is “number of palaces/hexagons × numbers per palace/hexagon,” and “作” is the number of distinct values actually written. The difference is always caused by **shared vertices (duplication coefficients)**, which is the common combinatorial structure of Saodo and Gakdeuk diagrams.
+In every case, "用" is "number of palaces/hexagons × numbers per palace/hexagon," and "作" is the number of distinct values actually written. The difference is always caused by **shared vertices (duplication coefficients)**, which is the common combinatorial structure of Saodo and Gakdeuk diagrams.
 
 ---
 
 ## 5. Mod-based group analysis
 
-The phrase “九宮化爲十二宮” can be read in modern terms as **reconstructing groups by superimposing different modulo systems**. The following is a mod analysis for 2, 3, 4, 5, 6, 9, and 12.
+The phrase "九宮化爲十二宮" can be read in modern terms as **reconstructing groups by superimposing different modulo systems**. The following is a mod analysis for 2, 3, 4, 5, 6, 9, and 12.
 
 ### 5.1 mod 2: Binary partition and spatial symmetry
 
@@ -171,7 +171,7 @@ Plotting this as a mod-2 coloring shows visually how evens and odds are spread. 
 | Top/bottom symmetry | Number of evens in upper half = number of evens in lower half | 中眷三宮 (top-center-bottom axis) |
 | Central symmetry (180°) | Parity is preserved between centrally opposite positions | Cyclic structure of the nine palaces |
 
-The source phrase “左右十二子 分爲二宮” — twelve left/right numbers divided into two groups — connects directly to the mod-2 left/right symmetry reading. For the twelve left/right numbers to form two palaces, their parity distributions should naturally be balanced.
+The source phrase "左右十二子 分爲二宮" — twelve left/right numbers divided into two groups — connects directly to the mod-2 left/right symmetry reading. For the twelve left/right numbers to form two palaces, their parity distributions should naturally be balanced.
 
 #### 5.1.4 Mod 2 as the seed of higher moduli
 
@@ -186,12 +186,12 @@ Thus the spatial symmetry of mod 2 is not merely an even/odd distinction; it is 
 ### 5.2 mod 3: Three-palace partition
 
 - Classify 1 through M by remainder modulo 3 into three equivalence classes.
-- The “三宮” in “中眷三宮, 三宮爲主則” directly corresponds to the three mod-3 classes (0, 1, 2).
+- The "三宮" in "中眷三宮, 三宮爲主則" directly corresponds to the three mod-3 classes (0, 1, 2).
 - Since 9 palaces = 3 × 3, the nine-palace layout can also be seen as a 3×3 grid obtained by overlaying two three-direction partitions.
 
 ### 5.3 mod 4: Four-orthogonal partition
 
-- The four orthogonal directions (east, west, south, north) correspond directly to “四正爲四宮”.
+- The four orthogonal directions (east, west, south, north) correspond directly to "四正爲四宮".
 - 4 = 2 × 2, so mod 4 refines the mod-2 left/right and top/bottom symmetries one step further.
 - The four mod-4 classes naturally link to the four corner/directional groups.
 
@@ -201,9 +201,9 @@ Thus the spatial symmetry of mod 2 is not merely an even/odd distinction; it is 
 - Because Jisu-guimun-do belongs to the Jisu-yong-yukdo lineage, the mod-5 wuxing partition provides the basic numerological background.
 - The distribution of the six numbers in each hexagon across the five wuxing phases is one axis of group analysis.
 
-### 5.5 CRT: Unifying mod 3, mod 4, and mod 5 — Qin Jiushao’s Dayan Qiu Yi Shu
+### 5.5 CRT: Unifying mod 3, mod 4, and mod 5 — Qin Jiushao's Dayan Qiu Yi Shu
 
-The Song-Yuan mathematician **Qin Jiushao (秦九韶, c. 1202–1261)** presented the **Dayan Qiu Yi Shu (大衍求一術, “method of finding unity by the great extension”)** in his *Shushu Jiuzhang* (*Mathematical Treatise in Nine Sections*). This algorithm solves systems of simultaneous congruences with pairwise coprime moduli, and it is equivalent to the modern **Chinese Remainder Theorem (CRT)**.
+The Song-Yuan mathematician **Qin Jiushao (秦九韶, c. 1202–1261)** presented the **Dayan Qiu Yi Shu (大衍求一術, "method of finding unity by the great extension")** in his *Shushu Jiuzhang* (*Mathematical Treatise in Nine Sections*). This algorithm solves systems of simultaneous congruences with pairwise coprime moduli, and it is equivalent to the modern **Chinese Remainder Theorem (CRT)**.
 
 In Jisu-guimun-do, **mod 3, mod 4, and mod 5** are pairwise coprime. Applying all three moduli simultaneously determines any integer uniquely modulo 60 (= 3 × 4 × 5).
 
@@ -225,11 +225,11 @@ This CRT coordinate system corresponds to the spatial structure of the source te
 
 Thus mod 3 and mod 4 generate the **9-palace / 12-palace spatial lattice**, while mod 5 provides the **independent five-phase coloring**. When these are combined by CRT, each number becomes a single point in a 3×4×5 space, and this is the number-theoretic basis of the 9-palace → 12-palace transformation.
 
-Qin Jiushao’s Dayan Qiu Yi Shu handles this situation as follows.
+Qin Jiushao's Dayan Qiu Yi Shu handles this situation as follows.
 
 1. Compute M = 3 × 4 × 5 = 60.
 2. Compute M₁ = M/3 = 20, M₂ = M/4 = 15, M₃ = M/5 = 12.
-3. For each Mᵢ find the **“unity-seeking”** multiplier yᵢ such that Mᵢ·yᵢ ≡ 1 (mod mᵢ).
+3. For each Mᵢ find the **"unity-seeking"** multiplier yᵢ such that Mᵢ·yᵢ ≡ 1 (mod mᵢ).
    - 20·y₁ ≡ 1 (mod 3) ⇒ y₁ = 2
    - 15·y₂ ≡ 1 (mod 4) ⇒ y₂ = 3
    - 12·y₃ ≡ 1 (mod 5) ⇒ y₃ = 3
@@ -243,7 +243,7 @@ x = 1·40 + 1·45 + 1·36 = 121 ≡ 1 (mod 60)
 
 So the coordinate (1, 1, 1) corresponds to the number 1 (or 61, 121, …). In this way CRT reduces the three mod classifications into a single mod-60 coordinate.
 
-From this viewpoint, the source phrase “九宮化爲十二宮” is a refinement from a mod-9 (= 3×3) structure to a mod-12 (= 3×4) structure, while mod 5 remains an independent wuxing axis unaffected by that refinement.
+From this viewpoint, the source phrase "九宮化爲十二宮" is a refinement from a mod-9 (= 3×3) structure to a mod-12 (= 3×4) structure, while mod 5 remains an independent wuxing axis unaffected by that refinement.
 
 ### 5.6 mod 6: Six-children partition
 
@@ -253,13 +253,13 @@ From this viewpoint, the source phrase “九宮化爲十二宮” is a refineme
 
 ### 5.7 mod 9: Nine-palace partition
 
-- The phrase “九宮共得” refers to the nine palaces.
+- The phrase "九宮共得" refers to the nine palaces.
 - 9 = 3 × 3, so mod 9 can be read as a 3×3 structure formed by overlaying two mod-3 three-direction partitions.
 - In the 9-hex turtle-shell layout, the nine hexagons are arranged as center + four directions + four diagonals (or top/bottom/left/right + intermediates), forming nine cells.
 
 ### 5.8 mod 12: Twelve-palace partition
 
-- The phrase “九宮化爲十二宮” says the nine palaces are transformed into twelve groups.
+- The phrase "九宮化爲十二宮" says the nine palaces are transformed into twelve groups.
 - 12 = 3 × 4 = 2 × 6 = 2 × 2 × 3, so mod 12 is the most refined partition, superimposing mod 3, mod 4, and mod 6.
 - The twelve groups can be read as 4 directions × 3 layers, or 3 directions × 4 subdivisions, or 6 directions × 2 splits.
 
@@ -289,7 +289,7 @@ mod 3 ──┴── mod 9
 | mod 6 ↔ mod 12 | mod 12 multiplies six directions by a two-fold split (6 × 2). |
 | mod 5 | Wuxing is independent of the 2·3·4·6·9·12 multiple structure, but in the CRT view it supplies the final axis of the mod 3 × mod 4 × mod 5 = mod 60 space. It completes the spatial model when combined with the five directions (center + four cardinals). |
 
-These relations show that “九宮化爲十二宮” is not simply increasing the count but a **systematic transformation from a mod-9 (3×3) structure to a mod-12 (3×4 or 6×2) structure**, with mod 5 (wuxing) acting as an independent five-direction axis that overlays the final 3 × 4 × 5 = 60 CRT cells.
+These relations show that "九宮化爲十二宮" is not simply increasing the count but a **systematic transformation from a mod-9 (3×3) structure to a mod-12 (3×4 or 6×2) structure**, with mod 5 (wuxing) acting as an independent five-direction axis that overlays the final 3 × 4 × 5 = 60 CRT cells.
 
 ---
 
@@ -317,13 +317,13 @@ The 9-palace → 12-palace transformation can be understood as follows.
            = 3 × (2 × 2)  (mod 3 × mod 2 × mod 2)
 ```
 
-Therefore, transforming nine palaces into twelve palaces can be read as keeping one mod-3 axis while refining the other axis from mod 3 to mod 4 (= 2 × 2). This is the modern interpretation of “九宮化爲十二宮”.
+Therefore, transforming nine palaces into twelve palaces can be read as keeping one mod-3 axis while refining the other axis from mod 3 to mod 4 (= 2 × 2). This is the modern interpretation of "九宮化爲十二宮".
 
 ---
 
 ## 8. Conclusion
 
-The source text of Jisu-guimun-do contains more than the rule “each hexagon sums to 93.” It reveals a **hierarchical way of thinking in which nine palaces are transformed into twelve groups**, and that thinking is structured by a mod classification system based on 2 and 3 (2, 3, 4, 6, 9, 12) overlaid with the wuxing system based on 5.
+The source text of Jisu-guimun-do contains more than the rule "each hexagon sums to 93." It reveals a **hierarchical way of thinking in which nine palaces are transformed into twelve groups**, and that thinking is structured by a mod classification system based on 2 and 3 (2, 3, 4, 6, 9, 12) overlaid with the wuxing system based on 5.
 
 - **六子各得九十三數**: a mod-6 partial-sum invariant.
 - **九宮共得八百三十七數**: the mod-9 total, expressed by the duplication-count equation `9 × 93 = 837`.

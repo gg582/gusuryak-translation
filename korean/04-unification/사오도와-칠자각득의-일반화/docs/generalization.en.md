@@ -88,7 +88,7 @@ That is, the edge set `E` contains the edges joining each center to its peripher
 
 ## 4. Mapping Saodo into the General Framework
 
-Translating Saodo’s data into the general structure `Π` gives the following.
+Translating Saodo's data into the general structure `Π` gives the following.
 
 - `D = {1,2,3,4,5}`: the five color classes.
 - `M`: the 20 circular marks.
@@ -232,11 +232,11 @@ For given `p, q, T`, find necessary and sufficient conditions for a puzzle of th
 
 ### Problem 2. Uniformization of Saodo
 
-Can Saodo’s 20 marks be rearranged into 5 clusters of 7 elements each with equal sum, while preserving as much as possible of the original 5-coloring and geometric placement?
+Can Saodo's 20 marks be rearranged into 5 clusters of 7 elements each with equal sum, while preserving as much as possible of the original 5-coloring and geometric placement?
 
 ### Problem 3. Necessity of the per-direction sum invariant
 
-Chiljagakdeuk has a constant per-direction sum, but Saodo does not. What effect does this difference have on the puzzle’s "completeness" or "difficulty"? When no per-direction sum invariant exists, what additional conditions are needed?
+Chiljagakdeuk has a constant per-direction sum, but Saodo does not. What effect does this difference have on the puzzle's "completeness" or "difficulty"? When no per-direction sum invariant exists, what additional conditions are needed?
 
 ### Problem 4. Absence of edges and compensation mechanisms
 

@@ -8,7 +8,7 @@ The core skeleton of this puzzle is rooted in ancient Chinese mathematical philo
 
 - The division of 1–10 into Heaven numbers (odd) and Earth numbers (even).
 - The five-direction correspondences: 1·6 Water, 2·7 Fire, 3·8 Wood, 4·9 Metal, 5·10 Earth.
-- The phrase “河圖五五卽上天數圖，六五卽上地數圖” as a direct Heto interpretation.
+- The phrase "河圖五五卽上天數圖，六五卽上地數圖" as a direct Heto interpretation.
 
 Thus the puzzle is historically **ancient** in character: numbers function not merely as counters but as symbols of cosmic order, which is typical of ancient numerological mysticism.
 
@@ -16,7 +16,7 @@ Thus the puzzle is historically **ancient** in character: numbers function not m
 
 ## 2. Medieval
 
-Medieval elements are scarce. Medieval East Asian mathematics focused on algebraic equation solving (e.g., the “method of the celestial unknown”), while Five-Phase diagrams remained in philosophical or ritual contexts rather than being formalized as puzzles.
+Medieval elements are scarce. Medieval East Asian mathematics focused on algebraic equation solving (e.g., the "method of the celestial unknown"), while Five-Phase diagrams remained in philosophical or ritual contexts rather than being formalized as puzzles.
 
 Still, the symbolic interpretation of numerical arrangements and the I-Ching mode of thinking persisted through the medieval period.
 
@@ -26,7 +26,7 @@ Still, the symbolic interpretation of numerical arrangements and the I-Ching mod
 
 In the early modern period, mathematics shifted toward practical computation and calendrical astronomy. The abstract, symbolic structure of this puzzle is distant from that trend.
 
-However, the systematic arrangement of 1–20 and the explicit checksum `共積210` foreshadow the “problem–solution–verification” format found in early modern mathematical texts.
+However, the systematic arrangement of 1–20 and the explicit checksum `共積210` foreshadow the "problem–solution–verification" format found in early modern mathematical texts.
 
 ---
 
@@ -70,10 +70,10 @@ Thus the **potential** of the puzzle is contemporary. The original text is ancie
 ## 7. What is Insufficient
 
 1. **Unclear meaning of numeral orientation Θ**: It is impossible to decide from the original text whether rotated numerals are merely decorative or encode adjacency/traversal information.
-2. **Unclear role of direction marks D**: The “\ / / \”-like marks are not defined in relation to the circular slots.
-3. **Incomplete operational rules**: “Wood + Wood → Fire” and “Metal + Fire → annihilation” are intuitive, but associativity, commutativity, and domain are not specified.
+2. **Unclear role of direction marks D**: The "\ / / \"-like marks are not defined in relation to the circular slots.
+3. **Incomplete operational rules**: "Wood + Wood → Fire" and "Metal + Fire → annihilation" are intuitive, but associativity, commutativity, and domain are not specified.
 4. **Absence of graph edges**: A layout is given, but no adjacency relation, so graph-theoretic analysis cannot proceed without additional assumptions.
-5. **Weak link between 5×5/6×5 and the 20-slot layout**: “5×5 = Heaven, 6×5 = Earth” explains the sums of 1–10, but the original text does not state how this connects to the geometry of the 20-slot arrangement.
+5. **Weak link between 5×5/6×5 and the 20-slot layout**: "5×5 = Heaven, 6×5 = Earth" explains the sums of 1–10, but the original text does not state how this connects to the geometry of the 20-slot arrangement.
 
 ---
 

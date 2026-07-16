@@ -151,7 +151,7 @@ Sajagakdeuk: 9 palaces × 4 numbers = 42  →  Π-like: 9 palaces, target 42, 4-
 Ojagakdeuk:  9 palaces × 5 numbers = 85  →  Π-like: 9 palaces, target 85, 5-element blocks
 ```
 
-Thus the two diagrams are members of the same family occupying different “slices” of Π(p, q, T).
+Thus the two diagrams are members of the same family occupying different "slices" of Π(p, q, T).
 
 ---
 
@@ -163,4 +163,4 @@ Sajagakdeuk and Ojagakdeuk are two variations on the same Gakdeuk theme, played 
 - **Ojagakdeuk**: Places a Five-Way partial-sum invariant inside a Four-Way 3×3 grid.
 
 They share nine palaces, five wuxing classes, identical partial sums, and overlap-weighted totals, yet their geometry and sum magnitudes differ according to whether Four or Five is in the foreground.  
-This is precisely the “mutual interchange of Four and Five” that Saodo and the Gakdeuk principle describe.
+This is precisely the "mutual interchange of Four and Five" that Saodo and the Gakdeuk principle describe.

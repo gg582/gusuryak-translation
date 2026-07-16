@@ -2,12 +2,12 @@
 
 Order: 10×10
 
-10×10 magic square. It uses each of the numbers 1 through 100 exactly once and has magic constant 505. All row/column/diagonal sums are 505. It has top-bottom, left-right, and diagonal center-symmetry (associated) properties. Rows such as row 1 and row 10, and columns such as column 1 and column 10, are in reverse/complementary relationships, so the construction consists of dual-symmetric pairs.
+10×10 number arrangement. This example is not a normal 1-through-100 set, and its row, column, and diagonal sums are not all 505. Some rows and columns retain symmetric relationships, but the verification does not classify it as a magic square or an associated magic square.
 
 ## Example 1
 - Value range: 1 ~ 99
 - Normal set (consecutive integers): No
-- Magic constant: 505
+- Reference magic constant: 505
 - Row sums: [495, 474, 485, 495, 495, 477, 495, 495, 495, 495]
 - Column sums: [477, 504, 465, 495, 495, 495, 495, 495, 485, 495]
 - Diagonal sums: [709, 210]
@@ -18,6 +18,15 @@ Order: 10×10
 - Associated: No (center-symmetric sum = 180)
 - Bimagic: No
 - 180° rotational symmetry: No
+
+## Source and Correction Note
+
+The original array fails the normal `1..100` set check, and its line sums also
+fail the stated magic-square conditions. Considering the source properties
+together with differences between printed editions, the discrepancy is most
+consistent with a publication error or a copying error by a proofreader. The
+original array is retained as transcription evidence; `corrected.md` provides a
+separate arrangement satisfying the normal-set and line-sum conditions.
 
 ## Value Frequency Analysis (Example 1)
 - Total cells: 100

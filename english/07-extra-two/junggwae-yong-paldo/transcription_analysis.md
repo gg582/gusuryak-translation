@@ -155,4 +155,4 @@ The MILP solver in `korean/04-unification/base_solver.py` finds a solution that 
 
 ### The rotation-analysis perspective
 
-`rotation_analysis.py` analyzes rotational invariance within each cluster and global rotation correspondences between clusters. The ±2 correspondence between Row 1, Col 2 and Row 2, Col 1 in the Eight-Formation Diagram is read as an inter-cluster transformation. The judgment that this relation is the intended *byeon-jin* and the remaining mismatches are transcription errors matches the “local order / global damage” distinction emphasized by rotation analysis.
+`rotation_analysis.py` analyzes rotational invariance within each cluster and global rotation correspondences between clusters. The ±2 correspondence between Row 1, Col 2 and Row 2, Col 1 in the Eight-Formation Diagram is read as an inter-cluster transformation. The judgment that this relation is the intended *byeon-jin* and the remaining mismatches are transcription errors matches the "local order / global damage" distinction emphasized by rotation analysis.
