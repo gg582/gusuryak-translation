@@ -17,7 +17,7 @@ OCR_ANCHORS = [
     ("虛一則二百七十數", "중심을 비우면 270수", "중심 칸 미사용"),
     ("校計周五十四數", "외주를 세면 54", "가장 바깥 고리 54칸"),
     ("通加洛書數六倍", "낙서수(1+..+9=45)의 6배 = 270", "총 칸 수 = 6×45"),
-    ("十九爲中觔數也", "중앙 가로줄 19", "중觔(중심을 지나는 행) 19칸"),
+    ("十九爲中觚數也", "중앙 가로줄 19", "중심선(중심을 지나는 행) 19칸"),
     ("置外周添六", "바깥 고리에서 6씩 더해 감", "고리 k가 6k칸 (6,12,...,54)"),
     ("之數見甲編數器章", "수의 출전 표기", "값 1..270 (籌數略 체계)"),
 ]
@@ -63,7 +63,7 @@ def build_analysis(values: dict, grid: HexGrid, report: PropertyReport,
         "wedges": {"sums": report.wedge_sums, "target": 45 * PAIR_SUM / 2},
         "rays": {"sums": report.ray_sums, "target": 9 * PAIR_SUM / 2},
         "axes": {"sums": report.axis_sums, "target": 9 * PAIR_SUM},
-        "middle_rows_中觔": mid_rows,
+        "middle_rows_中觚": mid_rows,
         "corners": {
             "values": corner_vals,
             "mod9": [v % 9 for v in corner_vals],
@@ -84,7 +84,7 @@ def write_markdown(analysis: dict, report: PropertyReport,
     """성질 분석 리포트를 Markdown으로 저장한다."""
     m = analysis["meta"]
     lines: list[str] = []
-    lines.append("# 落書六觚圖 복원 최적해 — 성질 분석\n")
+    lines.append("# 洛書六觚圖 복원 최적해 — 성질 분석\n")
     lines.append("## 1. 탐색 결과 요약\n")
     lines.append(f"- 시드: {solver_meta.get('seed')}, 재시작: {solver_meta.get('restarts')}회, "
                  f"재시작당 반복: {solver_meta.get('iterations'):,}회")
@@ -118,7 +118,7 @@ def write_markdown(analysis: dict, report: PropertyReport,
     lines.append(f"- 실측: {s['sums']}")
     lines.append("")
     w = analysis["wedges"]
-    lines.append(f"### 6觚 섹터 (목표 각 {w['target']}, 이상적 분포 6097/6098)\n")
+    lines.append(f"### 6개 섹터 (목표 각 {w['target']}, 이상적 분포 6097/6098)\n")
     lines.append(f"- 실측: {w['sums']}")
     lines.append("")
     ry = analysis["rays"]
@@ -126,10 +126,10 @@ def write_markdown(analysis: dict, report: PropertyReport,
     lines.append(f"- 실측: {ry['sums']}")
     lines.append("")
     ax = analysis["axes"]
-    lines.append(f"### 3축/中觔 (목표 각 {ax['target']})\n")
+    lines.append(f"### 3축/中觚 (목표 각 {ax['target']})\n")
     lines.append(f"- 축 합 실측: {ax['sums']}")
-    for a, mr in analysis["middle_rows_中觔"].items():
-        lines.append(f"- 중觔(방향 {a}) {mr['cells']}칸, 합 {mr['sum']}")
+    for a, mr in analysis["middle_rows_中觚"].items():
+        lines.append(f"- 중심선(방향 {a}) {mr['cells']}칸, 합 {mr['sum']}")
     lines.append("")
     c = analysis["corners"]
     lines.append("## 5. 꼭짓점 값 (洛書 대조용)\n")

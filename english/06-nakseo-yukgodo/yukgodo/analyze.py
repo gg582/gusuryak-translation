@@ -18,7 +18,7 @@ OCR_ANCHORS = [
     ("虛一則二百七十數", "voiding the one leaves 270 numbers", "center cell unused"),
     ("校計周五十四數", "counting the perimeter gives 54", "outermost ring has 54 cells"),
     ("通加洛書數六倍", "six times the Luoshu number (1+..+9=45) = 270", "total cells = 6×45"),
-    ("十九爲中觔數也", "the central row has 19", "中觔 (row through the center) has 19 cells"),
+    ("十九爲中觚數也", "the central row has 19", "中觚 (row through the center) has 19 cells"),
     ("置外周添六", "proceeds around the outer ring adding six", "ring k has 6k cells (6,12,...,54)"),
     ("之數見甲編數器章", "provenance note for the numbers", "values 1..270 (籌數略 system)"),
 ]
@@ -64,7 +64,7 @@ def build_analysis(values: dict, grid: HexGrid, report: PropertyReport,
         "wedges": {"sums": report.wedge_sums, "target": 45 * PAIR_SUM / 2},
         "rays": {"sums": report.ray_sums, "target": 9 * PAIR_SUM / 2},
         "axes": {"sums": report.axis_sums, "target": 9 * PAIR_SUM},
-        "middle_rows_中觔": mid_rows,
+        "middle_rows_中觚": mid_rows,
         "corners": {
             "values": corner_vals,
             "mod9": [v % 9 for v in corner_vals],
@@ -85,7 +85,7 @@ def write_markdown(analysis: dict, report: PropertyReport,
     """Save the property analysis report as Markdown."""
     m = analysis["meta"]
     lines: list[str] = []
-    lines.append("# Nakseo Yukgodo (落書六觚圖) reconstructed optimum — property analysis\n")
+    lines.append("# Nakseo Yukgodo (洛書六觚圖) reconstructed optimum — property analysis\n")
     lines.append("## 1. Search result summary\n")
     lines.append(f"- seed: {solver_meta.get('seed')}, restarts: {solver_meta.get('restarts')}, "
                  f"iterations per restart: {solver_meta.get('iterations'):,}")
@@ -127,10 +127,10 @@ def write_markdown(analysis: dict, report: PropertyReport,
     lines.append(f"- measured: {ry['sums']}")
     lines.append("")
     ax = analysis["axes"]
-    lines.append(f"### Three axes / 中觔 (target {ax['target']} each)\n")
+    lines.append(f"### Three axes / 中觚 (target {ax['target']} each)\n")
     lines.append(f"- measured axis sums: {ax['sums']}")
-    for a, mr in analysis["middle_rows_中觔"].items():
-        lines.append(f"- 中觔 (direction {a}): {mr['cells']} cells, sum {mr['sum']}")
+    for a, mr in analysis["middle_rows_中觚"].items():
+        lines.append(f"- 中觚 (direction {a}): {mr['cells']} cells, sum {mr['sum']}")
     lines.append("")
     c = analysis["corners"]
     lines.append("## 5. Corner values (for Luoshu cross-check)\n")

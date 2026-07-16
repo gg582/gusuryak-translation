@@ -1,4 +1,4 @@
-"""落書六觚圖의 육각 격자(六觚 도안) 기하 모델.
+"""洛書六觚圖의 육각 격자 도안 기하 모델.
 
 《漢書·律曆志》 "二百七十一枚而成六觚, 爲一握" 및 蘇林 注
 "其表六九五十四, 算中積凡得二百七十一枚"에 대응하는 구조:
@@ -75,7 +75,7 @@ class HexGrid:
         rays:       rays[i] = 중심→꼭짓점 i로 뻗는 광선 9칸 (i=0..5)
         sides:      sides[j] = 외주의 변 j, 꼭짓점 포함 10칸 (j=0..5)
         wedges:     wedges[i] = 觚(섹터) i, 45칸씩 270칸을 분할 (i=0..5)
-        axes:       axes[a] = 중심을 지나는 축 a, 19칸 (a=0..2, 中觔)
+        axes:       axes[a] = 중심을 지나는 축 a, 19칸 (a=0..2, 中觚)
         slots:      대점 슬롯 135개, 각 (cell, antipode(cell)) 쌍
     """
 
@@ -167,7 +167,7 @@ class HexGrid:
     def rows(self, a: int) -> dict[int, list[Cell]]:
         """축 a에 수직인 직선 행들: cube 좌표 a 성분이 m인 셀들 (m=-9..9).
 
-        m=0 인 행이 中觔(19칸)이고, |m|가 커질수록 19-|m| 칸이 된다.
+        m=0 인 행이 中觚(19칸)이고, |m|가 커질수록 19-|m| 칸이 된다.
         """
         rows: dict[int, list[Cell]] = {m: [] for m in range(-self.radius, self.radius + 1)}
         for c in self.cells:

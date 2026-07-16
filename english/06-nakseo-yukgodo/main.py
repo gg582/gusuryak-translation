@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Nakseo Yukgodo (落書六觚圖) reconstruction pipeline: search → save → visualize → analyze.
+"""Nakseo Yukgodo (洛書六觚圖) reconstruction pipeline: search → save → visualize → analyze.
 
 Usage:
     python3 main.py                          # default search (8 restarts)
@@ -17,12 +17,13 @@ import time
 from yukgodo.analyze import build_analysis, write_json, write_markdown
 from yukgodo.hexgrid import HexGrid
 from yukgodo.properties import PENALTY_FLOOR, measure, validate
+from yukgodo.siamese import analyze_siamese, write_siamese_json, write_siamese_markdown
 from yukgodo.solver import solve
 from yukgodo.visualize import draw_dashboard, draw_figure
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="Nakseo Yukgodo (落書六觚圖) reconstruction optimum search")
+    ap = argparse.ArgumentParser(description="Nakseo Yukgodo (洛書六觚圖) reconstruction optimum search")
     ap.add_argument("--iterations", type=int, default=150_000,
                     help="annealing iterations per restart")
     ap.add_argument("--restarts", type=int, default=8, help="number of restarts")
@@ -48,9 +49,9 @@ def main() -> None:
         args.seed = saved["meta"].get("seed", args.seed)
         args.iterations = saved["meta"].get("iterations", args.iterations)
         args.restarts = saved["meta"].get("restarts", args.restarts)
-        print(f"=== Nakseo Yukgodo (落書六觚圖) rendering (saved solution, penalty {penalty}) ===")
+        print(f"=== Nakseo Yukgodo (洛書六觚圖) rendering (saved solution, penalty {penalty}) ===")
     else:
-        print("=== Nakseo Yukgodo (落書六觚圖) reconstruction search ===")
+        print("=== Nakseo Yukgodo (洛書六觚圖) reconstruction search ===")
         print(f"lattice: 271 cells (虛一 → 270 filled), perimeter 54 cells, 10 cells per side")
         print(f"search: {args.restarts} restarts × {args.iterations:,} iterations, seed {args.seed}")
         t0 = time.time()
@@ -94,7 +95,7 @@ def main() -> None:
     fig_png = os.path.join(args.outdir, "nakseo_yukgodo.png")
     fig_svg = os.path.join(args.outdir, "nakseo_yukgodo.svg")
     draw_figure(values, grid, fig_png, fig_svg, color_by=args.color_by,
-                title=f"Nakseo Yukgodo (落書六觚圖) — reconstructed optimum (penalty {penalty})")
+                title=f"Nakseo Yukgodo (洛書六觚圖) — reconstructed optimum (penalty {penalty})")
     dash_png = os.path.join(args.outdir, "dashboard.png")
     draw_dashboard(report, grid, dash_png)
     print(f"diagram: {fig_png}, {fig_svg}")
@@ -111,6 +112,14 @@ def main() -> None:
         "restart_penalties": restart_pens,
     })
     print(f"analysis: {analysis_path}, {report_md}")
+
+    # reverse-engineer possible Siamese-style local rules
+    siamese = analyze_siamese(values, grid)
+    siamese_json = os.path.join(args.outdir, "siamese_analysis.json")
+    siamese_md = os.path.join(args.outdir, "siamese_report.md")
+    write_siamese_json(siamese, siamese_json)
+    write_siamese_markdown(siamese, siamese_md)
+    print(f"Siamese check: {siamese_json}, {siamese_md}")
 
 
 if __name__ == "__main__":

@@ -1,4 +1,4 @@
-"""落書六觚圖 도안 및 성질 대시보드 렌더링."""
+"""洛書六觚圖 도안 및 성질 대시보드 렌더링."""
 
 from __future__ import annotations
 
@@ -41,7 +41,7 @@ WEDGE_COLORS = [
 
 def draw_figure(values: dict, grid: HexGrid, path_png: str,
                 path_svg: str | None = None, color_by: str = "ring",
-                title: str = "落書六觚圖 (낙서육고도) — 복원 최적해") -> None:
+                title: str = "洛書六觚圖 (낙서육고도) — 복원 최적해") -> None:
     """270칸 배치도를 그린다. 중심은 虛一로 비워 둔다."""
     fig, ax = plt.subplots(figsize=(18, 18))
     ax.set_aspect("equal")
@@ -98,7 +98,7 @@ def draw_dashboard(report: PropertyReport, grid: HexGrid,
                    path_png: str) -> None:
     """목표 대비 성질 달성도 대시보드."""
     fig, axes = plt.subplots(2, 2, figsize=(14, 9))
-    fig.suptitle("落書六觚圖 성질 분석 — 목표 대비 달성도", fontsize=16)
+    fig.suptitle("洛書六觚圖 성질 분석 — 목표 대비 달성도", fontsize=16)
 
     ax = axes[0][0]
     ax.bar(range(6), report.side_sums, color="#4292c6")
@@ -111,7 +111,7 @@ def draw_dashboard(report: PropertyReport, grid: HexGrid,
     ax = axes[0][1]
     ax.bar(range(6), report.wedge_sums, color="#fd8d3c")
     ax.axhline(6097.5, color="#c00000", ls="--", lw=1.2, label="목표 6097.5")
-    ax.set_title("6觚(섹터) 합")
+    ax.set_title("6개 섹터 합")
     ax.set_xticks(range(6))
     ax.set_xticklabels([f"觚{i}" for i in range(6)])
     ax.legend()

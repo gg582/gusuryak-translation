@@ -10,7 +10,7 @@
 |---|---|---|---|
 | 1 | 六子各得九十三數 | 6개 수의 부분합이 93이다. | The partial sum of six numbers is 93. |
 | 2 | 九宮共得八百三十七數 | 9개의 모든 그룹의 합은 837이다. | The sum of all nine clusters is 837. |
-| 3 | 中眷三宮, 三宮爲主則 | 가욱의 것이 3개 그룹을 돌보고, 3개 그룹이 주가 되는데 | The center manages three groups; the three groups are the major ones. |
+| 3 | 中眷三宮, 三宮爲主則 | 가운데의 것이 3개 그룹을 돌보고, 3개 그룹이 주가 되는데 | The center manages three groups; the three groups are the major ones. |
 | 4 | 左右十二子 分爲二宮 若爲以 | 좌우 12자가 2개의 그룹으로 나뉜다는 것은 (만약 이를 기준으로 삼는다면) | The twelve numbers on the left and right are divided into two groups (if we take these as the basis). |
 | 5 | 四正爲四宮, 中間六子合爲一宮 | 4개의 꼭지그룹이 4개의 그룹이므로, 중간 6개 수를 합쳐 1개의 그룹으로 둔다. | The four orthogonal directions form four groups, and the six center numbers are combined into one group. |
 | 6 | 凡九宮化爲十二宮 | 무릇 9그룹이 12개 그룹이 된다. | Commonly, the nine groups are transformed into twelve groups. |

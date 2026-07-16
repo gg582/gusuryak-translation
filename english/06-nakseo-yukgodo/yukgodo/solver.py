@@ -1,4 +1,4 @@
-"""Placement search engine for the Nakseo Yukgodo (落書六觚圖).
+"""Placement search engine for the Nakseo Yukgodo (洛書六觚圖).
 
 Search space:
     The 270 cells are grouped into 135 antipodal slots (point-symmetric
@@ -10,7 +10,7 @@ Search space:
                                              虛一·共積二百七十)
         - ring k sum = 813k                 (the per-ring distribution of
                                              通加洛書數六倍)
-        - axis (中觔) sum = 2439            (十九爲中觔數也)
+        - axis (中觚) sum = 2439            (十九爲中觚數也)
 
     Only the remaining goals — side sums equal at 1355 and the half-cell
     balance of sectors and rays — form the search objective.

@@ -23,11 +23,11 @@ guesswork.
 
 Nevertheless, by reverse-engineering the algorithm itself to a fair extent,
 we have come one step closer to the true form of the Nakseo Yukgodo
-(落書六觚圖) — and therein lies the significance of this work.
+(洛書六觚圖) — and therein lies the significance of this work.
 
 ---
 
-# Nakseo Yukgodo (落書六觚圖) Reconstruction Search Project
+# Nakseo Yukgodo (洛書六觚圖) Reconstruction Search Project
 
 A Python 3 program that reverse-engineers, by search, a placement (the
 optimum) satisfying the numeric conditions found in the commentary OCR.
@@ -42,7 +42,7 @@ The figures in the commentary match the *Hanshu* 律曆志 passage
 - **虛一**: the center is left void → **270 cells** (共積二百七十 / 虛一則二百七十數)
 - Perimeter **54 cells** (校計周五十四數 = Su Lin's 六九五十四)
 - Total cells 270 = 6×(1+2+...+9) = **6×45** (通加洛書數六倍)
-- Central horizontal row (中觔) **19 cells** (十九爲中觔數也)
+- Central horizontal row (中觚) **19 cells** (十九爲中觚數也)
 
 ## Hypotheses (same technique as Choi Seok-jeong's other magic diagrams)
 
@@ -86,7 +86,7 @@ output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, rep
 | six perimeter side sums | 1355 each | all 6 sides exact |
 | six 觚-sector sums | 6097/6098 | 6097,6098,6098,6098,6097,6097 |
 | six ray sums | 1219/1220 | 1219,1220,1219,1220,1219,1220 |
-| three axes / 中觔 sums | 2439 each | all 3 axes exact |
+| three axes / 中觚 sums | 2439 each | all 3 axes exact |
 | corner value sum | 813 (=3×271, structural) | 206+126+245+65+145+26 = 813 |
 
 The sector and ray sums have odd cell counts (45 / 9 cells), so exact
@@ -102,7 +102,7 @@ commentary's numeric conditions**.
 ## Hypothesis-verification verdict (`output/hypotheses.json`)
 
 1. Every legible figure in the commentary is a **cell-count check** —
-   54+6=60, 60/6=10 (cells per side), 中觔 19, 252(=271−19)×2=504,
+   54+6=60, 60/6=10 (cells per side), 中觚 19, 252(=271−19)×2=504,
    270=6×45. In other words, the verifiable content of the commentary is
    the geometry of the diagram, and all of it is confirmed.
 2. All constructive hypotheses that read 添六 as a **value-placement rule** fail:

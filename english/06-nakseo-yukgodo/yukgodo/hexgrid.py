@@ -1,4 +1,4 @@
-"""Geometric model of the hexagonal lattice (the 六觚 diagram) of the Nakseo Yukgodo (落書六觚圖).
+"""Geometric model of the hexagonal lattice (the 六觚 diagram) of the Nakseo Yukgodo (洛書六觚圖).
 
 Structure corresponding to the *Hanshu* 律曆志 passage
 "二百七十一枚而成六觚, 爲一握" and Su Lin's 蘇林 commentary
@@ -76,7 +76,7 @@ class HexGrid:
         rays:       rays[i] = the 9 cells of the ray from the center toward corner i (i=0..5)
         sides:      sides[j] = perimeter side j, 10 cells including corners (j=0..5)
         wedges:     wedges[i] = gu-sector (觚) i; six 45-cell sectors partition the 270 cells (i=0..5)
-        axes:       axes[a] = axis a through the center, 19 cells (a=0..2, 中觔)
+        axes:       axes[a] = axis a through the center, 19 cells (a=0..2, 中觚)
         slots:      135 antipodal slots, each a (cell, antipode(cell)) pair
     """
 
@@ -169,7 +169,7 @@ class HexGrid:
     def rows(self, a: int) -> dict[int, list[Cell]]:
         """Rows perpendicular to axis a: cells whose cube component a is m (m=-9..9).
 
-        The m=0 row is the 中觔 (19 cells); as |m| grows the row has 19-|m| cells.
+        The m=0 row is the 中觚 (19 cells); as |m| grows the row has 19-|m| cells.
         """
         rows: dict[int, list[Cell]] = {m: [] for m in range(-self.radius, self.radius + 1)}
         for c in self.cells:

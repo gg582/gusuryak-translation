@@ -1,4 +1,4 @@
-# Nakseo Yukgodo (落書六觚圖) reconstructed optimum — property analysis
+# Nakseo Yukgodo (洛書六觚圖) reconstructed optimum — property analysis
 
 ## 1. Search result summary
 
@@ -15,7 +15,7 @@
 | 虛一則二百七十數 | voiding the one leaves 270 numbers | center cell unused |
 | 校計周五十四數 | counting the perimeter gives 54 | outermost ring has 54 cells |
 | 通加洛書數六倍 | six times the Luoshu number (1+..+9=45) = 270 | total cells = 6×45 |
-| 十九爲中觔數也 | the central row has 19 | 中觔 (row through the center) has 19 cells |
+| 十九爲中觚數也 | the central row has 19 | 中觚 (row through the center) has 19 cells |
 | 置外周添六 | proceeds around the outer ring adding six | ring k has 6k cells (6,12,...,54) |
 | 之數見甲編數器章 | provenance note for the numbers | values 1..270 (籌數略 system) |
 
@@ -53,12 +53,12 @@
 
 - measured: [1219, 1220, 1219, 1220, 1219, 1220]
 
-### Three axes / 中觔 (target 2439 each)
+### Three axes / 中觚 (target 2439 each)
 
 - measured axis sums: [2439, 2439, 2439]
-- 中觔 (direction 0): 19 cells, sum 2439
-- 中觔 (direction 1): 19 cells, sum 2439
-- 中觔 (direction 2): 19 cells, sum 2439
+- 中觚 (direction 0): 19 cells, sum 2439
+- 中觚 (direction 1): 19 cells, sum 2439
+- 中觚 (direction 2): 19 cells, sum 2439
 
 ## 5. Corner values (for Luoshu cross-check)
 

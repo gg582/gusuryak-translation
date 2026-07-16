@@ -10,7 +10,7 @@
 |---|---|---|---|
 | 1 | 六子各得九十三數 | 6개 수의 부분합이 93이다. | The partial sum of six numbers is 93. |
 | 2 | 九宮共得八百三十七數 | 9개의 모든 그룹의 합은 837이다. | The sum of all nine clusters is 837. |
-| 3 | 中眷三宮, 三宮爲主則 | 가욱의 것이 3개 그룹을 돌보고, 3개 그룹이 주가 되는데 | The center manages three groups; the three groups are the major ones. |
+| 3 | 中眷三宮, 三宮爲主則 | 가운데의 것이 3개 그룹을 돌보고, 3개 그룹이 주가 되는데 | The center manages three groups; the three groups are the major ones. |
 | 4 | 左右十二子 分爲二宮 若爲以 | 좌우 12자가 2개의 그룹으로 나뉜다는 것은 (만약 이를 기준으로 삼는다면) | The twelve numbers on the left and right are divided into two groups (if we take these as the basis). |
 | 5 | 四正爲四宮, 中間六子合爲一宮 | 4개의 꼭지그룹이 4개의 그룹이므로, 중간 6개 수를 합쳐 1개의 그룹으로 둔다. | The four orthogonal directions form four groups, and the six center numbers are combined into one group. |
 | 6 | 凡九宮化爲十二宮 | 무릇 9그룹이 12개 그룹이 된다. | Commonly, the nine groups are transformed into twelve groups. |
@@ -218,7 +218,7 @@ x ≡ r₄ (mod 4)
 x ≡ r₅ (mod 5)
 ```
 
-이 방정식계의 해는 mod 60에서 하나뿐이다. 따라서 1~M의 각 수를 **세 좌표 (r₃, r₄, r₅)**를 가진 점으로 볼 수 있으며, 이 점은 3 × 4 × 5 = 60개 가능한 조합 가욘의 하나를 차지한다.
+이 방정식계의 해는 mod 60에서 하나뿐이다. 따라서 1~M의 각 수를 **세 좌표 (r₃, r₄, r₅)**를 가진 점으로 볼 수 있으며, 이 점은 3 × 4 × 5 = 60개 가능한 조합 가운데 하나를 차지한다.
 
 이 CRT 좌표계는 원문의 공간 구조와 다음처럼 대응한다.
 
@@ -314,7 +314,7 @@ mod 3 ──┴── mod 9
 
 즉, 지수귀문도의 그룹 해석은 **2와 3의 곱으로 만들어진 짝수·삼진법적 공간(4, 6, 9, 12)** 위에, **5방위 오행 구조**를 덧씌운 복합 체계이다.
 
-원문의 9궁 → 12궁 변화는 다음과 같이 이핼 수 있다.
+원문의 9궁 → 12궁 변화는 다음과 같이 이해할 수 있다.
 
 ```
 9궁 = 3 × 3        (mod 3 × mod 3)

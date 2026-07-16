@@ -1,0 +1,265 @@
+{
+  "model": "fixed short move plus fixed fallback, no wraparound",
+  "max_step_radius": 3,
+  "n_transitions": 269,
+  "distinct_deltas": 124,
+  "singleton_deltas": 1,
+  "top_deltas": [
+    {
+      "delta": [
+        -9,
+        11
+      ],
+      "count": 6
+    },
+    {
+      "delta": [
+        3,
+        -2
+      ],
+      "count": 6
+    },
+    {
+      "delta": [
+        3,
+        -8
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        6,
+        -10
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        2,
+        -8
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        1,
+        -1
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        7,
+        -8
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        -1,
+        9
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        1,
+        4
+      ],
+      "count": 4
+    },
+    {
+      "delta": [
+        7,
+        4
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        -10,
+        1
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        1,
+        12
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        -2,
+        -14
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        7,
+        8
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        -10,
+        14
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        -6,
+        -5
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        -1,
+        -2
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        13,
+        -4
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        4,
+        3
+      ],
+      "count": 2
+    },
+    {
+      "delta": [
+        2,
+        -7
+      ],
+      "count": 2
+    }
+  ],
+  "distance_histogram": [
+    {
+      "distance": 1,
+      "count": 8
+    },
+    {
+      "distance": 2,
+      "count": 6
+    },
+    {
+      "distance": 3,
+      "count": 16
+    },
+    {
+      "distance": 4,
+      "count": 12
+    },
+    {
+      "distance": 5,
+      "count": 14
+    },
+    {
+      "distance": 6,
+      "count": 22
+    },
+    {
+      "distance": 7,
+      "count": 20
+    },
+    {
+      "distance": 8,
+      "count": 26
+    },
+    {
+      "distance": 9,
+      "count": 32
+    },
+    {
+      "distance": 10,
+      "count": 22
+    },
+    {
+      "distance": 11,
+      "count": 22
+    },
+    {
+      "distance": 12,
+      "count": 12
+    },
+    {
+      "distance": 13,
+      "count": 18
+    },
+    {
+      "distance": 14,
+      "count": 11
+    },
+    {
+      "distance": 15,
+      "count": 16
+    },
+    {
+      "distance": 16,
+      "count": 6
+    },
+    {
+      "distance": 17,
+      "count": 2
+    },
+    {
+      "distance": 18,
+      "count": 4
+    }
+  ],
+  "max_distance": 18,
+  "mean_distance": 8.884758364312267,
+  "local_transition_count": 30,
+  "local_transition_ratio": 0.11152416356877323,
+  "best_fixed_rule": {
+    "matches": 8,
+    "prefix_matches": 0,
+    "primary": [
+      1,
+      -1
+    ],
+    "fallback": [
+      3,
+      -2
+    ],
+    "first_failure_at": 1,
+    "match_ratio": 0.02973977695167286
+  },
+  "verdict": "실패: 최적해의 값 순서는 Siamese의 다항시간 지역 규칙으로 재생성되지 않는다. 연속 수 이동이 120종으로 흩어지고, 짧은 주 이동/보정 이동 한 쌍의 최선도 269전이 중 6개만 맞춘다.",
+  "hanmun_reconstruction": [
+    "今按其圖，數雖成六觚之均，非一行添六可循而得也。",
+    "以一數次第求其所之，或遠或近，步法凡百二十變。",
+    "設常步一、塞則更步一以試之，二百六十九遷中僅中六遷。",
+    "故此圖宜謂以對位相補而搜得其均，不宜謂暹羅一路可成。"
+  ],
+  "source_correspondence": [
+    {
+      "original": "置外周添六",
+      "modern_check": "添六을 값 순서의 일정 이동으로 읽는 경우 실패",
+      "hanmun": "非一行添六可循而得也"
+    },
+    {
+      "original": "虛一則二百七十數",
+      "modern_check": "중심을 비우고 270칸만 값 순서 분석",
+      "hanmun": "虛其中一，以二百七十數布之"
+    },
+    {
+      "original": "通加洛書數六倍",
+      "modern_check": "칸 수 270=6×45 및 보수쌍 구조는 유지",
+      "hanmun": "六觚之均，由對位相補而成"
+    }
+  ]
+}

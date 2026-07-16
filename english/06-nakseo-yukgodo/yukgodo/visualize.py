@@ -1,4 +1,4 @@
-"""Rendering of the Nakseo Yukgodo (落書六觚圖) diagram and property dashboard."""
+"""Rendering of the Nakseo Yukgodo (洛書六觚圖) diagram and property dashboard."""
 
 from __future__ import annotations
 
@@ -40,7 +40,7 @@ WEDGE_COLORS = [
 
 def draw_figure(values: dict, grid: HexGrid, path_png: str,
                 path_svg: str | None = None, color_by: str = "ring",
-                title: str = "Nakseo Yukgodo (落書六觚圖) — reconstructed optimum") -> None:
+                title: str = "Nakseo Yukgodo (洛書六觚圖) — reconstructed optimum") -> None:
     """Draw the 270-cell placement. The center is left void (虛一)."""
     fig, ax = plt.subplots(figsize=(18, 18))
     ax.set_aspect("equal")
@@ -97,7 +97,7 @@ def draw_dashboard(report: PropertyReport, grid: HexGrid,
                    path_png: str) -> None:
     """Dashboard of property achievement against the targets."""
     fig, axes = plt.subplots(2, 2, figsize=(14, 9))
-    fig.suptitle("Nakseo Yukgodo (落書六觚圖) property analysis — targets vs. measured", fontsize=16)
+    fig.suptitle("Nakseo Yukgodo (洛書六觚圖) property analysis — targets vs. measured", fontsize=16)
 
     ax = axes[0][0]
     ax.bar(range(6), report.side_sums, color="#4292c6")

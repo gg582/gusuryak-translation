@@ -180,7 +180,7 @@ def main() -> None:
         "top10": results[:10],
         "ring_ap_model_B": ring_ap,
         "conclusion": (
-            "Every legible figure in the commentary (54+6=60, 60/6=10, 中觔 19, "
+            "Every legible figure in the commentary (54+6=60, 60/6=10, 中觚 19, "
             "252×2=504, 270=6×45) is a cell-count check, not a value-placement rule. "
             "All constructive hypotheses that read 添六 as a value-placement rule "
             "(192 spiral variants of ±6 mod 271, per-ring arithmetic progressions) "

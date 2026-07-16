@@ -59,11 +59,11 @@ def main() -> None:
         for c in ray:
             assert g.wedge_of[c] == i
 
-    # axes: 19 cells (十九爲中觔數也), including the center
+    # axes: 19 cells (十九爲中觚數也), including the center
     for axis in g.axes:
         assert len(axis) == 19
         assert (0, 0) in axis
-    # 中觔: the middle row of each direction has 19 cells
+    # 中觚: the middle row of each direction has 19 cells
     for a in range(3):
         rows = g.rows(a)
         assert len(rows[0]) == 19

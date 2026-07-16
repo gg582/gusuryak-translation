@@ -6,7 +6,7 @@
 
 ## 1. 개요
 
-본 보고서는 하도 기반의 5-컬러링 도식을 현대 조합론 및 이산수학 언어로 체계적으로 재정의하고, 그 특성을 항복한 결과입니다. 원문에 명시된 데이터만을 1차 자료로 삼았으며, 추론된 구조는 별도로 표시했습니다.
+본 보고서는 하도 기반의 5-컬러링 도식을 현대 조합론 및 이산수학 언어로 체계적으로 재정의하고, 그 특성을 분석한 결과입니다. 원문에 명시된 데이터만을 1차 자료로 삼았으며, 추론된 구조는 별도로 표시했습니다.
 
 ---
 
@@ -126,7 +126,7 @@ P = (C, L, Θ, X, D, G, R, I)
 
 - `figures/modern_redefinition.ko.md` / `modern_redefinition.en.md` — 현대 조합론적 재정의
 - `docs/explanation.ko.md` / `explanation.en.md` — 시대적 분류 및 강점·약점
-- `docs/detailed_analysis.ko.md` / `detailed_analysis.en.md` — 상세 특성 항복
+- `docs/detailed_analysis.ko.md` / `detailed_analysis.en.md` — 상세 특성 분석
 - `docs/reconstruction_policy.ko.md` / `reconstruction_policy.en.md` — 보존적 원문 데이터 재현 정책 및 스크립트
 - `figures/math_problems.ko.md` / `math_problems.en.md` — 산학 서적에서 추출한 현대 조합론 문제
 

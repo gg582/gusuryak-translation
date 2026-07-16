@@ -106,7 +106,7 @@ WX(r) = 5·m(m−1)/2 + m·r    (r = 1, 2, 3, 4, 5)
 
 ## 별첨: N자각득 Solver
 
-이 폴터에는 `n`만 주면 각득 퍼즐을 자동으로 찾아주는 Python + PuLP MILP Solver가 포함되어 있습니다. SageMath가 없어도 가상환경에서 실행할 수 있습니다.
+이 폴더에는 `n`만 주면 각득 퍼즐을 자동으로 찾아주는 Python + PuLP MILP Solver가 포함되어 있습니다. SageMath가 없어도 가상환경에서 실행할 수 있습니다.
 
 ```bash
 source venv/bin/activate

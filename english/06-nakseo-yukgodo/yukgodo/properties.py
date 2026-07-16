@@ -13,7 +13,7 @@ two cells of a point-symmetric pair sum to 271):
                                              is impossible; the optimum
                                              alternates 6097/6098)
     - ray sum       ≈ 2439 / 2 = 1219.5     (a pair of opposite rays = 9 × 271)
-    - axis (中觔) sum = 9 × 271 = 2439      (automatic under the pair hypothesis)
+    - axis (中觚) sum = 9 × 271 = 2439      (automatic under the pair hypothesis)
 
 penalty is the total absolute deviation from the targets, and its
 theoretical floor is 6.0 (sector 3.0 + ray 3.0; the odd cell counts make
@@ -54,7 +54,7 @@ class PropertyReport:
     side_sums: list[int]                 # 6 sides
     wedge_sums: list[int]                # 6 sectors
     ray_sums: list[int]                  # 6 rays
-    axis_sums: list[int]                 # 3 axes (including 中觔)
+    axis_sums: list[int]                 # 3 axes (including 中觚)
     pair_devs: list[int]                 # antipodal pair sum − 271, per slot
     corner_values: list[int]             # 6 perimeter corner values
     total: int                           # grand total (for validation: 36585)

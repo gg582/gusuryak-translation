@@ -1,0 +1,3 @@
+- The size of the graph's symmetry group (8) coincides with the number of magic-square solutions, proving structural rigidity.
+- Low Laplacian eigenvalues and the degree distribution suggest a "stiff" structure in which the system collapses under small perturbations.
+- The coefficients of the characteristic polynomial show that cyclic structures in the graph act as the engine fixing the determinant value.

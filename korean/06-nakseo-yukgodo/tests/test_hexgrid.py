@@ -59,11 +59,11 @@ def main() -> None:
         for c in ray:
             assert g.wedge_of[c] == i
 
-    # 축: 19칸 (十九爲中觔數也), 중심 포함
+    # 축: 19칸 (十九爲中觚數也), 중심 포함
     for axis in g.axes:
         assert len(axis) == 19
         assert (0, 0) in axis
-    # 中觔: 각 방향의 중앙 행 19칸
+    # 中觚: 각 방향의 중앙 행 19칸
     for a in range(3):
         rows = g.rows(a)
         assert len(rows[0]) == 19

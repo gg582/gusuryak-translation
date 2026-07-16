@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""落書六觚圖 복원 파이프라인: 탐색 → 저장 → 시각화 → 성질 분석.
+"""洛書六觚圖 복원 파이프라인: 탐색 → 저장 → 시각화 → 성질 분석.
 
 사용 예:
     python3 main.py                          # 기본 탐색 (8회 재시작)
@@ -17,12 +17,13 @@ import time
 from yukgodo.analyze import build_analysis, write_json, write_markdown
 from yukgodo.hexgrid import HexGrid
 from yukgodo.properties import PENALTY_FLOOR, measure, validate
+from yukgodo.siamese import analyze_siamese, write_siamese_json, write_siamese_markdown
 from yukgodo.solver import solve
 from yukgodo.visualize import draw_dashboard, draw_figure
 
 
 def main() -> None:
-    ap = argparse.ArgumentParser(description="落書六觚圖 복원 최적해 탐색")
+    ap = argparse.ArgumentParser(description="洛書六觚圖 복원 최적해 탐색")
     ap.add_argument("--iterations", type=int, default=150_000,
                     help="재시작당 담금질 반복 수")
     ap.add_argument("--restarts", type=int, default=8, help="재시작 횟수")
@@ -48,9 +49,9 @@ def main() -> None:
         args.seed = saved["meta"].get("seed", args.seed)
         args.iterations = saved["meta"].get("iterations", args.iterations)
         args.restarts = saved["meta"].get("restarts", args.restarts)
-        print(f"=== 落書六觚圖 렌더링 (저장된 해, 페널티 {penalty}) ===")
+        print(f"=== 洛書六觚圖 렌더링 (저장된 해, 페널티 {penalty}) ===")
     else:
-        print("=== 落書六觚圖 복원 탐색 ===")
+        print("=== 洛書六觚圖 복원 탐색 ===")
         print(f"격자: 271칸(虛一 → 270칸), 외주 54칸, 한 변 10칸")
         print(f"탐색: 재시작 {args.restarts}회 × 반복 {args.iterations:,}회, 시드 {args.seed}")
         t0 = time.time()
@@ -94,7 +95,7 @@ def main() -> None:
     fig_png = os.path.join(args.outdir, "nakseo_yukgodo.png")
     fig_svg = os.path.join(args.outdir, "nakseo_yukgodo.svg")
     draw_figure(values, grid, fig_png, fig_svg, color_by=args.color_by,
-                title=f"落書六觚圖 — 복원 최적해 (페널티 {penalty})")
+                title=f"洛書六觚圖 — 복원 최적해 (페널티 {penalty})")
     dash_png = os.path.join(args.outdir, "dashboard.png")
     draw_dashboard(report, grid, dash_png)
     print(f"도안: {fig_png}, {fig_svg}")
@@ -111,6 +112,14 @@ def main() -> None:
         "restart_penalties": restart_pens,
     })
     print(f"분석: {analysis_path}, {report_md}")
+
+    # Siamese식 지역 규칙 역산 검토
+    siamese = analyze_siamese(values, grid)
+    siamese_json = os.path.join(args.outdir, "siamese_analysis.json")
+    siamese_md = os.path.join(args.outdir, "siamese_report.md")
+    write_siamese_json(siamese, siamese_json)
+    write_siamese_markdown(siamese, siamese_md)
+    print(f"Siamese 검토: {siamese_json}, {siamese_md}")
 
 
 if __name__ == "__main__":
