@@ -6,6 +6,16 @@ In modern terms this is a **Chiljagakdeuk (七子各得)** structure: nine palac
 Below we separate the reading into a **Gakdeuk (Each-Gets)** interpretation and a **Saodo (Four/Five Way)** interpretation.  
 The data files also contain some transcription errors; we point these out and give a corrected reconstruction.
 
+### 0. Gakdeuk Reading vs Saodo Reading Summary
+
+| Viewpoint | Core idea | Meaning in Nakseo Chilgudo |
+|---|---|---|
+| **Gakdeuk reading** | Every palace has the same partial sum | Each of the nine palaces receives seven numbers summing to **224**. |
+| **Saodo reading** | The spatial divisions of Four Ways and Five Ways overlap | On the 3×3 palace grid (4 corners + 4 edges + 1 center) a cross structure of 1 center + 4 directions = 5 directions is superimposed. |
+
+- Core invariant from the Gakdeuk side: `9 × 224 = 2016 = 1+2+…+63`.
+- Core structure from the Saodo side: the center numbers 1–9 form the **Luoshu Jiugong** magic square, and six surrounding numbers are added to each center to make a seven-number palace.
+
 ---
 
 ## 1. Observed structure
