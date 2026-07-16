@@ -21,6 +21,16 @@ All cultural or rhetorical interpretations are treated as secondary; the primary
 
 ---
 
+## Modern combinatorial angles
+
+A few puzzles here are especially fun to revisit from a modern combinatorics perspective:
+
+- **Hado / Saodo 5-coloring** is a proper vertex-coloring problem on a symmetric graph derived from the 5-element cycle. It connects naturally to chromatic number, list coloring, and the 4-color theorem for planar graphs.
+- **The Gakdeuk series** generalizes to a graph labeling problem: assign `1..N` to the vertices of a graph so that every designated cluster has the same partial sum. This sits close to magic labelings, antimagic labelings, and equitable partitions.
+- **Jisuguimundo (Hexagonal Tortoise)** packs the 9-hexagon → 12-palace transformation, offering examples of partition refinement, resolvable designs, and residue-class symmetry.
+
+---
+
 ## Repository structure
 
 ```text
