@@ -79,6 +79,9 @@ Thus the **potential** of the puzzle is contemporary. The original text is ancie
 
 ## 8. Overall Assessment
 
-This puzzle is a diagram with **ancient origins and contemporary potential**. Its language is ancient, but its numerical structure is refined enough for modern combinatorics. Its greatest value lies in demonstrating that an ancient symbolic system can be translated into modern discrete structures.
+This puzzle is a historical source diagram with contemporary computational
+potential. Its language is premodern, but its numerical structure can be
+translated into modern discrete structures. Its value here is the translation,
+not an unproved claim about worldwide priority.
 
 However, the original text presents data rather than a problem to solve. To turn it into a modern mathematical problem, one must **strengthen the definitions** and **resolve the unknowns (Θ, D, edges)** explicitly.

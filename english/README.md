@@ -2,6 +2,13 @@
 
 This is the English edition of a repository that redefines in modern combinatorial terms the Korean-Chinese mathematical diagrams handed down in classical texts such as *Gusuryak* (九數略), and collects verification code and visualization materials.
 
+This is primarily a computational translation project, not a complete history of
+origins or transmission. Its historical question is comparative: whether
+scholars working roughly three centuries ago confronted recognizable problems
+of equal sums, coverage, symmetry, construction, and verification. Priority,
+direct transmission, and authorial-intention claims are kept separate from the
+formal algorithms unless surviving evidence establishes them.
+
 - **`english/`** — English reports, code, and figures
 - **`korean/`** — Korean reports, code, and figures
 
@@ -52,7 +59,7 @@ This reading emphasizes:
 - cyclic structure (right rotation) and interaction numbers (1,890, 765)
 - the background of traditional cosmological symbolism
 
-### 3. Which Reading Is More Advanced by the Early-Modern Publication Standard of 1700?
+### 3. Which Reading Is More Useful for Computational Reinterpretation?
 
 It depends on what "advanced" means.
 
@@ -60,11 +67,14 @@ It depends on what "advanced" means.
 |---|---|---|
 | Mathematical generality | High: partial-sum invariants generalize via `Π(p, q, T)` and MILP search. | Low: tied to the specific 4/5 cosmological framework. |
 | Verifiability | High: sums, duplication, and graph invariants can be checked mechanically. | Low: symbolic relations leave room for interpretation. |
-| Naturalness in contemporary scholarship | Low: subset-sum equality was not standard terminology at the time. | High: wuxing, directions, and 4/5 numerology were mainstream scholarly tools. |
+| Computational formalization | Directly expresses subset-sum and incidence constraints. | Requires formalizing symbolic and directional language first. |
 | Ease of modern treatment | High: maps directly to combinatorics and graph theory. | Low: requires translation work before formalization. |
 
-From a **modern perspective**, the gakdeuk reading is more advanced, because it isolates observable invariants and places the diagram in a parameterized puzzle family.
-From the **perspective of early-modern Joseon or Qing scholarship**, the saodo reading would have been more natural and self-contained, because placing numbers within a wuxing-directional cosmology was the most familiar explanatory idiom.
+For this project, the gakdeuk reading is more useful computationally because it
+isolates observable invariants and makes the puzzle part of a parameterized
+family. The saodo reading remains valuable as the source's symbolic and
+directional vocabulary. This comparison is about analytical utility, not a
+ranking of early-modern mathematical sophistication.
 
 Both readings already exist in the original commentaries. "每宫四子 各得四十二數" and "五子各得 八十五數" are essentially gakdeuk statements, while "五宫化爲九宫", "右旋", and the five-phase classification are saodo statements. Therefore the two readings are not rivals but **two mutually convertible viewpoints on the same diagram**.
 

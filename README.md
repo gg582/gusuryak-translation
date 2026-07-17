@@ -2,6 +2,13 @@
 
 A repository collecting modern combinatorial redefinitions, verification code, reports, and visualizations for a family of Korean/Chinese mathematical diagrams found in classical texts such as 《구수략(九數略)》.
 
+The project is primarily a computational translation, not a complete history of
+origins or transmission. Its historical question is comparative: whether
+scholars working roughly three centuries ago confronted recognizable problems
+of equal sums, coverage, symmetry, construction, and verification. Priority,
+direct transmission, and authorial-intention claims are kept separate from the
+formal algorithms unless surviving evidence establishes them.
+
 The collection is organized into two language editions:
 
 - **`english/`** — English-language reports, code, and figures.
@@ -264,8 +271,9 @@ Additional source diagrams in the Gakdeuk family:
 
 These are fixed source diagrams. Their stated sums, overlaps, and counts can be
 checked in polynomial time; the generalized equal-sum placement problem over
-arbitrary numbers of groups and positions is an NP-complete feasibility problem
-in the usual exact-cover / integer-partition formulation.
+arbitrary weights, disjoint groups, and target sums is covered by the explicit
+3-PARTITION reduction in `COMPLEXITY.md`. Fixed historical topologies and the
+consecutive-number variants are not classified as NP-complete here.
 
 ### 06. Nakseo Yukgodo
 
@@ -277,8 +285,9 @@ The repository contains the 270-cell solution, source commentary analysis,
 geometry tests, JSON metrics, SVG/PNG figures, and Siamese-style local-rule
 reverse engineering. Verifying a supplied placement is P. Finding a placement
 for an arbitrary-radius lattice with complementary-pair, ring, side, sector, and
-ray constraints is an NP-hard search problem; the corresponding bounded decision
-version is in NP and is treated as NP-complete for the generalized family.
+ray constraints has no complete hardness reduction in this repository. The
+supplied placement is directly verifiable in polynomial time; the arbitrary-radius
+existence variant remains open here.
 
 ### 07. Extra two diagrams
 
@@ -290,8 +299,10 @@ version is in NP and is treated as NP-complete for the generalized family.
 The fixed transcriptions and the separate corrected Eight-Formation layout are
 verified by direct sums, duplicate/missing-value checks, and 1..64 coverage.
 Those checks are P. The generalized problem of placing values into an arbitrary
-number of equal-sum formations is NP-complete by the same constrained partition
-formulation used for the Gakdeuk family.
+number of equal-sum formations is covered only in the arbitrary-weight,
+disjoint-group subcase by the 3-PARTITION reduction in `COMPLEXITY.md`.
+The exact formation geometries are not classified without an additional
+topology-preserving reduction.
 
 ---
 
@@ -408,44 +419,44 @@ A modern reading is most productive when it treats the Gakdeuk and Saodo layers 
 
 ## Computational complexity of the subtasks
 
-The historical diagrams themselves are small, concrete objects: verifying any stated sum, coloring, or graph property is polynomial-time. The classifications below apply to the **natural generalizations** of those diagrams to arbitrary sizes or arbitrary target values.
+The historical diagrams themselves are small, concrete objects: verifying any stated sum, coloring, or graph property is polynomial-time. The classifications below distinguish proved reductions from open generalizations. See [`COMPLEXITY.md`](COMPLEXITY.md) and the executable check report from `python3 complexity/verify_polynomial_checks.py`.
 
 | Puzzle / family | Subtask | Complexity | Reason / remark |
 |---|---|---|---|
 | **Hado / Saodo 5-coloring** | Verify checksum 210 and mod-5 color classes | **P** | Direct summation and residue test; O(\|V\|). |
-| **Hado / Saodo 5-coloring** | Decide whether a labeling of a given geometric slot graph satisfies the 5-coloring / checksum constraints | **NP-complete** | Captures graph coloring (k ≥ 3) and exact-cover-type slot constraints. |
+| **Hado / Saodo 5-coloring** | Decide whether a labeling of a given geometric slot graph satisfies the 5-coloring / checksum constraints | **Conditional / not proved here** | Captures graph coloring (k ≥ 3) and exact-cover-type slot constraints. |
 | **Hado / Saodo 5-coloring** | Check involutions σ, τ and the block-design intersection matrix | **P** | Finite, constant-size checks. |
 | **Hado / Saodo 5-coloring** | Decide confluence of the interpretive term-rewriting rules | **P** (for this finite system) | General TRS confluence is undecidable, but the two-rule system here is finite and can be exhausted. |
 | **Nakseo Sagudo (Sajagakdeuk)** | Verify every palace sums to 42 | **P** | 9 palaces × 4 numbers. |
-| **Nakseo Sagudo** | Decide existence of a placement of 1..20 into 9 overlapping 4-sets all summing to 42 | **NP-complete** | Exact-cover / integer-programming with overlap constraints; the MILP solver in `04-unification` handles small instances. |
-| **Nakseo Sagudo** | Decide Hamiltonicity of the inferred boundary 20-cycle graph | **NP-complete** (general) | Hamiltonian cycle is NP-complete in general; for this specific 20-node graph the answer is known by inspection. |
+| **Nakseo Sagudo** | Decide existence of a placement of 1..20 into 9 overlapping 4-sets all summing to 42 | **Conditional / not proved here** | Exact-cover / integer-programming with overlap constraints; the MILP solver in `04-unification` handles small instances. |
+| **Nakseo Sagudo** | Decide Hamiltonicity of the inferred boundary 20-cycle graph | **Conditional / not proved here** (general) | Hamiltonian cycle is NP-complete in general; for this specific 20-node graph the answer is known by inspection. |
 | **Nakseo Ogudo (Ojagakdeuk)** | Verify every palace sums to 85 and the 9-palace total is 765 | **P** | Direct summation. |
-| **Nakseo Ogudo** | Decide existence of a placement of 1..33 into nine plus-shaped palaces all summing to 85 | **NP-complete** | Same structure as Sagudo with a different overlap graph. |
+| **Nakseo Ogudo** | Decide existence of a placement of 1..33 into nine plus-shaped palaces all summing to 85 | **Conditional / not proved here** | Same structure as Sagudo with a different overlap graph. |
 | **Nakseo Chilgudo (Chiljagakdeuk)** | Verify every palace sums to 224 | **P** | 9 palaces × 7 numbers. |
-| **Nakseo Chilgudo** | Decide whether 1..63 can be partitioned into nine 7-element blocks, each summing to 224, with fixed Luoshu centers | **NP-complete** | Equal-sum set partition with fixed elements; the current data is a corrupted witness. |
-| **Nakseo Chilgudo** | Find the corrected partition given in `korean/01-saodo-family/낙서칠구도/chiljagakdeuk.md` | **NP-hard** | Solved by MILP while preserving 50 of 54 surrounding numbers. |
+| **Nakseo Chilgudo** | Decide whether 1..63 can be partitioned into nine 7-element blocks, each summing to 224, with fixed Luoshu centers | **Conditional / not proved here** | Equal-sum set partition with fixed elements; the current data is a corrupted witness. |
+| **Nakseo Chilgudo** | Find the corrected partition given in `korean/01-saodo-family/낙서칠구도/chiljagakdeuk.md` | **Conditional / not proved here** | Solved by MILP while preserving 50 of 54 surrounding numbers. |
 | **Chiljagakdeuk** | Verify the 5 clusters of 7 numbers each sum to 120 | **P** | O(35) additions. |
-| **Chiljagakdeuk** | Decide existence of a `Π(5, 6, 120)` placement | **NP-complete** | Multiway number partitioning with repetition and mod-5 center constraints. |
-| **Chiljagakdeuk** | Find a valid placement | **NP-hard** | Solved by the MILP solver for the known instance; general search is NP-hard. |
+| **Chiljagakdeuk** | Decide existence of a `Π(5, 6, 120)` placement | **Conditional / not proved here** | Multiway number partitioning with repetition and mod-5 center constraints. |
+| **Chiljagakdeuk** | Find a valid placement | **Conditional / not proved here** | Solved by the MILP solver for the known instance; general search is NP-hard. |
 | **Gujagakdeuk** | Verify the five 3×3 grids sum to 207 and corner sums to 92 | **P** | Direct checks. |
-| **Gujagakdeuk** | Decide existence of a placement satisfying the grid / corner-sum constraints | **NP-complete** | Exact-cover over 3×3 sub-grids with shared cells. |
+| **Gujagakdeuk** | Decide existence of a placement satisfying the grid / corner-sum constraints | **Conditional / not proved here** | Exact-cover over 3×3 sub-grids with shared cells. |
 | **Paljagakdeuk** | Verify five 8-cycles each sum to 164 | **P** | Direct checks. |
-| **Paljagakdeuk** | Decide existence of a placement of 1..40 into five overlapping 8-cycles | **NP-complete** | Generalizes equal-sum cycle decomposition. |
+| **Paljagakdeuk** | Decide existence of a placement of 1..40 into five overlapping 8-cycles | **Conditional / not proved here** | Generalizes equal-sum cycle decomposition. |
 | **Ojagakdeuk (Cheonsu-yongodo)** | Verify left/right sums and per-region sums | **P** | Direct checks. |
-| **Ojagakdeuk (Cheonsu-yongodo)** | Decide existence of a placement of 21 numbers from 1..24 with missing set {3,10,22} and prescribed region sums | **NP-complete** | Constrained subset selection with shared boundary vertices. |
+| **Ojagakdeuk (Cheonsu-yongodo)** | Decide existence of a placement of 21 numbers from 1..24 with missing set {3,10,22} and prescribed region sums | **Conditional / not proved here** | Constrained subset selection with shared boundary vertices. |
 | **Yukjagakdeuk (Jisu-yong-yukdo / Jisu-guimundo)** | Verify five hexagons each sum to 63 | **P** | Direct checks. |
-| **Yukjagakdeuk (Jisu-yong-yukdo / Jisu-guimundo)** | Decide existence of a honeycomb placement of 1..20 into five 6-cycles all summing to 63 | **NP-complete** | Honeycomb adjacency plus equal-sum hexagons; solved by MILP for the known instance. |
+| **Yukjagakdeuk (Jisu-yong-yukdo / Jisu-guimundo)** | Decide existence of a honeycomb placement of 1..20 into five 6-cycles all summing to 63 | **Conditional / not proved here** | Honeycomb adjacency plus equal-sum hexagons; solved by MILP for the known instance. |
 | **Extra `用○圖` diagrams** | Verify the fixed source counts, overlaps, and stated sums | **P** | Finite direct arithmetic checks. |
-| **Extra `用○圖` diagrams** | Decide existence of an arbitrary equal-sum formation placement | **NP-complete** | Generalizes exact cover and bounded multiway partitioning. |
+| **Extra `用○圖` diagrams** | Decide existence of an arbitrary equal-sum formation placement | **Conditional / not proved here** | Generalizes exact cover and bounded multiway partitioning. |
 | **Nakseo Yukgodo** | Verify a supplied 270-cell placement and all commentary-derived invariants | **P** | Linear scan over cells and structural subsets. |
-| **Nakseo Yukgodo** | Decide existence for arbitrary radius under all complementary-pair and line constraints | **NP-complete** | The bounded decision problem is in NP and contains constrained partitioning as a special case. |
+| **Nakseo Yukgodo** | Decide existence for arbitrary radius under all complementary-pair and line constraints | **Conditional / not proved here** | The bounded decision problem is in NP and contains constrained partitioning as a special case. |
 | **Junggwae-yongpaldo / Huchaek-yonggudo** | Verify a fixed transcription or corrected formation layout | **P** | Direct coverage, duplicate, and sum checks. |
-| **Junggwae-yongpaldo / Huchaek-yonggudo** | Decide existence for arbitrary formation count and target sum | **NP-complete** | Equal-sum formation placement generalizes exact cover. |
+| **Junggwae-yongpaldo / Huchaek-yonggudo** | Decide existence for arbitrary formation count and target sum | **Conditional / not proved here** | Equal-sum formation placement generalizes exact cover. |
 | **Magic squares** | Verify a filled square is normal magic | **P** | O(n²) row/column/diagonal checks. |
 | **Magic squares** | Construct a normal magic square of order n | **P** | Deterministic methods (Siamese, Strachey, etc.) run in O(n²) for every n ≠ 2. |
-| **Magic squares** | Complete a partially filled magic square | **NP-complete** | Generalizes Latin-square completion, which is NP-complete. |
-| **Π(p, q, T) / Gakdeuk MILP** | Decide whether a puzzle exists for arbitrary `(p, q, T)` | **NP-complete** | Captures exact cover and bounded multiway partitioning. |
-| **Π(p, q, T) / Gakdeuk MILP** | Find an optimal or feasible placement | **NP-hard** | Mixed-integer linear programming is NP-hard in general. |
+| **Magic squares** | Complete a partially filled magic square | **Conditional / not proved here** | Generalizes Latin-square completion, which is NP-complete. |
+| **Π(p, q, T) / Gakdeuk MILP** | Decide whether an arbitrary-weight, disjoint-group instance exists | **Proved NP-complete** | Identity reduction from 3-PARTITION; see `COMPLEXITY.md`. The more restricted `(p, q, T)` variants remain open. |
+| **Π(p, q, T) / Gakdeuk MILP** | Find an optimal or feasible placement | **Conditional / not proved here** | The optimization status is not inferred merely from MILP; only the decision reduction above is proved. |
 | **Π(p, q, T) / Gakdeuk MILP** | Verify a candidate placement against the constraints | **P** | Linear-time constraint evaluation. |
 
 ### Why the contrast matters
@@ -453,7 +464,7 @@ The historical diagrams themselves are small, concrete objects: verifying any st
 For every puzzle in this collection there are two different questions:
 
 1. **Verification**: "Does this concrete diagram satisfy its stated rule?" — always easy (P).
-2. **Existence / completion**: "Is there *any* diagram that satisfies the rule for these parameters?" — usually hard (NP-complete or NP-hard) when the size is not fixed.
+2. **Existence / completion**: "Is there *any* diagram that satisfies the rule for these parameters?" — the status depends on the input model; this repository claims hardness only where a reduction is supplied.
 
 This is why the repository separates the *given historical instances* (verified directly) from the *generalized search problems* (attacked with MILP, heuristic, and constructive algorithms). The historical diagrams act as witnesses for specific NP witnesses, but finding new witnesses for arbitrary parameters remains computationally difficult.
 

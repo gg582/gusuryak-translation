@@ -96,7 +96,8 @@ P = (C, L, Θ, X, D, G, R, I)
 | Modern | Traces of set, function, and symmetry thinking, but no axiom system |
 | Contemporary | Translatable into graphs, colorings, block designs, rewriting systems |
 
-**Overall**: ancient origins + contemporary potential.
+**Overall**: computational potential in a premodern source diagram; no priority
+or direct-transmission claim is made here.
 
 ---
 

@@ -114,14 +114,15 @@ conditions for both readings to coexist have not been fully characterised.
 ## 8. NP-Complete / NP-Hard classification
 
 **Why it is interesting:**
-Generalised gakdeuk-style puzzles can become NP-complete or NP-hard. For
-specific sizes and topologies they may be tractable, but finding a valid
-assignment for arbitrary graphs and arbitrary cluster sets is hard.
+The arbitrary-weight, disjoint-group equal-sum subproblem is strongly
+NP-complete by the explicit 3-PARTITION identity reduction in
+`COMPLEXITY.md`. This does not classify every fixed topology in the repository.
 
 **Why it is not easily resolved:**
-The exact complexity class of concrete diagrams such as the Jisuguimundo or
-Nakseo Sagudo is not settled. It is also unknown whether a polynomial-time
-validity test exists for these particular topologies.
+The exact complexity class of concrete existence problems such as Jisuguimundo
+or Nakseo Sagudo is not settled here. Their supplied instances have direct
+polynomial-time verification; no claim about their restricted generalized
+existence problems is made without a topology-preserving reduction.
 
 ---
 

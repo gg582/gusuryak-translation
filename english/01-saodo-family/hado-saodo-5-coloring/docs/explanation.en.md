@@ -4,13 +4,17 @@
 
 ## 1. Ancient
 
-The core skeleton of this puzzle is rooted in ancient Chinese mathematical philosophy, especially the **Heto (河圖)** and the **Five Phases (五行)**.
+The source explicitly uses the **Heto (河圖)** and the **Five Phases (五行)**
+vocabulary. This identifies the conceptual vocabulary used by the source; it
+does not by itself establish the provenance of every geometric feature.
 
 - The division of 1–10 into Heaven numbers (odd) and Earth numbers (even).
 - The five-direction correspondences: 1·6 Water, 2·7 Fire, 3·8 Wood, 4·9 Metal, 5·10 Earth.
 - The phrase "河圖五五卽上天數圖，六五卽上地數圖" as a direct Heto interpretation.
 
-Thus the puzzle is historically **ancient** in character: numbers function not merely as counters but as symbols of cosmic order, which is typical of ancient numerological mysticism.
+Thus the puzzle has a premodern character in this source: numbers function not
+merely as counters but as symbols of cosmic order. This observation does not by
+itself establish an ancient origin or an unbroken genealogy for the diagram.
 
 ---
 
@@ -18,7 +22,9 @@ Thus the puzzle is historically **ancient** in character: numbers function not m
 
 Medieval elements are scarce. Medieval East Asian mathematics focused on algebraic equation solving (e.g., the "method of the celestial unknown"), while Five-Phase diagrams remained in philosophical or ritual contexts rather than being formalized as puzzles.
 
-Still, the symbolic interpretation of numerical arrangements and the I-Ching mode of thinking persisted through the medieval period.
+Still, symbolic interpretations of numerical arrangements and I-Ching-related
+thinking provide comparative contexts. They are not treated here as proof of a
+direct transmission route for this diagram.
 
 ---
 
@@ -79,6 +85,9 @@ Thus the **potential** of the puzzle is contemporary. The original text is ancie
 
 ## 8. Overall Assessment
 
-This puzzle is a diagram with **ancient origins and contemporary potential**. Its language is ancient, but its numerical structure is refined enough for modern combinatorics. Its greatest value lies in demonstrating that an ancient symbolic system can be translated into modern discrete structures.
+This puzzle is a historical source diagram with contemporary computational
+potential. Its language is premodern, but its numerical structure can be
+translated into modern discrete structures. Its value here is the translation,
+not an unproved claim about worldwide priority.
 
 However, the original text presents data rather than a problem to solve. To turn it into a modern mathematical problem, one must **strengthen the definitions** and **resolve the unknowns (Θ, D, edges)** explicitly.

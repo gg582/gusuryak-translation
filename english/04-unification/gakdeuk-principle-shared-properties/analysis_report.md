@@ -2,7 +2,13 @@
 
 ## 1. Overview
 
-The **Gakdeuk (各得)** puzzles handed down in the *Gusuryak (九數略)* tradition are combinatorial diagrams in which several subsets are arranged so that each one "obtains" the same sum, as the name "each obtains" suggests. Traditionally, the families Gujagakdeuk (九子各得), Ojagakdeuk (五子各得 / Cheonsuyongodo), Yukjagakdeuk (六子各得 / Jisuyongyukdo), Chiljagakdeuk (七子各得), and Paljagakdeuk (八子各得) are transmitted; each takes 9, 5, 6, 7, and 8 numbers as one subset (palace / cluster / hexagon).
+The **Gakdeuk (各得)** puzzles recorded in the repository's *Gusuryak
+(九數略)* source material are combinatorial diagrams in which several subsets
+are arranged so that each one "obtains" the same sum. The repository groups
+the documented families Gujagakdeuk (九子各得), Ojagakdeuk (五子各得 /
+Cheonsuyongodo), Yukjagakdeuk (六子各得 / Jisuyongyukdo), Chiljagakdeuk
+(七子各得), and Paljagakdeuk (八子各得) by their subset sizes; this grouping is
+a computational organization, not a claim about an unbroken transmission line.
 
 This report extracts the structural properties shared by these Gakdeuk families and generalizes them in the language of modern combinatorics and graph theory.
 

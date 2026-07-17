@@ -99,7 +99,11 @@ Once colored, hidden structures pop out. It is fun just to observe how the same 
 
 ### 6.2 A Bridge Between Ancient and Modern
 
-Saodo, judging from the author's (Munjeong Choe Seokjeong) mention, is said to originate from the Chinese Hado (河圖, the River Chart) and Ohaeng (the Five Phases) thought, and Chiljagakdeuk also appears in the context of East Asian mathematical texts. The charm lies in how these ancient diagrams connect to modern concepts such as **graph coloring**, **block designs**, and **invariants**.
+Saodo explicitly uses Hado (河圖, the River Chart) and Ohaeng (the Five Phases)
+vocabulary in the source material. That establishes a conceptual vocabulary,
+not a proven direct origin or transmission route for every geometric feature.
+The charm lies in how this historical diagram can be translated into modern
+concepts such as **graph coloring**, **block designs**, and **invariants**.
 
 ### 6.3 Open Interpretation
 
