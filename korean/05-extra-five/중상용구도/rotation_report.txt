@@ -1,0 +1,87 @@
+============================================================
+Per-cluster rotation analysis: 중상용구도 (象上用九圖)
+============================================================
+
+Cluster: d1고리
+  Cyclic order (8 elements): 10 -> 22 -> 7 -> 30 -> 2 -> 18 -> 25 -> 24
+  Sum: 138
+  Residue pattern (mod 5): E-F-F-E-F-Wd-E-M
+  Opposite-pair sums: [12, 40, 32, 54]
+  No nontrivial rotational invariance.
+  Note: 중심 9로부터 그래프 거리 1의 동심 팔각형 고리
+  Note: 고리 합 138 = (561-9)/4; 중심 9를 더하면 147 (원문 '주위사중 각득 147'와 정합)
+
+Cluster: d2고리
+  Cyclic order (8 elements): 23 -> 13 -> 19 -> 14 -> 29 -> 26 -> 11 -> 3
+  Sum: 138
+  Residue pattern (mod 5): Wd-Wd-M-M-M-W-W-Wd
+  Opposite-pair sums: [52, 39, 30, 17]
+  No nontrivial rotational invariance.
+  Note: 중심 9로부터 그래프 거리 2의 동심 팔각형 고리
+  Note: 고리 합 138 = (561-9)/4; 중심 9를 더하면 147 (원문 '주위사중 각득 147'와 정합)
+
+Cluster: d3고리
+  Cyclic order (8 elements): 16 -> 1 -> 31 -> 21 -> 32 -> 17 -> 5 -> 15
+  Sum: 138
+  Residue pattern (mod 5): W-W-W-W-F-F-E-E
+  Opposite-pair sums: [48, 18, 36, 36]
+  No nontrivial rotational invariance.
+  Note: 중심 9로부터 그래프 거리 3의 동심 팔각형 고리
+  Note: 고리 합 138 = (561-9)/4; 중심 9를 더하면 147 (원문 '주위사중 각득 147'와 정합)
+
+Cluster: d4고리
+  Cyclic order (8 elements): 20 -> 33 -> 12 -> 4 -> 6 -> 8 -> 28 -> 27
+  Sum: 138
+  Residue pattern (mod 5): E-Wd-F-M-W-Wd-Wd-F
+  Opposite-pair sums: [26, 41, 40, 31]
+  No nontrivial rotational invariance.
+  Note: 중심 9로부터 그래프 거리 4의 동심 팔각형 고리
+  Note: 고리 합 138 = (561-9)/4; 중심 9를 더하면 147 (원문 '주위사중 각득 147'와 정합)
+
+Cluster: 세로축
+  Cyclic order (9 elements): 20 -> 16 -> 23 -> 10 -> 9 -> 2 -> 29 -> 32 -> 6
+  Sum: 147
+  Residue pattern (mod 5): E-W-Wd-E-M-F-M-F-W
+  No nontrivial rotational invariance.
+  Note: 비순환 선형 클러스터(직선 축) — 회전 주기 해석은 고리에만 해당
+  Note: 홀수 길이(9)이므로 대향 합은 생략됨
+  Note: 합 147 = 69+9+69 (광선+중심+광선)
+
+Cluster: 가로축
+  Cyclic order (9 elements): 28 -> 5 -> 11 -> 25 -> 9 -> 7 -> 19 -> 31 -> 12
+  Sum: 147
+  Residue pattern (mod 5): Wd-E-W-E-M-F-M-W-F
+  No nontrivial rotational invariance.
+  Note: 비순환 선형 클러스터(직선 축) — 회전 주기 해석은 고리에만 해당
+  Note: 홀수 길이(9)이므로 대향 합은 생략됨
+  Note: 합 147 = 69+9+69 (광선+중심+광선)
+
+Cluster: 대각축1
+  Cyclic order (9 elements): 27 -> 15 -> 3 -> 24 -> 9 -> 30 -> 14 -> 21 -> 4
+  Sum: 147
+  Residue pattern (mod 5): F-E-Wd-M-M-E-M-W-M
+  No nontrivial rotational invariance.
+  Note: 비순환 선형 클러스터(직선 축) — 회전 주기 해석은 고리에만 해당
+  Note: 홀수 길이(9)이므로 대향 합은 생략됨
+  Note: 합 147 = 69+9+69 (광선+중심+광선)
+
+Cluster: 대각축2
+  Cyclic order (9 elements): 33 -> 1 -> 13 -> 22 -> 9 -> 18 -> 26 -> 17 -> 8
+  Sum: 147
+  Residue pattern (mod 5): Wd-W-Wd-F-M-Wd-W-F-Wd
+  No nontrivial rotational invariance.
+  Note: 비순환 선형 클러스터(직선 축) — 회전 주기 해석은 고리에만 해당
+  Note: 홀수 길이(9)이므로 대향 합은 생략됨
+  Note: 합 147 = 69+9+69 (광선+중심+광선)
+
+Global rotational symmetry for 중상용구도 (象上用九圖)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.
+
+전체 회전 대칭 (참고: 동심 구조로 인한 퇴화)
+--------------------------------------------------
+모든 클러스터(4개 고리 + 4개 축)의 무게중심이 원점 (0, 0)에 정확히 겹치는
+동심(concentric) 배치다. 원점에 대한 임의의 회전이 모든 클러스터 중심을 제자리에
+두므로, 클러스터 간 치환으로 정의되는 전체 회전 대칭은 퇴화(degenerate)한다.
+따라서 find_global_rotation_symmetries 검사는 생략하고 이 사실만 기록한다.
+(고리 자체의 회전 성질은 위의 각 8-cycle 분석을 참조.)

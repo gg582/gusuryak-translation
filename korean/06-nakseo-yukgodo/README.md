@@ -50,6 +50,7 @@
 python3 tests/test_hexgrid.py     # 기하 불변량 테스트
 python3 main.py                   # 탐색 → 도안 → 성질 분석 (output/)
 python3 main.py --render-only     # 저장된 해로 그림·리포트만 재생성
+python3 -m yukgodo.reverse        # 최종 도안의 생성 규칙 역산 → 주석 대조
 ```
 
 ## 프로젝트 구조
@@ -61,10 +62,12 @@ yukgodo/
 ├── solver.py       # 대점쌍 슬롯 표현 + simulated annealing + 탐욕 마무리
 ├── visualize.py    # 도안(PNG/SVG) 및 대시보드 렌더링
 ├── analyze.py      # 성질 분석 리포트 (JSON/Markdown)
-└── hypotheses.py   # 添六 건설 가설 생성·검증 (모형 A/B/C 판정)
+├── hypotheses.py   # 添六 건설 가설 생성·검증 (모형 A/B/C 판정)
+└── reverse.py      # 최종 도안의 생성 규칙 역산 + 주석 대조
 main.py             # 파이프라인 엔트리포인트
 tests/test_hexgrid.py
-output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, report.md
+output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, report.md,
+                    # siamese_report.md, reverse_engineering.md 등
 ```
 
 ## 탐색 결과 (output/ 기준)
@@ -101,3 +104,40 @@ output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, rep
      되어 1..270 배치 조건 불만족
 3. 따라서 대점 보수쌍(합 271) 모형의 탐색 최적해가 현재 최선의 복원 후보이며,
    배치 순서 규칙(寄左/序左 구절)은 더 선명한 판본이 필요한 미해결 항목이다.
+
+## 생성 규칙 역산: 최종 도안 → 흐린 주석 대조 (`output/reverse_engineering.md`)
+
+`yukgodo/reverse.py`는 최종 재구 도안을 출발점으로 삼아, 압축적인 생성 규칙이
+남아 있는지를 데이터 주도로 검사하고, 결과를 주석 판독 구절과 하나씩 대조한다.
+
+```bash
+python3 -m yukgodo.reverse    # 역산 → output/reverse_engineering.{json,md}
+```
+
+**역산 시도 (모두 최종 도안에 대해 실패 또는 구조적 귀결로 판정):**
+
+| 후보 규칙 | 결과 |
+|---|---|
+| 고리 순회 등차 (임의 스텝 mod 271) | 실패 — 최선 일치율 16.7% (무작위 수준) |
+| 좌표 선형 모형 v ≡ a+b·k+c·j (mod 271) | 실패 — 9/270칸 |
+| mod 6 클래스 균형 (添六 지문) | 지문 없음 |
+| 대점쌍 건설적 배정 순서 | 흔적 없음 (최장 연속 2쌍) |
+| Siamese식 지역 규칙 | 실패 — 269전이 중 6개 (siamese.py) |
+| 添六 건설 가설 192변형 | 실패 — 최선 벌점 27672 (hypotheses.py) |
+
+**주석 대조 결과:**
+
+- **확정 (칸 수·기하)**: 共積二百七十, 虛一則二百七十數, 校計周五十四數,
+  通加洛書數六倍(270=6×45), 十九爲中觚數也, 二百五十二倍之得五百○(252×2=504),
+  置外周添六(고리가 6칸씩 늘어남이라는 칸 수 독해).
+- **반증 (값 규칙 독해)**: 添六을 값 배치 규칙으로 읽는 모든 변형.
+- **불가결정**: 寄左/序左(배치 순서), 以算遠則係以六(판독 불확실).
+
+**알고리즘 확정 판정 — 현재 증거로는 불가:**
+
+1. 다른 시드(42)로 찾은 최적해는 기존 최적해와 **0/270칸**만 일치한다. 즉 합
+   조건을 만족하는 배치가 다수 존재하고, 재구된 도안은 그중 하나의 표본이다.
+2. 이 표본들에는 건설적 흔적(등차·선형·클스·연속 배정·지역 규칙)이 남아
+   있지 않으므로, 합 조걸만으로는 원래 배치와 그 배치 순서 규칙을 복구할 수 없다.
+3. 따라서 확정 가능한 범위는 기하 골격과 합 조건, 그리고 "添六의 값 규칙 독해는
+   성립하지 않는다"는 반증까지다. 승적법 본문의 확정에는 더 선명한 판본이 필요하다.

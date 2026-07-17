@@ -35,7 +35,7 @@ constructions, by a short primary move plus a short fallback move.
 ## Source Correspondence
 
 | Source phrase | Modern check | Classical Chinese restatement |
-|—-|—-|—-|
+|---|---|---|
 | 置外周添六 | Reading 添六 as a fixed value-placement move fails. | 非一行添六可循而得也 |
 | 虛一則二百七十數 | The center remains void; only the 270 filled cells are analyzed. | 虛其中一，以二百七十數布之 |
 | 通加洛書數六倍 | The count 270=6×45 and the complementary-pair structure remain valid. | 六觚之均，由對位相補而成 |

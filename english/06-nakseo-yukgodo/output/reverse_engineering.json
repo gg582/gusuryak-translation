@@ -1,0 +1,439 @@
+{
+ "ring_ap": {
+  "per_ring": {
+   "1": {
+    "cells": 6,
+    "best_step": 89,
+    "best_matches": 1,
+    "ratio": 0.16666666666666666
+   },
+   "2": {
+    "cells": 12,
+    "best_step": 15,
+    "best_matches": 1,
+    "ratio": 0.08333333333333333
+   },
+   "3": {
+    "cells": 18,
+    "best_step": 5,
+    "best_matches": 1,
+    "ratio": 0.05555555555555555
+   },
+   "4": {
+    "cells": 24,
+    "best_step": 14,
+    "best_matches": 1,
+    "ratio": 0.041666666666666664
+   },
+   "5": {
+    "cells": 30,
+    "best_step": 80,
+    "best_matches": 2,
+    "ratio": 0.06666666666666667
+   },
+   "6": {
+    "cells": 36,
+    "best_step": 53,
+    "best_matches": 2,
+    "ratio": 0.05555555555555555
+   },
+   "7": {
+    "cells": 42,
+    "best_step": 2,
+    "best_matches": 1,
+    "ratio": 0.023809523809523808
+   },
+   "8": {
+    "cells": 48,
+    "best_step": 13,
+    "best_matches": 2,
+    "ratio": 0.041666666666666664
+   },
+   "9": {
+    "cells": 54,
+    "best_step": 36,
+    "best_matches": 2,
+    "ratio": 0.037037037037037035
+   }
+  },
+  "max_ratio": 0.16666666666666666,
+  "verdict": "Best AP match ratio over all rings is at most 16.7% (random-noise level) — no ring-walk arithmetic placement rule"
+ },
+ "linear_model": {
+  "model": "v ≡ a + b·k + c·j (mod 271)",
+  "best_matches": 9,
+  "best_params": [
+   233,
+   98,
+   67
+  ],
+  "n_cells": 270,
+  "verdict": "Best linear model explains only 9 of 270 cells (random expectation ~1) — no coordinate-linear placement rule"
+ },
+ "mod6": {
+  "per_ring": {
+   "1": {
+    "counts": {
+     "0": 1,
+     "1": 1,
+     "2": 2,
+     "3": 0,
+     "4": 0,
+     "5": 2
+    },
+    "balanced": false
+   },
+   "2": {
+    "counts": {
+     "0": 2,
+     "1": 2,
+     "2": 1,
+     "3": 3,
+     "4": 3,
+     "5": 1
+    },
+    "balanced": false
+   },
+   "3": {
+    "counts": {
+     "0": 4,
+     "1": 4,
+     "2": 3,
+     "3": 2,
+     "4": 2,
+     "5": 3
+    },
+    "balanced": false
+   },
+   "4": {
+    "counts": {
+     "0": 3,
+     "1": 3,
+     "2": 6,
+     "3": 3,
+     "4": 3,
+     "5": 6
+    },
+    "balanced": false
+   },
+   "5": {
+    "counts": {
+     "0": 9,
+     "1": 9,
+     "2": 3,
+     "3": 3,
+     "4": 3,
+     "5": 3
+    },
+    "balanced": false
+   },
+   "6": {
+    "counts": {
+     "0": 4,
+     "1": 4,
+     "2": 6,
+     "3": 8,
+     "4": 8,
+     "5": 6
+    },
+    "balanced": false
+   },
+   "7": {
+    "counts": {
+     "0": 9,
+     "1": 9,
+     "2": 6,
+     "3": 6,
+     "4": 6,
+     "5": 6
+    },
+    "balanced": false
+   },
+   "8": {
+    "counts": {
+     "0": 5,
+     "1": 5,
+     "2": 9,
+     "3": 10,
+     "4": 10,
+     "5": 9
+    },
+    "balanced": false
+   },
+   "9": {
+    "counts": {
+     "0": 8,
+     "1": 8,
+     "2": 9,
+     "3": 10,
+     "4": 10,
+     "5": 9
+    },
+    "balanced": false
+   }
+  },
+  "all_balanced": false,
+  "verdict": "The mod-6 distribution per ring is neither balanced nor constant across rings — the class-preservation fingerprint of 添六 (each of the 6 classes k times per ring) does not appear"
+ },
+ "pair_order": {
+  "spiral_order": [
+   126,
+   55,
+   74,
+   44,
+   123,
+   81,
+   53,
+   15,
+   82,
+   26,
+   127,
+   3,
+   120,
+   20,
+   61,
+   27,
+   85,
+   49,
+   65,
+   93,
+   129,
+   83,
+   103,
+   70,
+   71,
+   105,
+   68,
+   50,
+   35,
+   22,
+   56,
+   66,
+   11,
+   28,
+   62,
+   125,
+   37,
+   101,
+   110,
+   6,
+   114,
+   94,
+   106,
+   24,
+   80,
+   40,
+   111,
+   21,
+   130,
+   135,
+   63,
+   113,
+   132,
+   46,
+   100,
+   7,
+   124,
+   90,
+   54,
+   45,
+   84,
+   96,
+   99,
+   97,
+   134,
+   78,
+   47,
+   117,
+   13,
+   104,
+   17,
+   32,
+   14,
+   34,
+   122,
+   64,
+   118,
+   48,
+   31,
+   75,
+   52,
+   2,
+   95,
+   76,
+   131,
+   58,
+   5,
+   36,
+   79,
+   39,
+   73,
+   59,
+   43,
+   16,
+   72,
+   119,
+   25,
+   108,
+   133,
+   67,
+   38,
+   42,
+   69,
+   115,
+   51,
+   4,
+   121,
+   19,
+   87,
+   116,
+   92,
+   107,
+   109,
+   77,
+   23,
+   41,
+   10,
+   88,
+   1,
+   9,
+   102,
+   89,
+   30,
+   91,
+   86,
+   128,
+   33,
+   18,
+   12,
+   57,
+   8,
+   112,
+   60,
+   29,
+   98
+  ],
+  "longest_consecutive_run": 2,
+  "verdict": "Longest consecutive run of pair assignments along the spiral: 2 pairs — no constructive assignment order survives (the search erased the initial ordering)"
+ },
+ "ray_symmetry": {
+  "pairs": [
+   {
+    "ray_pair": [
+     0,
+     3
+    ],
+    "antisymmetric": true
+   },
+   {
+    "ray_pair": [
+     1,
+     4
+    ],
+    "antisymmetric": true
+   },
+   {
+    "ray_pair": [
+     2,
+     5
+    ],
+    "antisymmetric": true
+   }
+  ],
+  "all_antisymmetric": true,
+  "verdict": "Sign-reversed opposite-ray differences follow automatically from the antipodal complementary-pair hypothesis (sum 271) — a structural property, independent of the search"
+ },
+ "seed_scan": {
+  "seed": 42,
+  "penalty": 6.0,
+  "identical_cells": 0,
+  "n_cells": 270,
+  "verdict": "The optimum found with seed 42 (penalty 6.0) agrees with the stored optimum in 0 of 270 cells — many placements satisfy the conditions, and the reconstructed diagram is only one specimen"
+ },
+ "hyp_best_penalty": 27672.0,
+ "hyp_best": {
+  "kind": "add6",
+  "inward": true,
+  "continuous": true,
+  "ccw": false,
+  "corner": 0
+ },
+ "siamese_best_rule": {
+  "matches": 6,
+  "prefix_matches": 0,
+  "primary": [
+   -2,
+   0
+  ],
+  "fallback": [
+   -1,
+   1
+  ],
+  "first_failure_at": 1,
+  "match_ratio": 0.022304832713754646
+ },
+ "penalty_floor": 6.0,
+ "crosscheck": [
+  {
+   "fragment": "共積二百七十",
+   "reading": "270 cells are filled",
+   "status": "confirmed",
+   "evidence": "value set 1..270 over 270 cells (validated)"
+  },
+  {
+   "fragment": "虛一則二百七十數",
+   "reading": "voiding the one leaves 270 numbers",
+   "status": "confirmed",
+   "evidence": "center cell (0,0) unused"
+  },
+  {
+   "fragment": "校計周五十四數",
+   "reading": "counting the perimeter gives 54",
+   "status": "confirmed",
+   "evidence": "outermost ring has 54 cells (= 六九五十四)"
+  },
+  {
+   "fragment": "通加洛書數六倍",
+   "reading": "six times the Luoshu number (1+..+9=45) = 270",
+   "status": "confirmed",
+   "evidence": "total cells 270 = 6×45"
+  },
+  {
+   "fragment": "十九爲中觚數也",
+   "reading": "the central row has 19",
+   "status": "confirmed",
+   "evidence": "中觚 19 cells, sum 2439 = 9×271"
+  },
+  {
+   "fragment": "置外周添六",
+   "reading": "outward, each ring grows by six cells",
+   "status": "confirmed (cell-count reading)",
+   "evidence": "ring k has 6k cells (6,12,...,54)"
+  },
+  {
+   "fragment": "置外周添六 (value-rule reading)",
+   "reading": "place the values adding six",
+   "status": "refuted",
+   "evidence": "all 192 ±6 (mod 271) spiral variants fail (hypotheses.py best penalty 27672); best per-ring AP match 16.7%"
+  },
+  {
+   "fragment": "二百五十二倍之得五百○",
+   "reading": "252 × 2 = 504",
+   "status": "confirmed (cell-count arithmetic)",
+   "evidence": "252 = 271 − 19 (excluding 中觚), 504 = 2×252"
+  },
+  {
+   "fragment": "寄左 / 序左",
+   "reading": "(presumed placement-order rule)",
+   "status": "undecidable",
+   "evidence": "seed-42 optimum agrees in 0/270 cells — with many optima, no order information survives in the reconstruction"
+  },
+  {
+   "fragment": "以算遠則係以六",
+   "reading": "(reading uncertain)",
+   "status": "undecidable",
+   "evidence": "a clearer edition is needed"
+  }
+ ],
+ "verdict": "The algorithm cannot be confirmed from the present evidence. The geometric skeleton (271/270/54/19/252) and the sum conditions (rings 813k, sides 1355, axes 2439, antipodal pairs 271) match the commentary exactly, but no compressive trace of a placement-order rule survives in any reconstructed optimum. All value-rule readings of 添六 are refuted, and the placement-order fragments (寄左/序左) cannot be judged from the reconstruction because optima are plentiful. What can be settled extends only to what the algorithm is NOT; confirming the text of the algorithm itself requires a clearer edition of the commentary."
+}

@@ -1,0 +1,49 @@
+============================================================
+Per-cluster rotation analysis: 범수용오도 (範數用五圖)
+============================================================
+
+Cluster: 내륜 4-cycle
+  Cyclic order (4 elements): 8 -> 4 -> 1 -> 7
+  Sum: 20
+  Residue pattern (mod 5): Wd-M-W-F
+  Opposite-pair sums: [9, 11]
+  No nontrivial rotational invariance.
+  Note: 중심 5는 고리에 포함되지 않음 (별도 1자)
+  Note: 대향 쌍 합이 9와 11로 갈라짐 — 두 쌍의 합 20 = 고리 전체 합
+  Note: 잔여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함
+
+Cluster: 외륜 4-cycle
+  Cyclic order (4 elements): 2 -> 6 -> 9 -> 3
+  Sum: 20
+  Residue pattern (mod 5): F-W-M-Wd
+  Opposite-pair sums: [11, 9]
+  No nontrivial rotational invariance.
+  Note: 대향 쌍 합이 11과 9 — 내륜과 교차 (가로: 외륜 9·내륜 11, 세로: 외륜 11·내륜 9)
+  Note: 잔여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함
+
+Cluster: 가로축 5자 수열
+  Cyclic order (5 elements): 3 -> 7 -> 5 -> 4 -> 6
+  Sum: 25
+  Residue pattern (mod 5): Wd-F-E-M-W
+  No nontrivial rotational invariance.
+  Note: 순환 고리가 아닌 선형 축 — 왼쪽→오른쪽 읽기 순서
+  Note: 홀수 길이 5이므로 대향 쌍 합은 정의되지 않음
+  Note: 잔여열 3-2-5-4-1 = 상생 순환 목→화→토→금→수 (모든 이웃 관계가 상생)
+
+Cluster: 세로축 5자 수열
+  Cyclic order (5 elements): 2 -> 8 -> 5 -> 1 -> 9
+  Sum: 25
+  Residue pattern (mod 5): F-Wd-E-W-M
+  No nontrivial rotational invariance.
+  Note: 순환 고리가 아닌 선형 축 — 위→아래 읽기 순서
+  Note: 홀수 길이 5이므로 대향 쌍 합은 정의되지 않음
+  Note: 중심에 인접한 두 엣지(8-5, 5-1)가 상극 관계
+
+Global rotational symmetry for 범수용오도 (範數用五圖)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.
+
+NOTE (concentric layout):
+모든 클러스터의 무게중심이 (0.0, 0.0) 한 점으로 일치하는 동심(concentric) 구조입니다.
+클러스터 중심을 서로 옮기는 전역 회전 대칭은 정의되지 않으므로(퇴화) 검사를 생략합니다.
+기하학적으로는 90° 회전이 십자 도형 자체를 보존하지만, 수 배치(레이블)는 보존하지 않습니다.

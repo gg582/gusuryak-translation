@@ -121,6 +121,15 @@ def main() -> None:
     write_siamese_markdown(siamese, siamese_md)
     print(f"Siamese 검토: {siamese_json}, {siamese_md}")
 
+    # 생성 규칙 역산 및 주석 대조
+    from yukgodo.reverse import build_reverse_analysis, write_reverse_json, write_reverse_markdown
+    reverse = build_reverse_analysis(values, grid)
+    reverse_json = os.path.join(args.outdir, "reverse_engineering.json")
+    reverse_md = os.path.join(args.outdir, "reverse_engineering.md")
+    write_reverse_json(reverse, reverse_json)
+    write_reverse_markdown(reverse, reverse_md)
+    print(f"생성 규칙 역산: {reverse_json}, {reverse_md}")
+
 
 if __name__ == "__main__":
     main()

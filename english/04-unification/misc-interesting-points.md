@@ -198,6 +198,100 @@ is non-trivial.
 
 ---
 
+## 14. The equal-axis/equal-ring/equal-ray star family (Beomsu, Jangchaek, Jungsang)
+
+**Why it is interesting:**
+The three star diagrams of 05-extra-five form a single design family. With
+`a` axes of `L` cells each: `N = a(L−1)+1` values `1..N`, center value = `L`
+(the 用 number in the diagram's name), axis sum `S = (T+(a−1)L)/a`, and
+concentric ring sum `R = (T−L)/a` hold exactly in all three cases
+(2×5, 3×7, 4×9). Moreover all three realize the axis sums through the same
+device — a same-ray sum invariant (Beomsu: arm 10; Jangchaek: spoke-pair 61;
+Jungsang: ray 69).
+
+**Why it is not easily resolved:**
+Does such an equal-axis/equal-ring/equal-ray placement exist for arbitrary
+`(a, L)`? Must the center value be exactly `L`? The pattern is observed in
+three instances; no general existence theorem or construction is known.
+
+---
+
+## 15. Gichaek-yongpaldo's 50/50 splits and the golden-ratio spectrum
+
+**Why it is interesting:**
+In Gichaek-yongpaldo (four octagons, each summing to 100), every octagon
+splits into four shared vertices and four unique vertices summing to exactly
+50 = S/2 each. The eight shared vertices split alternately into the central
+square (50) and the outer quadruple (50), and the concentric ring sums are
+50·50·100·100. The graph is bipartite with largest adjacency eigenvalue
+φ² ≈ 2.618, the square of the golden ratio.
+
+**Why it is not easily resolved:**
+Why does the "25-symmetry" hold — each octagon's opposite-pair sums pairing
+into complements of 50? Is the placement satisfying the 50/50 split unique
+(up to symmetry)? Whether this placement is a special case of a known
+combinatorial design is unknown.
+
+---
+
+## 16. The complement-pair asymmetry of Jungui-yongyukdo
+
+**Why it is interesting:**
+In Jungui-yongyukdo (four overlapping groups, each summing to 51), the top
+and bottom groups decompose perfectly into three complement pairs summing to
+17 = N+1 (51 = 3×17), while the left and right groups admit no such perfect
+matching. Instead, the shared and unshared 8-value sets both sum to exactly
+68 = T/2, and the row sums by y-coordinate form a palindrome
+(17, 13, 17, 21, 21, 17, 13, 17).
+
+**Why it is not easily resolved:**
+A fully symmetric placement in which all four groups satisfy the complement
+device is not realized in this data. Is it impossible in principle, or did
+the source edition carry a different placement? The question is decidable by
+MILP search but has not yet been carried out.
+
+---
+
+## 17. The unresolved 演積 1148 of Jungsang-yonggudo
+
+**Why it is interesting:**
+The source records the duplication-inclusive total as 「演積一千一百四十八」,
+yet every natural accounting based on the measured values — axes plus bare
+rings (4×147 + 4×138 = 1140), plus the center once (1149), or the full
+用72 accounting (1176) — fails to give exactly 1148. The other two source
+figures (本積 561, 各得 147) match the measurements exactly, so 1148 stands
+out alone.
+
+**Why it is not easily resolved:**
+We cannot decide between transcription damage (the policy applied to the
+03-magic-squares series) and an unidentified accounting convention
+(e.g. 7×164, 4×287). Resolving it requires comparison with another edition
+or with neighboring commentary on the same page.
+
+---
+
+## 18. The multiplicity of Nakseo Yukgodo optima and the unconfirmability of the seungjeokbeop
+
+**Why it is interesting:**
+The reconstructed optimum of Nakseo Yukgodo (penalty floor 6.0) is not
+unique: an optimum found under another seed agrees with it in 0 of 270
+cells. Many placements satisfy the commentary's sum conditions, and the
+reconstructed diagram is only one specimen. Measurements confirm that no
+constructive trace survives in it — no ring APs, no linear position rule,
+no mod-6 class fingerprint, no consecutive pair assignment, and no
+Siamese-style local rule.
+
+**Why it is not easily resolved:**
+The sum conditions alone cannot identify the original placement, and the
+placement-order rule (the 寄左/序左 phrase) cannot be recovered from the
+reconstruction. All value-rule readings of 添六 are refuted, so what can be
+confirmed extends only to the geometric skeleton, the sum conditions, and
+the refutation list. Confirming the seungjeokbeop text itself requires a
+clearer edition of the commentary — a concrete instance of the problems in
+§10 and §12.
+
+---
+
 ## Summary
 
 These diagrams are far more than curiosities: they link combinatorics,
@@ -205,4 +299,8 @@ symmetry, modular arithmetic, computational complexity, and evolutionary
 computation. Questions such as "Why are 2 and 3 the base moduli?", "What is
 the exact rule for transforming nine palaces into twelve?", and "How did
 early modern mathematicians construct these solutions?" remain fully or
-partially open.
+partially open. The newly added questions — "Does the star family exist for
+arbitrary (a, L)?", "Is Gichaek-yongpaldo's 50/50 placement unique?", "Is a
+fully symmetric Jungui-yongyukdo placement possible?", "What does the
+source's 演積 1148 count?", and "Can the Nakseo Yukgodo placement-order rule
+ever be recovered?" — likewise remain open.

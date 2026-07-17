@@ -58,6 +58,7 @@ structurally, and the search only needs to balance sides, sectors, and rays.
 python3 tests/test_hexgrid.py     # geometry invariant tests
 python3 main.py                   # search → diagram → property analysis (output/)
 python3 main.py --render-only     # regenerate figures/report from the saved solution
+python3 -m yukgodo.reverse        # reverse-engineer the generation rule → commentary cross-check
 ```
 
 ## Project structure
@@ -69,10 +70,12 @@ yukgodo/
 ├── solver.py       # antipodal-pair slot representation + simulated annealing + greedy polish
 ├── visualize.py    # diagram (PNG/SVG) and dashboard rendering
 ├── analyze.py      # property analysis report (JSON/Markdown)
-└── hypotheses.py   # generation/verification of 添六 constructive hypotheses (models A/B/C verdicts)
+├── hypotheses.py   # generation/verification of 添六 constructive hypotheses (models A/B/C verdicts)
+└── reverse.py      # reverse-engineering of the generation rule + commentary cross-check
 main.py             # pipeline entry point
 tests/test_hexgrid.py
-output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, report.md
+output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, report.md,
+                    # siamese_report.md, reverse_engineering.md, etc.
 ```
 
 ## Search result (see output/)
@@ -116,3 +119,46 @@ commentary's numeric conditions**.
    (sum 271) model is the best current reconstruction candidate, and the
    placement-order rule (the 寄左/序左 phrase) remains an open item pending
    a clearer edition.
+
+## Reverse-engineering the generation rule: final diagram → faint-commentary cross-check (`output/reverse_engineering.md`)
+
+`yukgodo/reverse.py` starts from the final reconstructed diagram, tests
+data-driven whether any compressive generation rule survives in it, and
+compares each outcome against the legible commentary fragments.
+
+```bash
+python3 -m yukgodo.reverse    # reverse-engineering → output/reverse_engineering.{json,md}
+```
+
+**Attempts (each judged a failure or a structural consequence on the final diagram):**
+
+| Candidate rule | Result |
+|---|---|
+| ring-walk AP (any step mod 271) | failed — best match 16.7% (noise level) |
+| coordinate-linear model v ≡ a+b·k+c·j (mod 271) | failed — 9/270 cells |
+| mod-6 class balance (添六 fingerprint) | no fingerprint |
+| constructive pair-assignment order | no trace (longest run 2 pairs) |
+| Siamese-style local rule | failed — 6 of 269 transitions (siamese.py) |
+| 添六 construction hypotheses (192 variants) | failed — best penalty 27672 (hypotheses.py) |
+
+**Commentary cross-check:**
+
+- **Confirmed (cell counts, geometry)**: 共積二百七十, 虛一則二百七十數,
+  校計周五十四數, 通加洛書數六倍 (270=6×45), 十九爲中觚數也,
+  二百五十二倍之得五百○ (252×2=504), 置外周添六 (cell-count reading:
+  rings grow by six cells).
+- **Refuted (value-rule readings)**: every variant reading 添六 as a
+  value-placement rule.
+- **Undecidable**: 寄左/序左 (placement order), 以算遠則係以六 (uncertain reading).
+
+**Verdict — the algorithm cannot be confirmed from the present evidence:**
+
+1. An optimum found under another seed (42) agrees with the stored optimum in
+   **0 of 270 cells**: many placements satisfy the conditions, and the
+   reconstructed diagram is only one specimen.
+2. No constructive trace (APs, linear rules, classes, consecutive assignments,
+   local rules) survives in these specimens, so neither the original placement
+   nor its order rule can be recovered from sum conditions alone.
+3. What can be settled extends to the geometric skeleton, the sum conditions,
+   and the refutation of the value-rule readings of 添六. Confirming the body
+   of the seungjeokbeop requires a clearer edition of the commentary.

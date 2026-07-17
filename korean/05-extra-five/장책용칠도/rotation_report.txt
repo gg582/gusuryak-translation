@@ -1,0 +1,61 @@
+============================================================
+Per-cluster rotation analysis: 장책용칠도 (章策用七圖)
+============================================================
+
+Cluster: 내륜 d1
+  Cyclic order (6 elements): 9 -> 17 -> 1 -> 12 -> 3 -> 19
+  Sum: 61
+  Residue pattern (mod 5): M-F-W-F-Wd-M
+  Opposite-pair sums: [21, 20, 20]
+  No nontrivial rotational invariance.
+  Note: 중심 7 기준 거리 1단계 고리; 반대편 쌍은 같은 축의 중심대칭 쌍
+  Note: 동심(同心) 구조: 모든 클러스터 무게중심이 원점 (0,0)에 일치하여 전역 회전 대칭 판정이 퇴화하므로 생략함. 위치 배치 자체는 60° 회전 기하 대칭이나 수 배열은 회전 불변이 아님
+
+Cluster: 중륜 d2
+  Cyclic order (6 elements): 18 -> 6 -> 14 -> 2 -> 11 -> 10
+  Sum: 61
+  Residue pattern (mod 5): Wd-W-M-F-W-E
+  Opposite-pair sums: [20, 17, 24]
+  No nontrivial rotational invariance.
+  Note: 중심 7 기준 거리 2단계 고리; 반대편 쌍은 같은 축의 중심대칭 쌍
+  Note: 동심(同心) 구조: 모든 클러스터 무게중심이 원점 (0,0)에 일치하여 전역 회전 대칭 판정이 퇴화하므로 생략함. 위치 배치 자체는 60° 회전 기하 대칭이나 수 배열은 회전 불변이 아님
+
+Cluster: 외륜 d3
+  Cyclic order (6 elements): 5 -> 8 -> 13 -> 15 -> 16 -> 4
+  Sum: 61
+  Residue pattern (mod 5): E-Wd-Wd-E-W-M
+  Opposite-pair sums: [20, 24, 17]
+  No nontrivial rotational invariance.
+  Note: 중심 7 기준 거리 3단계 고리; 반대편 쌍은 같은 축의 중심대칭 쌍
+  Note: 동심(同心) 구조: 모든 클러스터 무게중심이 원점 (0,0)에 일치하여 전역 회전 대칭 판정이 퇴화하므로 생략함. 위치 배치 자체는 60° 회전 기하 대칭이나 수 배열은 회전 불변이 아님
+
+Cluster: 수직축 90
+  Cyclic order (7 elements): 5 -> 18 -> 9 -> 7 -> 12 -> 2 -> 15
+  Sum: 68
+  Residue pattern (mod 5): E-Wd-M-F-F-F-E
+  No nontrivial rotational invariance.
+  Note: 선형(비환형) 축: 12시에 가까운 끝에서 중심을 지나 반대 끝까지의 나열이며, 환형이 아니므로 회전 불변 지표는 적용되지 않음
+  Note: 중심 칸 = 7 (인덱스 3)
+  Note: 동심(同心) 구조: 모든 클러스터 무게중심이 원점 (0,0)에 일치하여 전역 회전 대칭 판정이 퇴화하므로 생략함. 위치 배치 자체는 60° 회전 기하 대칭이나 수 배열은 회전 불변이 아님
+
+Cluster: 대각축 150
+  Cyclic order (7 elements): 4 -> 10 -> 19 -> 7 -> 1 -> 14 -> 13
+  Sum: 68
+  Residue pattern (mod 5): M-E-M-F-W-M-Wd
+  No nontrivial rotational invariance.
+  Note: 선형(비환형) 축: 12시에 가까운 끝에서 중심을 지나 반대 끝까지의 나열이며, 환형이 아니므로 회전 불변 지표는 적용되지 않음
+  Note: 중심 칸 = 7 (인덱스 3)
+  Note: 동심(同心) 구조: 모든 클러스터 무게중심이 원점 (0,0)에 일치하여 전역 회전 대칭 판정이 퇴화하므로 생략함. 위치 배치 자체는 60° 회전 기하 대칭이나 수 배열은 회전 불변이 아님
+
+Cluster: 대각축 30
+  Cyclic order (7 elements): 8 -> 6 -> 17 -> 7 -> 3 -> 11 -> 16
+  Sum: 68
+  Residue pattern (mod 5): Wd-W-F-F-Wd-W-W
+  No nontrivial rotational invariance.
+  Note: 선형(비환형) 축: 12시에 가까운 끝에서 중심을 지나 반대 끝까지의 나열이며, 환형이 아니므로 회전 불변 지표는 적용되지 않음
+  Note: 중심 칸 = 7 (인덱스 3)
+  Note: 동심(同心) 구조: 모든 클러스터 무게중심이 원점 (0,0)에 일치하여 전역 회전 대칭 판정이 퇴화하므로 생략함. 위치 배치 자체는 60° 회전 기하 대칭이나 수 배열은 회전 불변이 아님
+
+Global rotational symmetry for 장책용칠도 (章策用七圖)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.

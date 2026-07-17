@@ -1,0 +1,70 @@
+============================================================
+Per-cluster rotation analysis: 기책용팔도 (奇策用八圖)
+============================================================
+
+Cluster: 상 팔각형
+  Cyclic order (8 elements): 9 -> 14 -> 23 -> 5 -> 8 -> 19 -> 18 -> 4
+  Sum: 100
+  Residue pattern (mod 5): M-M-Wd-E-Wd-M-Wd-M
+  Opposite-pair sums: [17, 33, 41, 9]
+  No nontrivial rotational invariance.
+  Note: 합 = 100 (목표 100)
+  Note: 좌와 공유 변 (5, 8), 우와 공유 변 (18, 19)
+
+Cluster: 좌 팔각형
+  Cyclic order (8 elements): 5 -> 15 -> 22 -> 3 -> 10 -> 20 -> 17 -> 8
+  Sum: 100
+  Residue pattern (mod 5): E-E-F-Wd-E-E-F-Wd
+  Opposite-pair sums: [15, 35, 39, 11]
+  No nontrivial rotational invariance.
+  Note: 합 = 100 (목표 100)
+  Note: 상와 공유 변 (5, 8), 하와 공유 변 (17, 20)
+
+Cluster: 우 팔각형
+  Cyclic order (8 elements): 19 -> 6 -> 7 -> 13 -> 24 -> 1 -> 12 -> 18
+  Sum: 100
+  Residue pattern (mod 5): M-W-F-Wd-M-W-F-Wd
+  Opposite-pair sums: [43, 7, 19, 31]
+  No nontrivial rotational invariance.
+  Note: 합 = 100 (목표 100)
+  Note: 상와 공유 변 (18, 19), 하와 공유 변 (6, 7)
+
+Cluster: 하 팔각형
+  Cyclic order (8 elements): 7 -> 6 -> 17 -> 20 -> 2 -> 11 -> 16 -> 21
+  Sum: 100
+  Residue pattern (mod 5): F-W-F-E-F-W-W-W
+  Opposite-pair sums: [9, 17, 33, 41]
+  No nontrivial rotational invariance.
+  Note: 합 = 100 (목표 100)
+  Note: 좌와 공유 변 (17, 20), 우와 공유 변 (6, 7)
+
+Cluster: 중앙 정사각형
+  Cyclic order (4 elements): 19 -> 6 -> 17 -> 8
+  Sum: 50
+  Residue pattern (mod 5): M-W-F-Wd
+  Opposite-pair sums: [36, 14]
+  No nontrivial rotational invariance.
+  Note: 합 = 50 = S/2, girth 4 의 최소 사이클
+  Note: 꼭짓점 전부가 공유 꼭짓점(차수 3)
+
+Global rotational symmetry for 기책용팔도 (奇策用八圖)
+--------------------------------------------------
+NOTE: These are geometric cluster-center mappings under a counterclockwise rotation. They describe where each cluster's center moves; they do NOT imply the labels/stars inside the clusters are preserved or that the puzzle has a true label-rotation symmetry.
+  90° counterclockwise rotation:
+    상 -> 좌
+    좌 -> 하
+    우 -> 상
+    하 -> 우
+    중앙 -> 중앙 (fixed)
+  180° counterclockwise rotation:
+    상 -> 하
+    좌 -> 우
+    우 -> 좌
+    하 -> 상
+    중앙 -> 중앙 (fixed)
+  270° counterclockwise rotation:
+    상 -> 우
+    좌 -> 상
+    우 -> 하
+    하 -> 좌
+    중앙 -> 중앙 (fixed)

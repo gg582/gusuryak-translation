@@ -1,0 +1,49 @@
+============================================================
+Per-cluster rotation analysis: Beomsu-yongodo (範數用五圖)
+============================================================
+
+Cluster: inner ring 4-cycle
+  Cyclic order (4 elements): 8 -> 4 -> 1 -> 7
+  Sum: 20
+  Residue pattern (mod 5): Wd-M-W-F
+  Opposite-pair sums: [9, 11]
+  No nontrivial rotational invariance.
+  Note: center 5 is not part of the ring (separate single cell)
+  Note: antipodal pair sums split 9 and 11 — the two pairs total 20 = ring sum
+  Note: residues cover Water/Fire/Wood/Metal (1,2,3,4) exactly once
+
+Cluster: outer ring 4-cycle
+  Cyclic order (4 elements): 2 -> 6 -> 9 -> 3
+  Sum: 20
+  Residue pattern (mod 5): F-W-M-Wd
+  Opposite-pair sums: [11, 9]
+  No nontrivial rotational invariance.
+  Note: antipodal pair sums 11 and 9 — crossed against the inner ring (horizontal: outer 9 / inner 11, vertical: outer 11 / inner 9)
+  Note: residues cover Water/Fire/Wood/Metal (1,2,3,4) exactly once
+
+Cluster: horizontal axis 5-sequence
+  Cyclic order (5 elements): 3 -> 7 -> 5 -> 4 -> 6
+  Sum: 25
+  Residue pattern (mod 5): Wd-F-E-M-W
+  No nontrivial rotational invariance.
+  Note: linear axis, not a cycle — read left to right
+  Note: odd length 5, so opposite-pair sums are undefined
+  Note: residue sequence 3-2-5-4-1 = generation cycle Wood->Fire->Earth->Metal->Water (every neighbor pair generates)
+
+Cluster: vertical axis 5-sequence
+  Cyclic order (5 elements): 2 -> 8 -> 5 -> 1 -> 9
+  Sum: 25
+  Residue pattern (mod 5): F-Wd-E-W-M
+  No nontrivial rotational invariance.
+  Note: linear axis, not a cycle — read top to bottom
+  Note: odd length 5, so opposite-pair sums are undefined
+  Note: the two edges adjacent to the center (8-5, 5-1) are overcoming pairs
+
+Global rotational symmetry for Beomsu-yongodo (範數用五圖)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.
+
+NOTE (concentric layout):
+All cluster centroids coincide at the single point (0.0, 0.0) (concentric layout).
+A global rotation mapping cluster centers onto other cluster centers is undefined (degenerate), so the check is skipped.
+Geometrically a 90-degree rotation preserves the cross shape, but not the value labels.

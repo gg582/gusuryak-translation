@@ -1,0 +1,61 @@
+============================================================
+Per-cluster rotation analysis: Jangchaek-yong-chil-do (章策用七圖)
+============================================================
+
+Cluster: Ring d1
+  Cyclic order (6 elements): 9 -> 17 -> 1 -> 12 -> 3 -> 19
+  Sum: 61
+  Residue pattern (mod 5): M-F-W-F-Wd-M
+  Opposite-pair sums: [21, 20, 20]
+  No nontrivial rotational invariance.
+  Note: Ring at distance 1 from center 7; opposite pairs are the center-symmetric pairs of the same axis
+  Note: Concentric layout: all cluster centroids coincide at the origin (0,0), so the global rotational symmetry test is degenerate and was skipped. The geometry itself has 60-degree rotational symmetry of positions, but the value arrangement is not rotationally invariant
+
+Cluster: Ring d2
+  Cyclic order (6 elements): 18 -> 6 -> 14 -> 2 -> 11 -> 10
+  Sum: 61
+  Residue pattern (mod 5): Wd-W-M-F-W-E
+  Opposite-pair sums: [20, 17, 24]
+  No nontrivial rotational invariance.
+  Note: Ring at distance 2 from center 7; opposite pairs are the center-symmetric pairs of the same axis
+  Note: Concentric layout: all cluster centroids coincide at the origin (0,0), so the global rotational symmetry test is degenerate and was skipped. The geometry itself has 60-degree rotational symmetry of positions, but the value arrangement is not rotationally invariant
+
+Cluster: Ring d3
+  Cyclic order (6 elements): 5 -> 8 -> 13 -> 15 -> 16 -> 4
+  Sum: 61
+  Residue pattern (mod 5): E-Wd-Wd-E-W-M
+  Opposite-pair sums: [20, 24, 17]
+  No nontrivial rotational invariance.
+  Note: Ring at distance 3 from center 7; opposite pairs are the center-symmetric pairs of the same axis
+  Note: Concentric layout: all cluster centroids coincide at the origin (0,0), so the global rotational symmetry test is degenerate and was skipped. The geometry itself has 60-degree rotational symmetry of positions, but the value arrangement is not rotationally invariant
+
+Cluster: Vertical axis 90
+  Cyclic order (7 elements): 5 -> 18 -> 9 -> 7 -> 12 -> 2 -> 15
+  Sum: 68
+  Residue pattern (mod 5): E-Wd-M-F-F-F-E
+  No nontrivial rotational invariance.
+  Note: Linear (non-cyclic) axis: sequence from the end nearest 12 o'clock through the center to the opposite end; rotation-invariance metrics do not apply since it is not a cycle
+  Note: center cell = 7 (index 3)
+  Note: Concentric layout: all cluster centroids coincide at the origin (0,0), so the global rotational symmetry test is degenerate and was skipped. The geometry itself has 60-degree rotational symmetry of positions, but the value arrangement is not rotationally invariant
+
+Cluster: Diagonal axis 150
+  Cyclic order (7 elements): 4 -> 10 -> 19 -> 7 -> 1 -> 14 -> 13
+  Sum: 68
+  Residue pattern (mod 5): M-E-M-F-W-M-Wd
+  No nontrivial rotational invariance.
+  Note: Linear (non-cyclic) axis: sequence from the end nearest 12 o'clock through the center to the opposite end; rotation-invariance metrics do not apply since it is not a cycle
+  Note: center cell = 7 (index 3)
+  Note: Concentric layout: all cluster centroids coincide at the origin (0,0), so the global rotational symmetry test is degenerate and was skipped. The geometry itself has 60-degree rotational symmetry of positions, but the value arrangement is not rotationally invariant
+
+Cluster: Diagonal axis 30
+  Cyclic order (7 elements): 8 -> 6 -> 17 -> 7 -> 3 -> 11 -> 16
+  Sum: 68
+  Residue pattern (mod 5): Wd-W-F-F-Wd-W-W
+  No nontrivial rotational invariance.
+  Note: Linear (non-cyclic) axis: sequence from the end nearest 12 o'clock through the center to the opposite end; rotation-invariance metrics do not apply since it is not a cycle
+  Note: center cell = 7 (index 3)
+  Note: Concentric layout: all cluster centroids coincide at the origin (0,0), so the global rotational symmetry test is degenerate and was skipped. The geometry itself has 60-degree rotational symmetry of positions, but the value arrangement is not rotationally invariant
+
+Global rotational symmetry for Jangchaek-yong-chil-do (章策用七圖)
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.

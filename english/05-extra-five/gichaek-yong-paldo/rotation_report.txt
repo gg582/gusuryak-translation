@@ -1,0 +1,70 @@
+============================================================
+Per-cluster rotation analysis: Gichaek-yongpaldo (奇策用八圖)
+============================================================
+
+Cluster: Top octagon
+  Cyclic order (8 elements): 9 -> 14 -> 23 -> 5 -> 8 -> 19 -> 18 -> 4
+  Sum: 100
+  Residue pattern (mod 5): M-M-Wd-E-Wd-M-Wd-M
+  Opposite-pair sums: [17, 33, 41, 9]
+  No nontrivial rotational invariance.
+  Note: sum = 100 (target 100)
+  Note: shared edge with Left (5, 8), shared edge with Right (18, 19)
+
+Cluster: Left octagon
+  Cyclic order (8 elements): 5 -> 15 -> 22 -> 3 -> 10 -> 20 -> 17 -> 8
+  Sum: 100
+  Residue pattern (mod 5): E-E-F-Wd-E-E-F-Wd
+  Opposite-pair sums: [15, 35, 39, 11]
+  No nontrivial rotational invariance.
+  Note: sum = 100 (target 100)
+  Note: shared edge with Top (5, 8), shared edge with Bottom (17, 20)
+
+Cluster: Right octagon
+  Cyclic order (8 elements): 19 -> 6 -> 7 -> 13 -> 24 -> 1 -> 12 -> 18
+  Sum: 100
+  Residue pattern (mod 5): M-W-F-Wd-M-W-F-Wd
+  Opposite-pair sums: [43, 7, 19, 31]
+  No nontrivial rotational invariance.
+  Note: sum = 100 (target 100)
+  Note: shared edge with Top (18, 19), shared edge with Bottom (6, 7)
+
+Cluster: Bottom octagon
+  Cyclic order (8 elements): 7 -> 6 -> 17 -> 20 -> 2 -> 11 -> 16 -> 21
+  Sum: 100
+  Residue pattern (mod 5): F-W-F-E-F-W-W-W
+  Opposite-pair sums: [9, 17, 33, 41]
+  No nontrivial rotational invariance.
+  Note: sum = 100 (target 100)
+  Note: shared edge with Left (17, 20), shared edge with Right (6, 7)
+
+Cluster: central square
+  Cyclic order (4 elements): 19 -> 6 -> 17 -> 8
+  Sum: 50
+  Residue pattern (mod 5): M-W-F-Wd
+  Opposite-pair sums: [36, 14]
+  No nontrivial rotational invariance.
+  Note: sum = 50 = S/2, minimum cycle (girth 4)
+  Note: all vertices are shared vertices (degree 3)
+
+Global rotational symmetry for Gichaek-yongpaldo (奇策用八圖)
+--------------------------------------------------
+NOTE: These are geometric cluster-center mappings under a counterclockwise rotation. They describe where each cluster's center moves; they do NOT imply the labels/stars inside the clusters are preserved or that the puzzle has a true label-rotation symmetry.
+  90° counterclockwise rotation:
+    Top -> Left
+    Left -> Bottom
+    Right -> Top
+    Bottom -> Right
+    Center -> Center (fixed)
+  180° counterclockwise rotation:
+    Top -> Bottom
+    Left -> Right
+    Right -> Left
+    Bottom -> Top
+    Center -> Center (fixed)
+  270° counterclockwise rotation:
+    Top -> Right
+    Left -> Top
+    Right -> Bottom
+    Bottom -> Left
+    Center -> Center (fixed)

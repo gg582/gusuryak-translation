@@ -1,0 +1,60 @@
+============================================================
+Per-cluster rotation analysis: Jungui-yongyukdo (重儀用六圖)
+============================================================
+
+Cluster: perimeter 12-cycle
+  Cyclic order (12 elements): 7 -> 16 -> 1 -> 6 -> 4 -> 14 -> 5 -> 15 -> 2 -> 8 -> 3 -> 13
+  Sum: 94
+  Residue pattern (mod 5): F-W-W-W-M-M-E-E-F-Wd-Wd-Wd
+  Opposite-pair sums: [12, 31, 3, 14, 7, 27]
+  No nontrivial rotational invariance.
+  Note: Clockwise from top-left 7. Opposite sums are pairs under 180-degree rotation.
+
+Cluster: inner 4-cycle
+  Cyclic order (4 elements): 11 -> 10 -> 12 -> 9
+  Sum: 42
+  Residue pattern (mod 5): W-E-F-M
+  Opposite-pair sums: [23, 19]
+  No nontrivial rotational invariance.
+  Note: Inner rectangle (11,10,12,9), clockwise from top-left 11.
+
+Cluster: top group
+  Cyclic order (6 elements): 16 -> 1 -> 6 -> 10 -> 11 -> 7
+  Sum: 51
+  Residue pattern (mod 5): W-W-W-E-W-F
+  Opposite-pair sums: [26, 12, 13]
+  No nontrivial rotational invariance.
+  Note: Not a ring in the source diagram; the 6 cells are listed in clockwise geometric order (group sum 51 for verification).
+
+Cluster: left group
+  Cyclic order (6 elements): 7 -> 11 -> 9 -> 8 -> 3 -> 13
+  Sum: 51
+  Residue pattern (mod 5): F-W-M-Wd-Wd-Wd
+  Opposite-pair sums: [15, 14, 22]
+  No nontrivial rotational invariance.
+  Note: Not a ring in the source diagram; the 6 cells are listed in clockwise geometric order (group sum 51 for verification).
+
+Cluster: bottom group
+  Cyclic order (6 elements): 9 -> 12 -> 5 -> 15 -> 2 -> 8
+  Sum: 51
+  Residue pattern (mod 5): M-F-E-E-F-Wd
+  Opposite-pair sums: [24, 14, 13]
+  No nontrivial rotational invariance.
+  Note: Not a ring in the source diagram; the 6 cells are listed in clockwise geometric order (group sum 51 for verification).
+
+Cluster: right group
+  Cyclic order (6 elements): 6 -> 4 -> 14 -> 5 -> 12 -> 10
+  Sum: 51
+  Residue pattern (mod 5): W-M-M-E-F-E
+  Opposite-pair sums: [11, 16, 24]
+  No nontrivial rotational invariance.
+  Note: Not a ring in the source diagram; the 6 cells are listed in clockwise geometric order (group sum 51 for verification).
+
+Global rotational symmetry for Jungui-yongyukdo (重儀用六圖)
+--------------------------------------------------
+NOTE: These are geometric cluster-center mappings under a counterclockwise rotation. They describe where each cluster's center moves; they do NOT imply the labels/stars inside the clusters are preserved or that the puzzle has a true label-rotation symmetry.
+  180° counterclockwise rotation:
+    top group -> bottom group
+    left group -> right group
+    bottom group -> top group
+    right group -> left group

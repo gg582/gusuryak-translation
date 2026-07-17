@@ -1,0 +1,89 @@
+============================================================
+Per-cluster rotation analysis: Jungsang-yonggudo
+============================================================
+
+Cluster: Ring d1
+  Cyclic order (8 elements): 10 -> 22 -> 7 -> 30 -> 2 -> 18 -> 25 -> 24
+  Sum: 138
+  Residue pattern (mod 5): E-F-F-E-F-Wd-E-M
+  Opposite-pair sums: [12, 40, 32, 54]
+  No nontrivial rotational invariance.
+  Note: Concentric octagonal ring at graph distance 1 from center 9
+  Note: Ring sum 138 = (561-9)/4; adjoining the center 9 gives 147 (matches the source text 'four surrounding rings each obtain 147')
+
+Cluster: Ring d2
+  Cyclic order (8 elements): 23 -> 13 -> 19 -> 14 -> 29 -> 26 -> 11 -> 3
+  Sum: 138
+  Residue pattern (mod 5): Wd-Wd-M-M-M-W-W-Wd
+  Opposite-pair sums: [52, 39, 30, 17]
+  No nontrivial rotational invariance.
+  Note: Concentric octagonal ring at graph distance 2 from center 9
+  Note: Ring sum 138 = (561-9)/4; adjoining the center 9 gives 147 (matches the source text 'four surrounding rings each obtain 147')
+
+Cluster: Ring d3
+  Cyclic order (8 elements): 16 -> 1 -> 31 -> 21 -> 32 -> 17 -> 5 -> 15
+  Sum: 138
+  Residue pattern (mod 5): W-W-W-W-F-F-E-E
+  Opposite-pair sums: [48, 18, 36, 36]
+  No nontrivial rotational invariance.
+  Note: Concentric octagonal ring at graph distance 3 from center 9
+  Note: Ring sum 138 = (561-9)/4; adjoining the center 9 gives 147 (matches the source text 'four surrounding rings each obtain 147')
+
+Cluster: Ring d4
+  Cyclic order (8 elements): 20 -> 33 -> 12 -> 4 -> 6 -> 8 -> 28 -> 27
+  Sum: 138
+  Residue pattern (mod 5): E-Wd-F-M-W-Wd-Wd-F
+  Opposite-pair sums: [26, 41, 40, 31]
+  No nontrivial rotational invariance.
+  Note: Concentric octagonal ring at graph distance 4 from center 9
+  Note: Ring sum 138 = (561-9)/4; adjoining the center 9 gives 147 (matches the source text 'four surrounding rings each obtain 147')
+
+Cluster: Vertical axis
+  Cyclic order (9 elements): 20 -> 16 -> 23 -> 10 -> 9 -> 2 -> 29 -> 32 -> 6
+  Sum: 147
+  Residue pattern (mod 5): E-W-Wd-E-M-F-M-F-W
+  No nontrivial rotational invariance.
+  Note: Non-cyclic line cluster (straight axis) -- rotational period analysis applies to the rings only
+  Note: Odd length (9), so opposite-pair sums are skipped
+  Note: Sum 147 = 69+9+69 (ray + center + ray)
+
+Cluster: Horizontal axis
+  Cyclic order (9 elements): 28 -> 5 -> 11 -> 25 -> 9 -> 7 -> 19 -> 31 -> 12
+  Sum: 147
+  Residue pattern (mod 5): Wd-E-W-E-M-F-M-W-F
+  No nontrivial rotational invariance.
+  Note: Non-cyclic line cluster (straight axis) -- rotational period analysis applies to the rings only
+  Note: Odd length (9), so opposite-pair sums are skipped
+  Note: Sum 147 = 69+9+69 (ray + center + ray)
+
+Cluster: Diagonal axis 1
+  Cyclic order (9 elements): 27 -> 15 -> 3 -> 24 -> 9 -> 30 -> 14 -> 21 -> 4
+  Sum: 147
+  Residue pattern (mod 5): F-E-Wd-M-M-E-M-W-M
+  No nontrivial rotational invariance.
+  Note: Non-cyclic line cluster (straight axis) -- rotational period analysis applies to the rings only
+  Note: Odd length (9), so opposite-pair sums are skipped
+  Note: Sum 147 = 69+9+69 (ray + center + ray)
+
+Cluster: Diagonal axis 2
+  Cyclic order (9 elements): 33 -> 1 -> 13 -> 22 -> 9 -> 18 -> 26 -> 17 -> 8
+  Sum: 147
+  Residue pattern (mod 5): Wd-W-Wd-F-M-Wd-W-F-Wd
+  No nontrivial rotational invariance.
+  Note: Non-cyclic line cluster (straight axis) -- rotational period analysis applies to the rings only
+  Note: Odd length (9), so opposite-pair sums are skipped
+  Note: Sum 147 = 69+9+69 (ray + center + ray)
+
+Global rotational symmetry for Jungsang-yonggudo
+--------------------------------------------------
+No nontrivial global rotation maps clusters to clusters.
+
+Global rotational symmetry (note: degenerate due to concentric layout)
+--------------------------------------------------
+The centroid of every cluster (4 rings + 4 axes) coincides exactly with the
+origin (0, 0): the layout is concentric.  Any rotation about the origin leaves
+every cluster center fixed, so the global rotation symmetry defined as a
+permutation of clusters is degenerate.  The find_global_rotation_symmetries
+check is therefore skipped and only this fact is recorded.
+(For the rotational properties of the rings themselves, see each 8-cycle
+analysis above.)

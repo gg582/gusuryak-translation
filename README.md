@@ -275,6 +275,32 @@ arbitrary weights, disjoint groups, and target sums is covered by the explicit
 3-PARTITION reduction in `COMPLEXITY.md`. Fixed historical topologies and the
 consecutive-number variants are not classified as NP-complete here.
 
+Each diagram directory now contains the same deep property analysis used for the
+01–04 series (`analyze_*.py` → figures `01`–`08`, `analysis_report.md`, and a
+per-cluster `analyze_rotations.py` with `rotation_report.txt` /
+`rotation_cluster_*.png` / `rotation_overview.png`). Key findings:
+
+- **Gichaek-yongpaldo** (4 octagons Σ100, values 1..24, D=100): shared vertices
+  have degree 3; the central square and both shared-vertex quadruples sum to
+  50 = S/2; every octagon splits shared/unique 50/50; ring sums 50, 50, 100, 100;
+  bipartite spectrum with λ_max = φ².
+- **Beomsu-yongodo** (2 axes Σ25, values 1..9, D=5): the tree S(2,2,2,2); all
+  four arms sum to 10; rings sum 20/20; the horizontal axis is the generation
+  cycle; λ_max = √5.
+- **Jangchaek-yongchildo** (3 axes Σ68, values 1..19, D=14): spider tree; ring
+  sums 61/61/61; spoke sums are the six consecutive integers 28–33; the 3×3
+  antipodal-pair sum matrix is semi-magic (all line sums 61).
+- **Jungsang-yonggudo** (4 axes Σ147, values 1..33, D=27): all 8 rays sum to 69
+  (axis 147 = 69+9+69); ring sums 138×4 (ring+center = 147, matching the source's
+  周圍四重各得147); the source's 演積 1148 is recorded as an unresolved
+  discrepancy (natural accountings give 1140/1149/1176).
+- **Jungui-yongyukdo** (4 overlapping groups Σ51, values 1..16, D=68): shared 8
+  values = unshared 8 values = 68; top/bottom groups decompose into three
+  complement pairs summing to 17 (left/right do not); row-sum palindrome.
+- The three star diagrams (Beomsu 2×5, Jangchaek 3×7, Jungsang 4×9) form an
+  observed family: N = a(L−1)+1 values, center = L, axis sum S = (T+(a−1)L)/a,
+  ring sum R = (T−L)/a, and a same-ray sum invariant.
+
 ### 06. Nakseo Yukgodo
 
 | Diagram | English path | Korean path |
@@ -282,12 +308,20 @@ consecutive-number variants are not classified as NP-complete here.
 | Nakseo Yukgodo (洛書六觚圖) | `english/06-nakseo-yukgodo/` | `korean/06-nakseo-yukgodo/` |
 
 The repository contains the 270-cell solution, source commentary analysis,
-geometry tests, JSON metrics, SVG/PNG figures, and Siamese-style local-rule
-reverse engineering. Verifying a supplied placement is P. Finding a placement
-for an arbitrary-radius lattice with complementary-pair, ring, side, sector, and
-ray constraints has no complete hardness reduction in this repository. The
-supplied placement is directly verifiable in polynomial time; the arbitrary-radius
-existence variant remains open here.
+geometry tests, JSON metrics, SVG/PNG figures, Siamese-style local-rule
+reverse engineering, and a generation-rule reverse-engineering pass
+(`yukgodo/reverse.py` → `output/reverse_engineering.md`) that starts from the
+final reconstructed diagram, tests candidate generation rules, and cross-checks
+them against the faint commentary. Verdict: the geometric skeleton and all sum
+conditions are confirmed against the commentary, but the placement algorithm
+itself cannot be confirmed from the current evidence — optima are plentiful
+(0/270 cell agreement across seeds) and carry no constructive trace, so
+confirming the seungjeokbeop text requires a clearer edition. Verifying a
+supplied placement is P. Finding a placement for an arbitrary-radius lattice
+with complementary-pair, ring, side, sector, and ray constraints has no complete
+hardness reduction in this repository. The supplied placement is directly
+verifiable in polynomial time; the arbitrary-radius existence variant remains
+open here.
 
 ### 07. Extra two diagrams
 
@@ -550,3 +584,8 @@ Tortoise Problem, and open questions about 18th-century solution methods.
 3. **Graph structure of Nakseo Sagudo**: why does the corrected 20-node graph exhibit perfect 4-fold symmetry in every centrality measure?
 4. **Relation between Gujagakdeuk, Paljagakdeuk, and Chiljagakdeuk**: can they be placed inside a single parameterized family extending `Π(p, q, T)`?
 5. **Duplication structure in Chiljagakdeuk**: why do certain values appear twice?
+6. **Star-family existence**: does an equal-axis/equal-ring/equal-ray star placement (values `1..N`, center `L`) exist for arbitrary `(a, L)`, and must the center equal `L`?
+7. **Uniqueness of Gichaek-yongpaldo**: is the placement with the 50/50 shared–unique split unique up to symmetry?
+8. **Fully symmetric Jungui-yongyukdo**: does a placement exist in which all four groups decompose into complement pairs summing to 17 (MILP-decidable)?
+9. **The 演積 1148 of Jungsang-yonggudo**: which accounting yields the source figure, or is it transcription damage?
+10. **The Nakseo Yukgodo placement-order rule**: can the seungjeokbeop order rule (寄左/序左) ever be recovered from a clearer edition, given that sum-condition optima are plentiful and carry no constructive trace?
