@@ -14,7 +14,7 @@
 
 ## Attached commentary image
 
-The commentary to the algorithm known as seungjeokbeop is scanned so faintly
+The commentary to the algorithm known as naejeokbeop(來積法, Iterative Accumulation Method) is scanned so faintly
 that the original type is hard to make out. A rough picture reconstructed in
 Python 3 with the help of generative AI is attached
 (`original_comments_reconstructed_by_genai.png`). Even so, it cannot be
@@ -98,7 +98,7 @@ are the mathematical optimum.
 
 ## Caveat
 
-This placement does not reproduce the commentary's seungjeokbeop procedure
+This placement does not reproduce the commentary's naejeokbeop procedure
 step by step; it is a **search optimum reverse-engineered to satisfy the
 commentary's numeric conditions**.
 
@@ -161,4 +161,4 @@ python3 -m yukgodo.reverse    # reverse-engineering → output/reverse_engineeri
    nor its order rule can be recovered from sum conditions alone.
 3. What can be settled extends to the geometric skeleton, the sum conditions,
    and the refutation of the value-rule readings of 添六. Confirming the body
-   of the seungjeokbeop requires a clearer edition of the commentary.
+   of the naejeokbeop requires a clearer edition of the commentary.
