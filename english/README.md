@@ -158,6 +158,21 @@ The material is organized in a separate folder: `korean/02-gakdeuk-series/지수
 
 ---
 
+## Nakseo Yukgodo (洛書六觚圖) Interpretation Summary
+
+The material is organized in `korean/06-nakseo-yukgodo/` and `english/06-nakseo-yukgodo/`.
+
+- **Grid structure**: Radius-nine hexagonal lattice, 271 cells total (270 cells with the center left blank as *heo-il*)
+- **Commentary values**: 270 (total sum/filled cells), 54 (outer ring), 19 (central axis/中觚), 252 (main chain junction), 270 = 6×45 (six times the Luoshu number)
+- **Target constraints**: complementary pair sum 271, ring k sum 813k, 6 side sums 1355 each, 3 axis sums 2439 each, 6 sector sums 6097/6098, 6 ray sums 1219/1220
+
+### Analysis Verdict
+1. **Geometry & Count Verification**: The commentary's values align perfectly with the invariants of the grid structure. The core calculation chain of the *naejeokbeop* text achieves Level 1 confirmation (Tier 1) under the new OCR.
+2. **Refutation of Value Rules**: All constructive hypotheses reading *cheom-yuk* (添六) as a value placement rule (e.g., ±6 mod 271 spirals) are strictly refuted.
+3. **Algorithmic Underdetermination**: Multiple optimal solutions (penalty 6.0) satisfy the target constraints (0/270 cell agreement across random seeds) and carry no constructive arithmetic trace. Reconstructing the placement-order instructions (寄左/序左) and the tail segment (得五百) requires a clearer manuscript witness.
+
+---
+
 ## Miscellaneous Interesting Points
 
 The most intriguing and not-easily-resolved findings so far are summarized in both Korean and English.
