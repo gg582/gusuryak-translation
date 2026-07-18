@@ -59,6 +59,9 @@ python3 tests/test_hexgrid.py     # geometry invariant tests
 python3 main.py                   # search → diagram → property analysis (output/)
 python3 main.py --render-only     # regenerate figures/report from the saved solution
 python3 -m yukgodo.reverse        # reverse-engineer the generation rule → commentary cross-check
+python3 -m yukgodo.naejeok        # exhaustive computation-graph check of the 來積法 figures
+python3 -m yukgodo.mod5           # mod-5 residue coloring + exhaustive five-layer geometry
+python3 -m yukgodo.modn_generalization  # mod-N antipode residue action — cross-diagram verification
 ```
 
 ## Project structure
@@ -71,11 +74,14 @@ yukgodo/
 ├── visualize.py    # diagram (PNG/SVG) and dashboard rendering
 ├── analyze.py      # property analysis report (JSON/Markdown)
 ├── hypotheses.py   # generation/verification of 添六 constructive hypotheses (models A/B/C verdicts)
-└── reverse.py      # reverse-engineering of the generation rule + commentary cross-check
+├── reverse.py      # reverse-engineering of the generation rule + commentary cross-check
+├── naejeok.py      # exhaustive computation-graph check of the 來積法 figures
+├── mod5.py         # mod-5 residue coloring + exhaustive five-layer geometry (D6, networkx)
+└── modn_generalization.py  # mod-N antipode residue action theorem — cross-checks against the other diagrams in ../
 main.py             # pipeline entry point
 tests/test_hexgrid.py
 output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, report.md,
-                    # siamese_report.md, reverse_engineering.md, etc.
+                    # siamese_report.md, reverse_engineering.md, mod5_*.png/.json/.md, etc.
 ```
 
 ## Search result (see output/)
@@ -162,3 +168,58 @@ python3 -m yukgodo.reverse    # reverse-engineering → output/reverse_engineeri
 3. What can be settled extends to the geometric skeleton, the sum conditions,
    and the refutation of the value-rule readings of 添六. Confirming the body
    of the naejeokbeop requires a clearer edition of the commentary.
+
+## Mod-5 coloring and the mod-N derived theorem (`output/mod5_report.md`)
+
+Mod-5 residue coloring is a technique used repeatedly across the Gusuryak
+analyses (the Ojagakdeuk `mod5_residue_diagram.py` in 02, the Hado-Saodo
+5-coloring documents in 01). In this project `yukgodo/mod5.py` splits the
+optimum into five layers by residue class (54 cells each) and exhaustively
+checks all 12 D6 symmetry elements against every layer pair.
+
+**Finding**: the residue 2↔4 and 1↔0 layers are exactly congruent (54/54)
+under 180° rotation (point symmetry), and the residue-3 layer is
+self-symmetric. No other symmetry exists (the best overlap of any other pair
+is 13–17/54).
+
+**Derived theorem (mod-N generalization)**: under a positional involution π
+(π²=id) with every pair of values summing to a constant S, π acts on mod-m
+residue classes as **r ↦ (S−r) mod m** for every modulus m. The reason has
+four steps:
+
+1. Reducing the pair condition v+v′ = S mod m gives v′ ≡ S−v, cell by cell.
+2. The action on residue classes is the single involution r ↦ S−r — its
+   orbits are either pairs of length 2 or fixed points (the solutions of
+   2r ≡ S (mod m)).
+3. Since π is one-to-one, π(layer r) ⊆ layer (S−r) is already set equality —
+   the reason the overlap is exact rather than approximate.
+4. In this diagram π is central point symmetry = 180° rotation, so the layer
+   congruences are realized inside the lattice symmetries.
+
+**Corollary (parity of the pair sum)**: if S is odd, no self-paired fixed
+cell can exist — this diagram's S = 271 (odd) and the central 虛一 are
+consistent with it. If S is even, a fixed cell's value is forced to be S/2 —
+the center 23 = 46/2 of the Guja-gakdeuk (九子角得) center palace in 02 is
+an example.
+
+**Cross-diagram verification** (`python3 -m yukgodo.modn_generalization`,
+exhaustive over moduli 2..9):
+
+| Diagram (sibling chapter in ../) | Pair sum S | Positional involution π | Result |
+|---|---|---|---|
+| 06 洛書六觚圖 (this optimum) | 271 | central point symmetry (global 180° rotation) | exact for all of mod 2..9 |
+| 02 九子角得 center palace | 46 | 3×3 central symmetry | all exact; self-pair 23 = S/2 |
+| 07 重卦用八圖 horizontal formation | 65 | left-right flip within a row (local) | all exact |
+| 07 侯策用九圖 | ≈73 (imperfect) | formation position pairs | breaks when mixed; exact when restricted to the 16 pairs summing to 73 |
+
+侯策用九圖 demonstrates the necessity of the condition: when the pair sums
+are not constant, the action splits into the per-pair actual sums. In other
+words, the theorem generalizes to every diagram with positionally symmetric
+complementary pairs, and extends the component-pair cross-check done with
+mod-5 coloring to arbitrary mod N.
+
+**Significance and limits**: every solution satisfying the antipodal-pair
+hypothesis (including the seed-42 optimum) has this property, so it carries
+no discriminating power for the original placement. It is, however, a
+falsification tool: if the actual diagram of a clearer edition did not have
+this symmetry, the antipodal complementary-pair hypothesis would be rejected.
