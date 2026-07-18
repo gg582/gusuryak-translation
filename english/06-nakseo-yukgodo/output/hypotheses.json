@@ -499,5 +499,5 @@
   },
   "model_C_note": "mod-6 residue classes: 6 classes × 45 values = another reading of 通加洛書數六倍. Class sums run 5985..6210 (common difference 45); opposite class pairs sum to 12195."
  },
- "conclusion": "Every legible figure in the commentary (54+6=60, 60/6=10, 中觚 19, 252×2=504, 270=6×45) is a cell-count check, not a value-placement rule. All constructive hypotheses that read 添六 as a value-placement rule (192 spiral variants of ±6 mod 271, per-ring arithmetic progressions) fail the magic properties or the one-to-one placement condition. The reconstructed optimum (antipodal complementary-pair 271 model) is therefore the best current candidate, and the placement-order rule (the 寄左/序左 phrase) remains an open item pending a clearer edition."
+ "conclusion": "Every legible confirmed figure in the commentary (54+6=60, 60/6=10, 中觚 19, 252, 270=6×45) is a cell-count check, not a value-placement rule. All constructive hypotheses that read 添六 as a value-placement rule (192 spiral variants of ±6 mod 271, per-ring arithmetic progressions) fail the magic properties or the one-to-one placement condition. The reconstructed optimum (antipodal complementary-pair 271 model) is therefore the best current candidate, and the placement-order rule (the 寄左/序左 phrase) and certain tail figures (得五百) remain open items pending a clearer edition."
 }

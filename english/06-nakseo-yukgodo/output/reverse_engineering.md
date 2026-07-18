@@ -35,7 +35,7 @@ each outcome against the legible fragments of the faint commentary.
 | 十九爲中觚數也 | the central row has 19 | confirmed | 中觚 19 cells, sum 2439 = 9×271 |
 | 置外周添六 | outward, each ring grows by six cells | confirmed (cell-count reading) | ring k has 6k cells (6,12,...,54) |
 | 置外周添六 (value-rule reading) | place the values adding six | refuted | all 192 ±6 (mod 271) spiral variants fail (hypotheses.py best penalty 27672); best per-ring AP match 16.7% |
-| 二百五十二倍之得五百○ | 252 × 2 = 504 | confirmed (cell-count arithmetic) | 252 = 271 − 19 (excluding 中觚), 504 = 2×252 |
+| 得五百(500), 五百六(506) | 500 and 506 values | suspended (Tier 3) | isolated from the calculation chain, cannot be uniquely determined due to multiple 2-op generation formulas (see NAEJEOK_ASSESSMENT.md) |
 | 寄左 / 序左 | (presumed placement-order rule) | undecidable | seed-42 optimum agrees in 0/270 cells — with many optima, no order information survives in the reconstruction |
 | 以算遠則係以六 | (reading uncertain) | undecidable | a clearer edition is needed |
 
@@ -55,7 +55,7 @@ The algorithm cannot be confirmed from the present evidence. The geometric skele
 
 ### What remains unconfirmed
 
-- The procedure that assigns values to cells (the body of the seungjeokbeop).
+- The procedure that assigns values to cells (the body of the naejeokbeop).
   Since the overlap between reconstructed optima is 0/270, the sum
   conditions alone cannot identify the original placement, and no order
   rule can be recovered from these specimens.

@@ -1,4 +1,4 @@
-"""Generation and verification of constructive seungjeokbeop (添六) hypotheses.
+"""Generation and verification of constructive naejeokbeop (添六) hypotheses.
 
 Constructive placement candidates that implement the commentary's 添六
 ("adding six") literally:
@@ -180,14 +180,14 @@ def main() -> None:
         "top10": results[:10],
         "ring_ap_model_B": ring_ap,
         "conclusion": (
-            "Every legible figure in the commentary (54+6=60, 60/6=10, 中觚 19, "
-            "252×2=504, 270=6×45) is a cell-count check, not a value-placement rule. "
+            "Every legible confirmed figure in the commentary (54+6=60, 60/6=10, 中觚 19, "
+            "252, 270=6×45) is a cell-count check, not a value-placement rule. "
             "All constructive hypotheses that read 添六 as a value-placement rule "
             "(192 spiral variants of ±6 mod 271, per-ring arithmetic progressions) "
             "fail the magic properties or the one-to-one placement condition. "
             "The reconstructed optimum (antipodal complementary-pair 271 model) is "
             "therefore the best current candidate, and the placement-order rule "
-            "(the 寄左/序左 phrase) remains an open item pending a clearer edition."
+            "(the 寄左/序左 phrase) and certain tail figures (得五百) remain open items pending a clearer edition."
         ),
     }
     with open("output/hypotheses.json", "w", encoding="utf-8") as f:

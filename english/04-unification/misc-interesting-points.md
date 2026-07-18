@@ -270,7 +270,7 @@ or with neighboring commentary on the same page.
 
 ---
 
-## 18. The multiplicity of Nakseo Yukgodo optima and the unconfirmability of the seungjeokbeop
+## 18. The multiplicity of Nakseo Yukgodo optima and the unconfirmability of the naejeokbeop
 
 **Why it is interesting:**
 The reconstructed optimum of Nakseo Yukgodo (penalty floor 6.0) is not
@@ -286,7 +286,7 @@ The sum conditions alone cannot identify the original placement, and the
 placement-order rule (the 寄左/序左 phrase) cannot be recovered from the
 reconstruction. All value-rule readings of 添六 are refuted, so what can be
 confirmed extends only to the geometric skeleton, the sum conditions, and
-the refutation list. Confirming the seungjeokbeop text itself requires a
+the refutation list. The naejeokbeop calculation chain has reached Level 1 confirmation for the core chain via new OCR, but confirming the naejeokbeop text itself (placement-order instructions and the tail segment) requires a
 clearer edition of the commentary — a concrete instance of the problems in
 §10 and §12.
 

@@ -164,20 +164,10 @@ patterns (penalty 3.0+3.0) are the mathematical optimum.
    narrowed down to two: the 得五百·五百六 tail and the order directive of
    the 序左 fragment.
 
-## 6. Differences from earlier documents (what this document updates)
+## 6. Open Items
 
-- The "二百五十二倍之得五百○ (252×2=504) confirmed" notation in the
-  conclusion of output/hypotheses.json and in the §3 table of
-  output/reverse_engineering.md rests on the earlier judgment that took ○ as
-  an illegible character. Following the new OCR judgment (○ = a
-  sentence-initial/terminal mark), the source figure is updated to **得五百
-  (500)**, read with a break. 504 is not a source figure, and 得五百 is
-  reclassified as Tier 3 (generatable but isolated).
-- README.md's verdict that "confirming the body of the naejeokbeop requires
-  a clearer edition" has been partially resolved: with the new OCR, the
-  main-body chain (§2) has reached Tier-1 confirmation. The items that still
-  require a clearer edition are narrowed down to the 五百 tail and the 序左
-  order directive.
+* **The 得五百 Tail and the 序左 Order Directive**: The core calculation chain (§2) has reached Tier 1 confirmation, but resolving the isolation of the tail figure (得五百) and specifying the interpretation of the 序左 order directive still requires a clearer edition of the commentary.
+* **Archive of the Old Assessment (the 504 Theory)**: Detailed records of the historical 252 × 2 = 504 theory and the illegible ○ hypothesis are preserved in [archive_old_assessment.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/archive_old_assessment.md).
 
 ## 7. Reproduction
 

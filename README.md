@@ -316,7 +316,7 @@ them against the faint commentary. Verdict: the geometric skeleton and all sum
 conditions are confirmed against the commentary, but the placement algorithm
 itself cannot be confirmed from the current evidence — optima are plentiful
 (0/270 cell agreement across seeds) and carry no constructive trace, so
-confirming the seungjeokbeop text requires a clearer edition. Verifying a
+the naejeokbeop calculation chain has reached Level 1 confirmation for the core chain via new OCR, but confirming the placement-order instructions (序左) and the tail segment (得五百) requires a clearer edition. Verifying a
 supplied placement is P. Finding a placement for an arbitrary-radius lattice
 with complementary-pair, ring, side, sector, and ray constraints has no complete
 hardness reduction in this repository. The supplied placement is directly
@@ -588,4 +588,4 @@ Tortoise Problem, and open questions about 18th-century solution methods.
 7. **Uniqueness of Gichaek-yongpaldo**: is the placement with the 50/50 shared–unique split unique up to symmetry?
 8. **Fully symmetric Jungui-yongyukdo**: does a placement exist in which all four groups decompose into complement pairs summing to 17 (MILP-decidable)?
 9. **The 演積 1148 of Jungsang-yonggudo**: which accounting yields the source figure, or is it transcription damage?
-10. **The Nakseo Yukgodo placement-order rule**: can the seungjeokbeop order rule (寄左/序左) ever be recovered from a clearer edition, given that sum-condition optima are plentiful and carry no constructive trace?
+10. **The Nakseo Yukgodo placement-order rule**: can the naejeokbeop order rule (寄左/序左) ever be recovered from a clearer edition, given that sum-condition optima are plentiful and carry no constructive trace?

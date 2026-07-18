@@ -289,10 +289,10 @@ def annotation_crosscheck(analysis: dict) -> list[dict]:
             ),
         },
         {
-            "fragment": "二百五十二倍之得五百○",
-            "reading": "252 × 2 = 504",
-            "status": "confirmed (cell-count arithmetic)",
-            "evidence": "252 = 271 − 19 (excluding 中觚), 504 = 2×252",
+            "fragment": "得五百(500), 五百六(506)",
+            "reading": "500 and 506 values",
+            "status": "suspended (Tier 3)",
+            "evidence": "isolated from the calculation chain, cannot be uniquely determined due to multiple 2-op generation formulas (see NAEJEOK_ASSESSMENT.md)",
         },
         {
             "fragment": "寄左 / 序左",
@@ -434,7 +434,7 @@ def write_reverse_markdown(analysis: dict, path: str) -> None:
         "",
         "### What remains unconfirmed",
         "",
-        "- The procedure that assigns values to cells (the body of the seungjeokbeop).",
+        "- The procedure that assigns values to cells (the body of the naejeokbeop).",
         "  Since the overlap between reconstructed optima is 0/270, the sum",
         "  conditions alone cannot identify the original placement, and no order",
         "  rule can be recovered from these specimens.",

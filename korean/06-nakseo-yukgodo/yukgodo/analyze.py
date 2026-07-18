@@ -145,7 +145,7 @@ def write_markdown(analysis: dict, report: PropertyReport,
     lines.append("")
     lines.append("## 7. 해석 노트\n")
     lines.append("- 이 배치는 虛一·대점 보수쌍(합 271) 가설을 전제로 한 **탐색 최적해**이며,")
-    lines.append("  주석의 승적법 절차를 그대로 따라한 것이 아니라 주석의 수치 조건을")
+    lines.append("  주석의 내적법 절차를 그대로 따라한 것이 아니라 주석의 수치 조건을")
     lines.append("  만족하는 배치를 역산한 것이다.")
     lines.append("- 고리 합 813k, 축 합 2439, 대점쌍 271은 가설의 구조적 귀결이라 탐색 없이도 성립한다.")
     lines.append("- 변 1355, 섹터 6097/6098, 광선 1219/1220 균형은 탐색으로만 얻는 목표다.")

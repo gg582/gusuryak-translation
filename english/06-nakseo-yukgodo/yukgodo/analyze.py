@@ -147,7 +147,7 @@ def write_markdown(analysis: dict, report: PropertyReport,
     lines.append("## 7. Interpretation notes\n")
     lines.append("- This placement is a **search optimum** under the 虛一 + antipodal")
     lines.append("  complementary-pair (sum 271) hypothesis; it does not replay the commentary's")
-    lines.append("  seungjeokbeop procedure but reverse-engineers a placement satisfying its numeric conditions.")
+    lines.append("  naejeokbeop procedure but reverse-engineers a placement satisfying its numeric conditions.")
     lines.append("- Ring sums 813k, axis sums 2439, and pair sums 271 are structural consequences of the")
     lines.append("  hypothesis; side 1355, sector 6097/6098, and ray 1219/1220 balances are search-only goals.")
     lines.append("")
