@@ -51,6 +51,9 @@ python3 tests/test_hexgrid.py     # 기하 불변량 테스트
 python3 main.py                   # 탐색 → 도안 → 성질 분석 (output/)
 python3 main.py --render-only     # 저장된 해로 그림·리포트만 재생성
 python3 -m yukgodo.reverse        # 최종 도안의 생성 규칙 역산 → 주석 대조
+python3 -m yukgodo.naejeok        # 來積法 판독 수치의 계산 그래프 전수조사
+python3 -m yukgodo.mod5           # mod 5 잔여류 채색 + 5층 기하 관계 전수조사
+python3 -m yukgodo.modn_generalization  # mod N 대점 잔여류 작용 — 교차 도안 검증
 ```
 
 ## 프로젝트 구조
@@ -63,11 +66,14 @@ yukgodo/
 ├── visualize.py    # 도안(PNG/SVG) 및 대시보드 렌더링
 ├── analyze.py      # 성질 분석 리포트 (JSON/Markdown)
 ├── hypotheses.py   # 添六 건설 가설 생성·검증 (모형 A/B/C 판정)
-└── reverse.py      # 최종 도안의 생성 규칙 역산 + 주석 대조
+├── reverse.py      # 최종 도안의 생성 규칙 역산 + 주석 대조
+├── naejeok.py      # 來積法 판독 수치의 계산 그래프 전수조사
+├── mod5.py         # mod 5 잔여류 채색 + 5층 기하 관계 전수조사 (D6, networkx)
+└── modn_generalization.py  # mod N 대점 잔여류 작용 정리 — ../ 다른 도안 교차 검증
 main.py             # 파이프라인 엔트리포인트
 tests/test_hexgrid.py
 output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, report.md,
-                    # siamese_report.md, reverse_engineering.md 등
+                    # siamese_report.md, reverse_engineering.md, mod5_*.png/.json/.md 등
 ```
 
 ## 탐색 결과 (output/ 기준)
@@ -141,3 +147,45 @@ python3 -m yukgodo.reverse    # 역산 → output/reverse_engineering.{json,md}
    있지 않으므로, 합 조건만으로는 원래 배치와 그 배치 순서 규칙을 복구할 수 없다.
 3. 따라서 확정 가능한 범위는 기하 골격과 합 조건, 그리고 "添六의 값 규칙 독해는
    성립하지 않는다"는 반증까지다. 내적법 본문의 확정에는 더 선명한 판본이 필요하다.
+
+## mod 5 채색과 mod N 파생 정리 (`output/mod5_report.md`)
+
+mod 5 잔여류 채색은 구수략 분석 전반에서 반복 사용된 기법이다
+(02의 오자각득 `mod5_residue_diagram.py`, 01의 하도사오도 5-컬러링 문서).
+이 프로젝트에서는 `yukgodo/mod5.py`가 최적해를 잔여류별 5개 층(각 54칸)으로
+분리해 D6 대칭 12원소 × 전 층쌍을 전수조사한다.
+
+**발견**: 잔여 2↔4, 1↔0 층이 회전180°(점대칭)로 54/54 완전 합동이고,
+잔여 3 층은 자기대칭이다. 그 외의 대칭은 없다(다른 쌍 최대 겹침 13~17/54).
+
+**파생 정리 (mod N 일반화)**: 위치 대합 π(π²=id) 아래 모든 쌍의 값 합이
+상수 S이면, 임의의 modulus m에 대해 π는 mod m 잔여류를 **r ↦ (S−r) mod m**
+으로 작용한다. 까닭은 4단계다:
+
+1. 쌍 조건 v+v′ = S를 mod m으로 내리면 셀마다 v′ ≡ S−v.
+2. 잔여류 위의 작용은 대합 r ↦ S−r 하나뿐 — 궤도는 길이 2 쌍 아니면 고정점
+   (2r ≡ S (mod m)의 해).
+3. π가 일대일이므로 π(층 r) ⊆ 층 (S−r)은 곧 집합 동치 — "완전 겹침"의 이유.
+4. 본 도안의 π는 중심 점대칭 = 회전180°이므로 층 합동이 격자 대칭 안에서 실현.
+
+**따름정리 (쌍 합의 패리티)**: S가 홀수이면 자기쌍 고정 셀이 존재할 수 없다 —
+본 도안의 S = 271(홀수)과 중심 虛一이 이에 정합한다. S가 짝수이면 고정 셀의
+값은 S/2로 강제된다 — 02의 九子角得 중궁 중심 23 = 46/2가 실례다.
+
+**교차 도안 검증** (`python3 -m yukgodo.modn_generalization`, modulus 2..9 전수):
+
+| 도안 (../ 형제 장) | 쌍 합 S | 위치 대합 π | 결과 |
+|---|---|---|---|
+| 06 洛書六觚圖 (본 최적해) | 271 | 중심 점대칭 (전역 회전180°) | mod 2..9 전부 정확 |
+| 02 九子角得 중궁 | 46 | 3×3 중심대칭 | 전부 정확, 자기쌍 23 = S/2 |
+| 07 重卦用八圖 가로진 | 65 | 행 내 좌우 반전 (국소) | 전부 정확 |
+| 07 侯策用九圖 | ≈73 (불완전) | formation 위치쌍 | 혼합 시 붕괴, 합 73인 16쌍만 추리면 정확 |
+
+侯策用九圖는 조건의 필요성을 보여준다: 쌍 합이 일정하지 않으면 작용이
+쌍별 실제 합으로 갈라진다. 즉 이 정리는 위치 대칭 보수쌍을 가지는 도안
+전반으로 일반화되며, mod 5 채색으로 하던 성분-쌍 검산의 임의 mod N 확장이다.
+
+**의의와 한계**: 이 성질은 대점쌍 가설을 만족하는 모든 해(시드 42 최적해
+포함)가 가지므로 원래 배치의 식별력은 없다. 그러나 더 선명한 판본의 실제
+도안이 이 대칭을 갖지 않는다면 대점 보수쌍 가설이 기각된다는 의미에서
+반증 도구다.
