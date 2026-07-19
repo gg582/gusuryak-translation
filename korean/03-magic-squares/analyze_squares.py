@@ -361,6 +361,14 @@ def describe_generation_rule(name, data, is_corrected):
         return (
             prefix + "10×10 수 배열. 1부터 100까지의 수를 정확히 한 번씩 사용하지만, 행·열·대각선 합이 모두 505인 마방진은 아니다."
         )
+    elif name == "백자도(百子圖)":
+        if is_corrected:
+            return (
+                prefix + "10×10 수 배열(준마방진) 교정본. 송나라 수학자 양휘의 백자도 원본에서 코너 부분의 필사 오사(5행~8행의 양쪽 끝 8개 셀)로 인해 행 합과 열 합이 어긋났던 부분을 바로잡아, 모든 가로와 세로의 합이 마방진 상수 505를 정확하게 만족하는 원래의 정합적인 준마방진(Semi-magic) 구조와 십의 자리 대칭 패턴을 복원한 버전입니다."
+            )
+        return (
+            prefix + "10×10 수 배열. 1부터 100까지의 수를 한 번씩 정확하게 사용하지만, 필사 과정의 코너 영역 오사로 인해 일부 행/열의 합이 어긋나 정상적인 준마방진을 만족하지 못한다."
+        )
     return ""
 
 
@@ -373,6 +381,7 @@ def main():
         "백자생성순수도(百子生成純數圖)": "04-baekjasaengseong-sunsu",
         "백자생성교수도(百子生成交數圖)": "05-baekjasaengseong-gyosu",
         "백자음양자모착종도(百子陰陽子母錯綜圖)": "06-baekjayin-yang-jamo-chakjong",
+        "백자도(百子圖)": "07-baekjado",
     }
 
     summary_lines = ["# 방진 분석 요약\n"]

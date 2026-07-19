@@ -74,13 +74,37 @@ M06_corr[4, 2] = 42
 M06_corr[4, 7] = 59
 M06_corr[5, 2] = 32
 
+# M07_orig (양휘 백자도 원본)
+M07_orig = np.array([
+    [1, 20, 21, 40, 41, 60, 61, 80, 81, 100],
+    [99, 82, 79, 62, 59, 42, 39, 22, 19, 2],
+    [3, 18, 23, 38, 43, 58, 63, 78, 83, 98],
+    [97, 84, 77, 64, 57, 44, 37, 24, 17, 4],
+    [5, 86, 75, 66, 55, 46, 35, 26, 15, 96],
+    [95, 16, 25, 36, 45, 56, 65, 76, 85, 6],
+    [14, 7, 34, 27, 54, 47, 74, 67, 94, 87],
+    [88, 93, 68, 73, 48, 53, 28, 33, 8, 13],
+    [12, 9, 32, 29, 52, 49, 72, 69, 92, 89],
+    [91, 90, 71, 70, 51, 50, 31, 30, 11, 10]
+])
+
+M07_corr = M07_orig.copy()
+# 8-cell 교정 (원본 필사 코너 셀 교정)
+M07_corr[4, 0] = 96
+M07_corr[4, 9] = 5
+M07_corr[5, 0] = 6
+M07_corr[5, 9] = 95
+M07_corr[6, 0] = 87
+M07_corr[6, 9] = 14
+M07_corr[7, 0] = 13
+M07_corr[7, 9] = 88
+
 def verify_relations():
     """방진들의 수학적 성질 및 점대칭성 검증"""
     print("=== 방진 수학적 검증 ===")
     
     # 1. 백자생성순수도(M04) 검증
     m04 = np.array(M04_corr)
-    # 점대칭 검증
     is_m04_symmetric = True
     for i in range(10):
         for j in range(10):
@@ -108,17 +132,26 @@ def verify_relations():
     print(f"M06 행 합: {m06.sum(axis=1)}")
     print(f"M06 열 합: {m06.sum(axis=0)}")
 
+    # 4. 백자도(M07) 검증
+    m07 = np.array(M07_corr)
+    is_m07_semi = np.all(m07.sum(axis=1) == 505) and np.all(m07.sum(axis=0) == 505)
+    print(f"M07 가로/세로 합 505(준마방진) 충족 여부: {is_m07_semi}")
+    print(f"M07 행 합: {m07.sum(axis=1)}")
+    print(f"M07 열 합: {m07.sum(axis=0)}")
+
 def visualize_squares(output_dir):
     """방진들을 시각화하여 히트맵으로 저장"""
     os.makedirs(output_dir, exist_ok=True)
     m04 = np.array(M04_corr)
     m05 = np.array(M05_corr)
     m06 = np.array(M06_corr)
+    m07 = np.array(M07_corr)
     
     squares = [
         (m04, "M04: Pure Square (Baekjasaengseong-sunsu)", "m04_pure.png"),
         (m05, "M05: Cross Square (Baekjasaengseong-gyosu)", "m05_cross.png"),
-        (m06, "M06: Mother Square (Baekjayin-yang-jamo-chakjong)", "m06_mother.png")
+        (m06, "M06: Mother Square (Baekjayin-yang-jamo-chakjong)", "m06_mother.png"),
+        (m07, "M07: Yang Hui Baekjado (Baekjado)", "m07_baekjado.png")
     ]
     
     for matrix, title, filename in squares:
