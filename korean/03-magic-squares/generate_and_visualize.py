@@ -101,10 +101,9 @@ def matrix_to_markdown(m, title):
 
 
 def generate_corrected_10x10():
-    """서로 다른 4개의 10×10 정상 마방진 교정본 생성."""
+    """서로 다른 3개의 10×10 정상 마방진 교정본 생성."""
     base = ms.magic(10)
     corrected = {
-        "백자자수음양착종도_교정본": base.copy(),
         "백자생성순수도_교정본": np.rot90(base, 1).copy(),
         "백자생성교수도_교정본": np.fliplr(base).copy(),
         "백자음양자모착종도_교정본": np.flipud(base).copy(),
@@ -144,7 +143,6 @@ def main():
 
     # 교정본 corrected.md 저장
     folder_map = {
-        "백자자수음양착종도_교정본": "03-baekjajasuyin-yang-chakjong",
         "백자생성순수도_교정본": "04-baekjasaengseong-sunsu",
         "백자생성교수도_교정본": "05-baekjasaengseong-gyosu",
         "백자음양자모착종도_교정본": "06-baekjayin-yang-jamo-chakjong",
