@@ -3,9 +3,9 @@
 """
 Per-cluster rotation analysis for Nakseo Chilgudo (洛書七九圖).
 
-Analyzes both the corrupted data in visualize_basic.py and the corrected
-partition from chiljagakdeuk.md.  Each palace is treated as a 7-cycle
-(center + six surrounding slots, clockwise from 12 o'clock).
+Analyzes the rule-based reconstruction from chiljagakdeuk.md. Each palace is
+treated as a 7-cycle: center + six surrounding slots clockwise from 12
+o'clock.
 """
 
 import os
@@ -35,28 +35,28 @@ from rotation_analysis import (
     find_global_rotation_symmetries,
 )
 
-CORRUPTED_GROUPS = [
+RECONSTRUCTED_GROUPS = [
     {"center": 4, "surround": [31, 43, 22, 60, 27, 37], "pos": (1, 3)},
-    {"center": 9, "surround": [15, 43, 38, 55, 10, 54], "pos": (2, 3)},
+    {"center": 9, "surround": [15, 45, 36, 55, 10, 54], "pos": (2, 3)},
     {"center": 2, "surround": [28, 29, 39, 62, 17, 47], "pos": (3, 3)},
     {"center": 3, "surround": [30, 40, 26, 61, 16, 48], "pos": (1, 2)},
     {"center": 5, "surround": [32, 41, 23, 59, 14, 50], "pos": (2, 2)},
     {"center": 7, "surround": [34, 38, 24, 57, 20, 44], "pos": (3, 2)},
     {"center": 8, "surround": [35, 49, 12, 56, 11, 53], "pos": (1, 1)},
     {"center": 1, "surround": [52, 25, 19, 63, 18, 46], "pos": (2, 1)},
-    {"center": 6, "surround": [33, 42, 21, 36, 13, 23], "pos": (3, 1)},
+    {"center": 6, "surround": [33, 42, 21, 58, 13, 51], "pos": (3, 1)},
 ]
 
-CORRECTED_PALACES = {
-    "Upper-left (4)": [4, 22, 27, 31, 37, 43, 60],
-    "Upper-center (9)": [9, 10, 15, 36, 45, 54, 55],
-    "Upper-right (2)": [2, 17, 28, 29, 39, 47, 62],
-    "Middle-left (3)": [3, 16, 26, 30, 40, 48, 61],
-    "Center (5)": [5, 14, 23, 32, 41, 50, 59],
-    "Middle-right (7)": [7, 20, 24, 34, 38, 44, 57],
-    "Lower-left (8)": [8, 11, 12, 35, 49, 53, 56],
-    "Lower-center (1)": [1, 18, 19, 25, 46, 52, 63],
-    "Lower-right (6)": [6, 13, 21, 33, 42, 51, 58],
+RECONSTRUCTED_PALACES = {
+    "Upper-left (4)": [4, 31, 43, 22, 60, 27, 37],
+    "Upper-center (9)": [9, 15, 45, 36, 55, 10, 54],
+    "Upper-right (2)": [2, 28, 29, 39, 62, 17, 47],
+    "Middle-left (3)": [3, 30, 40, 26, 61, 16, 48],
+    "Center (5)": [5, 32, 41, 23, 59, 14, 50],
+    "Middle-right (7)": [7, 34, 38, 24, 57, 20, 44],
+    "Lower-left (8)": [8, 35, 49, 12, 56, 11, 53],
+    "Lower-center (1)": [1, 52, 25, 19, 63, 18, 46],
+    "Lower-right (6)": [6, 33, 42, 21, 58, 13, 51],
 }
 
 PALACE_CENTERS_CORRECTED = {
@@ -147,25 +147,25 @@ def main() -> None:
     plt.rcParams["font.family"] = "sans-serif"
     plt.rcParams["axes.unicode_minus"] = False
 
-    centers_corrupted = {f"center {g['center']}": g["pos"] for g in CORRUPTED_GROUPS}
+    centers_reconstructed = {f"center {g['center']}": g["pos"] for g in RECONSTRUCTED_GROUPS}
     analyses_corr, syms_corr = analyze_dataset(
-        CORRUPTED_GROUPS,
-        "Nakseo Chilgudo (corrupted data)",
-        "rotation_corrupted",
-        centers_corrupted,
+        RECONSTRUCTED_GROUPS,
+        "Nakseo Chilgudo (rule-based reconstruction)",
+        "rotation_reconstructed",
+        centers_reconstructed,
     )
 
     analyses_fix, syms_fix = analyze_dataset(
-        CORRECTED_PALACES,
-        "Nakseo Chilgudo (corrected partition)",
+        RECONSTRUCTED_PALACES,
+        "Nakseo Chilgudo (rule-based reconstruction by palace)",
         "rotation_corrected",
         PALACE_CENTERS_CORRECTED,
     )
 
     report = (
-        format_section("Nakseo Chilgudo — corrupted data", analyses_corr, syms_corr)
+        format_section("Nakseo Chilgudo — rule-based reconstruction", analyses_corr, syms_corr)
         + "\n"
-        + format_section("Nakseo Chilgudo — corrected partition", analyses_fix, syms_fix)
+        + format_section("Nakseo Chilgudo — rule-based reconstruction by palace", analyses_fix, syms_fix)
     )
 
     report_path = OUTPUT_DIR / "rotation_report.txt"

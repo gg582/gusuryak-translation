@@ -179,24 +179,24 @@ Key facts:
 - Five residue classes (Water, Fire, Wood, Metal, Earth) with sums `34, 38, 42, 46, 50`.
 - Nakseo Sagudo is a 20-node bipartite graph with an outer Hamiltonian 20-cycle and an inner 4-cycle of sum 42.
 - Nakseo Ogudo places the numbers `1` through `33`, each used once, in nine plus-shaped palaces; every palace sums to `85`, and the repeated-count palace total is `765`.
-- Nakseo Chilgudo places the numbers `1` through `63` in nine palaces arranged on a 3×3 Luoshu grid; each palace has seven numbers and is intended to sum to `224` (7 × 32). The current data files contain transcription errors (duplicates `23, 38, 43` and omissions `45, 51, 58`); a corrected partition restoring all nine sums to `224` is given in the directory.
+- Nakseo Chilgudo places the numbers `1` through `63` in nine palaces arranged on a 3×3 Luoshu grid; each palace has seven numbers and is constrained by the source to sum to `224` (7 × 32). OCR-conflicted cells are reconstructed by the MILP solver in the directory.
 - Nakseo Palgudo places the numbers `1` through `80` in five 8×4 block structures, each palace/cluster summing to `164`.
 
 #### Nakseo Chilgudo in the two readings
 
-**Gakdeuk reading.** The diagram is a partition of the integers `1` through `63` into nine blocks of seven numbers, each summing to `224` (= 7 × 32, the average of 1..63). Unlike Sagudo and Ogudo, there is no overlap, so `make = use = 63` and the duplication weight `D = 0`. The current data are corrupted: the palace centered at `6` sums to `174`, while the other eight palaces already sum to `224`. A corrected partition preserving 50 of the 54 surrounding numbers is:
+**Gakdeuk reading.** The diagram is a partition of the integers `1` through `63` into nine blocks of seven numbers, each summing to `224` (= 7 × 32, the average of 1..63). Unlike Sagudo and Ogudo, there is no overlap, so `make = use = 63` and the duplication weight `D = 0`. The current OCR input conflicts with that source constraint in several cells; the MILP reconstruction is:
 
-| Palace (center) | Seven numbers | Sum |
+| Palace (center) | Seven numbers, center first then clockwise from 12 o'clock | Sum |
 |---|---|---:|
-| 4 | 4, 22, 27, 31, 37, 43, 60 | 224 |
-| 9 | 9, 10, 15, 36, 45, 54, 55 | 224 |
-| 2 | 2, 17, 28, 29, 39, 47, 62 | 224 |
-| 3 | 3, 16, 26, 30, 40, 48, 61 | 224 |
-| 5 | 5, 14, 23, 32, 41, 50, 59 | 224 |
-| 7 | 7, 20, 24, 34, 38, 44, 57 | 224 |
-| 8 | 8, 11, 12, 35, 49, 53, 56 | 224 |
-| 1 | 1, 18, 19, 25, 46, 52, 63 | 224 |
-| 6 | 6, 13, 21, 33, 42, 51, 58 | 224 |
+| 4 | 4, 31, 43, 22, 60, 27, 37 | 224 |
+| 9 | 9, 15, 45, 36, 55, 10, 54 | 224 |
+| 2 | 2, 28, 29, 39, 62, 17, 47 | 224 |
+| 3 | 3, 30, 40, 26, 61, 16, 48 | 224 |
+| 5 | 5, 32, 41, 23, 59, 14, 50 | 224 |
+| 7 | 7, 34, 38, 24, 57, 20, 44 | 224 |
+| 8 | 8, 35, 49, 12, 56, 11, 53 | 224 |
+| 1 | 1, 52, 25, 19, 63, 18, 46 | 224 |
+| 6 | 6, 33, 42, 21, 58, 13, 51 | 224 |
 
 **Saodo reading.** The nine centers form the classical 3×3 Luoshu magic square, giving the nine-palace (九宫) spatial skeleton. Each palace receives seven numbers, which can be read as seven stars / seven qi distributed over the nine palaces. When every palace sums to `224`, the 3×3 grid of palace sums is also magic: every row, column, and diagonal sums to `672`.
 

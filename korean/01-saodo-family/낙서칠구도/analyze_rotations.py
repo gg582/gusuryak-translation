@@ -3,9 +3,8 @@
 """
 낙서칠구도(洛書七九圖) 군별 회전 분석.
 
-visualize_basic.py에 정의된 손상된 데이터와 chiljagakdeuk.md의 교정된
-분할 두 가지를 모두 분석한다. 각 궁은 중심값 + 12시 방향부터 시계방향의
-6개 주변값으로 구성된 7-cycle로 본다.
+visualize_basic.py에 정의된 규칙 기반 재구성값을 분석한다. 각 궁은 중심값 +
+12시 방향부터 시계방향의 6개 주변값으로 구성된 7-cycle로 본다.
 """
 
 import os
@@ -35,30 +34,30 @@ from rotation_analysis import (
     find_global_rotation_symmetries,
 )
 
-# 손상된 원본 데이터 (visualize_basic.py)
-CORRUPTED_GROUPS = [
+# 규칙 기반 재구성 데이터 (visualize_basic.py)
+RECONSTRUCTED_GROUPS = [
     {"center": 4, "surround": [31, 43, 22, 60, 27, 37], "pos": (1, 3)},
-    {"center": 9, "surround": [15, 43, 38, 55, 10, 54], "pos": (2, 3)},
+    {"center": 9, "surround": [15, 45, 36, 55, 10, 54], "pos": (2, 3)},
     {"center": 2, "surround": [28, 29, 39, 62, 17, 47], "pos": (3, 3)},
     {"center": 3, "surround": [30, 40, 26, 61, 16, 48], "pos": (1, 2)},
     {"center": 5, "surround": [32, 41, 23, 59, 14, 50], "pos": (2, 2)},
     {"center": 7, "surround": [34, 38, 24, 57, 20, 44], "pos": (3, 2)},
     {"center": 8, "surround": [35, 49, 12, 56, 11, 53], "pos": (1, 1)},
     {"center": 1, "surround": [52, 25, 19, 63, 18, 46], "pos": (2, 1)},
-    {"center": 6, "surround": [33, 42, 21, 36, 13, 23], "pos": (3, 1)},
+    {"center": 6, "surround": [33, 42, 21, 58, 13, 51], "pos": (3, 1)},
 ]
 
-# chiljagakdeuk.md 의 교정된 9개 궁 (center: 7개 수)
-CORRECTED_PALACES = {
-    "upper_left": [4, 22, 27, 31, 37, 43, 60],
-    "upper_center": [9, 10, 15, 36, 45, 54, 55],
-    "upper_right": [2, 17, 28, 29, 39, 47, 62],
-    "middle_left": [3, 16, 26, 30, 40, 48, 61],
-    "center": [5, 14, 23, 32, 41, 50, 59],
-    "middle_right": [7, 20, 24, 34, 38, 44, 57],
-    "lower_left": [8, 11, 12, 35, 49, 53, 56],
-    "lower_center": [1, 18, 19, 25, 46, 52, 63],
-    "lower_right": [6, 13, 21, 33, 42, 51, 58],
+# chiljagakdeuk.md 의 재구성 9개 궁 (center: 7개 수)
+RECONSTRUCTED_PALACES = {
+    "upper_left": [4, 31, 43, 22, 60, 27, 37],
+    "upper_center": [9, 15, 45, 36, 55, 10, 54],
+    "upper_right": [2, 28, 29, 39, 62, 17, 47],
+    "middle_left": [3, 30, 40, 26, 61, 16, 48],
+    "center": [5, 32, 41, 23, 59, 14, 50],
+    "middle_right": [7, 34, 38, 24, 57, 20, 44],
+    "lower_left": [8, 35, 49, 12, 56, 11, 53],
+    "lower_center": [1, 52, 25, 19, 63, 18, 46],
+    "lower_right": [6, 33, 42, 21, 58, 13, 51],
 }
 
 PALACE_CENTERS_CORRECTED = {
@@ -169,25 +168,25 @@ def main() -> None:
     plt.rcParams["font.sans-serif"] = ["Noto Sans CJK KR", "Noto Sans CJK JP", "DejaVu Sans"]
     plt.rcParams["axes.unicode_minus"] = False
 
-    centers_corrupted = {f"center {g['center']}": g["pos"] for g in CORRUPTED_GROUPS}
+    centers_reconstructed = {f"center {g['center']}": g["pos"] for g in RECONSTRUCTED_GROUPS}
     analyses_corr, syms_corr = analyze_dataset(
-        CORRUPTED_GROUPS,
-        "Nakseo Chilgudo (corrupted data)",
-        "rotation_corrupted",
-        centers_corrupted,
+        RECONSTRUCTED_GROUPS,
+        "Nakseo Chilgudo (rule-based reconstruction)",
+        "rotation_reconstructed",
+        centers_reconstructed,
     )
 
     analyses_fix, syms_fix = analyze_dataset(
-        CORRECTED_PALACES,
-        "Nakseo Chilgudo (corrected partition)",
+        RECONSTRUCTED_PALACES,
+        "Nakseo Chilgudo (rule-based reconstruction by palace)",
         "rotation_corrected",
         PALACE_CENTERS_CORRECTED,
     )
 
     report = (
-        format_section("Nakseo Chilgudo — corrupted data", analyses_corr, syms_corr)
+        format_section("Nakseo Chilgudo — rule-based reconstruction", analyses_corr, syms_corr)
         + "\n"
-        + format_section("Nakseo Chilgudo — corrected partition", analyses_fix, syms_fix)
+        + format_section("Nakseo Chilgudo — rule-based reconstruction by palace", analyses_fix, syms_fix)
     )
 
     report_path = OUTPUT_DIR / "rotation_report.txt"

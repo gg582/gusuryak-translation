@@ -38,7 +38,7 @@ This reading views a diagram as a placement of numbers in which every subset has
 
 - **Sajagakdeuk (四子各得, "Four Each Gets")**: each of the nine palaces of Nakseo-sagudo receives four numbers summing to 42.
 - **Ojagakdeuk (五子各得, "Five Each Gets")**: each of the nine palaces of Nakseo-ogudo receives five numbers summing to 85.
-- **Chiljagakdeuk (七子各得, "Seven Each Gets")**: each of the nine palaces of Nakseo-chilgudo receives seven numbers summing to 224 (= 7 × 32). It partitions the numbers 1 through 63 without overlap.
+- **Chiljagakdeuk (七子各得, "Seven Each Gets")**: in Nakseo-chilgudo, each of the nine palaces receives one center number and six surrounding numbers. The current reference transcription is listed below; two surrounding slots remain uncertain.
 
 From a modern point of view this reading has the more advanced features. What it emphasizes is:
 
@@ -98,41 +98,33 @@ The gakdeuk reading supplies invariants; the saodo reading supplies cosmological
 
 ---
 
-## Nakseo Chilgudo (洛書七九圖) Interpretation Summary
+## Nakseo Chilgudo (洛書七九圖) Reconstruction Summary
 
-Nakseo Chilgudo is a **Chiljagakdeuk (七子各得)** structure in which seven numbers are placed in each of nine palaces.
+Nakseo Chilgudo is a nine-palace diagram. The source constraint is that each palace contains seven numbers summing to **224**. The table below gives the MILP reconstruction from OCR input; reconstructed cells are marked explicitly.
 
-### Gakdeuk reading
+| Palace | Center | Six surrounding numbers | Sum |
+|---|---:|---|---:|
+| Upper-left | 4 | 31, 43, **22**(OCR 12), 60, 27, 37 | 224 |
+| Upper-center | 9 | 15, 45, **36**(OCR unclear), 55, 10, 54 | 224 |
+| Upper-right | 2 | 28, 29, 39, 62, 17, 47 | 224 |
+| Middle-left | 3 | 30, 40, **26**(OCR 36), 61, 16, 48 | 224 |
+| Center | 5 | 32, 41, 23, 59, 14, 50 | 224 |
+| Middle-right | 7 | 34, **38**(OCR unclear), 24, 57, 20, 44 | 224 |
+| Lower-left | 8 | 35, 49, 12, **56**(OCR unclear), 11, 53 | 224 |
+| Lower-center | 1 | 52, 25, 19, 63, **18**(OCR 68), **46**(OCR 48) | 224 |
+| Lower-right | 6 | 33, 42, 21, 58, 13, **51**(OCR 23) | 224 |
 
-- Numbers used: partition of 1 through 63 without overlap.
-- Palace sum: **224** (= 7 × 32, the average of 1–63 is 32).
-- Total sum of nine palaces: **2016**.
-- An extension of the same pattern as Sajagakdeuk (42 = 4 × 10.5), Ojagakdeuk (85 = 5 × 17), and Yukjagakdeuk (63 = 6 × 10.5).
-- The current data contain transcription errors. Eight palaces satisfy 224, but the central palace 6 sums to **174**, with 23, 38, 43 duplicated and 45, 51, 58 missing.
+The solver is `english/01-saodo-family/nakseo-chilgudo/reconstruct_milp.py`. The Korean and English visualizations mark rule-reconstructed cells in gray and use language-specific footers.
 
-### Corrected Nine-Palace Placement
+The center numbers still form the 3x3 **Luoshu Jiugong** pattern:
 
-The following MILP-corrected arrangement keeps the original 50 surrounding numbers while using each of 1–63 exactly once and making every palace sum 224.
+```text
+4  9  2
+3  5  7
+8  1  6
+```
 
-| Palace (center) | Seven numbers | Sum |
-|---|---|---:|
-| 4 | 4, 22, 27, 31, 37, 43, 60 | 224 |
-| 9 | 9, 10, 15, 36, 45, 54, 55 | 224 |
-| 2 | 2, 17, 28, 29, 39, 47, 62 | 224 |
-| 3 | 3, 16, 26, 30, 40, 48, 61 | 224 |
-| 5 | 5, 14, 23, 32, 41, 50, 59 | 224 |
-| 7 | 7, 20, 24, 34, 38, 44, 57 | 224 |
-| 8 | 8, 11, 12, 35, 49, 53, 56 | 224 |
-| 1 | 1, 18, 19, 25, 46, 52, 63 | 224 |
-| 6 | 6, 13, 21, 33, 42, 51, 58 | 224 |
-
-Only four numbers are changed: in palace 9, 23 → 51 and 36 → 58; in palace 2, 43 → 36 and 38 → 45.
-
-### Saodo reading
-
-- The center numbers 1–9 form the 3×3 **Luoshu Jiugong** magic square.
-- The 9 palaces × 7 numbers = 63 numbers can be viewed as distributing seven *qi* (七氣) or the Big Dipper's seven stars within the nine-palace system.
-- When every palace sums to 224, the 3×3 palace grid itself acquires magic-square properties: each row, column, and diagonal sums to 672 (= 224 × 3).
+The reconstruction uses the integers 1 through 63 exactly once, so `make = use = 63` and the total is `224 × 9 = 2016`.
 
 ---
 
