@@ -1,5 +1,45 @@
 import matplotlib.pyplot as plt
+from matplotlib import font_manager
 import numpy as np
+
+
+def get_cjk_font(prefer_bold=False):
+    """Find a locally installed CJK font that can render Chinese characters."""
+    preferred_files = [
+        "NotoSansCJK-Bold.ttc" if prefer_bold else "NotoSansCJK-Regular.ttc",
+        "NotoSerifCJK-Bold.ttc" if prefer_bold else "NotoSerifCJK-Regular.ttc",
+        "DroidSansFallbackFull.ttf",
+        "NanumMyeongjoBold.ttf" if prefer_bold else "NanumMyeongjo.ttf",
+        "NanumGothicBold.ttf" if prefer_bold else "NanumGothic.ttf",
+    ]
+
+    system_fonts = font_manager.findSystemFonts(
+        fontpaths=None,
+        fontext="ttf",
+    ) + font_manager.findSystemFonts(
+        fontpaths=None,
+        fontext="otf",
+    )
+    system_fonts += [
+        path for path in font_manager.findSystemFonts()
+        if path.lower().endswith(".ttc")
+    ]
+
+    for preferred_file in preferred_files:
+        for font_path in system_fonts:
+            if font_path.endswith(preferred_file):
+                return font_manager.FontProperties(fname=font_path)
+
+    return None
+
+
+CJK_FONT = get_cjk_font()
+CJK_BOLD_FONT = get_cjk_font(prefer_bold=True) or CJK_FONT
+
+if CJK_FONT is not None:
+    font_manager.fontManager.addfont(CJK_FONT.get_file())
+    plt.rcParams["font.family"] = CJK_FONT.get_name()
+    plt.rcParams["axes.unicode_minus"] = False
 
 # 1. Define the arrangement on a 7x7 grid (row, col indices are 0..6).
 #    Empty cells are represented by None. The missing numbers (11, 15, 29)
@@ -70,7 +110,8 @@ def draw_ojungto():
 
     # Add title
     plt.title("O-pal-jeong-jeon-do (五八井田圖) Restoration Design",
-              fontsize=16, fontweight='bold', pad=20)
+              fontsize=16, fontweight='bold', pad=20,
+              fontproperties=CJK_BOLD_FONT)
 
     ax.set_xlim(0, 7)
     ax.set_ylim(0, 7)
