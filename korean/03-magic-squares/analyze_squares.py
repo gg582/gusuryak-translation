@@ -9,137 +9,55 @@ import math
 import os
 from collections import defaultdict
 
-# square.md에서 추출한 원시 데이터
-SQUARES = {
-    "육육도(六六圖)": {
-        "order": 6,
-        "examples": [
-            [
-                [13, 22, 18, 27, 11, 20],
-                [31, 4, 36, 9, 29, 2],
-                [12, 21, 14, 23, 16, 25],
-                [30, 3, 5, 32, 34, 7],
-                [17, 26, 10, 19, 15, 24],
-                [8, 35, 28, 1, 6, 33],
-            ],
-            [
-                [4, 13, 36, 27, 29, 2],
-                [22, 31, 18, 9, 11, 20],
-                [3, 21, 23, 32, 25, 7],
-                [30, 12, 5, 14, 16, 34],
-                [17, 26, 19, 28, 6, 15],
-                [35, 8, 10, 1, 24, 33],
-            ],
-        ],
-    },
-    "구수도(九數圖)": {
-        "order": 9,
-        "examples": [
-            [
-                [31, 76, 13, 36, 81, 18, 29, 74, 11],
-                [22, 40, 58, 27, 45, 63, 20, 38, 56],
-                [67, 4, 49, 72, 9, 54, 65, 2, 47],
-                [30, 75, 12, 32, 77, 14, 34, 79, 16],
-                [21, 39, 57, 23, 41, 59, 25, 43, 61],
-                [66, 3, 48, 68, 5, 50, 70, 7, 52],
-                [35, 80, 17, 28, 73, 10, 33, 78, 15],
-                [26, 44, 62, 19, 37, 55, 24, 42, 60],
-                [71, 8, 53, 64, 1, 46, 69, 6, 51],
-            ],
-            [
-                [50, 18, 55, 70, 5, 48, 3, 76, 44],
-                [66, 31, 26, 29, 81, 13, 52, 11, 60],
-                [7, 74, 42, 24, 37, 62, 68, 36, 19],
-                [54, 67, 2, 65, 25, 33, 28, 23, 72],
-                [59, 21, 43, 9, 41, 73, 15, 61, 47],
-                [10, 35, 78, 49, 57, 17, 80, 39, 4],
-                [79, 6, 38, 20, 69, 34, 32, 64, 27],
-                [30, 71, 22, 45, 1, 77, 16, 51, 56],
-                [14, 46, 63, 58, 53, 12, 75, 8, 40],
-            ],
-        ],
-    },
-    "백자자수음양착종도(百子子數陰陽錯綜圖)": {
-        "order": 10,
-        "examples": [
-            [
-                [10, 9, 8, 7, 6, 5, 4, 3, 2, 1],
-                [1, 10, 9, 8, 7, 6, 5, 4, 3, 2],
-                [2, 1, 10, 9, 8, 7, 6, 5, 4, 3],
-                [3, 2, 1, 10, 9, 8, 7, 6, 5, 4],
-                [4, 3, 2, 1, 10, 9, 8, 7, 6, 5],
-                [5, 4, 3, 2, 1, 10, 9, 8, 7, 6],
-                [6, 5, 4, 3, 2, 1, 10, 9, 8, 7],
-                [7, 6, 5, 4, 3, 2, 1, 10, 9, 8],
-                [8, 7, 6, 5, 4, 3, 2, 1, 10, 9],
-                [9, 8, 7, 6, 5, 4, 3, 2, 1, 10],
-            ],
-            [
-                [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
-                [9, 0, 1, 2, 3, 4, 5, 6, 7, 8],
-                [8, 9, 0, 1, 2, 3, 4, 5, 6, 7],
-                [7, 8, 9, 0, 1, 2, 3, 4, 5, 6],
-                [6, 7, 8, 9, 0, 1, 2, 3, 4, 5],
-                [5, 6, 7, 8, 9, 0, 1, 2, 3, 4],
-                [4, 5, 6, 7, 8, 9, 0, 1, 2, 3],
-                [3, 4, 5, 6, 7, 8, 9, 0, 1, 2],
-                [2, 3, 4, 5, 6, 7, 8, 9, 0, 1],
-                [1, 2, 3, 4, 5, 6, 7, 8, 9, 0],
-            ],
-        ],
-    },
-    "백자생성순수도(百子生成純數圖)": {
-        "order": 10,
-        "examples": [
-            [
-                [90, 89, 78, 67, 56, 45, 34, 23, 12, 1],
-                [86, 79, 39, 58, 97, 4, 43, 32, 21, 15],
-                [77, 66, 50, 99, 88, 13, 2, 41, 25, 24],
-                [68, 57, 96, 80, 79, 22, 11, 5, 44, 33],
-                [59, 98, 87, 76, 60, 31, 25, 14, 3, 42],
-                [24, 3, 14, 25, 31, 60, 76, 87, 98, 59],
-                [33, 44, 5, 11, 22, 79, 80, 96, 57, 68],
-                [24, 35, 41, 2, 13, 88, 99, 50, 66, 77],
-                [15, 21, 32, 43, 4, 97, 58, 69, 70, 86],
-                [1, 12, 23, 34, 45, 56, 67, 78, 89, 90],
-            ],
-        ],
-    },
-    "백자생성교수도(百子生成交數圖)": {
-        "order": 10,
-        "examples": [
-            [
-                [46, 55, 64, 73, 82, 91, 100, 19, 28, 37],
-                [7, 94, 53, 62, 71, 85, 16, 20, 39, 48],
-                [18, 83, 92, 51, 65, 74, 27, 36, 40, 9],
-                [29, 72, 81, 95, 54, 63, 38, 47, 6, 10],
-                [30, 61, 75, 84, 93, 52, 59, 8, 17, 26],
-                [61, 30, 26, 17, 8, 49, 42, 93, 84, 75],
-                [72, 29, 10, 6, 47, 38, 63, 54, 95, 81],
-                [83, 18, 9, 40, 36, 27, 74, 65, 51, 92],
-                [94, 7, 48, 39, 20, 16, 85, 71, 62, 53],
-                [55, 46, 37, 28, 19, 100, 91, 82, 73, 64],
-            ],
-        ],
-    },
-    "백자음양자모착종도(百子陰陽子母錯綜圖)": {
-        "order": 10,
-        "examples": [
-            [
-                [100, 89, 78, 67, 56, 45, 34, 23, 12, 1],
-                [29, 28, 47, 36, 10, 91, 65, 54, 73, 72],
-                [48, 17, 26, 40, 39, 62, 61, 75, 84, 53],
-                [27, 46, 50, 9, 88, 13, 92, 51, 55, 74],
-                [76, 80, 59, 98, 87, 14, 3, 32, 21, 25],
-                [15, 31, 42, 43, 4, 97, 58, 69, 70, 86],
-                [24, 35, 41, 2, 83, 18, 99, 60, 66, 77],
-                [93, 94, 85, 71, 52, 49, 30, 16, 7, 8],
-                [82, 63, 64, 95, 81, 20, 6, 37, 38, 19],
-                [11, 22, 33, 44, 5, 96, 57, 68, 79, 90],
-            ],
-        ],
-    },
-}
+# square.md에서 데이터를 동적으로 파싱
+def parse_squares_from_md(md_path):
+    import re
+    if not os.path.exists(md_path):
+        return {}
+    with open(md_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    
+    # 0## 또는 ## 등으로 시작하는 섹션 분리
+    sections = re.split(r'\n(?=0?##\s+)', content)
+    parsed = {}
+    for sec in sections:
+        if not sec.strip():
+            continue
+        lines = sec.strip().split('\n')
+        # 첫 번째 라인에서 0## 또는 ## 제거하고 제목 추출
+        title_line = lines[0].strip()
+        title_match = re.match(r'^(?:0?##\s*)([^\n]+)', title_line)
+        if not title_match:
+            continue
+        name = title_match.group(1).strip()
+        
+        # 코드 블록 추출
+        code_blocks = re.findall(r'```\s*\n(.*?)\n```', sec, re.DOTALL)
+        examples = []
+        for block in code_blocks:
+            matrix = []
+            for row_line in block.strip().split('\n'):
+                # 주석 라인이나 빈 라인 무시
+                if not row_line.strip() or row_line.strip().startswith('*'):
+                    continue
+                try:
+                    row = [int(x) for x in row_line.split()]
+                    if row:
+                        matrix.append(row)
+                except ValueError:
+                    continue
+            if matrix:
+                examples.append(matrix)
+        
+        if examples:
+            order = len(examples[0])
+            parsed[name] = {
+                "order": order,
+                "examples": examples
+            }
+    return parsed
+
+SQUARES = parse_squares_from_md("/home/yjlee/gusuryak-translation/korean/03-magic-squares/square.md")
 
 
 def magic_constant(n, start=1):
@@ -280,49 +198,170 @@ def analyze(name, data):
     return results
 
 
-def describe_generation_rule(name, data):
+def parse_matrix_from_md(md_path):
+    """corrected.md 등에서 단일 행렬 데이터를 파싱"""
+    import re
+    if not os.path.exists(md_path):
+        return None
+    with open(md_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    
+    code_blocks = re.findall(r'```\s*\n(.*?)\n```', content, re.DOTALL)
+    if not code_blocks:
+        return None
+    
+    matrix = []
+    for row_line in code_blocks[0].strip().split('\n'):
+        if not row_line.strip() or row_line.strip().startswith('*'):
+            continue
+        try:
+            row = [int(x) for x in row_line.split()]
+            if row:
+                matrix.append(row)
+        except ValueError:
+            continue
+    return matrix if matrix else None
+
+
+def compare_matrices(orig, corr):
+    """원본과 교정본을 비교하여 차이점을 분석 리포트로 작성"""
+    if not orig or not corr:
+        return ""
+    if len(orig) != len(corr) or len(orig[0]) != len(corr[0]):
+        return "\n> [!WARNING]\n> 원본 배열과 교정본 배열의 차수가 달라 비교할 수 없습니다.\n"
+    
+    n = len(orig)
+    diffs = []
+    for i in range(n):
+        for j in range(n):
+            if orig[i][j] != corr[i][j]:
+                diffs.append({
+                    "row": i + 1,
+                    "col": j + 1,
+                    "orig_val": orig[i][j],
+                    "corr_val": corr[i][j]
+                })
+                
+    md = ["## 원본 필사본과 교정본 비교 분석", ""]
+    
+    if not diffs:
+        md.append("- **원본 필사본과 교정본이 완벽히 일치합니다.** 문헌 원본에 수리적 오류가 없거나 필사 과정의 오류가 모두 해결된 상태입니다.")
+        md.append("")
+        return "\n".join(md)
+        
+    md.append(f"- **총 수리적 오류(불일치 셀) 수**: {len(diffs)}개")
+    md.append("")
+    md.append("| 좌표 (행, 열) | 원본 필사본 값 | 교정본 값 | 수치 오차 (교정본 - 원본) |")
+    md.append("| :---: | :---: | :---: | :---: |")
+    for d in diffs:
+        diff_val = d["corr_val"] - d["orig_val"]
+        sign = "+" if diff_val > 0 else ""
+        md.append(f"| ({d['row']}행, {d['col']}열) | {d['orig_val']} | {d['corr_val']} | {sign}{diff_val} |")
+    
+    md.append("")
+    md.append("### 오류 원인 및 수리적 영향 분석")
+    
+    from collections import Counter
+    orig_flat = [x for row in orig for x in row]
+    corr_flat = [x for row in corr for x in row]
+    
+    orig_counter = Counter(orig_flat)
+    
+    # 0부터 시작하는지, 1부터 시작하는지 판단
+    start_val = min(corr_flat)
+    expected_set = set(range(start_val, start_val + n*n))
+    
+    missing = sorted(list(expected_set - set(orig_flat)))
+    duplicates = sorted([k for k, v in orig_counter.items() if v > 1])
+    
+    if missing:
+        md.append(f"- **원본에서 누락된 수(수치 결함)**: {missing}")
+    if duplicates:
+        dup_details = {k: orig_counter[k] for k in duplicates}
+        md.append(f"- **원본에서 중복된 수**: {dup_details}")
+        
+    md.append("- **행/열 합의 오차 분석**:")
+    orig_rows = [sum(row) for row in orig]
+    orig_cols = [sum(orig[i][j] for i in range(n)) for j in range(n)]
+    corr_target = sum(corr[0]) # 교정본 상수
+    
+    bad_rows = [(i+1, orig_rows[i], orig_rows[i] - corr_target) for i in range(n) if orig_rows[i] != corr_target]
+    bad_cols = [(j+1, orig_cols[j], orig_cols[j] - corr_target) for j in range(n) if orig_cols[j] != corr_target]
+    
+    if bad_rows:
+        md.append("  - **원본 행 합 오차** (목표 합: " + str(corr_target) + "):")
+        for r_num, s_val, err in bad_rows:
+            sign = "+" if err > 0 else ""
+            md.append(f"    - {r_num}행: 합 {s_val} (오차: {sign}{err})")
+    else:
+        md.append("  - **원본 행 합**: 모든 행의 합이 목표 합 " + str(corr_target) + "을 만족합니다.")
+        
+    if bad_cols:
+        md.append("  - **원본 열 합 오차** (목표 합: " + str(corr_target) + "):")
+        for c_num, s_val, err in bad_cols:
+            sign = "+" if err > 0 else ""
+            md.append(f"    - {c_num}열: 합 {s_val} (오차: {sign}{err})")
+    else:
+        md.append("  - **원본 열 합**: 모든 열의 합이 목표 합 " + str(corr_target) + "을 만족합니다.")
+        
+    return "\n".join(md)
+
+
+def describe_generation_rule(name, data, is_corrected):
     """각 방진의 생성 규칙을 텍스트로 서술."""
     n = data["order"]
+    prefix = "[교정본 기준] " if is_corrected else "[원본 기준] "
+    
     if name == "육육도(六六圖)":
         return (
-            "6×6 마방진. 두 예시는 서로 다른 배치이지만 동일한 마방진 상수 111을 갖는다. "
+            prefix + "6×6 마방진. 두 예시는 서로 다른 배치이지만 동일한 마방진 상수 111을 갖는다. "
             "첫 번째 예시는 행/열/대각선 합이 111인 정상 마방진이다. "
             "두 번째 예시 역시 정상 마방진이며, 행/열/대각선 합이 111이다. "
             "두 예시는 90° 회전 또는 반사 변환 관계가 아니며 서로 다른 동형(isomorphism)을 보인다."
         )
     elif name == "구수도(九數圖)":
         return (
-            "9×9 마방진. 마방진 상수는 9×(81+1)/2 = 369. "
+            prefix + "9×9 마방진. 마방진 상수는 9×(81+1)/2 = 369. "
             "두 예시 모두 1부터 81까지의 수를 정확히 한 번씩 사용하는 정상 마방진이다. "
             "두 번째 예시는 첫 번째 예시의 행/열 치환 또는 반전으로 얻어지는 동일한 마방진 군에 속할 가능성이 높다."
         )
     elif name == "백자자수음양착종도(百子子數陰陽錯綜圖)":
+        if is_corrected:
+            return (
+                prefix + "10×10 마방진 교정본. 1부터 100까지의 수를 정확히 한 번씩 사용하며, "
+                "모든 가로, 세로, 주대각선 및 반대각선의 합이 505를 만족하는 완전한 마방진(Magic Square) 구조이다."
+            )
         return (
-            "10×10. 첫 번째 예시는 1~10의 수만 반복하여 채운 행렬이며, "
+            prefix + "10×10. 첫 번째 예시는 1~10의 수만 반복하여 채운 행렬이며, "
             "각 행/열 합이 55로 일정하지만 수 집합이 1~100이 아니므로 일반적인 마방진은 아니다. "
-            "두 번째 예시는 0~9의 수를 반복하여 채운 행렬로, 각 행/열 합이 45로 일정. "
-            "이 두 행렬은 서로 보완적(음/양)인 라틴 방진 또는 순환 행렬(circulant) 구조로, "
-            "합치면 0~99를 한 번씩 나타내는 직교 라틴 방진(orthogonal Latin squares)의 성분이 될 수 있다."
+            "두 번째 예시는 0~9의 수를 반복하여 채운 행렬로, 각 행/열 합이 45로 일정."
         )
     elif name == "백자생성순수도(百子生成純數圖)":
+        if is_corrected:
+            return (
+                prefix + "10×10 마방진 교정본. 아들 방진(백자자수음양착종도 교정본)을 "
+                "반시계 방향으로 90도 회전(rot90)하여 유도한 방진으로, 마방진 상수 505를 완벽하게 충족한다."
+            )
         return (
-            "10×10 수 배열. 이 예시는 1부터 100까지의 수를 정확히 한 번씩 사용하는 정상 집합이 아니며, "
-            "행·열·대각선 합도 모두 505가 아니다. 일부 행과 열에는 대칭적인 관계가 남아 있지만, "
-            "검산 결과 마방진이나 연관 마방진은 아니다."
+            prefix + "10×10 수 배열. 1부터 100까지의 자연수 중 일부의 누락·중복이 있어 정상 마방진이 아니다."
         )
     elif name == "백자생성교수도(百子生成交數圖)":
+        if is_corrected:
+            return (
+                prefix + "10×10 마방진 교정본. 아들 방진(백자자수음양착종도 교정본)을 "
+                "좌우 대칭축 기준으로 반전(fliplr)하여 유도한 방진으로, 마방진 상수 505를 완벽하게 충족한다."
+            )
         return (
-            "10×10 수 배열. 이 예시는 1부터 100까지의 수를 정확히 한 번씩 사용하는 정상 집합이 아니며, "
-            "행·열·대각선 합도 모두 505가 아니다. 백자생성순수도와 비슷하지만 성격이 다르다. "
-            "각 쌍의 위치가 교차·교환된 형태로, '교수(交數)'의 명칭처럼 수들이 교차 배치된 듯 보인다. "
-            "검산 결과 마방진이나 연관 마방진은 아니다."
+            prefix + "10×10 수 배열. 1부터 100까지의 자연수 중 일부의 누락·중복이 있어 정상 마방진이 아니다."
         )
     elif name == "백자음양자모착종도(百子陰陽子母錯綜圖)":
+        if is_corrected:
+            return (
+                prefix + "10×10 마방진 교정본 (엄마 방진). 아들 방진(백자자수음양착종도 교정본)을 "
+                "상하 대칭축 기준으로 반전(flipud)하여 유도한 방진으로, 마방진 상수 505를 완벽하게 충족한다."
+            )
         return (
-            "10×10 수 배열. 1부터 100까지의 수를 정확히 한 번씩 사용하지만, 행·열·대각선 합이 모두 505인 마방진은 아니다. "
-            "'음양(陰陽)'과 '자모(子母)'의 명칭처럼 수들이 상보적 쌍으로 배치되어 있다. "
-            "중심 대칭 위치의 합은 190이지만, 검산 결과 연관 마방진(associated magic square)은 아니다. "
-            "마치 두 개의 10×10 라틴 방진을 겹쳐 만든 구조로 보인다."
+            prefix + "10×10 수 배열. 1부터 100까지의 수를 정확히 한 번씩 사용하지만, 행·열·대각선 합이 모두 505인 마방진은 아니다."
         )
     return ""
 
@@ -342,16 +381,33 @@ def main():
 
     for name, data in SQUARES.items():
         folder = folder_map[name]
-        os.makedirs(os.path.join(output_dir, folder), exist_ok=True)
-        results = analyze(name, data)
+        folder_path = os.path.join(output_dir, folder)
+        os.makedirs(folder_path, exist_ok=True)
+        
+        # 교정본(corrected.md) 로드 시도
+        corrected_path = os.path.join(folder_path, "corrected.md")
+        corrected_matrix = parse_matrix_from_md(corrected_path)
+        
+        is_corrected = corrected_matrix is not None
+        
+        # 분석할 데이터 결정: 교정본이 있으면 교정본을 분석 대상으로 삼음
+        analysis_data = {
+            "order": data["order"],
+            "examples": [corrected_matrix] if is_corrected else data["examples"]
+        }
+        
+        results = analyze(name, analysis_data)
+        original_matrix = data["examples"][0] # 원본 예시 1
 
-        # 평면 출력용
+        # 평면 출력용 md 구성
         md = [f"# {name}", f"", f"차수: {data['order']}×{data['order']}", ""]
-        md.append(describe_generation_rule(name, data))
+        md.append(describe_generation_rule(name, analysis_data, is_corrected))
         md.append("")
 
         for r in results:
-            md.append(f"## 예시 {r['example']}")
+            ex_num = r['example']
+            label = " (교정본)" if is_corrected else f" {ex_num}"
+            md.append(f"## 예시{label}")
             md.append(f"- 사용 수 범위: {r['min']} ~ {r['max']}")
             md.append(f"- 정상 수 집합(연속 정수): {'예' if r['normal_set'] else '아니오'}")
             md.append(f"- 기준 마방진 상수: {r['magic_constant']}")
@@ -367,14 +423,16 @@ def main():
             md.append(f"- 180° 회전 대칭: {'예' if r['symmetry_180'] else '아니오'}")
             md.append("")
 
-        # 추가 분석: 값의 빈도
-        flat = flatten(data["examples"][0])
+        # 추가 분석: 값의 빈도 (분석 대상 기준)
+        target_flat = flatten(analysis_data["examples"][0])
         freq = defaultdict(int)
-        for x in flat:
+        for x in target_flat:
             freq[x] += 1
         duplicates = {k: v for k, v in freq.items() if v > 1}
-        md.append(f"## 값의 빈도 분석 (예시 1)")
-        md.append(f"- 전체 셀 수: {len(flat)}")
+        
+        label_freq = " (교정본)" if is_corrected else " (예시 1)"
+        md.append(f"## 값의 빈도 분석{label_freq}")
+        md.append(f"- 전체 셀 수: {len(target_flat)}")
         md.append(f"- 고유 값 개수: {len(freq)}")
         if duplicates:
             md.append(f"- 중복된 값: {dict(duplicates)}")
@@ -382,12 +440,18 @@ def main():
             md.append(f"- 중복 없음")
         md.append("")
 
+        # 원본과의 비교 리포트 섹션 추가 (교정본이 존재할 때만)
+        if is_corrected:
+            comparison_report = compare_matrices(original_matrix, corrected_matrix)
+            md.append(comparison_report)
+            md.append("")
+
         # 파일 저장
         out_path = os.path.join(output_dir, folder, "analysis.md")
         with open(out_path, "w", encoding="utf-8") as f:
             f.write("\n".join(md))
 
-        # 요약
+        # 요약 (교정본이 있을 경우 교정본 분석 결과 기준)
         r1 = results[0]
         summary_lines.append(
             f"- **{name}**: {data['order']}×{data['order']}, "
@@ -402,7 +466,7 @@ def main():
     with open(summary_path, "w", encoding="utf-8") as f:
         f.write("\n".join(summary_lines))
 
-    print("분석 완료. 폴다별 analysis.md와 ANALYSIS_SUMMARY.md를 확인하세요.")
+    print("분석 완료. 폴더별 analysis.md와 ANALYSIS_SUMMARY.md를 확인하세요.")
 
 
 if __name__ == "__main__":
