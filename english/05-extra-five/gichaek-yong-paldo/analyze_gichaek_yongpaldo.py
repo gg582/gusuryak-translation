@@ -21,13 +21,14 @@ import math
 import os
 from pathlib import Path
 
-import matplotlib
 import matplotlib.pyplot as plt
 import networkx as nx
 import numpy as np
 from matplotlib.patches import Circle, Polygon
 
-matplotlib.rcParams["axes.unicode_minus"] = False
+from cjk_font_config import configure_matplotlib_fonts
+
+configure_matplotlib_fonts()
 
 os.chdir(Path(__file__).parent)
 OUTPUT_DIR = Path(".")

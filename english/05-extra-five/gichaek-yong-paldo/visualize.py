@@ -3,18 +3,12 @@
 import math
 from pathlib import Path
 
-import matplotlib
 import matplotlib.pyplot as plt
-from matplotlib import font_manager
 from matplotlib.patches import Circle, Polygon
 
-# Use a font that can render the title. NanumGothic is widely available on
-# Linux systems; DejaVu Sans is a safe fallback for the English title.
-font_manager.fontManager.addfont(
-    "/usr/share/fonts/naver-nanum-gothic-fonts/NanumGothic.ttf"
-)
-matplotlib.rcParams["font.family"] = "NanumGothic"
-matplotlib.rcParams["axes.unicode_minus"] = False
+from cjk_font_config import configure_matplotlib_fonts
+
+configure_matplotlib_fonts()
 
 
 OUTPUT_DIR = Path(".")
@@ -379,7 +373,8 @@ def draw_diagram() -> None:
     print(f"Saved SVG: {SVG_PATH.resolve()}")
     print(f"Saved PDF: {PDF_PATH.resolve()}")
 
-    plt.show()
+    if plt.get_backend().lower() != "agg":
+        plt.show()
 
 
 if __name__ == "__main__":

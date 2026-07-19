@@ -299,8 +299,6 @@ def draw_direction_graph(save_path="figures/direction_graph.png"):
 
 if __name__ == "__main__":
     draw_base_layout("figures/base_layout.png")
-    # Also update the copy used by the first blog post.
-    draw_base_layout("../../first-post/assets/base_layout.png")
     draw_residue_distribution()
     draw_cluster_structure()
     draw_duplication_graph()

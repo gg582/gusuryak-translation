@@ -15,6 +15,8 @@ from pathlib import Path
 
 import matplotlib.pyplot as plt
 
+from cjk_font_config import configure_matplotlib_fonts
+
 
 def _find_project_root() -> Path:
     p = Path(__file__).resolve()
@@ -77,8 +79,7 @@ def build_positions():
 
 
 def main() -> None:
-    plt.rcParams["font.family"] = "sans-serif"
-    plt.rcParams["axes.unicode_minus"] = False
+    configure_matplotlib_fonts()
 
     centers, positions = build_positions()
 
