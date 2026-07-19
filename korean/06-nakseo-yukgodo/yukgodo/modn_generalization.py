@@ -28,7 +28,7 @@ MODULI = [2, 3, 4, 5, 6, 7, 8, 9]
 
 
 def _yukgodo_pairs() -> list[tuple[int, int]]:
-    """06 洛書六觚圖 최적해의 대점쌍 135개 (output/solution.json)."""
+    """06 洛書六觚圖 최적해의 대척쌍 135개 (output/solution.json)."""
     values = load_solution()
     grid = HexGrid()
     pairs = [(values[a], values[b]) for a, b in grid.slots]
@@ -59,7 +59,7 @@ HUCHAEK_PAIRS = [
 
 
 def action_matrix(pairs: list[tuple[int, int]], m: int) -> list[list[int]]:
-    """A[i][j] = 값 ≡ i 인 셀의 대점 값이 ≡ j 인 (무향) 쌍 수."""
+    """A[i][j] = 값 ≡ i 인 셀의 대척점 값이 ≡ j 인 (무향) 쌍 수."""
     A = [[0] * m for _ in range(m)]
     for v, w in pairs:
         A[v % m][w % m] += 1
@@ -120,7 +120,7 @@ def main() -> None:
 
     print("\n## 판정")
     print("  - 상수 쌍 합 S를 가지는 세 도안: 모든 modulus(2..9)에서")
-    print("    대점 잔여류 작용이 정확히 r ↦ S−r → 파생 정리 성립.")
+    print("    대척 잔여류 작용이 정확히 r ↦ S−r → 파생 정리 성립.")
     print("  - S = 271(홀수) → 자기쌍 불가 → 중심 虛一과 정합;")
     print("    S = 46(짝수) → 자기쌍 값 23 = S/2로 강제 (중궁 중심).")
     print("  - 侯策用九圖: 합이 섞여 있으면 패턴이 붕괴하고, 합 73인 쌍만")
