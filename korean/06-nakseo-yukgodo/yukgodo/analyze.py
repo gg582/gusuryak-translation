@@ -101,7 +101,7 @@ def write_markdown(analysis: dict, report: PropertyReport,
     lines.append("## 3. 기본 검증\n")
     lines.append(f"- 채워진 칸: {m['filled_cells']} (목표 270)")
     lines.append(f"- 전체 합: {m['total_sum']} (목표 {m['total_sum_target']})")
-    lines.append(f"- 대척쌍(합 271) 전부 성립: {analysis['pair_check']['all_pairs_sum_271']} "
+    lines.append(f"- 점대칭 쌍(합 271) 전부 성립: {analysis['pair_check']['all_pairs_sum_271']} "
                  f"({analysis['pair_check']['n_pairs']}쌍)")
     lines.append("")
     lines.append("## 4. 구조별 합\n")
@@ -144,10 +144,10 @@ def write_markdown(analysis: dict, report: PropertyReport,
     lines.append(f"- 인접 차분(시계, mod 270): {diffs}")
     lines.append("")
     lines.append("## 7. 해석 노트\n")
-    lines.append("- 이 배치는 虛一·대척 보수쌍(합 271) 가설을 전제로 한 **탐색 최적해**이며,")
+    lines.append("- 이 배치는 虛一·점대칭 보수 쌍(합 271) 가설을 전제로 한 **탐색 최적해**이며,")
     lines.append("  주석의 내적법 절차를 그대로 따라한 것이 아니라 주석의 수치 조건을")
     lines.append("  만족하는 배치를 역산한 것이다.")
-    lines.append("- 고리 합 813k, 축 합 2439, 대척쌍 271은 가설의 구조적 귀결이라 탐색 없이도 성립한다.")
+    lines.append("- 고리 합 813k, 축 합 2439, 점대칭 쌍 271은 가설의 구조적 귀결이라 탐색 없이도 성립한다.")
     lines.append("- 변 1355, 섹터 6097/6098, 광선 1219/1220 균형은 탐색으로만 얻는 목표다.")
     lines.append("")
     with open(path, "w", encoding="utf-8") as f:

@@ -13,7 +13,7 @@
     4. 고리/섹터/변/광선/축행 분포의 층별 편차 (균일 대비 χ²)
     5. 동류 인접(낮은 차수 응집도)과 층 간 인접 몫행렬(5×5)
     6. 값 이동 사상 T: 위치(v) → 위치(v+5) 의 순환 구조와 보행 거리
-    7. 대척점(점대칭)의 잔여류 작용: 합 271 ≡ 1 (mod 5) → r ↦ (1−r) mod 5
+    7. 대칭점(점대칭)의 잔여류 작용: 합 271 ≡ 1 (mod 5) → r ↦ (1−r) mod 5
 
 실행: python3 -m yukgodo.mod5
 """
@@ -130,7 +130,7 @@ def analyze_mod5(values: dict, grid: HexGrid) -> dict:
                 if {g(c) for c in classes[r]} == classes[r]]
         self_sym[r] = stab
 
-    # 2b. 쌍별 대척 짝지음 행렬 A[i][j] = i층 셀의 대척점이 j층에 속하는 칸 수
+    # 2b. 쌍별 점대칭 짝지음 행렬 A[i][j] = i층 셀의 대칭점이 j층에 속하는 칸 수
     antipode_pairing = [[0] * 5 for _ in range(5)]
     for c, v in values.items():
         a = (-c[0], -c[1])
@@ -238,7 +238,7 @@ def analyze_mod5(values: dict, grid: HexGrid) -> dict:
         key=lambda t: t[0],
     )
 
-    # 7. 대척점의 잔여류 작용: 합 271 ≡ 1 (mod 5) ⇒ v의 대척점 값 ≡ (1−r) mod 5
+    # 7. 대칭점의 잔여류 작용: 합 271 ≡ 1 (mod 5) ⇒ v의 대칭점 값 ≡ (1−r) mod 5
     antipode_class = {}
     mismatches = 0
     for c, v in values.items():
@@ -365,9 +365,9 @@ def draw_mod5_layers(values: dict, classes: dict, class_sums: dict,
 
 def draw_mod5_symmetry(values: dict, classes: dict, grid: HexGrid,
                        path_png: str) -> None:
-    """합동 쌍 (2,4), (1,0): 한 층과 다른 층의 대척상(회전180°)을 겹쳐 그린다.
+    """합동 쌍 (2,4), (1,0): 한 층과 다른 층의 점대칭상(회전180°)을 겹쳐 그린다.
 
-    색칠된 원 = 잔여 r1 층, 속 빈 테두리 원 = 잔여 r2 층의 대척상.
+    색칠된 원 = 잔여 r1 층, 속 빈 테두리 원 = 잔여 r2 층의 점대칭상.
     모든 테두리 원이 색칠된 원 위에 정확히 얹히면 54/54 합동.
     """
     pairs = [(2, 4), (1, 0)]
@@ -396,11 +396,11 @@ def draw_mod5_symmetry(values: dict, classes: dict, grid: HexGrid,
             ax.add_patch(Circle((x, y), cell_r * 1.45, fill=False,
                                 edgecolor="#000000", lw=1.4, zorder=4))
         ax.set_title(
-            f"잔여 {r1} ({CLASS_NAMES[r1]}) ● vs 잔여 {r2} ({CLASS_NAMES[r2]})의 대척상 ○\n"
+            f"잔여 {r1} ({CLASS_NAMES[r1]}) ● vs 잔여 {r2} ({CLASS_NAMES[r2]})의 점대칭상 ○\n"
             f"일치 {match}/54칸 — 회전180° 합동", fontsize=16)
         ax.autoscale_view()
     fig.suptitle("洛書六觚圖 mod 5 — 층 간 점대칭 합동 증명 "
-                 "(대척쌍 합 271 ⇒ v의 대척점 값 ≡ 1−v mod 5)", fontsize=18)
+                 "(점대칭 쌍 합 271 ⇒ v의 대칭점 값 ≡ 1−v mod 5)", fontsize=18)
     fig.tight_layout(rect=(0, 0, 1, 0.94))
     fig.savefig(path_png, dpi=160, bbox_inches="tight")
     plt.close(fig)
@@ -454,15 +454,15 @@ def write_mod5_markdown(a: dict, path: str) -> None:
         L.append(f"| 잔여 {r} | {', '.join(a['self_symmetry'][r])} |")
     L.append("")
 
-    L.append("## 3. 대척점(점대칭)의 잔여류 작용 — 합 271 ≡ 1 (mod 5)\n")
-    L.append("대척쌍 합이 271이므로 잔여류는 r ↦ (1−r) mod 5 로 작용해야 한다.")
+    L.append("## 3. 대칭점(점대칭)의 잔여류 작용 — 합 271 ≡ 1 (mod 5)\n")
+    L.append("점대칭 쌍 합이 271이므로 잔여류는 r ↦ (1−r) mod 5 로 작용해야 한다.")
     L.append(f"실측 불일치 쌍: **{a['antipode_mismatches']}건** (0이어야 함).\n")
-    L.append("| 층 | 대척상 |")
+    L.append("| 층 | 점대칭상 |")
     L.append("|---|---|")
     for r in (1, 2, 3, 4, 0):
         L.append(f"| 잔여 {r} | 잔여 {a['antipode_class_map'][r]} |")
     L.append("")
-    L.append("대척 짝지음 행렬 A[i][j] = i층 셀의 대척점이 j층에 속하는 칸 수 "
+    L.append("점대칭 짝지음 행렬 A[i][j] = i층 셀의 대칭점이 j층에 속하는 칸 수 "
              "(대각선 외 0이면 층이 닫혀 있음):\n")
     header = "| | " + " | ".join(f"잔여{j}" for j in range(5)) + " |"
     L.append(header)
@@ -470,12 +470,12 @@ def write_mod5_markdown(a: dict, path: str) -> None:
     for i in range(5):
         L.append(f"| 잔여{i} | " + " | ".join(str(x) for x in a["antipode_pairing"][i]) + " |")
     L.append("")
-    L.append("해석: A[0][1] = A[1][0] = 54 (0층과 1층이 서로의 대척상),")
-    L.append("A[2][4] = A[4][2] = 54 (2층과 4층이 서로의 대척상),")
-    L.append("A[3][3] = 54 (3층은 자기 자신의 대척상 — 27개 점대칭 쌍).")
+    L.append("해석: A[0][1] = A[1][0] = 54 (0층과 1층이 서로의 점대칭상),")
+    L.append("A[2][4] = A[4][2] = 54 (2층과 4층이 서로의 점대칭상),")
+    L.append("A[3][3] = 54 (3층은 자기 자신의 점대칭상 — 27개 점대칭 쌍).")
     L.append("이것이 §1의 합동 전부다: 0↔1, 2↔4의 회전180° 합동과 3층의")
-    L.append("자기대칭은 대척쌍 합 271의 mod 5 잔여류 작용 r ↦ 1−r 그 자체다.")
-    L.append("증명 그림: `mod5_symmetry.png` (색칠 층 vs 상대 층의 대척상 ○ 겹침).")
+    L.append("자기대칭은 점대칭 쌍 합 271의 mod 5 잔여류 작용 r ↦ 1−r 그 자체다.")
+    L.append("증명 그림: `mod5_symmetry.png` (색칠 층 vs 상대 층의 점대칭상 ○ 겹침).")
     L.append("")
 
     L.append("## 4. 층별 인접 구조 (networkx 유도 부분그래프)\n")
@@ -517,7 +517,7 @@ def write_mod5_markdown(a: dict, path: str) -> None:
     L.append("")
 
     L.append("## 8. 파생 정리 — mod N 일반화 (기록)\n")
-    L.append("**정리.** 값 배치에 위치 대합 π(π² = id)이 있고 모든 쌍의 값 합이")
+    L.append("**정리.** 값 배치에 기하학적 대합(점대칭 변환) π(π² = id)이 있고 모든 쌍의 값 합이")
     L.append("상수 S이면, 임의의 modulus m에 대해 π는 mod m 잔여류를")
     L.append("**r ↦ (S − r) mod m**으로 작용한다. 따라서 잔여류 층은 π-대칭으로")
     L.append("서로 합동(궤도 길이 2)이거나 자기 합동(고정점: 2r ≡ S (mod m)의 해)이다.\n")
@@ -536,7 +536,7 @@ def write_mod5_markdown(a: dict, path: str) -> None:
     L.append("  중심 23 = 46/2가 실례다.\n")
     L.append("교차 도안 검증 (`python3 -m yukgodo.modn_generalization`, modulus 2..9 전수):")
     L.append("")
-    L.append("| 도안 | 쌍 합 S | π (위치 대합) | 결과 |")
+    L.append("| 도안 | 쌍 합 S | π (기하학적 대합(점대칭 변환)) | 결과 |")
     L.append("|---|---|---|---|")
     L.append("| 06 洛書六觚圖 (본 최적해) | 271 | 중심 점대칭 (전역 회전180°) | mod 2..9 전부 정확 |")
     L.append("| 02 九子角得 중궁 | 46 | 3×3 중심대칭 | mod 2..9 전부 정확, 자기쌍 23 = S/2 |")
@@ -545,12 +545,12 @@ def write_mod5_markdown(a: dict, path: str) -> None:
     L.append("")
     L.append("侯策用九圖의 사례는 조건의 필요성을 보여준다: 쌍 합이 일정하지 않으면")
     L.append("작용은 r ↦ S−r로 모이지 않고 쌍별 실제 합으로 분해.\n")
-    L.append("의의와 한계: 이 성질은 대척쌍 가설을 만족하는 **모든** 해(시드 42")
+    L.append("의의와 한계: 이 성질은 점대칭 쌍 가설을 만족하는 **모든** 해(시드 42")
     L.append("최적해 포함)가 가지므로 원래 배치의 식별력은 없다. 그러나 mod 5 채색은")
     L.append("오자각득(mod5_residue_diagram.py)·하도사오도(5-컬러링 문서) 등")
     L.append("구수략 분석 전반에서 반복 사용된 기법이며, 이 정리는 그 성분-쌍 검산을")
     L.append("임의의 mod N으로 일반화한다. 더 선명한 판본의 실제 도안이 이 대칭을")
-    L.append("갖지 않는다면 대척 보수쌍 가설이 기각된다는 의미에서 반증 도구다.")
+    L.append("갖지 않는다면 점대칭 보수 쌍 가설이 기각된다는 의미에서 반증 도구다.")
     L.append("")
 
     with open(path, "w", encoding="utf-8") as f:
@@ -575,9 +575,9 @@ def main() -> None:
     print("=== mod 5 잔여류 분석 ===")
     print(f"층 크기: 전부 54칸, 층 합: {a['class_sums']}")
     print(f"D6 합동: {len(a['congruences'])}건 → {a['congruences']}")
-    print(f"대척 짝지음 행렬: {a['antipode_pairing']}")
+    print(f"점대칭 짝지음 행렬: {a['antipode_pairing']}")
     print(f"자기대칭: {a['self_symmetry']}")
-    print(f"대척 작용 (불일치 {a['antipode_mismatches']}건): {a['antipode_class_map']}")
+    print(f"점대칭 작용 (불일치 {a['antipode_mismatches']}건): {a['antipode_class_map']}")
     print(f"납 internal 간선: {a['internal_edges']}")
     print(f"연결성분: {a['components']}")
     print(f"동형 쌍: {[(p['pair'], p['isomorphic']) for p in a['iso_pairs']]}")

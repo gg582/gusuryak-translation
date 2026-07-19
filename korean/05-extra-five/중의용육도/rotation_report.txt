@@ -8,7 +8,7 @@ Cluster: 외곽 12환
   Residue pattern (mod 5): F-W-W-W-M-M-E-E-F-Wd-Wd-Wd
   Opposite-pair sums: [12, 31, 3, 14, 7, 27]
   No nontrivial rotational invariance.
-  Note: 좌상단 7에서 시작해 시계방향. 대척합은 180° 회전 대응 쌍의 합.
+  Note: 좌상단 7에서 시작해 시계방향. 점대칭 합은 180° 회전 대응 쌍의 합.
 
 Cluster: 내측 4환
   Cyclic order (4 elements): 11 -> 10 -> 12 -> 9
