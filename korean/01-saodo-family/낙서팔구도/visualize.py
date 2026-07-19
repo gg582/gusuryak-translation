@@ -1,5 +1,32 @@
+from pathlib import Path
+
+import matplotlib
+
+matplotlib.use("Agg")
+
+import matplotlib.font_manager as fm
 import matplotlib.pyplot as plt
 import numpy as np
+
+OUTPUT_FILE = Path("ojungto_pattern.png")
+
+
+def get_korean_font():
+    """Return a CJK font that can render the Korean/Hanja title."""
+    font_candidates = [
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Medium.ttc",
+        "/usr/share/fonts/truetype/nanum/NanumGothic.ttf",
+        "/usr/share/fonts/truetype/nanum/NanumBarunGothic.ttf",
+        "/usr/share/fonts/truetype/unfonts-core/UnDotum.ttf",
+    ]
+    for font_path in font_candidates:
+        if Path(font_path).exists():
+            return fm.FontProperties(fname=font_path)
+    return None
+
+
+KOREAN_FONT = get_korean_font()
 
 # 1. 7x7 격자 위 배열 정의 (행, 열 좌표는 0~6 index)
 # 빈칸은 None으로 처리하고, 누락된 수(11, 15, 29)를 대칭 위치에 채워 넣었습니다.
@@ -67,13 +94,20 @@ def draw_ojungto():
                         ha='center', va='center', color='#222222', zorder=4)
                 
     # 타이틀 추가
-    plt.title("오팔정전도 (五八井田圖) 복원 도안", fontsize=16, fontweight='bold', pad=20)
+    title_kwargs = {
+        "fontsize": 16,
+        "fontweight": "bold",
+        "pad": 20,
+    }
+    if KOREAN_FONT is not None:
+        title_kwargs["fontproperties"] = KOREAN_FONT
+    plt.title("오팔정전도 (五八井田圖) 복원 도안", **title_kwargs)
     
     ax.set_xlim(0, 7)
     ax.set_ylim(0, 7)
     plt.tight_layout()
-    plt.savefig('ojungto_pattern.png', dpi=300, bbox_inches='tight')
-    plt.show()
+    plt.savefig(OUTPUT_FILE, dpi=300, bbox_inches='tight')
+    plt.close(fig)
 
 if __name__ == "__main__":
     draw_ojungto()
