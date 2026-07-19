@@ -1,6 +1,6 @@
 """파생 정리(mod N 일반화)의 교차 도안 검증.
 
-**파생 정리**: 값 배치에 기하학적 대합(점대칭 변환) π(π² = id)이 있고 모든 쌍의 값 합이
+**파생 정리**: 값 배치에 위치 대합 π(π² = id)이 있고 모든 쌍의 값 합이
 상수 S이면, 임의의 modulus m에 대해 π는 mod m 잔여류를 r ↦ (S−r) mod m
 으로 작용한다. 따라서 잔여류 층은 π-대칭으로 서로 합동(궤도 길이 2)이거나
 자기 합동(고정점, 2r ≡ S (mod m)의 해)이다. 쌍 합이 일정하지 않으면
@@ -28,7 +28,7 @@ MODULI = [2, 3, 4, 5, 6, 7, 8, 9]
 
 
 def _yukgodo_pairs() -> list[tuple[int, int]]:
-    """06 洛書六觚圖 최적해의 점대칭 쌍 135개 (output/solution.json)."""
+    """06 洛書六觚圖 최적해의 대척쌍 135개 (output/solution.json)."""
     values = load_solution()
     grid = HexGrid()
     pairs = [(values[a], values[b]) for a, b in grid.slots]
@@ -59,7 +59,7 @@ HUCHAEK_PAIRS = [
 
 
 def action_matrix(pairs: list[tuple[int, int]], m: int) -> list[list[int]]:
-    """A[i][j] = 값 ≡ i 인 셀의 대칭점 값이 ≡ j 인 (무향) 쌍 수."""
+    """A[i][j] = 값 ≡ i 인 셀의 대척점 값이 ≡ j 인 (무향) 쌍 수."""
     A = [[0] * m for _ in range(m)]
     for v, w in pairs:
         A[v % m][w % m] += 1
@@ -120,7 +120,7 @@ def main() -> None:
 
     print("\n## 판정")
     print("  - 상수 쌍 합 S를 가지는 세 도안: 모든 modulus(2..9)에서")
-    print("    점대칭 잔여류 작용이 정확히 r ↦ S−r → 파생 정리 성립.")
+    print("    대척 잔여류 작용이 정확히 r ↦ S−r → 파생 정리 성립.")
     print("  - S = 271(홀수) → 자기쌍 불가 → 중심 虛一과 정합;")
     print("    S = 46(짝수) → 자기쌍 값 23 = S/2로 강제 (중궁 중심).")
     print("  - 侯策用九圖: 합이 섞여 있으면 패턴이 붕괴하고, 합 73인 쌍만")

@@ -48,7 +48,7 @@ def main() -> None:
     all_wedge = [c for w in g.wedges for c in w]
     assert len(set(all_wedge)) == 270
     assert set(all_wedge) == set(g.filled)
-    # 대칭점은 반대편 섹터로
+    # 대척점은 반대편 섹터로
     for i, w in enumerate(g.wedges):
         for c in w:
             assert g.wedge_of[antipode(c)] == (i + 3) % 6
@@ -69,7 +69,7 @@ def main() -> None:
         assert len(rows[0]) == 19
         assert all(len(rows[m]) == 19 - abs(m) for m in range(-9, 10))
 
-    # 대칭점 슬롯: 135쌍, 전체 filled 분할
+    # 대척 슬롯: 135쌍, 전체 filled 분할
     assert len(g.slots) == 135
     slot_cells = [c for pair in g.slots for c in pair]
     assert len(set(slot_cells)) == 270

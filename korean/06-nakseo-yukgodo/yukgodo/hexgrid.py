@@ -47,7 +47,7 @@ def ring_of(cell: Cell) -> int:
 
 
 def antipode(cell: Cell) -> Cell:
-    """중심 기준 점대칭 셀 (대칭점)."""
+    """중심 기준 점대칭 셀 (대척점)."""
     return (-cell[0], -cell[1])
 
 
@@ -76,7 +76,7 @@ class HexGrid:
         sides:      sides[j] = 외주의 변 j, 꼭짓점 포함 10칸 (j=0..5)
         wedges:     wedges[i] = 觚(섹터) i, 45칸씩 270칸을 분할 (i=0..5)
         axes:       axes[a] = 중심을 지나는 축 a, 19칸 (a=0..2, 中觚)
-        slots:      대칭점 슬롯 135개, 각 (cell, antipode(cell)) 쌍
+        slots:      대척 슬롯 135개, 각 (cell, antipode(cell)) 쌍
     """
 
     def __init__(self, radius: int = RADIUS) -> None:
@@ -122,7 +122,7 @@ class HexGrid:
             for c in s:
                 self.sides_of.setdefault(c, []).append(j)
 
-        # 대칭점 슬롯: 270칸을 135개의 점대칭 쌍으로 묶음
+        # 대척 슬롯: 270칸을 135개의 점대칭 쌍으로 묶음
         seen: set[Cell] = set()
         self.slots: list[tuple[Cell, Cell]] = []
         for c in self.filled:
@@ -154,7 +154,7 @@ class HexGrid:
         """觚(섹터) i: 광선 i를 시계쪽 경계로 포함하는 60° 쐐기, 45칸.
 
         고리 k에서는 k칸 (광선 i 위 1칸 + 남쪽 날개 k-1칸)을 차지하고,
-        6개 섹터는 270칸을 겹침 없이 분할한다. 대칭점은 섹터 (i+3)%6으로 이동.
+        6개 섹터는 270칸을 겹침 없이 분할한다. 대척점은 섹터 (i+3)%6으로 이동.
         """
         cells: list[Cell] = []
         for k in range(1, self.radius + 1):

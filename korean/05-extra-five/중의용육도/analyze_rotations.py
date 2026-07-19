@@ -111,7 +111,7 @@ def main() -> None:
     analyses = []
 
     perimeter_analysis = analyze_cycle(PERIMETER, modulo=5, name="외곽 12환")
-    perimeter_analysis.notes.append("좌상단 7에서 시작해 시계방향. 점대칭 합은 180° 회전 대응 쌍의 합.")
+    perimeter_analysis.notes.append("좌상단 7에서 시작해 시계방향. 대척합은 180° 회전 대응 쌍의 합.")
     analyses.append(perimeter_analysis)
 
     inner_analysis = analyze_cycle(INNER, modulo=5, name="내측 4환")
