@@ -134,13 +134,13 @@ Viewing the coordinates as x-columns / y-rows, the mod 5 residues are not random
 
 ---
 
-## 5. Extension and Completion
+## 5. Study on Rule Variation and System Extension
 
-### 5.1 Restoring 1–24
+### 5.1 1–24 Rule Variation Model Study
 
-Restoring the omitted numbers 3, 10, and 22 to their respective mod 5 residue groups yields the 24-number structure.
+The original 21-number diagram is a self-contained diagram that fully satisfies left-right symmetry (left sum = right sum = 86) and vertical axis alignment. Analyzing the addition of unselected numbers (3, 10, 22) is not a correction of errors, but rather a study on rule variation exploring mathematical properties when extending the number system under the same geometric framework.
 
-| Wuxing | Existing numbers | Restored numbers | Completed group | Sum | Count |
+| Wuxing | Original Selected | Variation Added | 24-Number Variation Group | Sum | Count |
 |:---:|:---|:---:|:---|:---:|:---:|
 | Water | 1, 6, 11, 16, 21 | — | 1, 6, 11, 16, 21 | 55 | 5 |
 | Fire | 2, 7, 12, 17 | 22 | 2, 7, 12, 17, 22 | 60 | 5 |
@@ -148,13 +148,13 @@ Restoring the omitted numbers 3, 10, and 22 to their respective mod 5 residue gr
 | Metal | 4, 9, 14, 19, 24 | — | 4, 9, 14, 19, 24 | 70 | 5 |
 | Earth | 5, 15, 20 | 10 | 5, 10, 15, 20 | 50 | 4 |
 
-> Observation 8: Water, Fire, Wood, and Metal are restored to 5 numbers each, with sums 55, 60, 65, and 70 forming an **arithmetic progression increasing by 5**. Earth can only be restored with 10 within 1–24, giving 4 numbers and sum 50; it is the only group that cannot reach 5 numbers in the 24-number restoration.
+> Observation 8: Under the 24-number variation rule, Water, Fire, Wood, and Metal groups each contain 5 numbers, whose sums form an **arithmetic progression (55, 60, 65, 70) increasing by 5**.
 
-### 5.2 Full 5 × 5 Extension
+### 5.2 Full 5 × 5 Extension Model Study
 
-Extending the range to 1–25 and adding 25 to Earth gives a complete 5 × 5 = 25-number structure.
+Extending the system to the 1–25 range and adding 25 to the Earth group yields a full 5 × 5 = 25-number extension model.
 
-| Wuxing | Complete group | Sum |
+| Wuxing | Complete Extension Group | Sum |
 |:---:|:---|:---:|
 | Water | 1, 6, 11, 16, 21 | 55 |
 | Fire | 2, 7, 12, 17, 22 | 60 |
@@ -162,7 +162,7 @@ Extending the range to 1–25 and adding 25 to Earth gives a complete 5 × 5 = 2
 | Metal | 4, 9, 14, 19, 24 | 70 |
 | Earth | 5, 10, 15, 20, 25 | 75 |
 
-The total sum of the complete 5 × 5 structure is 55 + 60 + 65 + 70 + 75 = **325** (equivalently, the sum of 1–25). Ojagakdeuk's sum 265 matches this complete sum minus the omitted 3 + 10 + 22 = 35.
+The total sum of the complete 5 × 5 extension model is 55 + 60 + 65 + 70 + 75 = **325**. The original layout sum of 265 corresponds to this complete extension sum minus the unselected variation numbers (3 + 10 + 22 = 35). Rather than correcting the original, this offers an perspective on structural extensibility.
 
 ---
 

@@ -4,13 +4,15 @@ When looking at a classical mathematical diagram, the first task is to stop seei
 
 ## 1. What is Ojagakdeuk?
 
-Ojagakdeuk is a diagram that places 21 of the numbers 1 through 24 in the Cheonsu-yong-odo form. The numbers 3, 10, and 22 are omitted, and the remaining 21 numbers form a geometry converging from the upper vertex (19) to the lower vertex (2).
+Ojagakdeuk is a diagram that places 21 of the numbers 1 through 24 in the Cheonsu-yong-odo geometric form. The 21 numbers form a complete wuxing scheme converging from the upper vertex (19) to the lower vertex (2).
 
-The first verification is simple.
+The original layout itself demonstrates **perfect left-right symmetry with matching sums of 86** and a clear central axis design intention. Therefore, the 21-number configuration (unselecting 3, 10, and 22) is not an error or omission, but a self-contained, complete design in its own right.
+
+The first verification is simple:
 
 - The sum of 1 through 24 is 300.
-- The sum of the omitted 3, 10, and 22 is 35.
-- Therefore, the sum of the 21 placed numbers is 300 - 35 = **265**.
+- The sum of the unselected 3, 10, and 22 is 35.
+- Therefore, the sum of the 21 placed numbers in the original layout is 300 - 35 = **265**.
 
 This graph has no connecting lines between number-points, and the original text mentions no relationships or computable rules. So this post deals only with the positions, wuxing (five-phase) classification, and the combinatorial invariants that arise from them.
 
@@ -26,7 +28,7 @@ There is also a **vertical central axis** running 19 → 6 → 20 → 5 → 17 �
 
 ## 3. The Invariant of Left-Right Symmetry
 
-Dividing the nodes into left, center, and right reveals a surprising fact.
+Dividing the nodes into left, center, and right reveals a surprising fact:
 
 | Region | Sum |
 |---|---:|
@@ -34,11 +36,11 @@ Dividing the nodes into left, center, and right reveals a surprising fact.
 | Center (-0.5 ≤ x ≤ 0.5) | 93 |
 | Right (x > 0.5) | 86 |
 
-**The left and right regions have exactly the same sum, 86.** This is a strong positional invariant showing that the Cheonsu-yong-odo has a harmonious left-right symmetric structure.
+**The left and right regions have exactly the same sum, 86.** This is a strong positional invariant proving that the Cheonsu-yong-odo possesses a harmonious left-right symmetric design intention purely from its original layout.
 
 [04_symmetry_analysis.png attached]
 
-## 4. Wuxing mod 5 Classification
+## 4. Wuxing mod 5 Classification and Rule Variation Study
 
 Let us group the 21 numbers by their remainder modulo 5 (the wuxing).
 
@@ -50,7 +52,9 @@ Let us group the 21 numbers by their remainder modulo 5 (the wuxing).
 | Metal (金) | 4, 9, 14, 19, 24 | 70 | 5 |
 | Earth (土) | 5, 15, 20 | 40 | 3 |
 
-Water and Metal have 5 numbers each, Fire and Wood have 4 each, and Earth has 3. Restoring the omitted 3 (Wood), 10 (Earth), and 22 (Fire) gives Water, Fire, Wood, and Metal 5 numbers each, while Earth has 4. Extending to 25 and adding 25 to Earth completes a full 5 × 5 = 25-number structure, and the wuxing sums become 55, 60, 65, 70, 75 — an **arithmetic progression increasing by 5**.
+Water and Metal have 5 numbers each, Fire and Wood have 4 each, and Earth has 3.
+
+Analyzing the addition of unselected numbers 3 (Wood), 10 (Earth), 22 (Fire), or extending to 25 should be understood as a **study on rule variation and system extension on the same geometric framework**, rather than 'error correction'. Under the 24-number variation rule, Water, Fire, Wood, and Metal groups each contain 5 numbers. Extending further to a full 5 × 5 = 25-number system yields wuxing sums of 55, 60, 65, 70, and 75—an **arithmetic progression increasing by 5**, demonstrating another level of system variation.
 
 [02_wuxing_decomposition.png attached]
 
@@ -64,7 +68,7 @@ Thus Earth can be read as the wuxing that takes charge of the center in the Cheo
 
 ## 6. The Central Horizontal Band is the Heaviest
 
-Dividing the Cheonsu-yong-odo into upper vertex, upper connector, central horizontal band, lower connector, and lower vertex, we can compute the sum of each part.
+Dividing the Cheonsu-yong-odo into upper vertex, upper connector, central horizontal band, lower connector, and lower vertex, we can compute the sum of each part:
 
 | Layer | Sum |
 |---|---:|
@@ -91,23 +95,22 @@ The wuxing have two kinds of relationships: mutual generation (相生) and mutua
 
 - Number of nodes: 21
 - Total sum: 265
-- Left-right symmetric sums: 86 = 86
+- Left-right symmetric sums: 86 = 86 (Perfect symmetry invariant of the original layout)
 - Center-region sum: 93
 - Sum of top (y = 6.0) and bottom (y = -1.7): 19 + 2 = 21
-- Omitted numbers: 3, 10, 22
+- Original unselected numbers: 3, 10, 22
 
 [08_position_patterns.png attached]
 
 ## 9. Conclusion
 
-Ojagakdeuk (Cheonsu-yong-odo) is a small combinatorial device made of 21 numbers. Because the original has no connecting lines, its structure must be read from the positions and wuxing classification.
+Ojagakdeuk (Cheonsu-yong-odo) is a finely crafted combinatorial structure whose original 21-number layout satisfies perfect left-right symmetry (86=86) and central axis alignment.
 
-- 21 numbers from 1–24 excluding 3, 10, and 22 are placed.
-- They form a geometric shape converging from the upper vertex (19) to the lower vertex (2).
+- The original layout alone achieves an exact left-right symmetric sum of 86.
+- It forms a geometric shape converging from the upper vertex (19) to the lower vertex (2).
 - The central 1-5-15 axis is both the vertical central axis and the widest horizontal band.
-- The left and right regions have exactly the same sum, 86, forming a symmetry.
 - Earth (5, 15, 20) all lie on the vertical central axis.
 - The central horizontal band has sum 128, nearly half of the total.
-- The complete 5 × 5 extension gives wuxing sums 55, 60, 65, 70, 75, an arithmetic progression.
+- Rule variations (24-number and full 5 × 5 extensions) reveal an arithmetic progression of wuxing sums (55, 60, 65, 70, 75).
 
-Read this way, Ojagakdeuk is no longer a vague classical diagram but a finely crafted combinatorial structure built from 21 numbers.
+Cheonsu-yong-odo is not a flawed diagram needing correction, but a classical masterpiece combining intrinsic symmetry with rich possibilities for system variation.
