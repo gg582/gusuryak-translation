@@ -72,6 +72,7 @@ RESIDUE_STYLE: Final = {
         "face": "#3F3F3F",
         "edge": "#161616",
         "text": "#FFFFFF",
+        "legend_text": "#222222",
     },
     2: {
         "label": "n mod 5 ≡ 2",
@@ -141,13 +142,13 @@ def validate() -> None:
     )
 
     if grouped != list(range(1, 21)):
-        raise ValueError("residue group이 1부터 20까지를 정확히 분할해야 합니다.")
+        raise ValueError("잉여류 그룹이 1부터 20까지를 정확히 분할해야 합니다.")
 
     for residue, group in RESIDUE_GROUPS.items():
         for number in group:
             if number % 5 != residue:
                 raise ValueError(
-                    f"{number}가 잘못된 residue group에 들어 있습니다."
+                    f"{number}가 잘못된 잉여류 그룹에 들어 있습니다."
                 )
 
     for name, vertices in HEXAGONS.items():
@@ -171,7 +172,7 @@ def unique_edges() -> list[tuple[int, int]]:
     return sorted(edges)
 
 
-def draw_hexagon_regions(ax: Axes) -> None:
+def draw_hexagon_regions(ax: Axes, font: FontProperties) -> None:
     # 큰 연필 원 대신 육각형 자체를 아주 옅게 강조한다.
     fills = (
         "#F8F8F8",
@@ -205,6 +206,7 @@ def draw_hexagon_regions(ax: Axes) -> None:
             f"합 {TARGET_SUM}",
             ha="center",
             va="center",
+            fontproperties=font,
             fontsize=9.5,
             color="#9A9A9A",
             zorder=1,
@@ -347,7 +349,7 @@ def draw_legend(ax: Axes, font: FontProperties) -> None:
             fontproperties=font,
             fontsize=10.8,
             weight="bold",
-            color=style["text"],
+            color=style.get("legend_text", style["text"]),
         )
 
         ax.text(
@@ -412,7 +414,7 @@ def draw(
     graph_ax.set_ylim(-3.2, 5.2)
     graph_ax.axis("off")
 
-    draw_hexagon_regions(graph_ax)
+    draw_hexagon_regions(graph_ax, font)
     draw_edges(graph_ax)
     draw_nodes(graph_ax, font)
     draw_legend(legend_ax, font)

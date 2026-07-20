@@ -68,7 +68,7 @@ def build_analysis(values: dict, grid: HexGrid, report: PropertyReport,
             "values": corner_vals,
             "mod9": [v % 9 for v in corner_vals],
             "mod6": [v % 6 for v in corner_vals],
-            "note": "洛書 대조용: 꼭짓점 값의 9법·6법 잔여",
+            "note": "洛書 대조용: 꼭짓점 값의 9법·6법 잉여",
         },
         "pair_check": {
             "all_pairs_sum_271": all(a + b == PAIR_SUM for a, b in pairs),

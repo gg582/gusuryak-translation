@@ -79,18 +79,18 @@ def main() -> None:
     inner = analyze_cycle(INNER_RING, modulo=5, name="내륜 4-cycle")
     inner.notes.append("중심 5는 고리에 포함되지 않음 (별도 1자)")
     inner.notes.append("대향 쌍 합이 9와 11로 갈라짐 — 두 쌍의 합 20 = 고리 전체 합")
-    inner.notes.append("잔여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함")
+    inner.notes.append("잉여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함")
     analyses.append(inner)
 
     outer = analyze_cycle(OUTER_RING, modulo=5, name="외륜 4-cycle")
     outer.notes.append("대향 쌍 합이 11과 9 — 내륜과 교차 (가로: 외륜 9·내륜 11, 세로: 외륜 11·내륜 9)")
-    outer.notes.append("잔여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함")
+    outer.notes.append("잉여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함")
     analyses.append(outer)
 
     horiz = analyze_cycle(HORIZONTAL, modulo=5, name="가로축 5자 수열")
     horiz.notes.append("순환 고리가 아닌 선형 축 — 왼쪽→오른쪽 읽기 순서")
     horiz.notes.append("홀수 길이 5이므로 대향 쌍 합은 정의되지 않음")
-    horiz.notes.append("잔여열 3-2-5-4-1 = 상생 순환 목→화→토→금→수 (모든 이웃 관계가 상생)")
+    horiz.notes.append("잉여열 3-2-5-4-1 = 상생 순환 목→화→토→금→수 (모든 이웃 관계가 상생)")
     analyses.append(horiz)
 
     vert = analyze_cycle(VERTICAL, modulo=5, name="세로축 5자 수열")

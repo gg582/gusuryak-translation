@@ -199,7 +199,7 @@ def draw_reconstruction(save_path="figures/puzzle_reconstruction.png"):
     policy_text = (
         "Reconstruction policy preserved:\n"
         "  • 20 slot positions  • circular marks  • numeral values/orientations\n"
-        "  • symmetric cross layout  • mod-5 residue groups  • checksum = 210\n"
+        "  • symmetric cross layout  • mod-5 잉여류 그룹  • checksum = 210\n"
         "Not introduced: graph edges, adjacency, rewrite rules, FSMs, algebraic semantics."
     )
     ax.text(0, -4.5, policy_text, fontsize=9, ha='center', va='top',

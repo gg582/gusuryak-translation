@@ -7,9 +7,9 @@ SageMath 대신 Python + PuLP를 사용합니다.
 
 기능:
   1. 클러스터 인접 그래프 기반 공유 제약
-  2. mod 5 remainder(오행) 동치류 제약
+  2. mod 5 잉여류(오행) 동치류 제약
   3. 인접 쌍별 공유 정점 수 제약
-  4. 상하/좌우 residue 대칭성 제약
+  4. 상하/좌우 잉여류 대칭성 제약
   5. 여러 해 enumeration 및 JSON 저장
   6. matplotlib 기반 시각화 (--visualize)
 
@@ -656,7 +656,7 @@ def main() -> int:
         "--symmetry",
         choices=["ud", "lr", "both"],
         default=None,
-        help="상하/좌우 residue 대칭성",
+        help="상하/좌우 잉여류 대칭성",
     )
     parser.add_argument("--search", action="store_true", help="S 자동 탐색")
     parser.add_argument("--all", action="store_true", help="5개 알려진 계열 모두 풀기")

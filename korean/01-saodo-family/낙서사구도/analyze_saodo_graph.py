@@ -594,7 +594,7 @@ print("-" * 60)
 
 modern_terms = [
     ('鄰星相兼', 'adjacent blocks overlap / neighboring 4-subsets are combined'),
-    ('五宮化爲九宫', '5 residue classes are reorganized into 9 blocks'),
+    ('五宮化爲九宫', '5개 잉여류를 9개 블록으로 재구성'),
     ('每宮四子', 'each block has cardinality 4'),
     ('各得四十二數', 'each block has invariant sum 42'),
     ('右旋', 'clockwise cyclic action on the boundary blocks'),
@@ -619,7 +619,7 @@ ax.text(0.5, 0.03,
         ha='center', va='center', fontsize=15, fontweight='bold', color='#333333')
 plt.tight_layout(); save_fig('origin_translated_01_terms.png'); plt.close()
 
-# --- origin_translated_02: 5개 residue class에서 9개 block으로 ---
+# --- origin_translated_02: 5개 잉여류에서 9개 block으로 ---
 fig, axes = plt.subplots(1, 2, figsize=(18, 9))
 ax = axes[0]
 for i, ph in enumerate(['Water', 'Fire', 'Wood', 'Metal', 'Earth']):
@@ -630,7 +630,7 @@ for i, ph in enumerate(['Water', 'Fire', 'Wood', 'Metal', 'Earth']):
     ax.text(1.35, y, f'{{{", ".join(map(str, nodes))}}}', ha='center', va='center', fontsize=14, fontweight='bold')
     ax.text(3.75, y, f'Σ={sum(nodes)}', ha='left', va='center', fontsize=12)
 ax.set_xlim(-1.5, 5.2); ax.set_ylim(-0.8, 4.8); ax.axis('off')
-ax.set_title('입력: 5개 residue class\nmod 5로 나눈 오행 그룹', fontsize=15, fontweight='bold')
+ax.set_title('입력: 5개 잉여류\nmod 5로 나눈 오행 그룹', fontsize=15, fontweight='bold')
 
 ax = axes[1]
 for name, (x, y) in grid_pos.items():
@@ -735,7 +735,7 @@ ax.set_title('incidence product: 5 classes × 9 blocks = 45', fontsize=14, fontw
 ax = axes[1]
 ax.axis('off')
 formula_lines = [
-    ('number of residue classes', '5'),
+    ('잉여류 개수', '5'),
     ('number of 4-blocks', '9'),
     ('block sum invariant', '42'),
     ('weighted total', '5 × 9 × 42 = 1,890'),

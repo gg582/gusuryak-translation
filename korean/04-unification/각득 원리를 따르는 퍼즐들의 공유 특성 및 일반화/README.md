@@ -90,9 +90,9 @@ python gakdeuk_solver.py --n 8 --max 40 --search --time-limit 120
 - 기하 제약:
   - 인접 그래프: `cross`/`honeycomb`/`grid` 또는 사용자 정의 인접 쌍
   - 인접 쌍별 공유 정점 수 (`--pair-shared-counts`)
-  - 상하/좌우 residue 대칭성 (`--symmetry`)
+  - 상하/좌우 잉여류 대칭성 (`--symmetry`)
 - 오행 제약:
-  - `mod 5` remainder 분포 균형 (`--residue-balance`)
+  - `mod 5` 잉여 분포 균형 (`--residue-balance`)
 - 출력:
   - 여러 해 enumeration (`--max-solutions`)
   - JSON 저장 (`--output`)
@@ -100,7 +100,7 @@ python gakdeuk_solver.py --n 8 --max 40 --search --time-limit 120
 
 ## 주의사항
 
-- solver는 **수 조합적 해** 위에 **기하 제약**(인접 그래프, 쌍별 공유 정점 수, 대칭성)과 **오행 제약**(`mod 5` residue 균형)을 겹쳐 찾습니다.
+- solver는 **수 조합적 해** 위에 **기하 제약**(인접 그래프, 쌍별 공유 정점 수, 대칭성)과 **오행 제약**(`mod 5` 잉여류 균형)을 겹쳐 찾습니다.
 - 기하 제약을 충분히 주면 실제 전통 도상과 매우 비슷한 배치가 나오지만, 완벽한 재현을 위해서는 좌표·각도·그림 형태 등의 추가 정보가 필요합니다.
 - `--all` 실행 시 각 계열의 전통 조건(누락 수, 공유 구조, 합 불변량)을 내장 프리셋으로 사용합니다.
 

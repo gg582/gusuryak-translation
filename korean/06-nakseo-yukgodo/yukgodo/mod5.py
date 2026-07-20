@@ -1,10 +1,10 @@
-"""mod 5 잔여류 채색 시각화 + 5개 층의 기하 관계 전수조사.
+"""mod 5 잉여류 채색 시각화 + 5개 층의 기하 관계 전수조사.
 
 최적해(output/solution.json)의 값 v를 v mod 5로 분류해 채색한다:
 
-    잔여 1 = 검정, 잔여 2 = 빨강, 잔여 3 = 파랑, 잔여 4 = 회색, 잔여 0 = 노랑
+    잉여 1 = 검정, 잉여 2 = 빨강, 잉여 3 = 파랑, 잉여 4 = 회색, 잉여 0 = 노랑
 
-270칸은 잔여류별로 정확히 54칸씩 5개 층으로 갈라진다(270 = 5×54).
+270칸은 잉여류별로 정확히 54칸씩 5개 층으로 갈라진다(270 = 5×54).
 이 모듈은 5개 층을 낱낱이 분리한 뒤 다음을 전수조사한다:
 
     1. 층 간 D6(6회전 × 2반사 = 12개 육각 대칭) 합동 — 집합 동치 전수
@@ -13,7 +13,7 @@
     4. 고리/섹터/변/광선/축행 분포의 층별 편차 (균일 대비 χ²)
     5. 동류 인접(낮은 차수 응집도)과 층 간 인접 몫행렬(5×5)
     6. 값 이동 사상 T: 위치(v) → 위치(v+5) 의 순환 구조와 보행 거리
-    7. 대척점(점대칭)의 잔여류 작용: 합 271 ≡ 1 (mod 5) → r ↦ (1−r) mod 5
+    7. 대척점(점대칭)의 잉여류 작용: 합 271 ≡ 1 (mod 5) → r ↦ (1−r) mod 5
 
 실행: python3 -m yukgodo.mod5
 """
@@ -35,7 +35,7 @@ from .hexgrid import CENTER, DIRECTIONS, HexGrid, add, cube, ring_of, to_pixel
 from .reverse import load_solution
 from .visualize import _setup_cjk_font  # noqa: F401  (폰트 설정 부수효과)
 
-# 잔여류 채색 (사용자 지정)
+# 잉여류 채색 (사용자 지정)
 CLASS_COLORS = {
     1: "#111111",   # 검정
     2: "#d62728",   # 빨강
@@ -238,7 +238,7 @@ def analyze_mod5(values: dict, grid: HexGrid) -> dict:
         key=lambda t: t[0],
     )
 
-    # 7. 대척점의 잔여류 작용: 합 271 ≡ 1 (mod 5) ⇒ v의 대척점 값 ≡ (1−r) mod 5
+    # 7. 대척점의 잉여류 작용: 합 271 ≡ 1 (mod 5) ⇒ v의 대척점 값 ≡ (1−r) mod 5
     antipode_class = {}
     mismatches = 0
     for c, v in values.items():
@@ -281,7 +281,7 @@ def analyze_mod5(values: dict, grid: HexGrid) -> dict:
 
 def draw_mod5_coloring(values: dict, grid: HexGrid, path_png: str,
                        path_svg: str | None = None) -> None:
-    """전체 도안을 mod 5 잔여류 채색으로 그린다."""
+    """전체 도안을 mod 5 잉여류 채색으로 그린다."""
     fig, ax = plt.subplots(figsize=(18, 18))
     ax.set_aspect("equal")
     ax.axis("off")
@@ -313,11 +313,11 @@ def draw_mod5_coloring(values: dict, grid: HexGrid, path_png: str,
 
     handles = [plt.Line2D([0], [0], marker="o", color="w",
                           markerfacecolor=CLASS_COLORS[r], markersize=14,
-                          label=f"잔여 {r} ({CLASS_NAMES[r]}) — 54칸")
+                          label=f"잉여 {r} ({CLASS_NAMES[r]}) — 54칸")
                for r in (1, 2, 3, 4, 0)]
     ax.legend(handles=handles, loc="upper right", fontsize=13,
               framealpha=0.95)
-    ax.set_title("洛書六觚圖 — mod 5 잔여류 채색 (1 검정·2 빨강·3 파랑·4 회색·0 노랑)",
+    ax.set_title("洛書六觚圖 — mod 5 잉여류 채색 (1 검정·2 빨강·3 파랑·4 회색·0 노랑)",
                  fontsize=18, pad=18)
     ax.autoscale_view()
     fig.tight_layout()
@@ -354,10 +354,10 @@ def draw_mod5_layers(values: dict, classes: dict, class_sums: dict,
                             edgecolor="#c00000", lw=1.4, zorder=3))
         ax.text(x, y, "虛", ha="center", va="center", fontsize=9,
                 color="#c00000", zorder=4)
-        ax.set_title(f"잔여 {r} ({CLASS_NAMES[r]})\n54칸, 층 합 {class_sums[r]}",
+        ax.set_title(f"잉여 {r} ({CLASS_NAMES[r]})\n54칸, 층 합 {class_sums[r]}",
                      fontsize=15)
         ax.autoscale_view()
-    fig.suptitle("洛書六觚圖 mod 5 — 잔여류별 5개 층 분리", fontsize=20)
+    fig.suptitle("洛書六觚圖 mod 5 — 잉여류별 5개 층 분리", fontsize=20)
     fig.tight_layout(rect=(0, 0, 1, 0.94))
     fig.savefig(path_png, dpi=160, bbox_inches="tight")
     plt.close(fig)
@@ -367,7 +367,7 @@ def draw_mod5_symmetry(values: dict, classes: dict, grid: HexGrid,
                        path_png: str) -> None:
     """합동 쌍 (2,4), (1,0): 한 층과 다른 층의 대척상(회전180°)을 겹쳐 그린다.
 
-    색칠된 원 = 잔여 r1 층, 속 빈 테두리 원 = 잔여 r2 층의 대척상.
+    색칠된 원 = 잉여 r1 층, 속 빈 테두리 원 = 잉여 r2 층의 대척상.
     모든 테두리 원이 색칠된 원 위에 정확히 얹히면 54/54 합동.
     """
     pairs = [(2, 4), (1, 0)]
@@ -396,7 +396,7 @@ def draw_mod5_symmetry(values: dict, classes: dict, grid: HexGrid,
             ax.add_patch(Circle((x, y), cell_r * 1.45, fill=False,
                                 edgecolor="#000000", lw=1.4, zorder=4))
         ax.set_title(
-            f"잔여 {r1} ({CLASS_NAMES[r1]}) ● vs 잔여 {r2} ({CLASS_NAMES[r2]})의 대척상 ○\n"
+            f"잉여 {r1} ({CLASS_NAMES[r1]}) ● vs 잉여 {r2} ({CLASS_NAMES[r2]})의 대척상 ○\n"
             f"일치 {match}/54칸 — 회전180° 합동", fontsize=16)
         ax.autoscale_view()
     fig.suptitle("洛書六觚圖 mod 5 — 층 간 점대칭 합동 증명 "
@@ -419,19 +419,19 @@ def write_mod5_json(a: dict, path: str) -> None:
 
 def write_mod5_markdown(a: dict, path: str) -> None:
     L = []
-    L.append("# 洛書六觚圖 mod 5 잔여류 분석\n")
+    L.append("# 洛書六觚圖 mod 5 잉여류 분석\n")
     L.append("값 v를 v mod 5로 분류 (1 검정 · 2 빨강 · 3 파랑 · 4 회색 · 0 노랑).")
     L.append("270칸 = 5류 × 54칸. 층 합: " +
-             ", ".join(f"잔여 {r} = {a['class_sums'][r]}" for r in (1, 2, 3, 4, 0)) +
+             ", ".join(f"잉여 {r} = {a['class_sums'][r]}" for r in (1, 2, 3, 4, 0)) +
              " (값 공간에서 결정적).\n")
 
     L.append("## 1. 층 간 D6 합동 전수조사 (240 = 5×4 순서쌍 × 12원소)\n")
-    L.append("**합동 쌍: 잔여 2 ↔ 잔여 4, 잔여 1 ↔ 잔여 0 (회전180° = 점대칭).**\n")
+    L.append("**합동 쌍: 잉여 2 ↔ 잉여 4, 잉여 1 ↔ 잉여 0 (회전180° = 점대칭).**\n")
     if a["congruences"]:
         L.append("| 층 | → 층 | 대칭원소 |")
         L.append("|---|---|---|")
         for h in a["congruences"]:
-            L.append(f"| 잔여 {h['from']} | 잔여 {h['to']} | {h['by']} |")
+            L.append(f"| 잉여 {h['from']} | 잉여 {h['to']} | {h['by']} |")
     else:
         L.append("합동 없음.")
     L.append("")
@@ -444,37 +444,37 @@ def write_mod5_markdown(a: dict, path: str) -> None:
             o2 = a["pair_overlap"][f"{r2}→{r1}"]
             best = o1 if o1["overlap"] >= o2["overlap"] else o2
             mark = " **(합동)**" if best["overlap"] == 54 else ""
-            L.append(f"| 잔여 {r1} ↔ 잔여 {r2} | {best['overlap']}/54 | {best['by']}{mark} |")
+            L.append(f"| 잉여 {r1} ↔ 잉여 {r2} | {best['overlap']}/54 | {best['by']}{mark} |")
     L.append("")
 
     L.append("## 2. 층 자기대칭 (안정화자)\n")
     L.append("| 층 | 자기대칭 원소 |")
     L.append("|---|---|")
     for r in (1, 2, 3, 4, 0):
-        L.append(f"| 잔여 {r} | {', '.join(a['self_symmetry'][r])} |")
+        L.append(f"| 잉여 {r} | {', '.join(a['self_symmetry'][r])} |")
     L.append("")
 
-    L.append("## 3. 대척점(점대칭)의 잔여류 작용 — 합 271 ≡ 1 (mod 5)\n")
-    L.append("대척쌍 합이 271이므로 잔여류는 r ↦ (1−r) mod 5 로 작용해야 한다.")
+    L.append("## 3. 대척점(점대칭)의 잉여류 작용 — 합 271 ≡ 1 (mod 5)\n")
+    L.append("대척쌍 합이 271이므로 잉여류는 r ↦ (1−r) mod 5 로 작용해야 한다.")
     L.append(f"실측 불일치 쌍: **{a['antipode_mismatches']}건** (0이어야 함).\n")
     L.append("| 층 | 대척상 |")
     L.append("|---|---|")
     for r in (1, 2, 3, 4, 0):
-        L.append(f"| 잔여 {r} | 잔여 {a['antipode_class_map'][r]} |")
+        L.append(f"| 잉여 {r} | 잉여 {a['antipode_class_map'][r]} |")
     L.append("")
     L.append("대척 짝지음 행렬 A[i][j] = i층 셀의 대척점이 j층에 속하는 칸 수 "
              "(대각선 외 0이면 층이 닫혀 있음):\n")
-    header = "| | " + " | ".join(f"잔여{j}" for j in range(5)) + " |"
+    header = "| | " + " | ".join(f"잉여{j}" for j in range(5)) + " |"
     L.append(header)
     L.append("|" + "---|" * 6)
     for i in range(5):
-        L.append(f"| 잔여{i} | " + " | ".join(str(x) for x in a["antipode_pairing"][i]) + " |")
+        L.append(f"| 잉여{i} | " + " | ".join(str(x) for x in a["antipode_pairing"][i]) + " |")
     L.append("")
     L.append("해석: A[0][1] = A[1][0] = 54 (0층과 1층이 서로의 대척상),")
     L.append("A[2][4] = A[4][2] = 54 (2층과 4층이 서로의 대척상),")
     L.append("A[3][3] = 54 (3층은 자기 자신의 대척상 — 27개 점대칭 쌍).")
     L.append("이것이 §1의 합동 전부다: 0↔1, 2↔4의 회전180° 합동과 3층의")
-    L.append("자기대칭은 대척쌍 합 271의 mod 5 잔여류 작용 r ↦ 1−r 그 자체다.")
+    L.append("자기대칭은 대척쌍 합 271의 mod 5 잉여류 작용 r ↦ 1−r 그 자체다.")
     L.append("증명 그림: `mod5_symmetry.png` (색칠 층 vs 상대 층의 대척상 ○ 겹침).")
     L.append("")
 
@@ -482,22 +482,22 @@ def write_mod5_markdown(a: dict, path: str) -> None:
     L.append("| 층 | 남 internal 간선 | 연결성분 크기열 |")
     L.append("|---|---|---|")
     for r in (1, 2, 3, 4, 0):
-        L.append(f"| 잔여 {r} | {a['internal_edges'][r]} | {a['components'][r]} |")
+        L.append(f"| 잉여 {r} | {a['internal_edges'][r]} | {a['components'][r]} |")
     L.append("")
     L.append("형상 동형(그래프 동형) 쌍:")
     for p in a["iso_pairs"]:
         r1, r2 = p["pair"]
         verdict = ("**동형**" if p["isomorphic"] else "비동형")
         note = p.get("note", "VF2 판정")
-        L.append(f"- 잔여 {r1} ↔ 잔여 {r2}: {verdict} ({note})")
+        L.append(f"- 잉여 {r1} ↔ 잉여 {r2}: {verdict} ({note})")
     L.append("")
 
     L.append("## 5. 층 간 인접 몫행렬 M[i][j] (i층–j층 인접 간선 수)\n")
-    header = "| | " + " | ".join(f"잔여{j}" for j in range(5)) + " |"
+    header = "| | " + " | ".join(f"잉여{j}" for j in range(5)) + " |"
     L.append(header)
     L.append("|" + "---|" * 6)
     for i in range(5):
-        L.append(f"| 잔여{i} | " + " | ".join(str(x) for x in a["quotient_matrix"][i]) + " |")
+        L.append(f"| 잉여{i} | " + " | ".join(str(x) for x in a["quotient_matrix"][i]) + " |")
     L.append("")
 
     L.append("## 6. 층별 분포 편차 (균일 대비 χ²)\n")
@@ -505,7 +505,7 @@ def write_mod5_markdown(a: dict, path: str) -> None:
     L.append("|---|---|---|---|")
     for r in (1, 2, 3, 4, 0):
         u = a["uniformity"][r]
-        L.append(f"| 잔여 {r} | {u['wedges_chi2']:.2f} | {u['rays_chi2']:.2f} | {u['rings_chi2']:.2f} |")
+        L.append(f"| 잉여 {r} | {u['wedges_chi2']:.2f} | {u['rays_chi2']:.2f} | {u['rings_chi2']:.2f} |")
     L.append("")
 
     L.append("## 7. 값 이동 사상 T: 위치(v) → 위치(v+5)\n")
@@ -518,12 +518,12 @@ def write_mod5_markdown(a: dict, path: str) -> None:
 
     L.append("## 8. 파생 정리 — mod N 일반화 (기록)\n")
     L.append("**정리.** 값 배치에 위치 대합 π(π² = id)이 있고 모든 쌍의 값 합이")
-    L.append("상수 S이면, 임의의 modulus m에 대해 π는 mod m 잔여류를")
-    L.append("**r ↦ (S − r) mod m**으로 작용한다. 따라서 잔여류 층은 π-대칭으로")
+    L.append("상수 S이면, 임의의 법 m에 대해 π는 mod m 잉여류를")
+    L.append("**r ↦ (S − r) mod m**으로 작용한다. 따라서 잉여류 층은 π-대칭으로")
     L.append("서로 합동(궤도 길이 2)이거나 자기 합동(고정점: 2r ≡ S (mod m)의 해)이다.\n")
     L.append("까닭 (4단계):")
     L.append("1. 쌍 조건 v + v′ = S 를 mod m으로 내리면 v′ ≡ S − v — 셀마다 성립.")
-    L.append("2. 잔여류 위의 작용은 대합 r ↦ S − r 하나뿐이며, 대합의 궤도는")
+    L.append("2. 잉여류 위의 작용은 대합 r ↦ S − r 하나뿐이며, 대합의 궤도는")
     L.append("   길이 2의 쌍 아니면 고정점(2r ≡ S)이다.")
     L.append("3. π가 일대일이고 층 크기가 유한하므로, π(층 r) ⊆ 층 (S−r) 은 곧")
     L.append("   집합 동치다 — 겹침이 근사가 아니라 완전한 이유.")
@@ -534,7 +534,7 @@ def write_mod5_markdown(a: dict, path: str) -> None:
     L.append("  S = 271(홀수)와 중심 虛一이 이에 정합한다.")
     L.append("- S가 짝수이면 고정 셀의 값은 S/2로 강제된다 — 九子角得 중궁의")
     L.append("  중심 23 = 46/2가 실례다.\n")
-    L.append("교차 도안 검증 (`python3 -m yukgodo.modn_generalization`, modulus 2..9 전수):")
+    L.append("교차 도안 검증 (`python3 -m yukgodo.modn_generalization`, 법 2..9 전수):")
     L.append("")
     L.append("| 도안 | 쌍 합 S | π (위치 대합) | 결과 |")
     L.append("|---|---|---|---|")
@@ -572,7 +572,7 @@ def main() -> None:
     write_mod5_json(a, "output/mod5_analysis.json")
     write_mod5_markdown(a, "output/mod5_report.md")
 
-    print("=== mod 5 잔여류 분석 ===")
+    print("=== mod 5 잉여류 분석 ===")
     print(f"층 크기: 전부 54칸, 층 합: {a['class_sums']}")
     print(f"D6 합동: {len(a['congruences'])}건 → {a['congruences']}")
     print(f"대척 짝지음 행렬: {a['antipode_pairing']}")

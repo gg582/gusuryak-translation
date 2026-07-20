@@ -119,7 +119,7 @@ HEXAGONS: Final = {
 }
 
 RESIDUE_STYLE: Final = {
-    1: {"label": "n mod 5 ≡ 1", "face": "#3F3F3F", "edge": "#161616", "text": "#FFFFFF", "name": "Water", "ko": "수"},
+    1: {"label": "n mod 5 ≡ 1", "face": "#3F3F3F", "edge": "#161616", "text": "#FFFFFF", "legend_text": "#222222", "name": "Water", "ko": "수"},
     2: {"label": "n mod 5 ≡ 2", "face": "#F1CDCD", "edge": "#B63E3E", "text": "#782020", "name": "Fire", "ko": "화"},
     3: {"label": "n mod 5 ≡ 3", "face": "#D4E3F7", "edge": "#3E70AF", "text": "#244C7B", "name": "Wood", "ko": "목"},
     4: {"label": "n mod 5 ≡ 4", "face": "#E1E1E1", "edge": "#666666", "text": "#222222", "name": "Metal", "ko": "금"},
@@ -1047,7 +1047,7 @@ def draw_basic(
     legend_ax.text(
         0.0,
         y,
-        "mod 5 residue groups",
+        "mod 5 잉여류 그룹",
         transform=legend_ax.transAxes,
         ha="left",
         va="top",
@@ -1079,7 +1079,7 @@ def draw_basic(
             fontproperties=font,
             fontsize=10.8,
             weight="bold",
-            color=style["text"],
+            color=style.get("legend_text", style["text"]),
         )
         legend_ax.text(
             0.09,

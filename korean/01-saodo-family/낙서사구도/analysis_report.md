@@ -397,7 +397,7 @@ SW(5)  ── SE(11)
 
 **원문 주석의 현대 조합론 번역 (origin_translated_ 접두사):**
 - `origin_translated_01_terms.png` — 한문 구절을 현대 조합론 용어로 번역
-- `origin_translated_02_blocks.png` — 5개 residue class에서 9개 4-block으로 재구성
+- `origin_translated_02_blocks.png` — 5개 잉여류에서 9개 4-block으로 재구성
 - `origin_translated_03_overlap.png` — 鄰星相兼을 block overlap으로 해석
 - `origin_translated_04_invariant_table.png` — 9개 4-block의 합 42 불변량 표
 - `origin_translated_05_cyclic_action.png` — 右旋을 순환 작용으로 번역

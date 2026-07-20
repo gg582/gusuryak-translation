@@ -1,24 +1,9 @@
 import matplotlib.pyplot as plt
-import matplotlib.font_manager as fm
 import networkx as nx
 
-# Automatic Korean/English font setup (kept for cross-platform compatibility)
-preferred_fonts = ['NanumGothic', 'Noto Sans CJK KR', 'Malgun Gothic', 'AppleGothic']
-available_fonts = {f.name for f in fm.fontManager.ttflist}
-selected_font = next(
-    (name for name in preferred_fonts if name in available_fonts),
-    None
-)
-if selected_font is None:
-    # Fall back to any CJK-capable font if the preferred ones are absent
-    for f in fm.fontManager.ttflist:
-        if any(keyword in f.name for keyword in ('CJK', 'Nanum', 'Gothic', 'Malgun', 'AppleGothic')):
-            selected_font = f.name
-            break
+from cjk_font_config import configure_matplotlib_fonts
 
-if selected_font:
-    plt.rcParams['font.family'] = selected_font
-plt.rcParams['axes.unicode_minus'] = False
+configure_matplotlib_fonts()
 
 # Forward-direction node coordinates
 positions = {

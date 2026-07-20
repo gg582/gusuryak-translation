@@ -130,7 +130,7 @@ def main() -> None:
     write_reverse_markdown(reverse, reverse_md)
     print(f"생성 규칙 역산: {reverse_json}, {reverse_md}")
 
-    # mod 5 잔여류 채색 및 5층 기하 관계 전수조사
+    # mod 5 잉여류 채색 및 5층 기하 관계 전수조사
     from yukgodo.mod5 import (analyze_mod5, draw_mod5_coloring, draw_mod5_layers,
                               draw_mod5_symmetry, write_mod5_json, write_mod5_markdown)
     mod5 = analyze_mod5(values, grid)

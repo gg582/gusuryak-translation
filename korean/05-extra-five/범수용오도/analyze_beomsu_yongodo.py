@@ -241,7 +241,7 @@ for name, line in AXES.items():
     print(f"  {DISPLAY_LABELS[name]}: {counts_ko}  (배열 순서: {seq_ko})")
 
 # 오행 엣지 분류: 상생(목→화→토→금→수→목) / 상극(목→토→수→화→금→목) / 동질.
-GENERATION_PAIRS = [(3, 2), (2, 0), (0, 4), (4, 1), (1, 3)]   # mod-5 잔여 쌍
+GENERATION_PAIRS = [(3, 2), (2, 0), (0, 4), (4, 1), (1, 3)]   # mod-5 잉여 쌍
 OVERCOMING_PAIRS = [(3, 0), (0, 1), (1, 2), (2, 4), (4, 3)]
 
 
@@ -269,12 +269,12 @@ for key in ["generation", "overcoming", "same_phase"]:
     cnt = wx_edge_counts.get(key, 0)
     print(f"  {DISPLAY_LABELS[key]}: {cnt} ({100 * cnt / total_edges:.1f}%)")
 
-# 가로축의 상생 사슬 검증: 왼쪽→오른쪽 잔여열이 목→화→토→금→수인지.
+# 가로축의 상생 사슬 검증: 왼쪽→오른쪽 잉여열이 목→화→토→금→수인지.
 h_residues = [v % 5 for v in AXES["horizontal"]]
 h_all_generation = all(
     (h_residues[i], h_residues[i + 1]) in GENERATION_PAIRS for i in range(4)
 )
-print(f"\n가로축 잔여열(왼쪽→오른쪽): {h_residues}  → 모든 이웃 관계가 상생: {h_all_generation}")
+print(f"\n가로축 잉여열(왼쪽→오른쪽): {h_residues}  → 모든 이웃 관계가 상생: {h_all_generation}")
 
 # ============================================================
 # 4. 위치 기반 분석 (중심 / 내륜 / 외륜 / 팔 / 대향 쌍)
@@ -796,7 +796,7 @@ print("✓ 두 축 각 합 S = 25, 중복 계수 방정식 2·25 = 45 + 5 (作 9
 print("✓ 그래프: 9노드 8엣지 트리 (중심 차수 4, 중간점 차수 2, 끝점 차수 1)")
 print("✓ 매개 중심성: 중심 5 = 0.857, 중간점 = 0.250, 끝점 = 0.000")
 print("✓ 각 축은 다섯 오행을 정확히 한 번씩 포함")
-print(f"✓ 가로축 잔여열 {h_residues} = 상생 순환 (모든 이웃 상생: {h_all_generation})")
+print(f"✓ 가로축 잉여열 {h_residues} = 상생 순환 (모든 이웃 상생: {h_all_generation})")
 print(f"✓ 오행 엣지: 상생 {wx_edge_counts.get('generation', 0)}개 (75.0%),"
       f" 상극 {wx_edge_counts.get('overcoming', 0)}개 (25.0%), 동질 0개")
 print(f"✓ 네 팔 합 모두 10: {arm_vals}")

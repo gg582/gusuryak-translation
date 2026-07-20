@@ -22,13 +22,13 @@ import numpy as np
 from matplotlib.lines import Line2D
 from matplotlib.patches import FancyBboxPatch
 
+from cjk_font_config import configure_matplotlib_fonts
+
 # ============================================================
 # 0. Font and output settings
 # ============================================================
 
-plt.rcParams["font.family"] = "sans-serif"
-plt.rcParams["font.sans-serif"] = ["DejaVu Sans"]
-plt.rcParams["axes.unicode_minus"] = False
+configure_matplotlib_fonts()
 
 os.chdir(Path(__file__).parent)
 OUTPUT_DIR = Path(".")

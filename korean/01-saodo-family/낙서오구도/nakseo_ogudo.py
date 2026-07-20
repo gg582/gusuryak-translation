@@ -198,7 +198,7 @@ def validate() -> None:
 
     if actual_counts != RESIDUE_COUNTS:
         raise ValueError(
-            f"residue group 개수가 노트와 다릅니다: {actual_counts}"
+            f"잉여류 그룹 개수가 노트와 다릅니다: {actual_counts}"
         )
 
     # Each of the nine palace sums is 85, so repeated palace-total accounting is 765.

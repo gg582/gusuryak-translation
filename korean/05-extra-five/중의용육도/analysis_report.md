@@ -267,4 +267,4 @@ y축 대칭(x ↔ −x)으로 맞대응되는 위치 쌍의 합:
 - `07_local_extensions.png` — 구조 청사진(공유 쌍 경첩) + 보수 쌍 장치와 비대칭
 - `08_position_patterns.png` — 위치 역할(환/T 중심), 위치 부분집합 합, 행 합 회문
 
-추가로 `analyze_rotations.py`는 회전 분석 결과(`rotation_report.txt`, `rotation_cluster_*.png` 6개, `rotation_overview.png`)를 생성한다. 외곽 12환·내측 4환 및 4개 그룹의 mod 5 잔여 패턴과 대척합, 그리고 그룹 중심의 180° 회전 대칭(상단↔하단, 좌측↔우측)을 정리한다.
+추가로 `analyze_rotations.py`는 회전 분석 결과(`rotation_report.txt`, `rotation_cluster_*.png` 6개, `rotation_overview.png`)를 생성한다. 외곽 12환·내측 4환 및 4개 그룹의 mod 5 잉여 패턴과 대척합, 그리고 그룹 중심의 180° 회전 대칭(상단↔하단, 좌측↔우측)을 정리한다.

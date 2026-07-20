@@ -63,7 +63,7 @@ DISPLAY_LABELS = {
     "lower_palace": "하궁",
 }
 
-# 노트의 residue class 색 분류를 유지한다.
+# 노트의 잉여류 색 분류를 유지한다.
 RESIDUE_STYLE = {
     1: {
         "name": "mod 5 ≡ 1",
@@ -97,7 +97,7 @@ RESIDUE_STYLE = {
     },
 }
 
-# 노트에 적힌 residue class별 합.
+# 노트에 적힌 잉여류별 합.
 RESIDUE_SUMS = {
     1: 189,
     2: 198,

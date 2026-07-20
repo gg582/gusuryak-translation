@@ -10,7 +10,7 @@ Cluster: 내륜 4-cycle
   No nontrivial rotational invariance.
   Note: 중심 5는 고리에 포함되지 않음 (별도 1자)
   Note: 대향 쌍 합이 9와 11로 갈라짐 — 두 쌍의 합 20 = 고리 전체 합
-  Note: 잔여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함
+  Note: 잉여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함
 
 Cluster: 외륜 4-cycle
   Cyclic order (4 elements): 2 -> 6 -> 9 -> 3
@@ -19,7 +19,7 @@ Cluster: 외륜 4-cycle
   Opposite-pair sums: [11, 9]
   No nontrivial rotational invariance.
   Note: 대향 쌍 합이 11과 9 — 내륜과 교차 (가로: 외륜 9·내륜 11, 세로: 외륜 11·내륜 9)
-  Note: 잔여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함
+  Note: 잉여 패턴이 수·화·목·금(1,2,3,4)을 정확히 한 번씩 포함
 
 Cluster: 가로축 5자 수열
   Cyclic order (5 elements): 3 -> 7 -> 5 -> 4 -> 6
@@ -28,7 +28,7 @@ Cluster: 가로축 5자 수열
   No nontrivial rotational invariance.
   Note: 순환 고리가 아닌 선형 축 — 왼쪽→오른쪽 읽기 순서
   Note: 홀수 길이 5이므로 대향 쌍 합은 정의되지 않음
-  Note: 잔여열 3-2-5-4-1 = 상생 순환 목→화→토→금→수 (모든 이웃 관계가 상생)
+  Note: 잉여열 3-2-5-4-1 = 상생 순환 목→화→토→금→수 (모든 이웃 관계가 상생)
 
 Cluster: 세로축 5자 수열
   Cyclic order (5 elements): 2 -> 8 -> 5 -> 1 -> 9
