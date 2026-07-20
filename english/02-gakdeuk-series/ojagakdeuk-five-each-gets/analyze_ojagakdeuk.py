@@ -477,18 +477,18 @@ for bar, val in zip(ax.patches, level_sums_v):
     )
 
 ax = axes[1, 1]
-# Restored counts by wuxing for the complete 5x5 extension
+# Rule Variation Model counts per Wuxing
 extended_counts = []
 for r in [1, 2, 3, 4, 0]:
     base = GROUPS[r]
     missing_same = [n for n in range(1, 26) if n % 5 == r and n not in base]
     extended = base + missing_same[: 5 - len(base)]
     extended_counts.append((RESIDUE_STYLE[r]["name"], len(extended)))
-labels = [f"{ph}\n({cnt})" for ph, cnt in extended_counts]
+labels = [f"{ph}\n({cnt} elements)" for ph, cnt in extended_counts]
 counts = [cnt for _, cnt in extended_counts]
 colors_cnt = [PHASE_COLOR[ph] for ph, _ in extended_counts]
 ax.bar(labels, counts, color=colors_cnt, edgecolor="black", linewidth=1.5)
-ax.set_title("Count by wuxing in the complete 5×5 extension", fontsize=12, fontweight="bold")
+ax.set_title("Full 5×5 Rule Variation Model (Count per Wuxing)", fontsize=12, fontweight="bold")
 for bar, val in zip(ax.patches, counts):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
@@ -503,64 +503,60 @@ plt.tight_layout()
 save_fig("05_invariants.png")
 plt.close()
 
-# --- 06: Wuxing mutual-generation and mutual-overcoming diagram ---
+# --- 06: Wuxing Mutual Generation and Overcoming ---
 fig, ax = plt.subplots(figsize=(10, 8))
-phase_graph_relations = [
-    ("Water", "Wood", "Generation"),
-    ("Wood", "Fire", "Generation"),
-    ("Fire", "Earth", "Generation"),
-    ("Earth", "Metal", "Generation"),
-    ("Metal", "Water", "Generation"),
-    ("Water", "Fire", "Overcoming"),
-    ("Fire", "Metal", "Overcoming"),
-    ("Metal", "Wood", "Overcoming"),
-    ("Wood", "Earth", "Overcoming"),
-    ("Earth", "Water", "Overcoming"),
+wuxing_graph_relations = [
+    ("Water", "Wood", "generation"),
+    ("Wood", "Fire", "generation"),
+    ("Fire", "Earth", "generation"),
+    ("Earth", "Metal", "generation"),
+    ("Metal", "Water", "generation"),
+    ("Water", "Fire", "overcoming"),
+    ("Fire", "Metal", "overcoming"),
+    ("Metal", "Wood", "overcoming"),
+    ("Wood", "Earth", "overcoming"),
+    ("Earth", "Water", "overcoming"),
 ]
-# Draw arrows manually
-ph_pos = {"Water": (0, 2), "Wood": (2, 1), "Fire": (1, -1), "Earth": (-1, -1), "Metal": (-2, 1)}
-for u, v, r in phase_graph_relations:
-    x1, y1 = ph_pos[u]
-    x2, y2 = ph_pos[v]
-    color = "#44AA44" if r == "Generation" else "#CC4444"
-    style = "-" if r == "Generation" else "--"
-    rad = 0.15 if r == "Generation" else -0.15
+wx_pos = {"Water": (0, 2), "Wood": (2, 1), "Fire": (1, -1), "Earth": (-1, -1), "Metal": (-2, 1)}
+for u, v, r in wuxing_graph_relations:
+    x1, y1 = wx_pos[u]
+    x2, y2 = wx_pos[v]
+    color = "#44AA44" if r == "generation" else "#CC4444"
+    style = "-" if r == "generation" else "--"
+    rad = 0.15 if r == "generation" else -0.15
     ax.annotate(
         "",
         xy=(x2, y2),
         xytext=(x1, y1),
-        arrowprops=dict(arrowstyle="->", color=color, lw=2.5 if r == "Generation" else 2,
+        arrowprops=dict(arrowstyle="->", color=color, lw=2.5 if r == "generation" else 2,
                         connectionstyle=f"arc3,rad={rad}"),
     )
 
-for ph, (x, y) in ph_pos.items():
+for wx, (x, y) in wx_pos.items():
     ax.add_patch(
         plt.Circle(
             (x, y),
             0.35,
-            facecolor=PHASE_COLOR[ph],
+            facecolor=PHASE_COLOR[wx],
             edgecolor="black",
             linewidth=2.5,
             zorder=2,
         )
     )
-    ax.text(x, y, ph, ha="center", va="center", fontsize=14, fontweight="bold", zorder=3)
+    ax.text(x, y, wx, ha="center", va="center", fontsize=14, fontweight="bold", zorder=3)
 
 legend_elements = [
     Line2D([0], [0], color="#44AA44", lw=3, label="Generation"),
     Line2D([0], [0], color="#CC4444", lw=2, linestyle="--", label="Overcoming"),
 ]
-ax.legend(handles=legend_elements, loc="upper right", fontsize=11)
-ax.set_title("Wuxing mutual-generation and mutual-overcoming relation diagram", fontsize=14, fontweight="bold")
-ax.set_xlim(-3, 3.5)
-ax.set_ylim(-2.5, 3)
-ax.set_aspect("equal")
+ax.legend(handles=legend_elements, loc="upper right", fontsize=12)
+ax.set_title("Wuxing Cycle & Relations", fontsize=15, fontweight="bold")
 ax.axis("off")
 plt.tight_layout()
 save_fig("06_wuxing_relations.png")
 plt.close()
 
-# --- 07: Extension and layer distribution ---
+# --- 07: Rule Variation and Layer Model ---
 fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 
 ax = axes[0]
@@ -571,11 +567,11 @@ for r in [1, 2, 3, 4, 0]:
     extended = base + missing_same_residue[: 5 - len(base)]
     extended_totals.append((RESIDUE_STYLE[r]["name"], sum(extended), len(extended)))
 
-labels = [f"{ph}\n({cnt})" for ph, _, cnt in extended_totals]
+labels = [f"{ph}\n({cnt} elements)" for ph, _, cnt in extended_totals]
 values = [t for _, t, _ in extended_totals]
-colors_ext = [PHASE_COLOR[ph] for ph, _, _ in extended_totals]
+colors_ext = [PHASE_COLOR[wx] for wx, _, _ in extended_totals]
 ax.bar(labels, values, color=colors_ext, edgecolor="black", linewidth=1.5)
-ax.set_title("Complete 5×5 wuxing extension (virtual 25 numbers)", fontsize=13, fontweight="bold")
+ax.set_title("Full 5×5 Rule Variation Model (25-System)", fontsize=13, fontweight="bold")
 for bar, val in zip(ax.patches, values):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
@@ -588,7 +584,7 @@ for bar, val in zip(ax.patches, values):
 ax.set_ylabel("Sum", fontsize=10)
 
 ax = axes[1]
-layer_names = ["Upper vertex\n(y=6.0)", "Upper connector\n(y=5.0–4.2)", "Central horizontal band\n(y=3.3–2.0)", "Lower connector\n(y=0.8–-0.4)", "Lower vertex\n(y=-1.7)"]
+layer_names = ["Top Vertex\n(y=6.0)", "Upper Spoke\n(y=5.0~4.2)", "Central Band\n(y=3.3~2.0)", "Lower Spoke\n(y=0.8~-0.4)", "Bottom Vertex\n(y=-1.7)"]
 layer_values = [
     sum(LEVELS[6.0]),
     sum(LEVELS[5.0]) + sum(LEVELS[4.2]),
@@ -598,7 +594,7 @@ layer_values = [
 ]
 layer_colors = ["#CC4444", "#4488CC", "#44AA44", "#CC9944", "#888888"]
 ax.barh(layer_names, layer_values, color=layer_colors, edgecolor="black", linewidth=1.5)
-ax.set_title("Sum distribution by vertical layer", fontsize=13, fontweight="bold")
+ax.set_title("Vertical Layer Sum Distribution", fontsize=13, fontweight="bold")
 for bar, val in zip(ax.patches, layer_values):
     ax.text(
         bar.get_width() + 1,
@@ -612,10 +608,10 @@ for bar, val in zip(ax.patches, layer_values):
 ax.set_xlabel("Sum", fontsize=10)
 
 plt.tight_layout()
-save_fig("07_local_extensions.png")
+save_fig("07_rule_variation_model.png")
 plt.close()
 
-# --- 08: Position patterns (horizontal level / left-center-right) ---
+# --- 08: Position Patterns ---
 fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 
 ax = axes[0]
@@ -624,34 +620,21 @@ level_sums_list = [sum(LEVELS[y]) for y in LEVEL_ORDER]
 level_counts = [len(LEVELS[y]) for y in LEVEL_ORDER]
 x = np.arange(len(LEVEL_ORDER))
 width = 0.35
-ax.bar(x - width / 2, level_sums_list, width, label="Level sum", color="#CC4444", edgecolor="black")
+ax.bar(x - width / 2, level_sums_list, width, label="Level Sum", color="#CC4444", edgecolor="black")
 ax2 = ax.twinx()
-ax2.bar(x + width / 2, level_counts, width, label="Node count", color="#4488CC", edgecolor="black", alpha=0.7)
+ax2.bar(x + width / 2, level_counts, width, label="Node Count", color="#4488CC", edgecolor="black", alpha=0.7)
 ax.set_xticks(x)
 ax.set_xticklabels(palace_names, rotation=15, ha="right")
-ax.set_title("Sum and node count by horizontal level", fontsize=13, fontweight="bold")
 ax.set_ylabel("Sum", fontsize=10)
-ax2.set_ylabel("Count", fontsize=10)
-lines1, labels1 = ax.get_legend_handles_labels()
-lines2, labels2 = ax2.get_legend_handles_labels()
-ax.legend(lines1 + lines2, labels1 + labels2, loc="upper right")
+ax2.set_ylabel("Node Count", fontsize=10)
+ax.set_title("Horizontal Level Sums and Node Counts", fontsize=13, fontweight="bold")
 
 ax = axes[1]
-components = {
-    "Left": sum(LEFT_VALUES),
-    "Center": sum(MID_VALUES),
-    "Right": sum(RIGHT_VALUES),
-}
-ax.bar(
-    list(components.keys()),
-    list(components.values()),
-    color=["#4488CC", "#44AA44", "#CC4444"],
-    edgecolor="black",
-    linewidth=1.5,
-)
-ax.set_title("Left · Center · Right symmetric sums", fontsize=13, fontweight="bold")
-ax.set_ylabel("Sum", fontsize=10)
-for bar, val in zip(ax.patches, components.values()):
+reg_names = ["Left (x < -0.5)", "Center (-0.5 ≤ x ≤ 0.5)", "Right (x > 0.5)"]
+reg_values = [86, 93, 86]
+ax.bar(reg_names, reg_values, color=["#4488CC", "#CC4444", "#4488CC"], edgecolor="black", linewidth=1.5)
+ax.set_title("Left-Center-Right Region Sums (Symmetry 86=86)", fontsize=13, fontweight="bold")
+for bar, val in zip(ax.patches, reg_values):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
         bar.get_height() + 1,
@@ -660,7 +643,7 @@ for bar, val in zip(ax.patches, components.values()):
         fontsize=12,
         fontweight="bold",
     )
-ax.axhline(y=sum(LEFT_VALUES), color="red", linestyle="--", linewidth=1.5, alpha=0.5)
+ax.set_ylabel("Sum", fontsize=10)
 
 plt.tight_layout()
 save_fig("08_position_patterns.png")
@@ -668,5 +651,6 @@ plt.close()
 
 print("\n" + "=" * 60)
 print("All images generated successfully!")
+print("Note: This visualization model is a Rule Variation Model created for mathematical study, not the raw historical original facsimile.")
 print(f"Output directory: {OUTPUT_DIR}/")
 print("=" * 60)

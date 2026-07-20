@@ -485,7 +485,7 @@ for bar, val in zip(ax.patches, level_sums_v):
     )
 
 ax = axes[1, 1]
-# 누락 수 복원 시 오행별 개수
+# 5×5 변용 모델 적용 시 오행별 개수 (Rule Variation Model)
 extended_counts = []
 for r in [1, 2, 3, 4, 0]:
     base = GROUPS[r]
@@ -496,7 +496,7 @@ labels = [f"{DISPLAY_LABELS[wx]}\n({cnt}개)" for wx, cnt in extended_counts]
 counts = [cnt for _, cnt in extended_counts]
 colors_cnt = [PHASE_COLOR[wx] for wx, _ in extended_counts]
 ax.bar(labels, counts, color=colors_cnt, edgecolor="black", linewidth=1.5)
-ax.set_title("완전 5×5 확장 시 오행별 개수", fontsize=12, fontweight="bold")
+ax.set_title("완전 5×5 변용 연구 모델 오행별 개수", fontsize=12, fontweight="bold")
 for bar, val in zip(ax.patches, counts):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
@@ -559,17 +559,14 @@ legend_elements = [
     Line2D([0], [0], color="#44AA44", lw=3, label="상생"),
     Line2D([0], [0], color="#CC4444", lw=2, linestyle="--", label="상극"),
 ]
-ax.legend(handles=legend_elements, loc="upper right", fontsize=11)
-ax.set_title("오행 상생상극 관계도", fontsize=14, fontweight="bold")
-ax.set_xlim(-3, 3.5)
-ax.set_ylim(-2.5, 3)
-ax.set_aspect("equal")
+ax.legend(handles=legend_elements, loc="upper right", fontsize=12)
+ax.set_title("오행 상생상극 관계", fontsize=15, fontweight="bold")
 ax.axis("off")
 plt.tight_layout()
 save_fig("06_wuxing_relations.png")
 plt.close()
 
-# --- 07: 확장 및 층별 분포 ---
+# --- 07: 규칙 변용 및 층별 분포 모델 연구 ---
 fig, axes = plt.subplots(1, 2, figsize=(16, 7))
 
 ax = axes[0]
@@ -584,7 +581,7 @@ labels = [f"{DISPLAY_LABELS[wx]}\n({cnt}개)" for wx, _, cnt in extended_totals]
 values = [t for _, t, _ in extended_totals]
 colors_ext = [PHASE_COLOR[wx] for wx, _, _ in extended_totals]
 ax.bar(labels, values, color=colors_ext, edgecolor="black", linewidth=1.5)
-ax.set_title("완전 5×5 오행 확장 (가상 25수)", fontsize=13, fontweight="bold")
+ax.set_title("완전 5×5 변용 연구 모델 (25수 체계)", fontsize=13, fontweight="bold")
 for bar, val in zip(ax.patches, values):
     ax.text(
         bar.get_x() + bar.get_width() / 2,
@@ -621,7 +618,7 @@ for bar, val in zip(ax.patches, layer_values):
 ax.set_xlabel("합", fontsize=10)
 
 plt.tight_layout()
-save_fig("07_local_extensions.png")
+save_fig("07_rule_variation_model.png")
 plt.close()
 
 # --- 08: 위치 패턴 (수평 단 / 좌중우) ---
