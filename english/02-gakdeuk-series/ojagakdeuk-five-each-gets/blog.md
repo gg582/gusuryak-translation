@@ -1,5 +1,7 @@
 # Reading Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) with Modern Mathematics: 21 Numbers and the Cheonsu-yong-odo Geometric Structure
 
+> **※ Note**: This post and its accompanying figures present a **Rule Variation Model** created for mathematical analysis and visualization, not a raw historical facsimile of the original manuscript.
+
 When looking at a classical mathematical diagram, the first task is to stop seeing it as mere symbolism and to count the numbers and structure inside it one by one. In this post we unpack Ojagakdeuk (五子各得), also called Cheonsu-yong-odo (天水用五圖), in the language of modern combinatorics and positional analysis.
 
 ## 1. What is Ojagakdeuk?
