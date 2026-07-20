@@ -4,6 +4,7 @@ import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 from matplotlib.patches import Circle
+from pathlib import Path
 
 
 NODE_RADIUS = 0.30
@@ -11,6 +12,14 @@ NODE_RADIUS = 0.30
 
 def get_cjk_font():
     """Return a FontProperties that can render CJK (Korean/Chinese) glyphs."""
+    font_paths = [
+        "/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc",
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    ]
+    for path in font_paths:
+        if Path(path).exists():
+            return FontProperties(fname=path)
+
     candidates = [
         "Noto Serif CJK KR",
         "Noto Sans CJK KR",
@@ -112,8 +121,8 @@ def main():
         y=6.0,
         rows=[
             [(-0.6, 40), (0.6, 14)],
-            [(-1.2, 57), (0.6, 9)],
-            [(-1.2, 8), (0.6, 56)],
+            [(-1.2, 57), (1.2, 9)],
+            [(-1.2, 8), (1.2, 56)],
             [(-0.6, 25), (0.6, 41)],
         ],
     )

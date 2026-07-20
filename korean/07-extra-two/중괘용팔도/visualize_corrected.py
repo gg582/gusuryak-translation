@@ -1,23 +1,17 @@
 #!/usr/bin/env python3
 """
-Correction of the eight-formation diagram (八陣圖).
+Visualize a complement-structure reading of the eight-formation diagram.
 
-The original transcription contains several errors:
-  - duplicated values 14 and 22
-  - missing values 20 and 29
-  - four formations whose sums are not 260
-
-This script visualizes the corrected placement:
-  - transposition 33 <-> 35 between the top-horizontal and left-vertical
-    formations (restoring the intended ±2 transformation pair)
-  - 14 -> 20 and 25 -> 29 in the top-left vertical formation
-  - 22 -> 25 in the top-right vertical formation
+This layout is used as a working arrangement for testing the method borrowed
+from the Nakseo Gugudo description: baseline complement pairs plus local
+redistribution between formations.
 """
 
 import matplotlib
 import matplotlib.pyplot as plt
 from matplotlib.font_manager import FontProperties
 from matplotlib.patches import Circle
+from pathlib import Path
 
 
 NODE_RADIUS = 0.30
@@ -25,6 +19,14 @@ NODE_RADIUS = 0.30
 
 def get_cjk_font():
     """Return a FontProperties that can render CJK (Korean/Chinese) glyphs."""
+    font_paths = [
+        "/usr/share/fonts/opentype/noto/NotoSerifCJK-Regular.ttc",
+        "/usr/share/fonts/opentype/noto/NotoSansCJK-Regular.ttc",
+    ]
+    for path in font_paths:
+        if Path(path).exists():
+            return FontProperties(fname=path)
+
     candidates = [
         "Noto Serif CJK KR",
         "Noto Sans CJK KR",
@@ -126,8 +128,8 @@ def main():
         y=6.0,
         rows=[
             [(-0.6, 40), (0.6, 20)],
-            [(-1.2, 57), (0.6, 9)],
-            [(-1.2, 8), (0.6, 56)],
+            [(-1.2, 57), (1.2, 9)],
+            [(-1.2, 8), (1.2, 56)],
             [(-0.6, 29), (0.6, 41)],
         ],
     )
