@@ -163,3 +163,24 @@ def visualize_solution(sol: EachGetsSolution, output_path: Optional[str] = None)
         plt.savefig(output_path, dpi=200, bbox_inches="tight", facecolor="white")
     else:
         plt.show()
+
+
+# ---------------------------------------------------------------------------
+# Advanced Graph & Topological Extensions for 04-unification
+# ---------------------------------------------------------------------------
+
+def analyze_solution_topology(sol: EachGetsSolution) -> dict:
+    """Compute topology metrics for an EachGetsSolution using NetworkX."""
+    import networkx as nx
+    G = nx.Graph()
+    G.add_edges_from(sol.adjacency)
+    betw = nx.betweenness_centrality(G)
+    A = nx.adjacency_matrix(G).toarray().astype(float)
+    eigenvals = np.linalg.eigvals(A)
+    spectral_radius = float(np.max(np.abs(eigenvals)))
+    return {
+        "betweenness": betw,
+        "eigenvalues": eigenvals,
+        "spectral_radius": spectral_radius
+    }
+

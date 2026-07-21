@@ -407,3 +407,71 @@ def write_report(
     with open(save_path, "w", encoding="utf-8") as f:
         f.write(report)
     print(report)
+
+
+# ---------------------------------------------------------------------------
+# Advanced Spectral, Topology, and Group Theory Analysis Utilities
+# ---------------------------------------------------------------------------
+
+def compute_advanced_spectral_analysis(G_or_matrix: Any) -> dict[str, Any]:
+    """
+    Compute spectral radius, eigenvalues, and betweenness centrality.
+
+    Parameters
+    ----------
+    G_or_matrix : networkx.Graph or numpy.ndarray or list of lists
+        Target graph or adjacency/matrix structure.
+
+    Returns
+    -------
+    dict
+        Dictionary containing:
+        - 'spectral_radius': float
+        - 'eigenvalues': numpy.ndarray (sorted descending by magnitude)
+        - 'betweenness_centrality': dict or numpy.ndarray
+    """
+    import networkx as nx
+
+    if isinstance(G_or_matrix, nx.Graph):
+        G = G_or_matrix
+        A = nx.adjacency_matrix(G).toarray().astype(float)
+        betw = nx.betweenness_centrality(G)
+    else:
+        A = np.array(G_or_matrix, dtype=float)
+        G = nx.from_numpy_array(A)
+        betw = nx.betweenness_centrality(G)
+
+    eigenvals = np.linalg.eigvals(A)
+    # Sort by descending magnitude
+    eigenvals_sorted = sorted(eigenvals, key=lambda x: abs(x), reverse=True)
+    spectral_radius = float(abs(eigenvals_sorted[0])) if len(eigenvals_sorted) > 0 else 0.0
+
+    return {
+        "spectral_radius": spectral_radius,
+        "eigenvalues": np.array(eigenvals_sorted),
+        "betweenness_centrality": betw,
+        "adjacency_matrix": A
+    }
+
+
+def get_canonical_matrix_d8(matrix: list[list[int]] | np.ndarray) -> tuple:
+    """
+    Compute the canonical (lexicographically smallest) form of a 2D matrix under D8 symmetry
+    (4 rotations x 2 reflections).
+    """
+    mat = np.array(matrix)
+    transformations = []
+    for k in range(4):
+        rot = np.rot90(mat, k)
+        transformations.append(tuple(rot.flatten()))
+        transformations.append(tuple(np.flipud(rot).flatten()))
+        transformations.append(tuple(np.fliplr(rot).flatten()))
+    return min(transformations)
+
+
+def kronecker_product_2d(L1: list[list[int]] | np.ndarray, L2: list[list[int]] | np.ndarray) -> np.ndarray:
+    """
+    Compute Kronecker product (tensor product) of two 2D matrices L1 and L2.
+    """
+    return np.kron(np.array(L1), np.array(L2))
+
