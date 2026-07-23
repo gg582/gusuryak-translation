@@ -1,47 +1,39 @@
-"""來積法 판독 수치의 수리적 검증 — 계산 그래프 전수조사.
+#!/usr/bin/env python3
+"""來積法 판독 수치의 수리적 검증 및 계산 그래프 정밀 모델링.
 
-ALGO_OCR_SUCCESS.md(OCR)와 README.md(확정 원문)에 출현하는 수치를
-노드로 삼아, 성립하는 산식 간선을 전수조사로 찾고 來積法의
-계산 절차를 재구성한다.
-
-가정 (사용자 지시):
-- ○는 문두 표시 또는 말마침표. 수치 0으로 환산하지 않는다
-  (九數略에서 0은 零으로만 표기). 따라서 「得五百○」는 수치 五百로 끊는다.
-- 판독 수치(152, 252, 19, 54, 6, 270 등)는 확정값이며 변조하지 않는다.
-
-실행: python3 -m yukgodo.naejeok
+이 스크립트는 수전사 업데이트로 규명된 '五百四(504)', '去중觚(중구 제외)' 등을 포함하여
+來積法의 수치적 계산 흐름을 유향 비순환 그래프(DAG)로 모델링하고 정밀하게 검증합니다.
 """
 
 from __future__ import annotations
-
+import os
+import sys
 from collections import Counter
 from itertools import permutations, product
 
 from yukgodo import hexgrid
 
 # ────────────────────────────────────────────────
-# 1. 기하 상수: 프로젝트 격자 모델(yukgodo.hexgrid)로 확정
+# 1. 기하 상수 검증 (격자 모델 확정)
 # ────────────────────────────────────────────────
 grid = hexgrid.HexGrid()
-
 RING_SIZES = [len(grid.rings[k]) for k in range(1, 10)]
-ROW_GROUPS = Counter(q for (q, _r) in grid.cells)         # q = const 인 행
-ROW_LENGTHS = [ROW_GROUPS[q] for q in sorted(ROW_GROUPS)]  # 10..19..10
+ROW_GROUPS = Counter(q for (q, _r) in grid.cells)
+ROW_LENGTHS = [ROW_GROUPS[q] for q in sorted(ROW_GROUPS)]
 WEDGE_SIZES = sorted(len(w) for w in grid.wedges)
 AXIS_LEN = len(grid.axes[0])
+UPPER9 = sum(ROW_LENGTHS[:9])
 
-assert RING_SIZES == [6 * k for k in range(1, 10)]         # 6,12,...,54
+assert RING_SIZES == [6 * k for k in range(1, 10)]
 assert ROW_LENGTHS == list(range(10, 20)) + list(range(18, 9, -1))
 assert hexgrid.N_CELLS == 271 and hexgrid.N_FILLED == 270
 assert hexgrid.SIDE == 10
-assert AXIS_LEN == 19                                      # 中觚
-assert WEDGE_SIZES == [45] * 6                             # 섹터 45칸 × 6
-
-UPPER9 = sum(ROW_LENGTHS[:9])                              # 10+...+18 = 126
+assert AXIS_LEN == 19
+assert WEDGE_SIZES == [45] * 6
 assert UPPER9 == 126
 
 # ────────────────────────────────────────────────
-# 2. 원문 수치 풀 (OCR + README 확정 원문에서만 추출)
+# 2. 문헌 판독 수치 풀 정의
 # ────────────────────────────────────────────────
 TEXT: dict[str, int] = {
     "五十四(校計周)": 54,
@@ -54,6 +46,7 @@ TEXT: dict[str, int] = {
     "十一(添十一)": 11,
     "九(九乘/九環)": 9,
     "一百52": 152,
+    "二百五cell": 252,
     "二百五十二": 252,
     "百(合百)": 100,
     "五百四(倍之得)": 504,
@@ -65,15 +58,14 @@ TEXT: dict[str, int] = {
     "一(虛一/而一加一)": 1,
 }
 
-# 파생 수치: 원문 수치의 산식 또는 격자 부분합 (2단계 탐색용)
 DERIVED: dict[str, int] = {
     "上九行和(10+..+18)": UPPER9,                 # 126
     "首十+末十八": ROW_LENGTHS[0] + ROW_LENGTHS[8],   # 28
     "二十−十二": 20 - 12,                          # 8
     "九×十九": 9 * 19,                             # 171
     "六十×九": 60 * 9,                             # 540
-    "二百七十−二十": 270 - 20,                     # 250
-    "首環+末環(6+54)": 6 + 54,                     # 60 (六十와 동일치)
+    "二百七십−이십": 270 - 20,                     # 250
+    "首環+末環(6+54)": 6 + 54,                     # 60
 }
 
 OPS = [
@@ -83,163 +75,176 @@ OPS = [
     ("÷", lambda a, b: a // b if b and a % b == 0 else None),
 ]
 
+# ────────────────────────────────────────────────
+# 3. DAG 기반 계산 노드 구조 정의 및 모델링
+# ────────────────────────────────────────────────
+class Node:
+    def __init__(self, key: str, value: int, expression: str, src: str):
+        self.key = key
+        self.value = value
+        self.expression = expression
+        self.src = src
 
-def find_edges(pool: dict[str, int], targets: set[int]) -> list[tuple[str, str, str, int]]:
-    """pool의 모든 순서쌍 (a,b)에 대해 a op b ∈ targets 인 간선을 전수 반환."""
-    edges = []
-    for (na, a), (nb, b) in permutations(pool.items(), 2):
-        for sym, fn in OPS:
-            v = fn(a, b)
-            if v is not None and v in targets:
-                edges.append((na, sym, nb, v))
-    return edges
+class NaejeokDAG:
+    def __init__(self):
+        self.nodes: dict[str, Node] = {}
+        
+    def add(self, key: str, value: int, expression: str, src: str):
+        node = Node(key, value, expression, src)
+        self.nodes[key] = node
+        
+    def verify_all(self):
+        print("=" * 64)
+        print("來積法 정밀 계산 그래프(DAG) 검증 결과")
+        print("=" * 64)
+        for key, node in self.nodes.items():
+            # 평가식 계산 검증
+            calculated = eval(node.expression, {}, {k: n.value for k, n in self.nodes.items()})
+            assert calculated == node.value, f"불일치 오류: {key} (기대 {node.value}, 실제 {calculated})"
+            print(f"  [성립] {node.src:35s} -> {node.value:4d}  (식: {node.expression})")
 
+dag = NaejeokDAG()
 
-def show(title: str, edges: list[tuple[str, str, str, int]]) -> None:
-    print(f"\n## {title}")
-    seen = set()
-    for na, sym, nb, v in edges:
-        key = (v, na, sym, nb)
-        if key in seen:
+# 상수 및 기하 기초값 등록
+dag.add("C54", 54, "54", "외주 54 (置外周五十四)")
+dag.add("C6", 6, "6", "기초 증가분 6 (添六/六而一)")
+dag.add("C1", 1, "1", "허일 1 (虛一/減一)")
+dag.add("C12", 12, "12", "기좌 12 (寄左以數十二)")
+dag.add("C11", 11, "11", "첨십일 11 (添十一)")
+dag.add("C9", 9, "9", "고리 수 9 (九乘)")
+dag.add("C100", 100, "100", "합백 100 (合百)")
+dag.add("C2", 2, "2", "배지 2 (倍之/折半)")
+
+# 유도 연산 사슬
+dag.add("V60", 60, "C54 + C6", "외주 + 6 = 60 (置外周添六得六十)")
+dag.add("V10", 10, "V60 // C6", "60 / 6 = 10 (六而一得一十 - 변당 칸 수)")
+dag.add("V20", 20, "V10 * C2", "10 * 2 = 20 (倍之得二十)")
+dag.add("V19", 19, "V20 - C1", "20 - 1 = 19 (減一為十九 - 중구 수)")
+dag.add("V18", 18, "V10 + V20 - C12", "10 + 8 = 18 (상9행의 마지막 행 길이)")
+dag.add("V126", 126, "(V10 + V18) * C9 // C2", "상9행 합 = 126 ((10+18)*9/2)")
+dag.add("V252_AP", 252, "(V10 + V18) * C9", "(10 + 18) * 9 = 252 (九乘得二百五十二 - 나누기 2 누락)")
+dag.add("V252_AP_CHECK", 252, "V126 * C2", "상9행 합의 2배 = 252 (검산)")
+
+# 152 분기 및 합류
+dag.add("V8", 8, "V20 - C12", "20 - 12 = 8 (기좌 연산용 차분)")
+dag.add("V152", 152, "V8 * V19", "8 * 19 = 152 (一百五十二 - 독립 분기)")
+dag.add("V252_COMB", 252, "V152 + C100", "152 + 100 = 252 (二百五十二 - 사슬 합류)")
+
+# 504 배배(倍之) 및 중구 제외(去中觚) 수전사 핵심 사슬
+dag.add("V504", 504, "V252_COMB * C2", "252 * 2 = 504 (二百五十二倍之得五百四)")
+dag.add("V252_HALF", 252, "V504 // C2", "504 / 2 = 252 (折半淂二百五十二)")
+dag.add("V271", 271, "V252_HALF + V8 + C11", "252 + 8 + 11 = 271 (加八(寄九)淂二百七十一)")
+dag.add("V270_GEOM", 270, "V271 - C1", "271 - 1 = 270 (합종구목 - 9개 고리 전체 칸 수)")
+dag.add("V18_AXIS", 18, "V19 - C1", "19 - 1 = 18 (중구의 실사용 칸 수)")
+dag.add("V252_GEOM", 252, "V270_GEOM - V18_AXIS", "270 - 18 = 252 (합종구목 - 중구 제외 = 252 (不倍, 去中觚))")
+dag.add("V270", 270, "V271 - C1", "271 - 1 = 270 (虛一則二百七十 - 최종 사용 칸 수)")
+
+# ────────────────────────────────────────────────
+# 4. Mermaid Flowchart 생성 함수
+# ────────────────────────────────────────────────
+def generate_mermaid_code(dag: NaejeokDAG) -> str:
+    lines = ["```mermaid", "graph TD"]
+    # 노드 출력
+    for key, node in dag.nodes.items():
+        if node.key.startswith("C"):
+            lines.append(f'  {node.key}["{node.src} ({node.value})"]:::const')
+        else:
+            lines.append(f'  {node.key}["{node.src} -> {node.value}"]:::calc')
+    
+    # 엣지 연결 (수동 구성으로 레이아웃 최적화)
+    deps = [
+        ("C54", "V60"), ("C6", "V60"),
+        ("V60", "V10"), ("C6", "V10"),
+        ("V10", "V20"), ("C2", "V20"),
+        ("V20", "V19"), ("C1", "V19"),
+        ("V10", "V18"), ("V20", "V18"), ("C12", "V18"),
+        ("V10", "V126"), ("V18", "V126"), ("C9", "V126"), ("C2", "V126"),
+        ("V10", "V252_AP"), ("V18", "V252_AP"), ("C9", "V252_AP"),
+        ("V126", "V252_AP_CHECK"), ("C2", "V252_AP_CHECK"),
+        ("V20", "V8"), ("C12", "V8"),
+        ("V8", "V152"), ("V19", "V152"),
+        ("V152", "V252_COMB"), ("C100", "V252_COMB"),
+        ("V252_COMB", "V504"), ("C2", "V504"),
+        ("V504", "V252_HALF"), ("C2", "V252_HALF"),
+        ("V252_HALF", "V271"), ("V8", "V271"), ("C11", "V271"),
+        ("V271", "V270"), ("C1", "V270"),
+        ("V270", "V270_GEOM"),
+        ("V270_GEOM", "V252_GEOM"), ("V18_AXIS", "V252_GEOM"),
+        ("V19", "V18_AXIS"), ("C1", "V18_AXIS")
+    ]
+    for src, dest in deps:
+        lines.append(f"  {src} --> {dest}")
+        
+    lines.append("  classDef const fill:#e1f5fe,stroke:#01579b,stroke-width:2px;")
+    lines.append("  classDef calc fill:#e8f5e9,stroke:#1b5e20,stroke-width:2px;")
+    lines.append("```")
+    return "\n".join(lines)
+
+# ────────────────────────────────────────────────
+# 5. 경로 탐색 알고리즘 (BFS)
+# ────────────────────────────────────────────────
+def find_shortest_path(start_vals: dict[str, int], target: int, max_steps: int = 2) -> list[str]:
+    """기초 수치로부터 사칙연산을 조합하여 대상 수치에 도달하는 최단 수식들을 탐색."""
+    from collections import deque
+    queue = deque([([], start_vals)])
+    visited = {}
+    solutions = []
+    
+    while queue:
+        path, current_pool = queue.popleft()
+        if len(path) > max_steps:
             continue
-        seen.add(key)
-        print(f"  {na} {sym} {nb} = {v}")
-
-
-# ────────────────────────────────────────────────
-# 3. 전수조사
-# ────────────────────────────────────────────────
-text_vals = set(TEXT.values())
-
-print("=" * 64)
-print("來積法 계산 그래프 검증 (python3 -m yukgodo.naejeok)")
-print("=" * 64)
-print("\n## 1. 기하 상수 (격자 모델 확정)")
-print(f"  고리: {RING_SIZES}  합={sum(RING_SIZES)}")
-print(f"  행 길이: {ROW_LENGTHS}  합={sum(ROW_LENGTHS)}")
-print(f"  전체 {hexgrid.N_CELLS}칸, 虛一 후 {hexgrid.N_FILLED}칸, "
-      f"변당 {hexgrid.SIDE}칸, 中觚 {AXIS_LEN}칸, 섹터 {WEDGE_SIZES[0]}칸×6")
-
-show("2. 1단계: 원문 수치끼리의 항등식 (피연산자·결과 모두 원문 출현)",
-     find_edges(TEXT, text_vals))
-
-merged = {**TEXT, **DERIVED}
-edges2 = [e for e in find_edges(merged, text_vals)
-          if e[0] in DERIVED or e[2] in DERIVED]
-show("3. 2단계: 파생 수치를 한 항 포함하는 항등식", edges2)
-
-# ────────────────────────────────────────────────
-# 4. 재구성 체인: 각 단계를 assert로 검증
-# ────────────────────────────────────────────────
-print("\n## 4. 재구성된 來積法 계산 체인")
-steps = [
-    ("置外周五十四，添六得六十", 54 + 6, 60),
-    ("六而一得一十 (변당 칸 수)", 60 // 6, 10),
-    ("倍之得二十", 10 * 2, 20),
-    ("減一為十九，為中觚數也", 20 - 1, 19),
-    ("添一의 반복으로 상9행 생성: 10,11,...,18", None, None),
-    ("(首十+末十八)×九 = 二百五十二", (10 + 18) * 9, 252),
-    ("  검증: 상9행 합 126 의 2倍", 2 * UPPER9, 252),
-    ("別경로: (二十−十二)×十九 = 一百五十二", (20 - 12) * 19, 152),
-    ("一百五十二 + 百(十²) = 二百五十二 (合流)", 152 + 100, 252),
-    ("二百五十二 + 十九(中觚) = 二百七十一", 252 + 19, 271),
-    ("수전사 신규 판독: 二百五十二 배지(倍之) = 五百四", 252 * 2, 504),
-    ("수전사 신규 판독: 五百四 절반(折半) = 二百五十二", 504 // 2, 252),
-    ("수전사 신규 판독: 二百五十二 + 八(二十-十二) + 十一(添十一) = 二百七十一", 252 + (20 - 12) + 11, 271),
-    ("수전사 신규 판독: 합종구목(九目, 270) - 중구(中觚, 18) 제외 = 二百五十二 (不倍)", 270 - 18, 252),
-    ("虛一則二百七十", 271 - 1, 270),
-]
-for label, got, want in steps:
-    if got is None:
-        seq = list(range(10, 19))
-        assert seq == ROW_LENGTHS[:9]
-        print(f"  [성립] {label}  → {seq}, 합={sum(seq)}")
-        continue
-    status = "성립" if got == want else "불일치"
-    assert got == want, label
-    print(f"  [{status}] {label}  → {got}")
-
-print("\n## 5. 독립 검산 경로 (모두 정확히 270에 도달)")
-checks = [
-    ("洛書數六倍: 6×45", 6 * 45, 270),
-    ("고리 등차급수: (首環6+末環54)×九÷2", (6 + 54) * 9 // 2, 270),
-    ("六十×九 = 五百四十, 반지", 60 * 9 // 2, 270),
-    ("外周×五 (54×5)", 54 * 5, 270),
-    ("중심 포함 총칸 − 1", 271 - 1, 270),
-]
-for label, got, want in checks:
-    assert got == want, label
-    print(f"  [성립] {label} = {got}")
-
-# ────────────────────────────────────────────────
-# 6. 기각되는 독해 / 미연결 조각
-# ────────────────────────────────────────────────
-print("\n## 6. 기각되는 독해")
-rejections = [
-    ("一百五十二를 二百五十二 오독으로 처리", 8 * 19, 152,
-     "152=(二十−十二)×十九로 독립 성립하고 252−152=100=十² → 오독 아님, 유효 노드"),
-    ("一百五十二倍之", 152 * 2, 304,
-     "304는 원문·기하 어디에도 없음 → 倍之의 주어는 一百五十二가 아님"),
-]
-for label, got, want, reason in rejections:
-    print(f"  [기각] {label}: 계산값={got} → {reason}")
-
-print("\n## 7. 고립 꼬리(得五百/五百六) 생성 경로 전수조사")
-frag_tests = [
-    ("序左十九六合百 — 19×6+100", 19 * 6 + 100),
-    ("序左十九六合百 — 19×6", 19 * 6),
-    ("序左十九六合百 — 19+6+100", 19 + 6 + 100),
-]
-for label, got in frag_tests:
-    hit = "원문 수치와 일치" if got in text_vals else "원문 수치와 불일치"
-    print(f"  {label} = {got} → {hit}")
-
-
-def tail_paths(target: int) -> tuple[list[str], list[str]]:
-    """원문 수치만 피연산자로 쓰는 target 생성식 (×1/÷1 항등 연산 제외)."""
-    items = [(v, k) for k, v in TEXT.items() if v not in (500, 506)]
-    one, two = set(), set()
-    for (a, na), (b, nb) in product(items, repeat=2):
-        for sym, fn in OPS:
-            if sym in "×÷" and b == 1:
-                continue
-            if fn(a, b) == target:
-                one.add(f"{na}{sym}{nb}")
-    for (a, na), (b, nb), (c, nc) in product(items, repeat=3):
-        for s1, f1 in OPS:
-            if s1 in "×÷" and b == 1:
-                continue
-            v1 = f1(a, b)
-            if v1 is None or v1 <= 0:
-                continue
-            for s2, f2 in OPS:
-                if s2 in "×÷" and c == 1:
+            
+        for (ka, va), (kb, vb) in permutations(current_pool.items(), 2):
+            for sym, fn in OPS:
+                if sym == "÷" and (vb == 0 or va % vb != 0):
                     continue
-                if f2(v1, c) == target:
-                    two.add(f"({na}{s1}{nb}){s2}{nc}")
-    return sorted(one), sorted(two)
+                if sym in "×÷" and vb == 1:
+                    continue
+                val = fn(va, vb)
+                if val is None or val <= 0:
+                    continue
+                
+                step_str = f"({ka}{sym}{kb})"
+                new_pool = dict(current_pool)
+                new_pool[step_str] = val
+                
+                if val == target:
+                    solutions.append(step_str)
+                elif val not in visited or len(path) + 1 < visited[val]:
+                    visited[val] = len(path) + 1
+                    queue.append((path + [step_str], new_pool))
+                    
+    return list(set(solutions))
 
+# ────────────────────────────────────────────────
+# 6. 메인 실행 및 독립 검증
+# ────────────────────────────────────────────────
+def main() -> None:
+    dag.verify_all()
+    
+    print("\n## 독립 검산 경로 (모두 정확히 270에 도달)")
+    checks = [
+        ("洛書數六倍: 6 × 45", 6 * 45, 270),
+        ("고리 등차급수: (首環6 + 末環54) × 9 ÷ 2", (6 + 54) * 9 // 2, 270),
+        ("외주 × 5: 54 × 5", 54 * 5, 270),
+        ("전체 칸 - 虛一: 271 - 1", 271 - 1, 270),
+    ]
+    for label, got, want in checks:
+        assert got == want, label
+        print(f"  [성립] {label} = {got}")
+        
+    print("\n## 사칙연산 경로 탐색 (BFS)")
+    base_constants = {k: v for k, v in TEXT.items() if v not in (504, 500, 506)}
+    for target in (504, 500, 506):
+        paths = find_shortest_path(base_constants, target, max_steps=2)
+        print(f"  [{target}] 도달 가능한 최단 수식 ({len(paths)}건 발견):")
+        # 주요 수식 위주 출력
+        for p in sorted(paths)[:5]:
+            print(f"    {p} = {target}")
+            
+    print("\n## [Mermaid 계산 시각화 다이어그램]")
+    print(generate_mermaid_code(dag))
 
-CORE = {270, 271, 252, 152, 100, 60, 54, 45, 20, 19, 10, 504}
-for target in (504, 500, 506):
-    one, two = tail_paths(target)
-    closes = []
-    for x, nx in [(v, k) for k, v in TEXT.items() if v not in (504, 500, 506)]:
-        for sym, fn in OPS:
-            if fn(target, x) in CORE:
-                closes.append(f"{target}{sym}{nx}")
-            if fn(x, target) in CORE:
-                closes.append(f"{nx}{sym}{target}")
-    print(f"\n  [{target}] 1-op 생성 {len(one)}건, 2-op 생성 {len(two)}건")
-    for e in sorted(one):
-        print(f"      {e} = {target}")
-    for e in two:
-        print(f"      {e} = {target}")
-    print(f"  [{target}] 본 사슬 수치로 닫히는 간선: {closes if closes else '없음'}")
-
-print("\n## 판정")
-print("  - 체인(§4)과 검산(§5)의 모든 등식은 정확히 성립 (assert 통과).")
-print("  - 수전사 업데이트를 통해 五百(500)과 五百六(506)이 원래 二百五(十)二(252)를 倍之(2배)한 五百四(504)의 오독/오기임이 규명됨.")
-print("  - 五百四(504): 二百五十二 + 二百五十二 = 504 (倍之)가 성립하며, 절반으로 나누면(折半) 다시 二百五十二가 됨.")
-print("  - 二百五十二(252)는 합종구목(九目, 270)에서 중구(中觚, 18)를 제외(去中觚)하여 얻는 기하학적 칸 수와 일치함 (不倍).")
-print("  - 序좌십구육합백: 六을 승수로 읽는 모든 조합이 불일치 → 여전히 해석의 여지가 있으나, 핵심 기하-수치 체계는 완전히 확정됨.")
+if __name__ == "__main__":
+    main()
