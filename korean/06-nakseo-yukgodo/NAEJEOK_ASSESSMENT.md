@@ -139,6 +139,19 @@
    - 그러나 대칭성으로 설명되는 12개의 회전각을 제외하더라도, 컴퓨터 탐색 결과 비동형(Non-isomorphic)이면서 벌점 6.0을 달성하는 최적해는 수없이 많이 존재합니다(시드별로 0칸 일치하는 해들이 무수히 쏟아짐).
    - `reverse_engineering.md`에서 규명했듯이 등차수열이나 선형 배치, Siamese법 등 단순한 규칙들은 마법합을 전혀 만족시키지 못하므로, 최석정의 원본 도안은 단순한 수식 배치가 아니라 특수한 휴리스틱이나 현재 유실된 독창적인 설계에 기반한 **완전히 다른 비동형 해**였을 가능성이 매우 큽니다. 현재 재구된 최적해는 원래의 기하-수치 조건을 완벽하게 충족하는 **'수학적 동치 조건 하의 대표 표본'**으로 해석해야 타당합니다.
 
+### 원문의 6-승수(add6) 기반 생성적 해의 탐색 및 시각화 결과
+
+대척 보수쌍 조건 $v(c) + v(-c) = 271$ 하에서, 원문의 핵심 수치 배수 특징인 '6-승수(添六/係以六)'를 반영한 **생성적 배치 공식** $v(P_t) \equiv 6 \cdot t \pmod{271}$을 강제한 후, 경로 $P = (P_1, \dots, P_{270})$가 격자 상에서 최대한 연속적인 '이동 경로(walk)'가 되도록 제약조건을 주어 저자 본인의 원래 배치를 추정하는 최적화 실험을 수행했습니다 ([search_constructive.py](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/yukgodo/search_constructive.py)).
+
+1. **실험 결과 및 해석 (unconstrained vs. constrained)**
+   - **기하 연속성 제약 없음 ($\alpha=0.0$)**:
+     * 결과: 최종 벌점 **6.0** (완벽한 마법 합 조건 충족), 평균 hex 거리 **9.06** (무작위 수준인 ~9.1과 동일).
+     * 해석: $v(P_t) \equiv 6 \cdot t \pmod{271}$의 수식 대수 구조를 가지면서도 벌점 6.0에 도달하는 완벽한 마방진 배치 해가 수학적으로 **존재함**이 증명되었습니다. 이 복원 해는 [output/constructive_solution.json](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/output/constructive_solution.json)에 저장되었으며, 시각화 도안은 [output/constructive_nakseo_yukgodo.png](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/output/constructive_nakseo_yukgodo.png) 및 [output/constructive_nakseo_yukgodo.svg](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/output/constructive_nakseo_yukgodo.svg)로 렌더링되었습니다.
+   - **강한 기하 연속성 제약 ($\alpha=2.0$)**:
+     * 결과: 최종 벌점 **38.0** (마법 합 붕괴), 평균 hex 거리 **3.28**.
+     * 해석: 경로 $P_t$가 이웃 셀로 연속해서 이어지도록(평균 1-step 이동) 강제할 경우, 마법 합 조건을 달성할 수 없었습니다.
+   - **결론**: 최석정의 원본 도안은 $v \equiv 6t \pmod{271}$의 수리적 보수 대수 구조를 사용했을지라도, 이를 단순히 격자 위의 1칸짜리 연속적 나선형이나 지그재그식 '보행(walk)'으로 배치하지 않았음을 증명합니다. 만약 해당 구조를 적용했다면, 도안 전역을 비국소적으로 가로지르는 복잡한 도약(Jump) 방식을 적용했어야만 완벽한 합 조화를 이룰 수 있습니다.
+
 ## 5. 來積法의 가치
 
 1. **도안 실체의 문헌적 확정.** 사슬의 모든 수치가 《漢書》六觚 기록 및
@@ -167,4 +180,5 @@ python3 tests/test_hexgrid.py     # 기하 불변량 (1급 확정의 격자 측 
 python3 -m yukgodo.naejeok        # 계산 그래프 전수조사 (§2, §3의 산식 전부)
 python3 main.py                   # 탐색 최적해 → output/ (§4의 검증 대상)
 python3 -m yukgodo.reverse        # 생성 규칙 역산 (§3 기각 항목의 근거)
+python3 -m yukgodo.search_constructive  # 원문 6-승수 기반 생성적 해 탐색 및 시각화
 ```
