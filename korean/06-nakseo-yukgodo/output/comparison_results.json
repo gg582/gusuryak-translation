@@ -1,0 +1,450 @@
+{
+  "baseline": {
+    "algorithm": "Baseline SA (solver.py)",
+    "elapsed_seconds": 0.10355758666992188,
+    "final_penalty": 14.0,
+    "avg_path_distance": 9.003717472118959,
+    "history": [
+      {
+        "step": 0,
+        "penalty": 3732.0
+      },
+      {
+        "step": 1000,
+        "penalty": 124.0
+      },
+      {
+        "step": 2000,
+        "penalty": 90.0
+      },
+      {
+        "step": 3000,
+        "penalty": 54.0
+      },
+      {
+        "step": 4000,
+        "penalty": 54.0
+      },
+      {
+        "step": 5000,
+        "penalty": 54.0
+      },
+      {
+        "step": 6000,
+        "penalty": 54.0
+      },
+      {
+        "step": 7000,
+        "penalty": 54.0
+      },
+      {
+        "step": 8000,
+        "penalty": 54.0
+      },
+      {
+        "step": 9000,
+        "penalty": 54.0
+      },
+      {
+        "step": 10000,
+        "penalty": 42.0
+      },
+      {
+        "step": 11000,
+        "penalty": 42.0
+      },
+      {
+        "step": 12000,
+        "penalty": 42.0
+      },
+      {
+        "step": 13000,
+        "penalty": 36.0
+      },
+      {
+        "step": 14000,
+        "penalty": 34.0
+      },
+      {
+        "step": 15000,
+        "penalty": 32.0
+      },
+      {
+        "step": 16000,
+        "penalty": 32.0
+      },
+      {
+        "step": 17000,
+        "penalty": 26.0
+      },
+      {
+        "step": 18000,
+        "penalty": 26.0
+      },
+      {
+        "step": 19000,
+        "penalty": 22.0
+      },
+      {
+        "step": 20000,
+        "penalty": 22.0
+      },
+      {
+        "step": 21000,
+        "penalty": 22.0
+      },
+      {
+        "step": 22000,
+        "penalty": 22.0
+      },
+      {
+        "step": 23000,
+        "penalty": 22.0
+      },
+      {
+        "step": 24000,
+        "penalty": 22.0
+      },
+      {
+        "step": 25000,
+        "penalty": 22.0
+      },
+      {
+        "step": 26000,
+        "penalty": 22.0
+      },
+      {
+        "step": 27000,
+        "penalty": 22.0
+      },
+      {
+        "step": 28000,
+        "penalty": 22.0
+      },
+      {
+        "step": 29000,
+        "penalty": 22.0
+      }
+    ]
+  },
+  "constructive_alpha_0": {
+    "algorithm": "Constructive SA (alpha=0.0)",
+    "elapsed_seconds": 3.6805787086486816,
+    "final_penalty": 14.0,
+    "avg_path_distance": 8.520446096654275,
+    "history": [
+      {
+        "step": 0,
+        "penalty": 3136.0,
+        "avg_dist": 9.063197026022305
+      },
+      {
+        "step": 1000,
+        "penalty": 764.0,
+        "avg_dist": 8.579925650557621
+      },
+      {
+        "step": 2000,
+        "penalty": 400.0,
+        "avg_dist": 8.319702602230484
+      },
+      {
+        "step": 3000,
+        "penalty": 134.0,
+        "avg_dist": 8.929368029739777
+      },
+      {
+        "step": 4000,
+        "penalty": 360.0,
+        "avg_dist": 9.003717472118959
+      },
+      {
+        "step": 5000,
+        "penalty": 216.0,
+        "avg_dist": 8.453531598513012
+      },
+      {
+        "step": 6000,
+        "penalty": 114.0,
+        "avg_dist": 7.985130111524164
+      },
+      {
+        "step": 7000,
+        "penalty": 224.0,
+        "avg_dist": 8.282527881040892
+      },
+      {
+        "step": 8000,
+        "penalty": 142.0,
+        "avg_dist": 8.83271375464684
+      },
+      {
+        "step": 9000,
+        "penalty": 96.0,
+        "avg_dist": 8.973977695167287
+      },
+      {
+        "step": 10000,
+        "penalty": 92.0,
+        "avg_dist": 8.46096654275093
+      },
+      {
+        "step": 11000,
+        "penalty": 86.0,
+        "avg_dist": 9.107806691449815
+      },
+      {
+        "step": 12000,
+        "penalty": 52.0,
+        "avg_dist": 8.944237918215613
+      },
+      {
+        "step": 13000,
+        "penalty": 50.0,
+        "avg_dist": 9.04089219330855
+      },
+      {
+        "step": 14000,
+        "penalty": 40.0,
+        "avg_dist": 9.070631970260223
+      },
+      {
+        "step": 15000,
+        "penalty": 38.0,
+        "avg_dist": 9.011152416356877
+      },
+      {
+        "step": 16000,
+        "penalty": 30.0,
+        "avg_dist": 8.973977695167287
+      },
+      {
+        "step": 17000,
+        "penalty": 24.0,
+        "avg_dist": 8.914498141263941
+      },
+      {
+        "step": 18000,
+        "penalty": 24.0,
+        "avg_dist": 8.802973977695167
+      },
+      {
+        "step": 19000,
+        "penalty": 24.0,
+        "avg_dist": 8.929368029739777
+      },
+      {
+        "step": 20000,
+        "penalty": 24.0,
+        "avg_dist": 8.996282527881041
+      },
+      {
+        "step": 21000,
+        "penalty": 24.0,
+        "avg_dist": 8.810408921933085
+      },
+      {
+        "step": 22000,
+        "penalty": 22.0,
+        "avg_dist": 8.66914498141264
+      },
+      {
+        "step": 23000,
+        "penalty": 20.0,
+        "avg_dist": 8.49814126394052
+      },
+      {
+        "step": 24000,
+        "penalty": 16.0,
+        "avg_dist": 8.706319702602231
+      },
+      {
+        "step": 25000,
+        "penalty": 16.0,
+        "avg_dist": 8.862453531598513
+      },
+      {
+        "step": 26000,
+        "penalty": 16.0,
+        "avg_dist": 8.691449814126393
+      },
+      {
+        "step": 27000,
+        "penalty": 16.0,
+        "avg_dist": 8.639405204460967
+      },
+      {
+        "step": 28000,
+        "penalty": 14.0,
+        "avg_dist": 8.676579925650557
+      },
+      {
+        "step": 29000,
+        "penalty": 14.0,
+        "avg_dist": 8.892193308550185
+      }
+    ]
+  },
+  "constructive_alpha_2": {
+    "algorithm": "Constructive SA (alpha=2.0)",
+    "elapsed_seconds": 3.6482138633728027,
+    "final_penalty": 58.0,
+    "avg_path_distance": 4.297397769516729,
+    "history": [
+      {
+        "step": 0,
+        "penalty": 3136.0,
+        "avg_dist": 9.063197026022305
+      },
+      {
+        "step": 1000,
+        "penalty": 400.0,
+        "avg_dist": 8.111524163568774
+      },
+      {
+        "step": 2000,
+        "penalty": 374.0,
+        "avg_dist": 8.037174721189592
+      },
+      {
+        "step": 3000,
+        "penalty": 664.0,
+        "avg_dist": 7.724907063197026
+      },
+      {
+        "step": 4000,
+        "penalty": 538.0,
+        "avg_dist": 7.026022304832714
+      },
+      {
+        "step": 5000,
+        "penalty": 310.0,
+        "avg_dist": 6.319702602230484
+      },
+      {
+        "step": 6000,
+        "penalty": 284.0,
+        "avg_dist": 6.431226765799257
+      },
+      {
+        "step": 7000,
+        "penalty": 134.0,
+        "avg_dist": 6.25278810408922
+      },
+      {
+        "step": 8000,
+        "penalty": 230.0,
+        "avg_dist": 6.029739776951673
+      },
+      {
+        "step": 9000,
+        "penalty": 164.0,
+        "avg_dist": 5.754646840148699
+      },
+      {
+        "step": 10000,
+        "penalty": 78.0,
+        "avg_dist": 5.866171003717472
+      },
+      {
+        "step": 11000,
+        "penalty": 76.0,
+        "avg_dist": 5.784386617100372
+      },
+      {
+        "step": 12000,
+        "penalty": 92.0,
+        "avg_dist": 5.66542750929368
+      },
+      {
+        "step": 13000,
+        "penalty": 112.0,
+        "avg_dist": 5.5464684014869885
+      },
+      {
+        "step": 14000,
+        "penalty": 100.0,
+        "avg_dist": 5.368029739776952
+      },
+      {
+        "step": 15000,
+        "penalty": 108.0,
+        "avg_dist": 5.211895910780669
+      },
+      {
+        "step": 16000,
+        "penalty": 98.0,
+        "avg_dist": 5.174721189591078
+      },
+      {
+        "step": 17000,
+        "penalty": 98.0,
+        "avg_dist": 5.078066914498141
+      },
+      {
+        "step": 18000,
+        "penalty": 90.0,
+        "avg_dist": 5.04089219330855
+      },
+      {
+        "step": 19000,
+        "penalty": 60.0,
+        "avg_dist": 4.944237918215613
+      },
+      {
+        "step": 20000,
+        "penalty": 64.0,
+        "avg_dist": 4.862453531598513
+      },
+      {
+        "step": 21000,
+        "penalty": 60.0,
+        "avg_dist": 4.847583643122676
+      },
+      {
+        "step": 22000,
+        "penalty": 64.0,
+        "avg_dist": 4.70631970260223
+      },
+      {
+        "step": 23000,
+        "penalty": 68.0,
+        "avg_dist": 4.684014869888476
+      },
+      {
+        "step": 24000,
+        "penalty": 60.0,
+        "avg_dist": 4.587360594795539
+      },
+      {
+        "step": 25000,
+        "penalty": 60.0,
+        "avg_dist": 4.5427509293680295
+      },
+      {
+        "step": 26000,
+        "penalty": 74.0,
+        "avg_dist": 4.483271375464684
+      },
+      {
+        "step": 27000,
+        "penalty": 88.0,
+        "avg_dist": 4.41635687732342
+      },
+      {
+        "step": 28000,
+        "penalty": 76.0,
+        "avg_dist": 4.401486988847584
+      },
+      {
+        "step": 29000,
+        "penalty": 68.0,
+        "avg_dist": 4.394052044609666
+      }
+    ]
+  },
+  "metadata": {
+    "steps": 30000,
+    "seed": 42
+  }
+}

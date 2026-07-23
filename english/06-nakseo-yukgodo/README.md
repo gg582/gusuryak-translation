@@ -1,4 +1,4 @@
-## Confirmed original text
+## Confirmed Text
 
 共積二百七十
 
@@ -12,214 +12,153 @@
 
 虛一則二百七十數
 
-## Attached commentary image
+## Appended Manuscript Commentary Image
 
-The commentary to the algorithm known as naejeokbeop(來積法, Iterative Accumulation Method) is scanned so faintly
-that the original type is hard to make out. A rough picture reconstructed in
-Python 3 with the help of generative AI is attached
-(`original_comments_reconstructed_by_genai.png`). Even so, it cannot be
-denied that this reconstruction, too, contains portions restored by
-guesswork.
+The commentary describing the algorithm called the Naejeok Method (來積法) is very faintly scanned, making it difficult to decipher the original text.
+There is a rough transcription reconstructed with Python 3 via generative AI. However, it cannot be denied that this reconstruction contains some speculative readings.
 
-Nevertheless, by reverse-engineering the algorithm itself to a fair extent,
-we have come one step closer to the true form of the Nakseo Yukgodo
-(洛書六觚圖) — and therein lies the significance of this work.
+Nevertheless, reverse-engineering the algorithm itself allows us to get one step closer to the reality of the Nakseo Yukgodo (洛書六觚圖).
 
 ---
 
-# Nakseo Yukgodo (洛書六觚圖) Reconstruction Search Project
+# Nakseo Yukgodo Reconstruction Project
 
-A Python 3 program that reverse-engineers, by search, a placement (the
-optimum) satisfying the numeric conditions found in the commentary OCR.
+A Python 3 program to reverse-engineer layout configurations (optimal solutions) satisfying the numerical conditions from the manuscript commentary OCR.
 
-## Geometry (established)
+## Geometric Structure (Confirmed)
 
-The figures in the commentary match the *Hanshu* 律曆志 passage
-"二百七十一枚而成六觚, 爲一握" and Su Lin's 蘇林 commentary
-"其表六九五十四, 算中積凡得二百七十一枚" exactly.
+The numerical properties in the commentary align perfectly with historical records in the *Book of Han (漢書·律曆志)*: "二百七十一枚而成六觚, 爲一握" and Su Lin's commentary: "其表六九五十四, 算中積凡得二百七十一枚".
 
-- Hexagonal lattice with 10 cells per side: center 1 + ring k (6k cells each, k=1..9) = **271 cells**
-- **虛一**: the center is left void → **270 cells** (共積二百七十 / 虛一則二百七十數)
-- Perimeter **54 cells** (校計周五十四數 = Su Lin's 六九五十四)
-- Total cells 270 = 6×(1+2+...+9) = **6×45** (通加洛書數六倍)
-- Central horizontal row (中觚) **19 cells** (十九爲中觚數也)
+- A hexagonal grid of side length 10: center 1 + rings $k$ (each having $6k$ cells, $k=1..9$) = **271 cells**
+- **虛一 (Exclude One)**: Leaving the center cell empty $\rightarrow$ **270 cells** (共積二百七十 / 虛一則二百七十數)
+- Outer perimeter of **54 cells** (校計周五十四數 = Su Lin's commentary: 六九五十四)
+- Total cell count $270 = 6 \times (1 + 2 + \dots + 9) = \mathbf{6 \times 4 5}$ (通加洛書數六倍)
+- Central horizontal axis (中고) of **19 cells** (十九爲中觚數也)
 
-## Hypotheses (same technique as Choi Seok-jeong's other magic diagrams)
+## Hypotheses (Consistent with Choi Seok-jeong's other magic squares)
 
-- Place each value 1..270 exactly once (the same scheme as Jisuguimundo 1..30, Huchaekyonggudo 1..72, etc.)
-- The two values at antipodal (point-symmetric) cells form a complementary pair summing to **271** (the complementary-pair technique of the Jungsang Gugudo (中上龜九圖) and others)
+- Placing numbers 1..270 exactly once (consistent with Jisu Gwinumdo 1..30, Huceck Yonggudo 1..72, etc.)
+- Values at antipodal (point-symmetric) positions sum to **271** (consistent with the antipodal pair sums in the Joongsang Gwinumdo, etc.)
 
-Under these hypotheses, ring k sum = 813k and axis sum = 2439 hold
-structurally, and the search only needs to balance sides, sectors, and rays.
+Under this hypothesis, ring sums ($813k$) and axis sums ($2439$) are structurally guaranteed, and the search optimizes only for side, sector, and ray balance.
 
-## Running
+## Execution
 
 ```bash
-python3 tests/test_hexgrid.py     # geometry invariant tests
-python3 main.py                   # search → diagram → property analysis (output/)
-python3 main.py --render-only     # regenerate figures/report from the saved solution
-python3 -m yukgodo.reverse        # reverse-engineer the generation rule → commentary cross-check
-python3 -m yukgodo.naejeok        # exhaustive computation-graph check of the 來積法 figures
-python3 -m yukgodo.mod5           # mod-5 residue coloring + exhaustive five-layer geometry
-python3 -m yukgodo.modn_generalization  # mod-N antipode residue action — cross-diagram verification
+python3 tests/test_hexgrid.py     # Test geometric invariants
+python3 main.py                   # Search -> Draw -> Analyze properties (output/)
+python3 main.py --render-only     # Regenerate drawings and reports using saved solution
+python3 -m yukgodo.reverse        # Reverse-engineer rules of the final layout vs. commentary
+python3 -m yukgodo.naejeok        # Verify calculation graph of Naejeok commentary numbers
+python3 -m yukgodo.mod5           # mod 5 coloring + 5-layer geometric analysis (D6, networkx)
+python3 -m yukgodo.modn_generalization  # mod N antipodal modular action - cross-layout validation
 ```
 
-## Project structure
+## Project Structure
 
 ```
 yukgodo/
-├── hexgrid.py      # hexagonal lattice model (rings/sides/rays/觚-sectors/axes/antipodal pairs)
-├── properties.py   # property scorer (target-deviation measurement)
-├── solver.py       # antipodal-pair slot representation + simulated annealing + greedy polish
-├── visualize.py    # diagram (PNG/SVG) and dashboard rendering
-├── analyze.py      # property analysis report (JSON/Markdown)
-├── hypotheses.py   # generation/verification of 添六 constructive hypotheses (models A/B/C verdicts)
-├── reverse.py      # reverse-engineering of the generation rule + commentary cross-check
-├── naejeok.py      # exhaustive computation-graph check of the 來積法 figures
-├── mod5.py         # mod-5 residue coloring + exhaustive five-layer geometry (D6, networkx)
-└── modn_generalization.py  # mod-N antipode residue action theorem — cross-checks against the other diagrams in ../
-main.py             # pipeline entry point
+├── hexgrid.py      # Hexagonal grid model (rings, sides, rays, sectors, axes, antipodal pairs)
+├── properties.py   # Property scorer (measures target deviations)
+├── solver.py       # Antipodal slot representation + simulated annealing + greedy polishing
+├── visualize.py    # Diagram (PNG/SVG) and dashboard rendering
+├── analyze.py      # Property analysis report generator (JSON/Markdown)
+├── hypotheses.py   # Generator and validator for the 添六 constructive hypothesis
+├── reverse.py      # Reverse-engineering of final layout rules + commentary comparison
+├── naejeok.py      # Verification graph of Naejeok commentary numbers
+├── mod5.py         # mod 5 coloring + 5-layer geometric analysis (D6, networkx)
+└── modn_generalization.py  # mod N general theory - cross-validation of other layouts
+main.py             # Pipeline entry point
 tests/test_hexgrid.py
 output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, report.md,
                     # siamese_report.md, reverse_engineering.md, mod5_*.png/.json/.md, etc.
 ```
 
-## Search result (see output/)
+## Search Results (Reference: output/)
 
-**An optimum matching the theoretical floor (penalty 6.0) was found.** Verified properties:
+**We successfully found an optimal solution (penalty 6.0) matching the theoretical lower bound.** Verified properties:
 
 | Property | Target | Measured |
 |---|---|---|
-| antipodal pair sum | 271 | all 135 pairs exact |
-| ring k sum | 813k (813, ..., 7317) | all 9 rings exact |
-| six perimeter side sums | 1355 each | all 6 sides exact |
-| six 觚-sector sums | 6097/6098 | 6097,6098,6098,6098,6097,6097 |
-| six ray sums | 1219/1220 | 1219,1220,1219,1220,1219,1220 |
-| three axes / 中觚 sums | 2439 each | all 3 axes exact |
-| corner value sum | 813 (=3×271, structural) | 206+126+245+65+145+26 = 813 |
+| Antipodal Pair Sum | 271 | All 135 pairs correct |
+| Ring $k$ Sum | $813k$ (813, ..., 7317) | All 9 rings correct |
+| Outer 6 Sides Sum | 1355 each | All 6 sides correct |
+| 6 Sectors Sum | 6097/6098 | 6097, 6098, 6098, 6098, 6097, 6097 |
+| 6 Rays Sum | 1219/1220 | 1219, 1220, 1219, 1220, 1219, 1220 |
+| 3 Axes (中고) Sum | 2439 each | All 3 axes correct |
+| Vertex Sum | 813 (=3×271, structural) | 206+126+245+65+145+26 = 813 |
 
-The sector and ray sums have odd cell counts (45 / 9 cells), so exact
-equality is impossible; the alternating 6097/6098 and 1219/1220 patterns
-are the mathematical optimum.
+Because the sectors (45 cells) and rays (9 cells) contain odd cell counts, exact equality is impossible. The alternating values of 6097/6098 and 1219/1220 represent the mathematical optimum.
 
-## Caveat
+## Note
 
-This placement does not reproduce the commentary's naejeokbeop procedure
-step by step; it is a **search optimum reverse-engineered to satisfy the
-commentary's numeric conditions**.
+This layout does not directly replicate the Naejeok Method calculations; rather, it is an **optimal solution reverse-engineered to satisfy the numerical conditions** specified in the text.
 
-## Hypothesis-verification verdict (`output/hypotheses.json`)
+## Hypothesis Verification Conclusions (`output/hypotheses.json`)
 
-1. Every legible figure in the commentary is a **cell-count check** —
-   54+6=60, 60/6=10 (cells per side), 中觚 19, 252(=271−19)×2=504,
-   270=6×45. In other words, the verifiable content of the commentary is
-   the geometry of the diagram, and all of it is confirmed.
-2. All constructive hypotheses that read 添六 as a **value-placement rule** fail:
-   - 192 variants of ±6 (mod 271) spiral placement: the magic-sum
-     properties are not satisfied (best penalty 27672)
-   - per-ring +6 arithmetic progression (model B): a unique starting value
-     a_k = 274−18k exists per ring and hits the ring sums 813k exactly,
-     but values duplicate across rings (only 54 distinct values), violating
-     the 1..270 placement condition
-3. Therefore the search optimum under the antipodal complementary-pair
-   (sum 271) model is the best current reconstruction candidate, and the
-   placement-order rule (the 寄左/序左 phrase) remains an open item pending
-   a clearer edition.
+1. The readable values in the commentary serve as **verification of the geometric skeleton and cell counts**: $54+6=60$, $60/6=10$ (cells per side), 中고 19, 252, $252 \times 2 = 504$, $270 = 6 \times 45$. Every verified property matches the grid's mathematical skeleton.
+2. The constructive hypothesis interpreting `添六` as a **value placement rule** fails:
+   - 192 variations of $\pm 6 \pmod{271}$ spiral placement: Fails to satisfy magic sums (best penalty 27,672).
+   - Ring-wise $+6$ progression (Model B): The starting value for each ring is uniquely defined as $a_k = 274 - 18k$, yielding exact ring sums of $813k$, but values duplicate across rings (only 54 unique values), failing the 1..270 bijection constraint.
+3. Therefore, the optimal solution under the antipodal pair model (sum 271) remains our best reconstruction candidate. Resolving the sequence ordering instructions (`序左`/`寄左` clauses) requires clearer manuscript copies.
 
-## Reverse-engineering the generation rule: final diagram → faint-commentary cross-check (`output/reverse_engineering.md`)
+## Inverse-Engineering of Rules: Final Layout vs. Commentary (`output/reverse_engineering.md`)
 
-`yukgodo/reverse.py` starts from the final reconstructed diagram, tests
-data-driven whether any compressive generation rule survives in it, and
-compares each outcome against the legible commentary fragments.
+`yukgodo/reverse.py` uses the final reconstructed layout as a starting point to test for simple constructive rules and compares them against transcribed clauses.
 
 ```bash
-python3 -m yukgodo.reverse    # reverse-engineering → output/reverse_engineering.{json,md}
+python3 -m yukgodo.reverse    # Reverse-engineering -> output/reverse_engineering.{json,md}
 ```
 
-**Attempts (each judged a failure or a structural consequence on the final diagram):**
+**Reverse-Engineering Attempts (All failed or identified as structural trivialities):**
 
-| Candidate rule | Result |
+| Candidate Rule | Result |
 |---|---|
-| ring-walk AP (any step mod 271) | failed — best match 16.7% (noise level) |
-| coordinate-linear model v ≡ a+b·k+c·j (mod 271) | failed — 9/270 cells |
-| mod-6 class balance (添六 fingerprint) | no fingerprint |
-| constructive pair-assignment order | no trace (longest run 2 pairs) |
-| Siamese-style local rule | failed — 6 of 269 transitions (siamese.py) |
-| 添六 construction hypotheses (192 variants) | failed — best penalty 27672 (hypotheses.py) |
+| Ring-walk progression (arbitrary step mod 271) | Fails - Best match rate: 16.7% (random noise level) |
+| Linear coordinate model: $v \equiv a + b \cdot k + c \cdot j \pmod{271}$ | Fails - Matches only 9/270 cells |
+| mod 6 residue class balance (`添六` clause) | No pattern observed |
+| Constructive order of antipodal assignment | No pattern observed (longest sequence: 2 pairs) |
+| Siamese-type local rules | Fails - Matches only 6/269 transitions (`siamese.py`) |
+| 192 variations of `添六` spiral hypothesis | Fails - Best penalty 27,672 (`hypotheses.py`) |
 
-**Commentary cross-check:**
+**Commentary Comparison Results:**
 
-- **Confirmed (cell counts, geometry)**: 共積二百七十, 虛一則二百七十數,
-  校計周五十四數, 通加洛書數六倍 (270=6×45), 十九爲中觚數也,
-  二百五十二倍之得五百○ (252×2=504), 置外周添六 (cell-count reading:
-  rings grow by six cells).
-- **Refuted (value-rule readings)**: every variant reading 添六 as a
-  value-placement rule.
-- **Undecidable**: 寄左/序左 (placement order), 以算遠則係以六 (uncertain reading).
+- **Confirmed (Cell Count & Geometry)**: 共積二百七十, 虛一則二百七十數, 校計周五十四數, 通加洛書數六倍(270=6×45), 十九爲中觚數也, 置外周五十四以九乘之得四百八十六 & 折半加九得二百52 (confirms the geometric derivation formula $\frac{54 \times 9}{2} + 9 = 252$), 倍之得五百사 & 折半得二百五재 (confirms the 504 doubling/halving check), 合從九목得二百52 & 去중觚 (confirms 252 as 270 minus the 18 central axis cells), 置외주添六 (confirms ring sizes increment by 6).
+- **Refuted (Value Placement Interpretation)**: All variations reading `添六` as a value placement rule.
+- **Undetermined**: 寄左/序左 (placement sequence), 以算遠則係以六 (illegible text).
 
-**Verdict — the algorithm cannot be confirmed from the present evidence:**
+**Algorithmic Confirmation — Currently Impossible:**
 
-1. An optimum found under another seed (42) agrees with the stored optimum in
-   **0 of 270 cells**: many placements satisfy the conditions, and the
-   reconstructed diagram is only one specimen.
-2. No constructive trace (APs, linear rules, classes, consecutive assignments,
-   local rules) survives in these specimens, so neither the original placement
-   nor its order rule can be recovered from sum conditions alone.
-3. What can be settled extends to the geometric skeleton, the sum conditions,
-   and the refutation of the value-rule readings of 添六. Confirming the body
-   of the naejeokbeop requires a clearer edition of the commentary.
+1. The optimum found using Seed 42 matches the baseline solution at exactly **0/270 cells**. Multiple layouts satisfy the same sum constraints, meaning the reconstructed layout is one of many representative samples.
+2. None of these samples show any trace of constructive rules (arithmetic, linear, class, sequential, or local).
+3. Therefore, sum constraints alone cannot uniquely restore the original layout or its ordering rules.
+4. What can be confirmed is the geometric skeleton, the sum targets, and the refutation of the `添六` value-placement interpretation. Deeper validation requires clearer manuscript scans.
 
-## Mod-5 coloring and the mod-N derived theorem (`output/mod5_report.md`)
+## mod 5 Coloring and mod N Generalization (`output/mod5_report.md`)
 
-Mod-5 residue coloring is a technique used repeatedly across the Gusuryak
-analyses (the Ojagakdeuk `mod5_residue_diagram.py` in 02, the Hado-Saodo
-5-coloring documents in 01). In this project `yukgodo/mod5.py` splits the
-optimum into five layers by residue class (54 cells each) and exhaustively
-checks all 12 D6 symmetry elements against every layer pair.
+Coloring by mod 5 residue classes is a recurring technique in Choi's work (e.g. the 5-coloring in `mod5_residue_diagram.py` of section 02 and the Hadomabangjin 5-coloring document in section 01).
+In this project, `yukgodo/mod5.py` divides the optimal solution into 5 layers of 54 cells each, checking D6 symmetries ($12 \text{ elements} \times \text{layer pairs}$).
 
-**Finding**: the residue 2↔4 and 1↔0 layers are exactly congruent (54/54)
-under 180° rotation (point symmetry), and the residue-3 layer is
-self-symmetric. No other symmetry exists (the best overlap of any other pair
-is 13–17/54).
+**Findings**: Layers $2 \leftrightarrow 4$ and $1 \leftrightarrow 0$ are congruent under a 180° rotation (point symmetry), while layer 3 is self-symmetric. No other symmetries exist.
 
-**Derived theorem (mod-N generalization)**: under a positional involution π
-(π²=id) with every pair of values summing to a constant S, π acts on mod-m
-residue classes as **r ↦ (S−r) mod m** for every modulus m. The reason has
-four steps:
+**Derivation (mod N Generalization)**: If all value pairs under an involution $\pi$ ($\pi^2 = \text{id}$) sum to a constant $S$, then for any modulus $m$, $\pi$ acts on mod $m$ residue classes as **$r \mapsto (S - r) \bmod m$**. This holds due to:
 
-1. Reducing the pair condition v+v′ = S mod m gives v′ ≡ S−v, cell by cell.
-2. The action on residue classes is the single involution r ↦ S−r — its
-   orbits are either pairs of length 2 or fixed points (the solutions of
-   2r ≡ S (mod m)).
-3. Since π is one-to-one, π(layer r) ⊆ layer (S−r) is already set equality —
-   the reason the overlap is exact rather than approximate.
-4. In this diagram π is central point symmetry = 180° rotation, so the layer
-   congruences are realized inside the lattice symmetries.
+1. Applying $v + v' = S \pmod m$ gives $v' \equiv S - v$.
+2. The action on residue classes is defined by the involution $r \mapsto S - r$ (orbits of length 2 or fixed points where $2r \equiv S \pmod m$).
+3. Since $\pi$ is bijective, $\pi(\text{layer } r) = \text{layer } (S - r)$, explaining the perfect congruence.
+4. For this layout, $\pi$ is central point symmetry (180° rotation), meaning layer congruence manifests as geometric grid symmetry.
 
-**Corollary (parity of the pair sum)**: if S is odd, no self-paired fixed
-cell can exist — this diagram's S = 271 (odd) and the central 虛一 are
-consistent with it. If S is even, a fixed cell's value is forced to be S/2 —
-the center 23 = 46/2 of the Guja-gakdeuk (九子角得) center palace in 02 is
-an example.
+**Corollary (Parity of Pair Sums)**: If $S$ is odd, no self-paired fixed cells exist. This aligns with our layout's $S = 271$ (odd) and empty center cell. If $S$ is even, the fixed cell's value must be $S/2$, as seen in the central cell (23) of the Joonggung layout of section 02 ($S = 46$).
 
-**Cross-diagram verification** (`python3 -m yukgodo.modn_generalization`,
-exhaustive over moduli 2..9):
+**Cross-Layout Verification** (`python3 -m yukgodo.modn_generalization`, checking mod 2..9):
 
-| Diagram (sibling chapter in ../) | Pair sum S | Positional involution π | Result |
+| Layout | Pair Sum $S$ | Involution $\pi$ | Result |
 |---|---|---|---|
-| 06 洛書六觚圖 (this optimum) | 271 | central point symmetry (global 180° rotation) | exact for all of mod 2..9 |
-| 02 九子角得 center palace | 46 | 3×3 central symmetry | all exact; self-pair 23 = S/2 |
-| 07 重卦用八圖 horizontal formation | 65 | left-right flip within a row (local) | all exact |
-| 07 侯策用九圖 | ≈73 (imperfect) | formation position pairs | breaks when mixed; exact when restricted to the 16 pairs summing to 73 |
+| 06 Nakseo Yukgodo (Reconstructed) | 271 | Central symmetry (180° rotation) | Valid for mod 2..9 |
+| 02 Joonggung of Nine Squares | 46 | 3×3 central symmetry | Valid; center cell is $23 = S/2$ |
+| 07 Double Eight-Trigrams (Horizontal) | 65 | Horizontal reflection | Valid |
+| 07 Houceck Yonggudo | $\approx 73$ (incomplete) | Positional pairs | Fails if mixed; valid if restricted to 16 pairs summing to 73 |
 
-侯策用九圖 demonstrates the necessity of the condition: when the pair sums
-are not constant, the action splits into the per-pair actual sums. In other
-words, the theorem generalizes to every diagram with positionally symmetric
-complementary pairs, and extends the component-pair cross-check done with
-mod-5 coloring to arbitrary mod N.
+The Houceck Yonggudo shows the necessity of the condition: if the pair sums are not constant, the modular action splits by individual sums. This theorem generalizes to any layout with symmetric complement pairs, extending component-pair checks to arbitrary mod N classes.
 
-**Significance and limits**: every solution satisfying the antipodal-pair
-hypothesis (including the seed-42 optimum) has this property, so it carries
-no discriminating power for the original placement. It is, however, a
-falsification tool: if the actual diagram of a clearer edition did not have
-this symmetry, the antipodal complementary-pair hypothesis would be rejected.
+**Significance & Limitations**: This property is shared by all solutions satisfying the antipodal pair hypothesis (including Seed 42), meaning it cannot uniquely identify the original layout. However, it serves as a validation tool: if a clearer original manuscript is found and does not display this symmetry, the antipodal complement hypothesis is mathematically disproven.
