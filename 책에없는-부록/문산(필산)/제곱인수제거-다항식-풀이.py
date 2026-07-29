@@ -2,115 +2,256 @@ import sympy as sp
 
 
 def horner_eval(poly_expr, var, val):
-    """호너법으로 다항식 ``poly_expr``의 ``var=val`` 값을 계산한다."""
+    """Evaluate a polynomial at var=val using Horner's method."""
+    poly = sp.Poly(poly_expr, var)
     result = 0
-    for coeff in sp.Poly(poly_expr, var).all_coeffs():
-        result = result * val + coeff
+
+    for coefficient in poly.all_coeffs():
+        result = result * val + coefficient
+
     return result
 
 
 def square_free_part(poly_expr, var):
-    """G = gcd(P, P') 및 중복도를 제거한 Q = P/G를 반환한다."""
-    p = sp.Poly(poly_expr, var)
-    g = sp.gcd(p, p.diff())
-    q = p.exquo(g)
-    return g.as_expr(), q.as_expr()
+    """Return gcd(P, P') and the square-free part P / gcd(P, P')."""
+    poly = sp.Poly(poly_expr, var)
+    gcd_poly = sp.gcd(poly, poly.diff())
+    reduced_poly = poly.exquo(gcd_poly)
+
+    return gcd_poly.as_expr(), reduced_poly.as_expr()
 
 
-def real_root_intervals(poly_expr, var):
-    """Q의 서로 다른 실근을 포함하는 유리수 구간(또는 정확한 근)을 구한다."""
-    # Q는 square-free이므로 각 항목의 중복도는 언제나 1이다.
-    return [interval for interval, _ in sp.polys.polytools.intervals(
-        sp.Poly(poly_expr, var), eps=sp.Rational(1, 10**12)
-    )]
+def square_free_factors(poly_expr, var):
+    """Return square-free factors together with their exact multiplicities."""
+    poly = sp.Poly(poly_expr, var)
+    content, factors = sp.sqf_list(poly)
+
+    return content, [
+        (factor.as_expr(), multiplicity)
+        for factor, multiplicity in factors
+    ]
+
+
+def real_root_intervals(poly_expr, var, interval_epsilon=sp.Rational(1, 10**12)):
+    """Return rational isolating intervals for all distinct real roots."""
+    poly = sp.Poly(poly_expr, var)
+
+    return [
+        interval
+        for interval, _multiplicity in sp.intervals(
+            poly,
+            eps=interval_epsilon,
+        )
+    ]
 
 
 def initial_value(interval):
-    """분리 구간의 중점(정확한 근이면 그 근)을 뉴턴법 초기값으로 사용한다."""
+    """Return the midpoint of an isolating interval as a floating-point value."""
     left, right = interval
-    return float(left if left == right else (left + right) / 2)
+
+    if left == right:
+        return float(left)
+
+    return float((left + right) / 2)
 
 
 def newton_root_horner(
-    q_expr,
+    poly_expr,
     var,
     initial,
-    tolerance=1e-12,
+    step_tolerance=1e-12,
+    residual_tolerance=1e-12,
+    derivative_tolerance=1e-14,
     max_iterations=100,
     cancel_quadratic_error=True,
 ):
-    """호너법 기반 뉴턴법에 2차 오차항 소거 보정을 적용해 근을 구한다.
+    """Find a simple root using Horner evaluation and Chebyshev correction.
 
-    ``f/f'``는 통상의 뉴턴 보정량이다. ``f''/(2f') * (f/f')**2``를
-    추가로 빼면 테일러 전개의 선도 2차 오차항이 소거되어, 단순근에서는
-    3차 수렴하는 Chebyshev(수정 뉴턴) 보정이 된다.
+    The ordinary Newton correction is f/f'. When enabled, the additional term
+
+        f'' / (2f') * (f/f')**2
+
+    cancels the leading quadratic error term and gives local cubic convergence
+    for a simple root.
     """
-    dq_expr = sp.diff(q_expr, var)
-    d2q_expr = sp.diff(dq_expr, var)
+    first_derivative = sp.diff(poly_expr, var)
+    second_derivative = sp.diff(first_derivative, var)
+
     current = float(initial)
 
-    for _ in range(max_iterations):
-        # 모든 다항식 평가는 반복 내부에서 호너법으로 수행한다.
-        fx = float(horner_eval(q_expr, var, current))
-        dfx = float(horner_eval(dq_expr, var, current))
-        if abs(dfx) < tolerance:
-            raise ZeroDivisionError("뉴턴법 도함숫값이 0에 너무 가깝습니다.")
+    for iteration in range(1, max_iterations + 1):
+        function_value = float(horner_eval(poly_expr, var, current))
+        derivative_value = float(
+            horner_eval(first_derivative, var, current)
+        )
 
-        newton_correction = fx / dfx
-        error_correction = 0.0
+        if abs(derivative_value) <= derivative_tolerance:
+            raise ZeroDivisionError(
+                f"Derivative is too close to zero at iteration {iteration}: "
+                f"x={current!r}, f'(x)={derivative_value!r}"
+            )
+
+        newton_correction = function_value / derivative_value
+        chebyshev_correction = 0.0
+
         if cancel_quadratic_error:
-            d2fx = float(horner_eval(d2q_expr, var, current))
-            # 선도 2차 오차항: (Q'' / (2 Q')) * (Q / Q')^2
-            error_correction = 0.5 * d2fx / dfx * newton_correction**2
+            second_derivative_value = float(
+                horner_eval(second_derivative, var, current)
+            )
+            chebyshev_correction = (
+                0.5
+                * second_derivative_value
+                / derivative_value
+                * newton_correction**2
+            )
 
-        next_value = current - newton_correction - error_correction
-        residual = float(horner_eval(q_expr, var, next_value))
-        step_error = abs(next_value - current)
-        if step_error < tolerance and abs(residual) < tolerance:
-            return next_value
+        next_value = (
+            current
+            - newton_correction
+            - chebyshev_correction
+        )
+
+        residual = abs(
+            float(horner_eval(poly_expr, var, next_value))
+        )
+        absolute_step = abs(next_value - current)
+        relative_step_limit = (
+            step_tolerance * max(1.0, abs(next_value))
+        )
+
+        if (
+            absolute_step <= relative_step_limit
+            and residual <= residual_tolerance
+        ):
+            return next_value, iteration, residual
+
         current = next_value
 
-    raise RuntimeError("뉴턴법이 지정한 반복 횟수 안에 수렴하지 않았습니다.")
-
-
-def root_multiplicity(poly_expr, var, root, tolerance=1e-7):
-    """P, P', ...를 검사하여 수치 근 ``root``의 원래 중복도를 복원한다."""
-    derivative = poly_expr
-    multiplicity = 0
-    while derivative != 0:
-        if abs(complex(derivative.subs(var, root))) > tolerance:
-            break
-        multiplicity += 1
-        derivative = sp.diff(derivative, var)
-    return multiplicity
-
-
-# --------------------------------------------------
-# 근 찾기 파이프라인 예시
-# --------------------------------------------------
-x = sp.Symbol("x")
-P = sp.expand((x - 2)**3 * (x + 1)**2 * (x - 5))
-
-print(f"원래 다항식 P(x) [6차]: {P}")
-
-# P -> gcd(P, P') -> square-free part Q
-G, Q = square_free_part(P, x)
-print(f"\n1. G(x) = gcd(P, P') [3차]: {sp.expand(G)}")
-print(f"2. Square-free part Q(x) = P / G [3차]: {sp.expand(Q)}")
-
-# Q의 근 구간 분리 -> 초기값 -> (호너법 및 2차 오차항 소거를 포함한) 뉴턴 반복
-intervals = real_root_intervals(Q, x)
-print("\n3. Q의 실근 분리 구간과 수정 뉴턴법 결과 (2차 오차항 소거)")
-found_roots = []
-for interval in intervals:
-    start = initial_value(interval)
-    root = newton_root_horner(Q, x, start)
-    multiplicity = root_multiplicity(P, x, root)
-    found_roots.append((root, multiplicity))
-    print(
-        f"   구간 {interval}, 초기값 {start:.12g}"
-        f" -> 근 {root:.12g}, P에서의 중복도 {multiplicity}"
+    raise RuntimeError(
+        f"Root iteration did not converge within {max_iterations} iterations."
     )
 
-print("\n4. 근 복원 결과 (근, 중복도):")
-print(found_roots)
+
+def find_real_roots_with_multiplicity(
+    poly_expr,
+    var,
+    interval_epsilon=sp.Rational(1, 10**12),
+    step_tolerance=1e-12,
+    residual_tolerance=1e-12,
+    derivative_tolerance=1e-14,
+    max_iterations=100,
+    cancel_quadratic_error=True,
+):
+    """Find all real roots and recover exact multiplicities algebraically.
+
+    Each square-free factor is processed independently. Every root of a factor
+    inherits that factor's multiplicity in the original polynomial.
+    """
+    _content, factors = square_free_factors(poly_expr, var)
+    roots = []
+
+    for factor_expr, multiplicity in factors:
+        intervals = real_root_intervals(
+            factor_expr,
+            var,
+            interval_epsilon=interval_epsilon,
+        )
+
+        for interval in intervals:
+            start = initial_value(interval)
+
+            root, iterations, residual = newton_root_horner(
+                factor_expr,
+                var,
+                start,
+                step_tolerance=step_tolerance,
+                residual_tolerance=residual_tolerance,
+                derivative_tolerance=derivative_tolerance,
+                max_iterations=max_iterations,
+                cancel_quadratic_error=cancel_quadratic_error,
+            )
+
+            roots.append(
+                {
+                    "root": root,
+                    "multiplicity": multiplicity,
+                    "factor": factor_expr,
+                    "interval": interval,
+                    "initial": start,
+                    "iterations": iterations,
+                    "factor_residual": residual,
+                }
+            )
+
+    roots.sort(key=lambda item: item["root"])
+    return roots
+
+
+x = sp.Symbol("x")
+
+P = sp.expand(
+    (x - 2) ** 3
+    * (x + 1) ** 2
+    * (x - 5)
+)
+
+print(f"Original polynomial P(x) [degree {sp.degree(P, x)}]:")
+print(P)
+
+G, Q = square_free_part(P, x)
+
+print("\n1. Repeated-factor gcd G(x) = gcd(P, P'):")
+print(sp.expand(G))
+
+print("\n2. Square-free part Q(x) = P / G:")
+print(sp.expand(Q))
+
+content, factors = square_free_factors(P, x)
+
+print("\n3. Exact square-free factorization:")
+print(f"Content: {content}")
+
+for factor_expr, multiplicity in factors:
+    print(
+        f"Factor: {sp.expand(factor_expr)}, "
+        f"multiplicity: {multiplicity}"
+    )
+
+found_roots = find_real_roots_with_multiplicity(
+    P,
+    x,
+    cancel_quadratic_error=True,
+)
+
+print("\n4. Real-root isolation and Chebyshev iteration:")
+
+for result in found_roots:
+    root = result["root"]
+    multiplicity = result["multiplicity"]
+    interval = result["interval"]
+    initial = result["initial"]
+    iterations = result["iterations"]
+    factor_residual = result["factor_residual"]
+
+    original_residual = abs(float(horner_eval(P, x, root)))
+
+    print(
+        f"Interval {interval}, "
+        f"initial {initial:.12g} "
+        f"-> root {root:.12g}, "
+        f"multiplicity {multiplicity}, "
+        f"iterations {iterations}, "
+        f"factor residual {factor_residual:.3e}, "
+        f"P residual {original_residual:.3e}"
+    )
+
+root_multiplicity_pairs = [
+    (result["root"], result["multiplicity"])
+    for result in found_roots
+]
+
+print("\n5. Restored roots as (root, multiplicity):")
+print(root_multiplicity_pairs)
+
+print("\n6. SymPy exact reference:")
+print(sp.roots(P, x))
