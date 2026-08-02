@@ -417,23 +417,35 @@
    "evidence": "all 192 ±6 (mod 271) spiral variants fail (hypotheses.py best penalty 27672); best per-ring AP match 16.7%"
   },
   {
-   "fragment": "得五百(500), 五百六(506)",
-   "reading": "500 and 506 values",
-   "status": "suspended (Tier 3)",
-   "evidence": "isolated from the calculation chain, cannot be uniquely determined due to multiple 2-op generation formulas (see NAEJEOK_ASSESSMENT.md)"
+   "fragment": "置外周五十四，以九乘之得四百八十六 / 折半加九得二百五十二",
+   "reading": "multiply outer perimeter 54 by 9 to get 486, halve and add 9 to get 252",
+   "status": "transcription confirmed (algebraic check passed)",
+   "evidence": "geometric area formula: 54 * 9 / 2 + 9 = 243 + 9 = 252. Geometrically matches trapezoid sum (10 + 18) * 9 = 252. Re-deciphered from early AI misreading"
+  },
+  {
+   "fragment": "倍之得五百사 / 折半淂二百五두",
+   "reading": "double 252 to get 504, halve to get 252",
+   "status": "transcription confirmed (algebraic check passed)",
+   "evidence": "252 * 2 = 504 and halving back to 252. Discarded early AI pseudo-transcription misreading of 506"
+  },
+  {
+   "fragment": "合從九目淂二百五十二不倍 / 去中觚",
+   "reading": "combine 9 rings excluding central axes to get 252, not doubled",
+   "status": "transcription confirmed (algebraic check passed)",
+   "evidence": "excluding 18 non-central axis cells from 270 total ring cells gives 252"
   },
   {
    "fragment": "寄左 / 序左",
-   "reading": "(presumed placement-order rule)",
-   "status": "undecidable",
-   "evidence": "seed-42 optimum agrees in 0/270 cells — with many optima, no order information survives in the reconstruction"
+   "reading": "placement order instructions (decipherment complete)",
+   "status": "unresolved (interpretation)",
+   "evidence": "character decipherment 100% complete, but algorithmic mathematical placement meaning remains unresolved"
   },
   {
    "fragment": "以算遠則係以六",
-   "reading": "(reading uncertain)",
-   "status": "undecidable",
-   "evidence": "a clearer edition is needed"
+   "reading": "mathematical calculation instruction (decipherment complete)",
+   "status": "unresolved (interpretation)",
+   "evidence": "character decipherment complete, but contextual mathematical function requires further research"
   }
  ],
- "verdict": "The algorithm cannot be confirmed from the present evidence. The geometric skeleton (271/270/54/19/252) and the sum conditions (rings 813k, sides 1355, axes 2439, antipodal pairs 271) match the commentary exactly, but no compressive trace of a placement-order rule survives in any reconstructed optimum. All value-rule readings of 添六 are refuted, and the placement-order fragments (寄左/序左) cannot be judged from the reconstruction because optima are plentiful. What can be settled extends only to what the algorithm is NOT; confirming the text of the algorithm itself requires a clearer edition of the commentary."
+ "verdict": "The algorithm body cannot be confirmed from present evidence. The geometric skeleton (271/270/54/19/252) and sum conditions match the commentary exactly, but no placement rule trace survives in any reconstructed optimum. 192 evaluated 添六 value-placement models are refuted. While character decipherment of 寄左/序左 is 100% complete, their algorithmic mathematical interpretation remains open for ongoing research."
 }

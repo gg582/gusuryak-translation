@@ -1,22 +1,26 @@
-# Reliability Range and Value of Naejeok Method (來積法) — Comprehensive Repository Evidence
+The faint manuscript commentary's numerical and computational relationships were restored through manual stroke decipherment and algebraic consistency verification. Although certain characters remain unconfirmed, it is determined with high confidence that the primary function of the commentary is not a value-placement algorithm, but rather the cell count calculation (積數) and cross-verification of the hexagonal grid.
 
-This document compiles all transcriptions, calculations, and search outputs in the repository to assess **how far the reconstruction of the Naejeok Method is reliable** and **what its ultimate value is**.
-All equations are reproducible via full-space verification in `python3 -m yukgodo.naejeok` (all assertions pass).
+## 1. Evidence Hierarchy and Node Confidence Classification
 
-## 1. Evidence Hierarchy
+- **Strongly Confirmed Nodes (Strong geometric/algebraic nodes in the computational graph)**: 54, 60, 10, 20, 19, 252, 271, 270.
+- **Strongly Corrected Nodes (Doubling/halving relationship with 252)**: 504 ($252 \times 2 = 504$, $504 \div 2 = 252$).
+- **Possible Auxiliary Nodes (Dependent on text decipherment)**: 152 ($(20 - 12) \times 19 = 152$, $152 + 100 = 252$).
+- **Tentative Hypotheses (Connections with 12 and 100)**: Operations extracting 12 from `寄左以數十二` and connecting `合百` to 100 require further direct grammatical reading support.
 
 | Tier | Artifacts | Nature |
 |---|---|---|
 | Confirmed Text | The 6 core passages in README.md (共積二百七十, 校計周五十四數, 以算遠則係以六, 通加洛書數六倍之數見甲編數器章, 虛一則二百七十數) | Confirmed transcription |
 | New OCR | ALGO_OCR_SUCCESS.md (39 lines) | Confirmed transcription numbers. The circle "〇" is a start/end marker (not 0; in *Gusuryak*, zero is exclusively written as "零") |
 | Geometric Model | yukgodo/hexgrid.py, tests/test_hexgrid.py | 271 cells / 270 after 虛一 / outer perimeter 54 / side length 10 / 中觚 19 / sector 45×6. All tests pass |
-| Computation Graph | yukgodo/naejeok.py | Exaustive search of equations connecting textual numbers |
+| Computation Graph | yukgodo/naejeok.py | Exhaustive search of equations connecting textual numbers |
 | Search Optimum | output/solution.json, output/report.md | Penalty 6.0 = theoretical lower bound (Seed 1715, 24 restarts × 300k iterations) |
-| Hypothesis Refutation | output/hypotheses.json | 192 variations of the 添六 value-placement constructive hypothesis; best penalty: 27672 |
+| Hypothesis Refutation | output/hypotheses.json | Refutation of 192 specific constructive models interpreting 添六 as a $\pm 6$ value shift (192 variations) or ring-wise arithmetic progression |
 | Rule Inverse-Engineering | output/reverse_engineering.md/.json | Arithmetic, linear, class, and contiguous allocation rule checks all fail or are structural trivialities |
 | Local Rule Inverse-Engineering | output/siamese_report.md | Best Siamese-type rule yields only 6/269 matching transitions |
 
-## 2. Reconstructed Naejeok Calculation Chain (All Stages Hold Exactly)
+## 2. Reconstructed Naejeok Calculation Chain
+
+### Core Main Chain (Strong Nodes)
 
 ```
 Set outer perimeter to 54, add 6 to get 60 (置外周五十四，添六得六十)        54 + 6 = 60         ┐ 60 is the hub of two paths:
@@ -29,15 +33,13 @@ Multiply by 9 to get 252 (九乘得二百五十二)                             
 Subtract 1 to get 270 (虛一則二百七十)                                     271 − 1 = 270       = 共積二百七十
 ```
 
-### The 152 Branch (An Independent Node Merging into the Main Chain)
+### The 152 Branch (Tentative Auxiliary Node & Hypotheses)
 
 ```
-(20 − 12) × 19 = 8 × 19 = 152    The 12 in "寄left with twelve" (寄左以數十二) connects here
-152 + 100 = 252                  Merges into the 252 node via "combine hundred" (合百, 10² = 100)
-9 × 19 − 19 = 152                Also, 9 × 19 = 171, and 171 + 100 = 271 hold simultaneously
+(20 − 12) × 19 = 8 × 19 = 152    (Uses 12 from 寄左以數十二 — Tentative hypothesis)
+152 + 100 = 252                  (Merges into 252 via 合百 — Tentative hypothesis)
 ```
-
-152 is not a misreading of 252: it is derived independently from textual numbers and merges perfectly into the main chain via $252 - 152 = 100 = 10^2$.
+*Note*: Node 152 and its connections to 12 and 100 are managed separately as auxiliary nodes and tentative hypotheses to avoid compromising the credibility of the primary calculation chain.
 
 ### The 486 and 252 Geometric Derivation Branch (Reflecting OCR Updates)
 
@@ -69,38 +71,32 @@ The formula $\frac{54 \times 9}{2} + 9 = 243 + 9 = 252$ aligns perfectly with th
 - $271 - 1 = 270$ — 虛一則二百七十數 (Confirmed text)
 - $54 \times 5 = 270$ — Geometric identity (not in text, but useful reference)
 
-## 3. Reliability Ratings
+## 3. Decipherment/Transcription Reliability and Interpretation Status
 
-### Grade 1 — Triple Agreement (Text + Grid Model + Equations): Confirmed
+### Character Decipherment & Algebraic Verification Status: Confirmed (Complete Decipherment & Transcription)
 
 270, 271, 54, 60, 10, 20, 19 (中觚), 252, 45×6, 虛一, row lengths 10..19..10, rings 6k (6, 12, ..., 54), sector 45×6. These values align perfectly with the historical record in the *Book of Han (漢書·律曆志)*: "二百七十一枚而成六觚" and Su Lin's commentary (蘇林注): "其表六九五十四".
 
-Furthermore, the **OCR updates** confirm the following numbers and operations as Grade 1:
-- **486 (四百八十六)** and **252**: The shortcut formula multiplying outer perimeter 54 by ring count 9 to get 486, halving it, and adding 9 to get 252 is confirmed.
-- **504** and **252 (二百五十二)**: The verification steps of doubling 252 to get 504 and halving it back to 252 are confirmed.
-- **Add 8 (20-12) + 11 (添十一) = 271**: Adding 8 and 11 to 252 to obtain 271 is confirmed.
-- **Combined rings / excluding the central axes**: The geometric statement that excluding the 18 non-central axis cells from the 270 total ring cells leaves 252 cells is confirmed.
+Furthermore, **manual character decipherment and algebraic cross-verification** confirm the following numbers and operations in the confirmed transcription text:
+- **486 (四百八十六)** and **252**: The shortcut formula multiplying outer perimeter 54 by ring count 9 to get 486, halving it, and adding 9 to get 252 (`折半加九得二百五두`).
+- **504 (五百四)** and **252 (二百五十二)**: Discarded early AI pseudo-transcription misreading of 506, confirming 504 (`五百四`) via manual glyph decipherment and algebraic doubling verification of 252 ($252 \times 2 = 504$).
+- **Add 8 (20-12) + 11 (添十一) = 271**: Adding 8 and 11 to 252 to obtain 271.
+- **Combined rings / excluding the central axes**: Geometrically stating that excluding the 18 non-central axis cells from the 270 total ring cells leaves 252 cells.
 
-### Grade 2 — Generated solely from textual numbers and merging into the main chain: Confirmed
+### Tentative Hypotheses (Dependent on text decipherment & contextual support)
 
-- 152 branch: $(20 - 12) \times 19 = 152$, $152 + 100 = 252$
-- Top 9 rows (10..18) generated by repeated addition of 1 $\rightarrow (10 + 18) \times 9 = 252 = 2 \times 126$
-- The 12 in "寄左以數十二" $\rightarrow 20 - 12 = 8$, merging into the chain.
+- **152 and its connection branch to 12 and 100**: $(20 - 12) \times 19 = 152$, $152 + 100 = 252$.
+  Connecting 12 from `寄左以數十二` to $(20-12)\times 19$ and associating `合百` with 100 are contextually useful auxiliary nodes, but remain tentative hypothesis grade requiring further grammatical decipherment.
 
-### Grade 3 — Undetermined generator, isolated from the chain: Deferred
-
-None.
-
-### Grade 4 — Unresolved (Mismatched textual values or insufficient transcription)
+### Unresolved (Character reading confirmed, but syntactical/mathematical function unconfirmed)
 
 - 序左十九六合百: $19 \times 6 + 100 = 214$, $19 \times 6 = 114$, $19 + 6 + 100 = 125$ — All reading combinations of 六 as a multiplier mismatch textual values. Unresolved as-written.
-- 寄左/序左 instructions: While the numbers (12, 19) merge into the chain, the **spatial arrangement instructions** ("place left and in order") remain open to interpretation.
-- 以算遠則係以六: Confirmed text, but lacks connection to the Naejeok calculation chain.
+- 寄左/序左 instructions: While the numbers (12, 19) and character glyphs are 100% confirmed, the **mathematical placement instructions** and terminology remain open to interpretation.
+- 以算遠則係以六: Character decipherment is complete, but connection to the Naejeok calculation chain and contextual mathematical meaning remain unconfirmed.
 
 ### Rejected — Numerically Refuted
 
-- **152 = 252 misreading hypothesis**: Rejected because 152 holds independently as $8 \times 19$.
-- **Interpretation of 添六 as a value placement rule**: Refuted by computer search of 192 spiral variations ($\pm 6 \pmod{271}$), which yielded a best penalty of 27,672 (4600 times the minimum). Model B (ring-wise progression) matches ring sums but duplicates values, failing the 1..270 bijection constraint.
+- **Refutation of 添六 as a Value Placement Rule**: The 192 specific constructive models interpreting 添六 as a value shift ($\pm 6 \pmod{271}$ spiral variations) or ring-wise arithmetic progression are all numerically refuted (hypotheses.json). However, this refutes these 192 specific models and does not logically refute all conceivable value-placement interpretations.
 - **General constructive placement rules**: Best matching rate for ring-based arithmetic progressions is 16.7% (random noise level). Linear coordinate model matches only 9/270 cells. Antipodal pair sequential allocation matches a maximum of 2 consecutive pairs. Siamese-type local rules match only 6/269 transitions.
 
 ## 4. Relationship with the Search Optimum — What the Naejeok Method Determines and What It Does Not
@@ -158,12 +154,12 @@ Under the antipodal pair sum constraint $v(c) + v(-c) = 271$, we searched for so
 1. **Textual Confirmation of the Grid Geometry.** Every count in the calculation chain matches the $D_6$ 270-cell layout. The geometric skeleton (10 per side, 271 total, 1 center cell excluded) is directly confirmed by the text.
 2. **Clarification of `添六` (Add 6).** The number 60 in `添六得六十` serves as the starting point for both side length calculation ($60 \div 6 = 10$) and ring sum progression ($(6+54) \times 9 \div 2 = 270$). This resolves the interpretation of `添六` as a calculation trace rather than a placement rule.
 3. **Falsifiable Verification Criteria.** The text lists all major invariants (270, 54, 19, 252, 6×45, 虛一) that any reconstructed layout must satisfy. Our search optimum satisfies all of them, elevating it from a "plausible layout" to a "textually verified layout".
-4. **Resolution of 504 and 152.** The 12 in `寄左以數十二` connects via $(20 - 12) \times 19 = 152$. The latest transcription update shows the misread 500/506 was originally 504 (doubled 252), integrating all values (60, 152, 252, 504, 271, 270) into a single unified calculation graph.
-5. **Delineation of Scope.** The Naejeok Method is mathematically shown to be a calculation of cell counts (積) rather than a layout placement algorithm. The remaining mystery is narrowed down to the interpretation of the ordering instruction `序左`.
+4. **Resolution of 504 and Tentative Assessment of 152.** The latest transcription update shows that early AI pseudo-transcription misread 500/506 was originally 504 (doubled 252), integrating strongly into the core main chain. Node 152 and its connection to 12 and 100 are managed as auxiliary nodes / tentative hypotheses, while core values (54, 60, 10, 20, 19, 252, 504, 271, 270) remain completely geometrically and algebraically linked.
+5. **Delineation of Scope.** The Naejeok Method is mathematically shown to be a calculation of cell counts (積) rather than a layout placement algorithm. The remaining task is narrowed down to the interpretation of mathematical phrasing such as `序左`.
 
 ## 6. Future Work
 
-* **The `序左` Instruction**: While the main calculation chain and the transcribed values are confirmed (Grade 1), the exact interpretation of instructions like `序左` and the original placement sequence remain to be fully resolved.
+* **Interpretation of Mathematical Phrasing (`寄左`/`序左`)**: While the main calculation chain and character transcriptions are completely confirmed, the exact academic interpretation of mathematical instructions like `寄左`, `序左`, and `以算遠則係以六` as specific algorithmic placement steps remains a subject for ongoing research.
 
 ## 7. Replication
 

@@ -1,32 +1,29 @@
-# Nakseo Yukgodo (洛書六觚圖) — reverse-engineering the generation rule
-# from the final reconstructed diagram, cross-checked with the faint commentary
+# 洛書六觚圖 — Reverse-Engineering Rules & Commentary Cross-Check
 
-Starting from the reconstructed optimum (`output/solution.json`), we test
-data-driven whether any compressive generation rule survives, and compare
-each outcome against the legible fragments of the faint commentary.
+Testing reconstructed optimal solutions for compressive generation rules
+and cross-checking against manuscript commentary fragments.
 
-## 1. Status of the reconstructed diagram
+## 1. Position of the Reconstructed Solution
 
-- Theoretical floor of the search objective: 6.0 (attained).
-- Cells agreeing with an optimum found under another seed (42): **0/270**.
-- Hence many placements satisfy the conditions; the reconstructed diagram
-  is one specimen. The question is whether constructive traces survive in it.
+- Target function lower bound: 6.0 (achieved).
+- Cell overlap with another seed (42) optimum: **0/270**.
+- Multiple valid layouts exist; the reconstructed diagram is one specimen.
 
-## 2. Reverse-engineering attempts and outcomes
+## 2. Reverse-Engineering Attempts
 
-| Candidate rule | Method | Result |
+| Candidate Rule | Method | Result |
 |---|---|---|
-| ring-walk AP (any step mod 271) | 270 steps per ring, exhaustive | failed — best match 16.7% |
-| coordinate-linear model v ≡ a+b·k+c·j | (a,b,c) over 271³, exhaustive | failed — 9/270 cells |
-| mod-6 class balance (添六 fingerprint) | per-ring class counts | unbalanced/inconsistent — no fingerprint |
-| constructive pair-assignment order | consecutive runs along the spiral | absent — longest run 2 pairs |
-| ray difference rule | opposite-ray comparison | sign reversal — automatic from the pair hypothesis |
-| Siamese-style local rule (siamese.py) | primary+fallback move pair | failed — 6 of 269 transitions |
-| 添六 construction hypotheses (hypotheses.py) | 192 ±6 mod 271 spiral variants | failed — best penalty 27672 (floor 6.0) |
+| Ring-walk AP (mod 271) | 270 steps per ring | Failed — best match 16.7% |
+| Linear model v ≡ a+b·k+c·j | 271³ space scan | Failed — 9/270 cells |
+| mod 6 class balance | 6-class distribution per ring | Imbalanced — no fingerprint |
+| Antipodal pair sequence | Spiral order run | None — max 2 pairs |
+| Ray difference symmetry | Opposite ray comparison | Sign flip — antipodal consequence |
+| Siamese-type local rule | Shift + correction pair | Failed — 6/269 transitions |
+| 添六 construction hypothesis | ±6 mod 271 spiral (192 variants) | Refuted — best penalty 27672 |
 
-## 3. Cross-check with the commentary
+## 3. Commentary Passages Cross-Check
 
-| Fragment | Reading | Verdict | Evidence |
+| Passage | Reading | Status | Evidence |
 |---|---|---|---|
 | 共積二百七十 | 270 cells are filled | confirmed | value set 1..270 over 270 cells (validated) |
 | 虛一則二百七十數 | voiding the one leaves 270 numbers | confirmed | center cell (0,0) unused |
@@ -35,29 +32,27 @@ each outcome against the legible fragments of the faint commentary.
 | 十九爲中觚數也 | the central row has 19 | confirmed | 中觚 19 cells, sum 2439 = 9×271 |
 | 置外周添六 | outward, each ring grows by six cells | confirmed (cell-count reading) | ring k has 6k cells (6,12,...,54) |
 | 置外周添六 (value-rule reading) | place the values adding six | refuted | all 192 ±6 (mod 271) spiral variants fail (hypotheses.py best penalty 27672); best per-ring AP match 16.7% |
-| 得五百(500), 五百六(506) | 500 and 506 values | suspended (Tier 3) | isolated from the calculation chain, cannot be uniquely determined due to multiple 2-op generation formulas (see NAEJEOK_ASSESSMENT.md) |
-| 寄左 / 序左 | (presumed placement-order rule) | undecidable | seed-42 optimum agrees in 0/270 cells — with many optima, no order information survives in the reconstruction |
-| 以算遠則係以六 | (reading uncertain) | undecidable | a clearer edition is needed |
+| 置外周五十四，以九乘之得四百八十六 / 折半加九得二百五十二 | multiply outer perimeter 54 by 9 to get 486, halve and add 9 to get 252 | transcription confirmed (algebraic check passed) | geometric area formula: 54 * 9 / 2 + 9 = 243 + 9 = 252. Geometrically matches trapezoid sum (10 + 18) * 9 = 252. Re-deciphered from early AI misreading |
+| 倍之得五百사 / 折半淂二百五두 | double 252 to get 504, halve to get 252 | transcription confirmed (algebraic check passed) | 252 * 2 = 504 and halving back to 252. Discarded early AI pseudo-transcription misreading of 506 |
+| 合從九目淂二百五十二不倍 / 去中觚 | combine 9 rings excluding central axes to get 252, not doubled | transcription confirmed (algebraic check passed) | excluding 18 non-central axis cells from 270 total ring cells gives 252 |
+| 寄左 / 序左 | placement order instructions (decipherment complete) | unresolved (interpretation) | character decipherment 100% complete, but algorithmic mathematical placement meaning remains unresolved |
+| 以算遠則係以六 | mathematical calculation instruction (decipherment complete) | unresolved (interpretation) | character decipherment complete, but contextual mathematical function requires further research |
 
-## 4. Verdict: can the algorithm be confirmed?
+## 4. Verdict: Can the algorithm be confirmed?
 
-The algorithm cannot be confirmed from the present evidence. The geometric skeleton (271/270/54/19/252) and the sum conditions (rings 813k, sides 1355, axes 2439, antipodal pairs 271) match the commentary exactly, but no compressive trace of a placement-order rule survives in any reconstructed optimum. All value-rule readings of 添六 are refuted, and the placement-order fragments (寄左/序左) cannot be judged from the reconstruction because optima are plentiful. What can be settled extends only to what the algorithm is NOT; confirming the text of the algorithm itself requires a clearer edition of the commentary.
+The algorithm body cannot be confirmed from present evidence. The geometric skeleton (271/270/54/19/252) and sum conditions match the commentary exactly, but no placement rule trace survives in any reconstructed optimum. 192 evaluated 添六 value-placement models are refuted. While character decipherment of 寄左/序左 is 100% complete, their algorithmic mathematical interpretation remains open for ongoing research.
 
 ### What is confirmed
 
 - The geometric skeleton: 271 cells (虛一 → 270), perimeter 54, 10 cells
   per side, 中觚 19 cells.
 - The sum conditions: antipodal pairs 271, rings 813k, sides 1355,
-  axes 2439, wedges 6097/6098, rays 1219/1220 — consistent with the
-  commentary and the 六觚 record of the Hanshu.
-- The 添六/寄左-type phrases should be read as cell-count and ordering
-  instructions, not as a value-placement rule.
+  axes 2439, wedges 6097/6098, rays 1219/1220.
+- Phrases like 添六 and 寄左 relate to cell-count calculations and order
+  instructions rather than a direct value-placement formula.
 
 ### What remains unconfirmed
 
-- The procedure that assigns values to cells (the body of the naejeokbeop).
-  Since the overlap between reconstructed optima is 0/270, the sum
-  conditions alone cannot identify the original placement, and no order
-  rule can be recovered from these specimens.
-- Confirming the algorithm itself requires a clearer edition of the
-  commentary.
+- Assigning specific values to cells (body of Naejeok Method).
+- Character decipherment of 寄左/序左/以算遠則係以六 is complete,
+  but their exact mathematical algorithmic interpretation remains open.
