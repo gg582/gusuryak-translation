@@ -1,4 +1,4 @@
-# 洛書六觚圖 — Reverse-Engineering Rules & Commentary Cross-Check
+# 洛書六觚圖 — Candidate Generation Rules & Local Fingerprints Verification
 
 Testing reconstructed optimal solutions for compressive generation rules
 and cross-checking against manuscript commentary fragments.
@@ -35,12 +35,12 @@ and cross-checking against manuscript commentary fragments.
 | 置外周五十四，以九乘之得四百八十六 / 折半加九得二百五十二 | multiply outer perimeter 54 by 9 to get 486, halve and add 9 to get 252 | transcription confirmed (algebraic check passed) | geometric area formula: 54 * 9 / 2 + 9 = 243 + 9 = 252. Geometrically matches trapezoid sum (10 + 18) * 9 = 252. Re-deciphered from early AI misreading |
 | 倍之得五百사 / 折半淂二百五두 | double 252 to get 504, halve to get 252 | transcription confirmed (algebraic check passed) | 252 * 2 = 504 and halving back to 252. Discarded early AI pseudo-transcription misreading of 506 |
 | 合從九目淂二百五十二不倍 / 去中觚 | combine 9 rings excluding central axes to get 252, not doubled | transcription confirmed (algebraic check passed) | excluding 18 non-central axis cells from 270 total ring cells gives 252 |
-| 寄左 / 序左 | placement order instructions (decipherment complete) | unresolved (interpretation) | character decipherment 100% complete, but algorithmic mathematical placement meaning remains unresolved |
-| 以算遠則係以六 | mathematical calculation instruction (decipherment complete) | unresolved (interpretation) | character decipherment complete, but contextual mathematical function requires further research |
+| 寄左 / 序左 | mathematical phrasing (decipherment complete) | unresolved (function unconfirmed) | character decipherment complete, but whether these indicate intermediate storage, calculation progress, or diagram expansion is unconfirmed; no evidence for a cell placement order |
+| 以算遠則係以六 | mathematical instruction (decipherment complete) | unresolved (function unconfirmed) | character decipherment complete, but mathematical functional meaning remains unconfirmed in context |
 
-## 4. Verdict: Can the algorithm be confirmed?
+## 4. Exploratory Review of Generation Rule Existence
 
-The algorithm body cannot be confirmed from present evidence. The geometric skeleton (271/270/54/19/252) and sum conditions match the commentary exactly, but no placement rule trace survives in any reconstructed optimum. 192 evaluated 添六 value-placement models are refuted. While character decipherment of 寄左/序左 is 100% complete, their algorithmic mathematical interpretation remains open for ongoing research.
+The reconstructed conditions allow multiple solutions, and no common local generation fingerprint is confirmed across different optima. This indicates not only that an original generation rule was not recovered, but also aligns with the possibility that a specific regular permutation was never a defining condition.
 
 ### What is confirmed
 
@@ -48,11 +48,10 @@ The algorithm body cannot be confirmed from present evidence. The geometric skel
   per side, 中觚 19 cells.
 - The sum conditions: antipodal pairs 271, rings 813k, sides 1355,
   axes 2439, wedges 6097/6098, rays 1219/1220.
-- Phrases like 添六 and 寄左 relate to cell-count calculations and order
-  instructions rather than a direct value-placement formula.
+- Phrases like 添六 relate to cell-count accumulation rather than a value-placement rule.
 
 ### What remains unconfirmed
 
-- Assigning specific values to cells (body of Naejeok Method).
+- Evaluated ±6 shift and ring-wise AP models all failed.
 - Character decipherment of 寄左/序左/以算遠則係以六 is complete,
-  but their exact mathematical algorithmic interpretation remains open.
+  but their exact mathematical functions remain unconfirmed.

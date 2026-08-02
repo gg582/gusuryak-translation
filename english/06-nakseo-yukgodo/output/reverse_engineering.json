@@ -436,16 +436,16 @@
   },
   {
    "fragment": "寄左 / 序左",
-   "reading": "placement order instructions (decipherment complete)",
-   "status": "unresolved (interpretation)",
-   "evidence": "character decipherment 100% complete, but algorithmic mathematical placement meaning remains unresolved"
+   "reading": "mathematical phrasing (decipherment complete)",
+   "status": "unresolved (function unconfirmed)",
+   "evidence": "character decipherment complete, but whether these indicate intermediate storage, calculation progress, or diagram expansion is unconfirmed; no evidence for a cell placement order"
   },
   {
    "fragment": "以算遠則係以六",
-   "reading": "mathematical calculation instruction (decipherment complete)",
-   "status": "unresolved (interpretation)",
-   "evidence": "character decipherment complete, but contextual mathematical function requires further research"
+   "reading": "mathematical instruction (decipherment complete)",
+   "status": "unresolved (function unconfirmed)",
+   "evidence": "character decipherment complete, but mathematical functional meaning remains unconfirmed in context"
   }
  ],
- "verdict": "The algorithm body cannot be confirmed from present evidence. The geometric skeleton (271/270/54/19/252) and sum conditions match the commentary exactly, but no placement rule trace survives in any reconstructed optimum. 192 evaluated 添六 value-placement models are refuted. While character decipherment of 寄左/序左 is 100% complete, their algorithmic mathematical interpretation remains open for ongoing research."
+ "verdict": "The reconstructed conditions allow multiple solutions, and no common local generation fingerprint is confirmed across different optima. This indicates not only that an original generation rule was not recovered, but also aligns with the possibility that a specific regular permutation was never a defining condition."
 }

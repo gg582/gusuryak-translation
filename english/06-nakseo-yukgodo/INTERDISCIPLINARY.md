@@ -11,7 +11,7 @@ The Nakseo Yukgodo remained historically buried or overlooked not due to intelle
 | Discipline | Perspective on Yukgodo | Drop-off Point / Obstacle |
 | :--- | :--- | :--- |
 | **History of Math** | A numerological / cosmological diagram on a centered hex grid | Stays within reading primary text conditions (`虛一`, 270, 54). Avoids asserting derived properties (ring sums, axis sums) as authorial intent, fearing modern over-interpretation. |
-| **Pure Mathematics** | A system with antipodal complement pairs ($v(c)+v(-c)=271$) and $D_6$ symmetry | With only antipodal sum constraints, the solution space trivially decomposes into $135! \times 2^{135}$, appearing as an elementary enumeration/search modeling problem rather than a deep theorem. |
+| **Pure Mathematics** | A system with antipodal complement pairs ($v(c)+v(-c)=271$) and $D_6$ symmetry | With only 1–270 permutations and antipodal complement pair conditions, the solution space directly decomposes into $135! \times 2^{135}$, presenting no search difficulty on its own; adding overlapping side, sector, and ray balances converts it into a constraint satisfaction and optimization problem. |
 | **Computer Science (CS/CP)** | A promising structural benchmark candidate | Specifications are not given as `.cnf` or MiniZinc models. CS researchers cannot independently parse classical Hanja manuscript jargon (`積`, `觚`, `虛一`, `寄左`), making it impossible to separate historical constraints from modern additions (lacking provenance). |
 
 ### Interdisciplinary Handoff and Cycle

@@ -308,15 +308,15 @@ def annotation_crosscheck(analysis: dict) -> list[dict]:
         },
         {
             "fragment": "寄左 / 序左",
-            "reading": "placement order instructions (decipherment complete)",
-            "status": "unresolved (interpretation)",
-            "evidence": "character decipherment 100% complete, but algorithmic mathematical placement meaning remains unresolved",
+            "reading": "mathematical phrasing (decipherment complete)",
+            "status": "unresolved (function unconfirmed)",
+            "evidence": "character decipherment complete, but whether these indicate intermediate storage, calculation progress, or diagram expansion is unconfirmed; no evidence for a cell placement order",
         },
         {
             "fragment": "以算遠則係以六",
-            "reading": "mathematical calculation instruction (decipherment complete)",
-            "status": "unresolved (interpretation)",
-            "evidence": "character decipherment complete, but contextual mathematical function requires further research",
+            "reading": "mathematical instruction (decipherment complete)",
+            "status": "unresolved (function unconfirmed)",
+            "evidence": "character decipherment complete, but mathematical functional meaning remains unconfirmed in context",
         },
     ]
 
@@ -364,12 +364,9 @@ def build_reverse_analysis(values: dict, grid: HexGrid,
     }
     analysis["crosscheck"] = annotation_crosscheck(analysis)
     analysis["verdict"] = (
-        "The algorithm body cannot be confirmed from present evidence. "
-        "The geometric skeleton (271/270/54/19/252) and sum conditions match "
-        "the commentary exactly, but no placement rule trace survives in any "
-        "reconstructed optimum. 192 evaluated 添六 value-placement models are refuted. "
-        "While character decipherment of 寄左/序左 is 100% complete, their algorithmic "
-        "mathematical interpretation remains open for ongoing research."
+        "The reconstructed conditions allow multiple solutions, and no common local generation fingerprint "
+        "is confirmed across different optima. This indicates not only that an original generation rule was not "
+        "recovered, but also aligns with the possibility that a specific regular permutation was never a defining condition."
     )
     return analysis
 
@@ -386,7 +383,7 @@ def write_reverse_json(analysis: dict, path: str) -> None:
 def write_reverse_markdown(analysis: dict, path: str) -> None:
     s = analysis
     lines = [
-        "# 洛書六觚圖 — Reverse-Engineering Rules & Commentary Cross-Check",
+        "# 洛書六觚圖 — Candidate Generation Rules & Local Fingerprints Verification",
         "",
         "Testing reconstructed optimal solutions for compressive generation rules",
         "and cross-checking against manuscript commentary fragments.",
@@ -419,7 +416,7 @@ def write_reverse_markdown(analysis: dict, path: str) -> None:
         lines.append(f"| {row['fragment']} | {row['reading']} | {row['status']} | {row['evidence']} |")
     lines += [
         "",
-        "## 4. Verdict: Can the algorithm be confirmed?",
+        "## 4. Exploratory Review of Generation Rule Existence",
         "",
         s["verdict"],
         "",
@@ -429,14 +426,13 @@ def write_reverse_markdown(analysis: dict, path: str) -> None:
         "  per side, 中觚 19 cells.",
         "- The sum conditions: antipodal pairs 271, rings 813k, sides 1355,",
         "  axes 2439, wedges 6097/6098, rays 1219/1220.",
-        "- Phrases like 添六 and 寄左 relate to cell-count calculations and order",
-        "  instructions rather than a direct value-placement formula.",
+        "- Phrases like 添六 relate to cell-count accumulation rather than a value-placement rule.",
         "",
         "### What remains unconfirmed",
         "",
-        "- Assigning specific values to cells (body of Naejeok Method).",
+        "- Evaluated ±6 shift and ring-wise AP models all failed.",
         "- Character decipherment of 寄左/序左/以算遠則係以六 is complete,",
-        "  but their exact mathematical algorithmic interpretation remains open.",
+        "  but their exact mathematical functions remain unconfirmed.",
         "",
     ]
     with open(path, "w", encoding="utf-8") as f:
