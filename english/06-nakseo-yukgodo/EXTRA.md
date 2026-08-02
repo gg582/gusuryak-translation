@@ -47,12 +47,12 @@ This document records the **deep algebraic properties** and **structural invaria
 
 ---
 
-### 6. Strict Odd/Even Parity Complementarity
+### 6. Arithmetic Odd/Even Parity Split
 - Across all 135 antipodal slot pairs $(c, -c)$, **exactly one cell contains an odd number and the other contains an even number** with 100% precision.
-- Since $v(c) + v(-c) = 271$ (an odd number), the combination of (Odd + Odd = Even) or (Even + Even = Even) is mathematically impossible, establishing a **complete Yin-Yang parity partition** across the hexagonal grid.
+- Since $v(c) + v(-c) = 271$ (an odd number), the combination of (Odd + Odd = Even) or (Even + Even = Even) is arithmetically impossible.
 
 ---
 
 ## 3. Conclusion
 
-These 6 discovered mathematical properties demonstrate that Nakseo Yukgodo is not merely an arbitrary number puzzle, but a highly sophisticated geometric masterpiece embodying **antipodal complementarity ($271$), $C_6$ rotational symmetry, ring-wise energy spectrum invariants, and complete Yin-Yang parity partitioning**.
+These 6 discovered mathematical properties demonstrate that Nakseo Yukgodo is a highly sophisticated geometric algebra structure embodying **antipodal complementarity ($271$), $C_6$ rotational symmetry, ring-wise polynomial spectrum invariants, and strict arithmetic parity partitioning**.
