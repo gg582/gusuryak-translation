@@ -364,9 +364,9 @@ def build_reverse_analysis(values: dict, grid: HexGrid,
     }
     analysis["crosscheck"] = annotation_crosscheck(analysis)
     analysis["verdict"] = (
-        "The reconstructed conditions allow multiple solutions, and no common local generation fingerprint "
-        "is confirmed across different optima. This indicates not only that an original generation rule was not "
-        "recovered, but also aligns with the possibility that a specific regular permutation was never a defining condition."
+        "Optima found using different seeds match at exactly 0/270 cells. No common local generation fingerprint is confirmed. "
+        "Therefore, current conditions allow multiple solutions, and there is no evidence that a specific regular permutation "
+        "or local generation rule was originally a defining element of the diagram."
     )
     return analysis
 
@@ -385,17 +385,17 @@ def write_reverse_markdown(analysis: dict, path: str) -> None:
     lines = [
         "# 洛書六觚圖 — Candidate Generation Rules & Local Fingerprints Verification",
         "",
-        "Testing reconstructed optimal solutions for compressive generation rules",
+        "Testing calculated witness solution (`output/solution.json`) for compressive generation rules",
         "and cross-checking against manuscript commentary fragments.",
         "",
-        "## 1. Position of the Reconstructed Solution",
+        "## 1. Position of the Calculated Witness Solution",
         "",
         f"- Target function lower bound: {s['penalty_floor']} (achieved).",
         f"- Cell overlap with another seed ({s['seed_scan']['seed']}) optimum: "
         f"**{s['seed_scan']['identical_cells']}/270**.",
-        "- Multiple valid layouts exist; the reconstructed diagram is one specimen.",
+        "- Current conditions allow multiple solutions; the calculated layout is one specimen (witness solution).",
         "",
-        "## 2. Reverse-Engineering Attempts",
+        "## 2. Candidate Generation Rules Verification Results",
         "",
         "| Candidate Rule | Method | Result |",
         "|---|---|---|",
@@ -416,7 +416,7 @@ def write_reverse_markdown(analysis: dict, path: str) -> None:
         lines.append(f"| {row['fragment']} | {row['reading']} | {row['status']} | {row['evidence']} |")
     lines += [
         "",
-        "## 4. Exploratory Review of Generation Rule Existence",
+        "## 4. Determination on Existence of Regular Constructive Rule",
         "",
         s["verdict"],
         "",
@@ -428,9 +428,9 @@ def write_reverse_markdown(analysis: dict, path: str) -> None:
         "  axes 2439, wedges 6097/6098, rays 1219/1220.",
         "- Phrases like 添六 relate to cell-count accumulation rather than a value-placement rule.",
         "",
-        "### What remains unconfirmed",
+        "### What remains unconfirmed and refuted",
         "",
-        "- Evaluated ±6 shift and ring-wise AP models all failed.",
+        "- Evaluated ±6 shift 192 variations and ring-wise AP models all failed.",
         "- Character decipherment of 寄左/序左/以算遠則係以六 is complete,",
         "  but their exact mathematical functions remain unconfirmed.",
         "",

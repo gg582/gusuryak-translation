@@ -1,15 +1,15 @@
 # 洛書六觚圖 — Candidate Generation Rules & Local Fingerprints Verification
 
-Testing reconstructed optimal solutions for compressive generation rules
+Testing calculated witness solution (`output/solution.json`) for compressive generation rules
 and cross-checking against manuscript commentary fragments.
 
-## 1. Position of the Reconstructed Solution
+## 1. Position of the Calculated Witness Solution
 
 - Target function lower bound: 6.0 (achieved).
 - Cell overlap with another seed (42) optimum: **0/270**.
-- Multiple valid layouts exist; the reconstructed diagram is one specimen.
+- Current conditions allow multiple solutions; the calculated layout is one specimen (witness solution).
 
-## 2. Reverse-Engineering Attempts
+## 2. Candidate Generation Rules Verification Results
 
 | Candidate Rule | Method | Result |
 |---|---|---|
@@ -38,9 +38,9 @@ and cross-checking against manuscript commentary fragments.
 | 寄左 / 序左 | mathematical phrasing (decipherment complete) | unresolved (function unconfirmed) | character decipherment complete, but whether these indicate intermediate storage, calculation progress, or diagram expansion is unconfirmed; no evidence for a cell placement order |
 | 以算遠則係以六 | mathematical instruction (decipherment complete) | unresolved (function unconfirmed) | character decipherment complete, but mathematical functional meaning remains unconfirmed in context |
 
-## 4. Exploratory Review of Generation Rule Existence
+## 4. Determination on Existence of Regular Constructive Rule
 
-The reconstructed conditions allow multiple solutions, and no common local generation fingerprint is confirmed across different optima. This indicates not only that an original generation rule was not recovered, but also aligns with the possibility that a specific regular permutation was never a defining condition.
+Optima found using different seeds match at exactly 0/270 cells. No common local generation fingerprint is confirmed. Therefore, current conditions allow multiple solutions, and there is no evidence that a specific regular permutation or local generation rule was originally a defining element of the diagram.
 
 ### What is confirmed
 
@@ -50,8 +50,8 @@ The reconstructed conditions allow multiple solutions, and no common local gener
   axes 2439, wedges 6097/6098, rays 1219/1220.
 - Phrases like 添六 relate to cell-count accumulation rather than a value-placement rule.
 
-### What remains unconfirmed
+### What remains unconfirmed and refuted
 
-- Evaluated ±6 shift and ring-wise AP models all failed.
+- Evaluated ±6 shift 192 variations and ring-wise AP models all failed.
 - Character decipherment of 寄左/序左/以算遠則係以六 is complete,
   but their exact mathematical functions remain unconfirmed.
