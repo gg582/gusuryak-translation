@@ -33,7 +33,7 @@ The numerical properties in the commentary align perfectly with historical recor
 - **虛一 (Exclude One)**: Leaving the center cell empty $\rightarrow$ **270 cells** (共積二百七十 / 虛一則二百七十數)
 - Outer perimeter of **54 cells** (校計周五十四數 = Su Lin's commentary: 六九五十四)
 - Total cell count $270 = 6 \times (1 + 2 + \dots + 9) = \mathbf{6 \times 4 5}$ (通加洛書數六倍)
-- Central horizontal axis (中고) of **19 cells** (十九爲中觚數也)
+- Central axis (中觚) of **19 cells** (十九爲中觚數也)
 
 ## Hypotheses (Consistent with Choi Seok-jeong's other magic squares)
 
@@ -85,7 +85,7 @@ output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, rep
 | Outer 6 Sides Sum | 1355 each | All 6 sides correct |
 | 6 Sectors Sum | 6097/6098 | 6097, 6098, 6098, 6098, 6097, 6097 |
 | 6 Rays Sum | 1219/1220 | 1219, 1220, 1219, 1220, 1219, 1220 |
-| 3 Axes (中고) Sum | 2439 each | All 3 axes correct |
+| 3 Axes (中觚) Sum | 2439 each | All 3 axes correct |
 | Vertex Sum | 813 (=3×271, structural) | 206+126+245+65+145+26 = 813 |
 
 Because the sectors (45 cells) and rays (9 cells) contain odd cell counts, exact equality is impossible. The alternating values of 6097/6098 and 1219/1220 represent the mathematical optimum.
@@ -123,7 +123,7 @@ python3 -m yukgodo.reverse    # Reverse-engineering -> output/reverse_engineerin
 
 **Commentary Comparison Results:**
 
-- **Confirmed (Cell Count & Geometry)**: 共積二百七十, 虛一則二百七十數, 校計周五十四數, 通加洛書數六倍(270=6×45), 十九爲中觚數也, 置外周五十四以九乘之得四百八十六 & 折半加九得二百52 (confirms the geometric derivation formula $\frac{54 \times 9}{2} + 9 = 252$), 倍之得五百사 & 折半得二百五재 (confirms the 504 doubling/halving check), 合從九목得二百52 & 去중觚 (confirms 252 as 270 minus the 18 central axis cells), 置외주添六 (confirms ring sizes increment by 6).
+- **Confirmed (Cell Count & Geometry)**: 共積二百七十, 虛一則二百七十數, 校計周五十四數, 通加洛書數六倍 ($270=6\times45$), 十九爲中觚數也, and the newly transcribed calculation sequence—outer perimeter 54 × 9 = 486; halve and add 9 = 252; double = 504; halve = 252. It confirms both the geometric derivation $\frac{54\times9}{2}+9=252$ and the fact that removing the 18 non-central cells of the central axes from 270 leaves 252. `添六` confirms that successive ring sizes increase by six.
 - **Refuted (Value Placement Interpretation)**: All variations reading `添六` as a value placement rule.
 - **Undetermined**: 寄左/序左 (placement sequence), 以算遠則係以六 (illegible text).
 
@@ -138,6 +138,12 @@ python3 -m yukgodo.reverse    # Reverse-engineering -> output/reverse_engineerin
 
 Coloring by mod 5 residue classes is a recurring technique in Choi's work (e.g. the 5-coloring in `mod5_residue_diagram.py` of section 02 and the Hadomabangjin 5-coloring document in section 01).
 In this project, `yukgodo/mod5.py` divides the optimal solution into 5 layers of 54 cells each, checking D6 symmetries ($12 \text{ elements} \times \text{layer pairs}$).
+
+![Constructive reconstruction based on the six-multiplier ordering](output/constructive_nakseo_yukgodo.png)
+
+![Coloring of the reconstructed optimum by residue class modulo 5](output/mod5_coloring.png)
+
+![Five mod-5 layers and their antipodal symmetries](output/mod5_symmetry.png)
 
 **Findings**: Layers $2 \leftrightarrow 4$ and $1 \leftrightarrow 0$ are congruent under a 180° rotation (point symmetry), while layer 3 is self-symmetric. No other symmetries exist.
 

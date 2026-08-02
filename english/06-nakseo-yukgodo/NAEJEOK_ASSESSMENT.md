@@ -41,24 +41,23 @@ Subtract 1 to get 270 (虛一則二百七十)                                   
 
 ### The 486 and 252 Geometric Derivation Branch (Reflecting OCR Updates)
 
-The latest transcription update shows that the previously misread parts like `五百사` (504) and `九荡법目之` are the original forms of a **geometric formula deriving 252 from the product of the outer perimeter 54 and the ring count 9 (486)**.
+The latest transcription update establishes a **geometric formula deriving 252 from the product of the outer perimeter 54 and the ring count 9 (486)**; several characters in the earlier reading were uncertain.
 
 ```
 Set outer perimeter to 54 (置외주五十四)                                54
 Multiply by 9 to get 486 (以九乘之得四百八十六)                          54 × 9 = 486        (Outer perimeter × ring count)
-Halve and add 9 to get 252 (折半加九得二百五두)                          486 ÷ 2 + 9 = 252   (Original form of '九荡법目之')
-Double it to get 504 (倍之得五百사)                                     252 × 2 = 504       (Doubling check of 252)
+Halve and add 9 to get 252                                                486 ÷ 2 + 9 = 252
+Double it to get 504                                                      252 × 2 = 504       (Doubling check of 252)
 Halve it to get 252 (折半得二百五十二)                                    504 ÷ 2 = 252
 Add 8 + add 11 (寄九) = 271                                             252 + 8 + 11 = 271
-Combine rings to get 252, not doubled (합종구목得二百52不배 / 去중觚)       270 - 18 = 252      (Excluding the 18 axis cells from the 270 total ring cells gives 252)
-Exclude the 中觚 (去중觚)
+Combine rings to get 252, not doubled; exclude the central axes           270 - 18 = 252      (Excluding the 18 non-central axis cells from the 270 total ring cells gives 252)
 ```
 
 **Mathematical & Geometric Consistency:**
 The formula $\frac{54 \times 9}{2} + 9 = 243 + 9 = 252$ aligns perfectly with the geometry of the hexagonal grid.
 * The total cell count of the 6 sectors (270) is defined by the sum of an arithmetic progression: $\frac{6 + 54}{2} \times 9 = 270$.
 * This can be expanded as: $\frac{54 \times 9}{2} + \frac{6 \times 9}{2} = 243 + 27 = 270$.
-* Excluding the central axis (中고) cells (18) from the 270 total cells yields 252 ($270 - 18 = 252$).
+* Excluding the non-central cells of the three central axes (18) from the 270 total cells yields 252 ($270 - 18 = 252$).
 * The equation $\frac{54 \times 9}{2} + 9 = 243 + 9 = 252$ is geometrically equivalent to $\left(\frac{54}{2} + 1\right) \times 9 = 28 \times 9 = 252$, which matches the trapezoid area sum $(10 + 18) \times 9 = 252$.
 * Thus, the author used a mathematical shortcut to directly calculate the area of the non-axial region (252) using only two fundamental constants: the outer perimeter (54) and the ring count (9), without having to calculate individual row lengths.
 
@@ -77,10 +76,10 @@ The formula $\frac{54 \times 9}{2} + 9 = 243 + 9 = 252$ aligns perfectly with th
 270, 271, 54, 60, 10, 20, 19 (中觚), 252, 45×6, 虛一, row lengths 10..19..10, rings 6k (6, 12, ..., 54), sector 45×6. These values align perfectly with the historical record in the *Book of Han (漢書·律曆志)*: "二百七十一枚而成六觚" and Su Lin's commentary (蘇林注): "其表六九五十四".
 
 Furthermore, the **OCR updates** confirm the following numbers and operations as Grade 1:
-- **486 (四百八十六)** and **252 (二百五두)**: The shortcut formula multiplying outer perimeter 54 by ring count 9 to get 486, halving it, and adding 9 to get 252 (`折半加九得二百五두`) is confirmed.
-- **504 (五百사)** and **252 (二百五十二)**: The verification steps of doubling 252 to get 504 (`倍之得五百사`) and halving it back to 252 are confirmed.
+- **486 (四百八十六)** and **252**: The shortcut formula multiplying outer perimeter 54 by ring count 9 to get 486, halving it, and adding 9 to get 252 is confirmed.
+- **504** and **252 (二百五十二)**: The verification steps of doubling 252 to get 504 and halving it back to 252 are confirmed.
 - **Add 8 (20-12) + 11 (添十一) = 271**: Adding 8 and 11 to 252 to obtain 271 is confirmed.
-- **합종구목得二百52不倍 / 去중觚**: The geometric statement that excluding the 18 central axis cells from the 270 total ring cells leaves 252 cells (`去중觚`) is confirmed.
+- **Combined rings / excluding the central axes**: The geometric statement that excluding the 18 non-central axis cells from the 270 total ring cells leaves 252 cells is confirmed.
 
 ### Grade 2 — Generated solely from textual numbers and merging into the main chain: Confirmed
 
