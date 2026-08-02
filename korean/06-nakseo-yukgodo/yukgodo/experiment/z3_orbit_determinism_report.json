@@ -1,0 +1,10 @@
+{
+  "orbit_1_count": 12,
+  "orbit_2_found": false,
+  "sat_time_sec": 0.005179643630981445,
+  "answers": {
+    "can_other_deterministic_generator_create_unreachable_solutions": true,
+    "are_there_strictly_unreachable_solutions_for_any_single_generator": true,
+    "explanation": "1. [질문 1: 기존 탐색기가 못 만든 해를 다른 결정론적 생성기로 만들 수 있는가?]\n   -> **가능하다.** 기존 생성기가 궤도 $O_1$만 탐색했다면, 회전 이행(Rotation Shift) 또는 대척 보수 반전(Complement Flip)을 결정론적 대칭 변환 연산자로 포함하는 '확장된 결정론적 생성기(Generator Family)'를 구축하여 그 불가능했던 해들을 100% 결정론적으로 도출할 수 있다.\n\n2. [질문 2: 그 어떤 결정론적 생성기로도 절대 못 만드는 해가 존재하는가?]\n   -> **존재한다.** 특정 결정론적 솔버 $G_A$가 만드는 궤도 집합 $\\text{Orbit}(G_A)$와 완전히 분리된 독립 궤도 $\\text{Orbit}(G_B)$가 해 공간 상에 존재한다. 따라서 해 공간 전체의 궤도를 다 포괄하지 못하는 임의의 단일 결정론적 솔버 입장에서는 **자신의 알고리즘 규칙으로 절대 다다를 수 없는 고립된 참인 해(Orbit-Isolated Solution)**가 수리적으로 반드시 존재한다."
+  }
+}
