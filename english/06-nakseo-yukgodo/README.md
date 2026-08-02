@@ -81,10 +81,10 @@ The academic status and confidence criteria for this commentary transcription ar
 - **Numerical Decipherment & Calculation Chain**: Confirmed (Exhaustively verified via algebraic computational graph)
 - **Syntactical Segmentation & Mathematical Function**: Partially Unresolved (Mathematical placement meaning of phrases such as `寄左`/`序左`)
 
-### 1. Essence of the Commentary: Grid Cell Count (積), Not Spatial Placement
+### 1. Essence of the Commentary: Total Cell-Count Calculation (積), Not Spatial Placement
 * Previous works guessed phrases like `添六` (Add 6) meant placing numbers at intervals of 6 across the grid.
-* However, systematic hypothesis testing (`output/hypotheses.json`) numerically refuted 192 specific constructive models interpreting 添六 as a $\pm 6$ value shift or ring-wise arithmetic progression.
-* The commentary is supported with high confidence as a **calculative algorithm for computing the total cell count of the hexagonal grid (積=271, 虛一則 270)**, rather than a spatial arrangement recipe.
+* However, calculation context overwhelmingly supports interpreting `添六` as an increase in cells per ring (cell-count accumulation), and evaluated $\pm 6$ value placement models all failed.
+* The commentary is supported with high confidence as a **calculative chain for verifying the total cell count of the hexagonal grid (積=271, 虛一則 270)**, rather than a spatial arrangement recipe.
 
 ### 2. Computational Graph of Manually Deciphered Numbers
 Manually deciphered core numbers in the text ($54, 60, 10, 20, 19, 252, 504, 271, 270$) form a strong algebraic calculation chain:
@@ -129,7 +129,7 @@ output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, rep
 
 ## Search Results (Reference: output/)
 
-**We successfully found an optimal solution (penalty 6.0) matching the theoretical lower bound.** Verified properties:
+**We produced an optimal witness solution (penalty 6.0) under the current adopted hypothesis.** Verified properties:
 
 | Property | Target | Measured |
 |---|---|---|
@@ -145,17 +145,15 @@ Because the sectors (45 cells) and rays (9 cells) contain odd cell counts, exact
 
 ## Note
 
-This layout does not directly replicate the Naejeok Method calculations; rather, it is an **optimal solution reverse-engineered to satisfy the numerical conditions** specified in the text.
+This layout is not a direct restoration of a unique historical original; rather, it is an **optimal witness solution constructed under the adopted hypothesis**.
 
 ## Hypothesis Verification Conclusions (`output/hypotheses.json`)
 
-1. The readable values in the commentary serve as **verification of the geometric skeleton and cell counts**: $54+6=60$, $60/6=10$ (cells per side), 中고 19, 252, $252 \times 2 = 504$, $270 = 6 \times 45$. Every verified property matches the grid's mathematical skeleton.
-2. The constructive hypothesis interpreting `添六` as a **value placement rule** fails:
-   - 192 variations of $\pm 6 \pmod{271}$ spiral placement: Fails to satisfy magic sums (best penalty 27,672).
-   - Ring-wise $+6$ progression (Model B): The starting value for each ring is uniquely defined as $a_k = 274 - 18k$, yielding exact ring sums of $813k$, but values duplicate across rings (only 54 unique values), failing the 1..270 bijection constraint.
-3. Therefore, the optimal solution under the antipodal pair model (sum 271) remains our best reconstruction candidate. Resolving the sequence ordering instructions (`序左`/`寄左` clauses) requires clearer manuscript copies.
+1. The readable values in the commentary serve as **verification of the geometric skeleton and cell counts**: $54+6=60$, $60/6=10$ (cells per side), 中觚 19, 252, $252 \times 2 = 504$, $270 = 6 \times 45$. Every verified property matches the grid's mathematical skeleton.
+2. The evaluated $\pm 6$ shift and ring-wise AP models all failed. At present, none of the proposed concrete value placement interpretations hold.
+3. While character decipherment of `寄左` and `序左` is complete, whether they indicate intermediate storage, calculation progress, or diagram expansion remains unconfirmed in context; there is currently no evidence that they denote a cell placement order.
 
-## Inverse-Engineering of Rules: Final Layout vs. Commentary (`output/reverse_engineering.md`)
+## Candidate Generation Rules & Local Fingerprints Verification (`output/reverse_engineering.md`)
 
 `yukgodo/reverse.py` uses the final reconstructed layout as a starting point to test for simple constructive rules and compares them against transcribed clauses.
 
