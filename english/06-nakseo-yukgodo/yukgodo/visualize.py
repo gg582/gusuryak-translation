@@ -81,7 +81,7 @@ def draw_figure(values: dict, grid: HexGrid, path_png: str,
     x, y = to_pixel(CENTER, size)
     ax.add_patch(Circle((x, y), cell_r, facecolor="white",
                         edgecolor="#c00000", lw=1.6, zorder=3))
-    ax.text(x, y, "虛", ha="center", va="center", fontsize=11,
+    ax.text(x, y, "Empty", ha="center", va="center", fontsize=8,
             color="#c00000", weight="bold", zorder=4)
 
     ax.set_title(title, fontsize=20, pad=18)
