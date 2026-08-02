@@ -14,7 +14,7 @@
 
 ## Appended Manuscript Commentary Image (Handwritten Naejeok Method)
 
-The manuscript commentary describing the Naejeok Method (來積法) is extremely faintly scanned, making the original characters difficult to read. Early digital image reconstructions via generative AI contained speculative hallucinations and were discarded. Through systematic cross-validation of numerical calculations against Hanja texts, **[ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) represents the finalized manual transcription** of the manuscript text.
+The manuscript commentary describing the Naejeok Method (來積法) is extremely faintly scanned, making the original characters difficult to read. Early AI-generated reconstructions contained hallucinations and are **completely excluded and discarded from the current analysis**. Instead, **[ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) serves as the sole source of analytical data**, containing the manual transcription cross-validated against geometric calculations and Hanja texts.
 
 By reverse-engineering these manually deciphered numbers via algebraic graph analysis (`python3 -m yukgodo.naejeok`), we confirmed that the commentary is not a spatial number placement algorithm, but a **calculative chain for verifying the total cell count of the hexagonal grid (積=271, 虛一 270)**.
 
