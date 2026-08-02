@@ -14,7 +14,7 @@
 
 ## Appended Manuscript Commentary Image (Handwritten Naejeok Method)
 
-The manuscript commentary describing the Naejeok Method (來積法) is extremely faintly scanned, making the characters difficult to decipher at a glance. Consequently, early automated AI reconstructions (pseudo-transcription data containing hallucinations) were completely discarded. **After contrast adjustment, blurred strokes of every character were split across cropped images for meticulous manual reconstruction, resulting in the character-by-character complete decipherment and transcription into [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)**.
+The manuscript commentary marked as Naejeok Method (來積法) is extremely faintly scanned, making the characters difficult to decipher at a glance. Consequently, early automated AI reconstructions (pseudo-transcription data containing hallucinations) were completely discarded. **After contrast adjustment, blurred strokes of every character were split across cropped images for meticulous manual reconstruction, resulting in the character-by-character complete decipherment and transcription into [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)**.
 
 By verifying the core numerical properties and operations in this manual transcription text via algebraic graph analysis (`python3 -m yukgodo.naejeok`), we established the high-confidence interpretation that the commentary is not a spatial number placement algorithm, but a **calculative area-chain for verifying the total cell count of the hexagonal grid (積=271, 虛一 270)**.
 
@@ -22,7 +22,9 @@ By verifying the core numerical properties and operations in this manual transcr
 
 # Nakseo Yukgodo Reconstruction Project
 
-A Python 3 program to reverse-engineer layout configurations (optimal solutions) satisfying the numerical conditions from the deciphered manuscript commentary.
+A Python 3 program to explore layout configurations (optimal witness solutions) under grid specifications restored from literature and the antipodal complement hypothesis.
+
+This project does not assume a direct restoration of a unique historical original or lost placement rule. It formalizes the hexagonal grid's cell-count structure confirmed from printed text and the manuscript Naejeok Method, applies the antipodal complement method observed in Choi Seok-jeong's other diagrams as a reconstruction hypothesis, and analyzes its necessary consequences. It then formalizes the structure of the basic solution space under a modern balanced objective function separated from historical invariants, and searches for optimal witness solutions.
 
 ## Interdisciplinary Gap and Restoration Methodology
 
@@ -30,9 +32,9 @@ As detailed in [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/en
 
 This project implements a 5-step methodology to establish a formal interface across these fields:
 1. Reconstruct grid specifications from readable numbers (`ALGO_OCR_SUCCESS.md`, cross-validated with Su Lin's commentary in *Book of Han*).
-2. Refute 192 specific constructive models interpreting 添六 as a $\pm 6$ value shift (192 variations) or ring-wise arithmetic progression via numerical evaluation (`output/hypotheses.json`).
+2. Refute evaluated 192 variations of $\pm 6$ shift and ring-wise arithmetic progression models via numerical evaluation (`output/hypotheses.json`).
 3. Disambiguate necessary derived invariants (ring sums $813k$, axis sums $2439$) from arbitrary optimization objectives (side/sector balance).
-4. Model the full solution space rather than a single instance (`output/solution.json`, $D_6$ symmetry group).
+4. Formalize the basic solution space structure and search for witness solutions under additional balance constraints (`output/solution.json`, $D_6$ symmetry group).
 5. Cross-validate generalized mod N antipodal modular theorems across other diagrams (`yukgodo/modn_generalization.py`).
 
 ## Geometric Structure (Confirmed)
@@ -50,7 +52,7 @@ The numerical properties in the commentary align perfectly with historical recor
 - Placing numbers 1..270 exactly once (consistent with Jisu Gwinumdo 1..30, Huceck Yonggudo 1..72, etc.)
 - Values at antipodal (point-symmetric) positions sum to **271** (consistent with the antipodal pair sums in the Joongsang Gwinumdo, etc.)
 
-Under this hypothesis, ring sums ($813k$) and axis sums ($2439$) are structurally guaranteed, and the search optimizes only for side, sector, and ray balance.
+Under this hypothesis, ring sums ($813k$) and sum of 18 values per antipodal axis excluding the empty center ($9 \times 271 = 2439$) are structurally guaranteed, and the search optimizes only for side, sector, and ray balance.
 
 ## Execution
 
@@ -58,7 +60,7 @@ Under this hypothesis, ring sums ($813k$) and axis sums ($2439$) are structurall
 python3 tests/test_hexgrid.py     # Test geometric invariants
 python3 main.py                   # Search -> Draw -> Analyze properties (output/)
 python3 main.py --render-only     # Regenerate drawings and reports using saved solution
-python3 -m yukgodo.reverse        # Reverse-engineer rules of the final layout vs. commentary
+python3 -m yukgodo.reverse        # Verify candidate generation rules and local fingerprints of witness solution
 python3 -m yukgodo.naejeok        # Verify calculation graph of Naejeok commentary numbers
 python3 -m yukgodo.mod5           # mod 5 coloring + 5-layer geometric analysis (D6, networkx)
 python3 -m yukgodo.modn_generalization  # mod N antipodal modular action - cross-layout validation
@@ -74,16 +76,17 @@ python3 -m yukgodo.modn_generalization  # mod N antipodal modular action - cross
 
 ## Manuscript Commentary (Naejeok Method) Decipherment, Transcription & Calculation Structure Interpretation
 
-The handwritten manuscript commentary describing the **Naejeok Method (來積法)** in the margins of Nakseo Yukgodo has been **completely deciphered and transcribed character by character** by analyzing stroke details in the scan ([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)). Early automated AI pseudo-transcription output (containing hallucinations such as misreading 504 as 506 and incorrect line breaks) was completely discarded, and the confirmed transcription text was established by combining manual character decipherment with algebraic calculation graph verification.
+The handwritten manuscript commentary marked as **Naejeok Method (來積法)** in the margins of Nakseo Yukgodo has been **completely deciphered and transcribed character by character** by analyzing stroke details in the scan ([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)). Early automated AI pseudo-transcription output (containing hallucinations such as misreading 504 as 506 and incorrect line breaks) was completely discarded, and the confirmed transcription text was established by combining manual character decipherment with algebraic calculation graph verification.
 
 The academic status and confidence criteria for this commentary transcription are as follows:
-- **Character Decipherment & Order**: Confirmed (Complete manual decipherment & transcription)
-- **Numerical Decipherment & Calculation Chain**: Confirmed (Exhaustively verified via algebraic computational graph)
-- **Syntactical Segmentation & Mathematical Function**: Partially Unresolved (Mathematical placement meaning of phrases such as `寄左`/`序左`)
+- **Character & Numerical Transcription**: Confirmed
+- **Main Calculation Chain**: Confirmed
+- **504 Doubling/Halving Relation**: Strongly Cross-Validated
+- **152 / 12 / 100 Connections**: Tentative Hypotheses
+- **Algorithmic Operation Keywords**: Partially Unresolved (Mathematical operational function of `寄左`/`序左`)
 
 ### 1. Essence of the Commentary: Total Cell-Count Calculation (積), Not Spatial Placement
-* Previous works guessed phrases like `添六` (Add 6) meant placing numbers at intervals of 6 across the grid.
-* However, calculation context overwhelmingly supports interpreting `添六` as an increase in cells per ring (cell-count accumulation), and evaluated $\pm 6$ value placement models all failed.
+* Calculation context overwhelmingly supports interpreting `添六` as an increase in cells per ring (cell-count accumulation), and evaluated $\pm 6$ value placement models all failed.
 * The commentary is supported with high confidence as a **calculative chain for verifying the total cell count of the hexagonal grid (積=271, 虛一則 270)**, rather than a spatial arrangement recipe.
 
 ### 2. Computational Graph of Manually Deciphered Numbers
@@ -91,13 +94,13 @@ Manually deciphered core numbers in the text ($54, 60, 10, 20, 19, 252, 504, 271
 
 ```
 置外周五十四，添六得六十      54 + 6 = 60          ┐ 60 is a hub for two paths:
-六而一得一十                 60 ÷ 6 = 10           ├ ① Cell count per side
-倍之得二十                   10 × 2 = 20           │ ② First+last ring sum term
-減一為十九，為中觚數也        20 − 1 = 19          ┘    (6 + 54) × 9 ÷ 2 = 270
-添一 iteration (而一加一/添十一) 10→11→…→18 (sum 126)   Upper 9 rows sum
+六而一得一十                 60 ÷ 6 = 10         ├ ① Cell count per side
+倍之得二十                   10 × 2 = 20         │ ② (First ring 6 + Last ring 54) × 9 ÷ 2 = 270
+減一為十九，為中觚數也        20 − 1 = 19          ┘    Same value as First+Last terms
+Repeated addition of 1       10→11→…→18 (sum 126)  Generates top 9 rows
 九乘得二百五十二              (10+18) × 9 = 252     = 2 × 126
 二百五十二 + 中觚十九         252 + 19 = 271
-虛一則二百七十               271 − 1 = 270        = 共積二百七十
+虛一則二百七十               271 − 1 = 270        = Total cell count 270
 ```
 
 * **Confirmation of 504**: Early AI pseudo-transcription misreading `五百六` (506) was discarded, confirming **`五百四` (504, 倍之得五百四)** via manual character decipherment and algebraic doubling verification ($252 \times 2 = 504$).
@@ -117,7 +120,7 @@ yukgodo/
 ├── visualize.py    # Diagram (PNG/SVG) and dashboard rendering
 ├── analyze.py      # Property analysis report generator (JSON/Markdown)
 ├── hypotheses.py   # Generator and validator for the 添六 constructive hypothesis
-├── reverse.py      # Reverse-engineering of final layout rules + commentary comparison
+├── reverse.py      # Candidate generation rules & local fingerprints verification of witness solution + commentary comparison
 ├── naejeok.py      # Verification graph of Naejeok commentary numbers
 ├── mod5.py         # mod 5 coloring + 5-layer geometric analysis (D6, networkx)
 └── modn_generalization.py  # mod N general theory - cross-validation of other layouts
@@ -129,7 +132,7 @@ output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, rep
 
 ## Search Results (Reference: output/)
 
-**We produced an optimal witness solution (penalty 6.0) under the current adopted hypothesis.** Verified properties:
+**Under the currently adopted hypothesis and objective function, we produced an optimal witness solution reaching the theoretical lower bound of 6.0.** Verified properties:
 
 | Property | Target | Measured |
 |---|---|---|
@@ -138,30 +141,30 @@ output/             # solution.json, nakseo_yukgodo.png/.svg, dashboard.png, rep
 | Outer 6 Sides Sum | 1355 each | All 6 sides correct |
 | 6 Sectors Sum | 6097/6098 | 6097, 6098, 6098, 6098, 6097, 6097 |
 | 6 Rays Sum | 1219/1220 | 1219, 1220, 1219, 1220, 1219, 1220 |
-| 3 Axes (中觚) Sum | 2439 each | All 3 axes correct |
-| Vertex Sum | 813 (=3×271, structural) | 206+126+245+65+145+26 = 813 |
+| 3 Axes (中觚) Sum | 2439 each | All 3 axes correct (sum of 18 measured values excluding center empty cell) |
+| Vertex Sum | 813 (=3×271, structural) | 206+126+245+65+145+26 = 813 (3 opposing complement pairs) |
 
 Because the sectors (45 cells) and rays (9 cells) contain odd cell counts, exact equality is impossible. The alternating values of 6097/6098 and 1219/1220 represent the mathematical optimum.
 
 ## Note
 
-This layout is not a direct restoration of a unique historical original; rather, it is an **optimal witness solution constructed under the adopted hypothesis**.
+This layout is not a direct restoration of Naejeok Method procedure or a unique historical original; rather, it is an optimal witness solution calculated by applying grid specifications restored from literature with the antipodal complement hypothesis and modern balance objectives.
 
 ## Hypothesis Verification Conclusions (`output/hypotheses.json`)
 
 1. The readable values in the commentary serve as **verification of the geometric skeleton and cell counts**: $54+6=60$, $60/6=10$ (cells per side), 中觚 19, 252, $252 \times 2 = 504$, $270 = 6 \times 45$. Every verified property matches the grid's mathematical skeleton.
-2. The evaluated $\pm 6$ shift and ring-wise AP models all failed. At present, none of the proposed concrete value placement interpretations hold.
-3. While character decipherment of `寄左` and `序左` is complete, whether they indicate intermediate storage, calculation progress, or diagram expansion remains unconfirmed in context; there is currently no evidence that they denote a cell placement order.
+2. The evaluated $\pm 6$ shift 192 variations and ring-wise arithmetic progression models all failed.
+3. While character decipherment of `寄左` and `序左` is complete, whether they indicate intermediate storage, calculation progress, or diagram expansion remains unconfirmed; there is currently no evidence that they denote a cell placement order.
 
 ## Candidate Generation Rules & Local Fingerprints Verification (`output/reverse_engineering.md`)
 
-`yukgodo/reverse.py` uses the final reconstructed layout as a starting point to test for simple constructive rules and compares them against transcribed clauses.
+`yukgodo/reverse.py` uses the calculated witness solution as a starting point to test for compressive generation rules and compares them against deciphered commentary clauses.
 
 ```bash
 python3 -m yukgodo.reverse    # Reverse-engineering -> output/reverse_engineering.{json,md}
 ```
 
-**Reverse-Engineering Attempts (All failed or identified as structural trivialities):**
+**Candidate Generation Rules Verification (All failed or identified as structural trivialities for witness solution):**
 
 | Candidate Rule | Result |
 |---|---|
@@ -175,28 +178,21 @@ python3 -m yukgodo.reverse    # Reverse-engineering -> output/reverse_engineerin
 **Commentary Comparison Results:**
 
 - **Confirmed (Cell Count & Geometry)**: 共積二百七十, 虛一則二百七十數, 校計周五十四數, 通加洛書數六倍 ($270=6\times45$), 十九爲中觚數也, and the newly transcribed calculation sequence—outer perimeter 54 × 9 = 486; halve and add 9 = 252; double = 504; halve = 252. It confirms both the geometric derivation $\frac{54\times9}{2}+9=252$ and the fact that removing the 18 non-central cells of the central axes from 270 leaves 252. `添六` confirms that successive ring sizes increase by six.
-- **Refuted (Value Placement Interpretation)**: All variations reading `添六` as a value placement rule.
-- **Undetermined**: 寄左/序左 (placement sequence), 以算遠則係以六 (illegible text).
+- **Refuted (Concrete Value Placement Interpretation)**: Evaluated $\pm 6$ shift and ring-wise AP models all failed.
+- **Undetermined (Mathematical Function Unconfirmed)**: Character decipherment of `寄左`, `序左`, and `以算遠則係以六` is complete, but their exact mathematical functions remain unconfirmed.
 
-**Algorithmic Confirmation — Currently Impossible:**
+**Determination on Existence of Regular Constructive Rule:**
 
-1. The optimum found using Seed 42 matches the baseline solution at exactly **0/270 cells**. Multiple layouts satisfy the same sum constraints, meaning the reconstructed layout is one of many representative samples.
-2. None of these samples show any trace of constructive rules (arithmetic, linear, class, sequential, or local).
-3. Therefore, sum constraints alone cannot uniquely restore the original layout or its ordering rules.
-4. What can be confirmed is the geometric skeleton, the sum targets, and the refutation of the `添六` value-placement interpretation. Deeper validation requires clearer manuscript scans.
+1. Optima found using different seeds match at exactly **0/270 cells**.
+2. No common local generation fingerprint is confirmed across different optima.
+3. Therefore, current conditions allow multiple solutions, and there is no evidence that a specific regular permutation or local generation rule was originally a defining element of the diagram.
 
 ## mod 5 Coloring and mod N Generalization (`output/mod5_report.md`)
 
 Coloring by mod 5 residue classes is a recurring technique in Choi's work (e.g. the 5-coloring in `mod5_residue_diagram.py` of section 02 and the Hadomabangjin 5-coloring document in section 01).
-In this project, `yukgodo/mod5.py` divides the optimal solution into 5 layers of 54 cells each, checking D6 symmetries ($12 \text{ elements} \times \text{layer pairs}$).
+In this project, `yukgodo/mod5.py` divides the witness solution into 5 layers of 54 cells each, checking D6 symmetries ($12 \text{ elements} \times \text{layer pairs}$).
 
-![Constructive reconstruction based on the six-multiplier ordering](output/constructive_nakseo_yukgodo.png)
-
-![Coloring of the reconstructed optimum by residue class modulo 5](output/mod5_coloring.png)
-
-![Five mod-5 layers and their antipodal symmetries](output/mod5_symmetry.png)
-
-**Findings**: Layers $2 \leftrightarrow 4$ and $1 \leftrightarrow 0$ are congruent under a 180° rotation (point symmetry), while layer 3 is self-symmetric. No other symmetries exist.
+**Antipodal Complement Hypothesis mod 5 Consequence (Computational Verification)**: Layers $2 \leftrightarrow 4$ and $1 \leftrightarrow 0$ are congruent under a 180° rotation (point symmetry), while layer 3 is self-symmetric. No other symmetries exist. This is an algebraic consequence derived from $S=271 \equiv 1 \pmod 5$ under the antipodal action $r \mapsto (1-r) \bmod 5$.
 
 **Derivation (mod N Generalization)**: If all value pairs under an involution $\pi$ ($\pi^2 = \text{id}$) sum to a constant $S$, then for any modulus $m$, $\pi$ acts on mod $m$ residue classes as **$r \mapsto (S - r) \bmod m$**. This holds due to:
 
@@ -211,11 +207,11 @@ In this project, `yukgodo/mod5.py` divides the optimal solution into 5 layers of
 
 | Layout | Pair Sum $S$ | Involution $\pi$ | Result |
 |---|---|---|---|
-| 06 Nakseo Yukgodo (Reconstructed) | 271 | Central symmetry (180° rotation) | Valid for mod 2..9 |
+| 06 Nakseo Yukgodo (Witness Solution) | 271 | Central symmetry (180° rotation) | Valid for mod 2..9 |
 | 02 Joonggung of Nine Squares | 46 | 3×3 central symmetry | Valid; center cell is $23 = S/2$ |
 | 07 Double Eight-Trigrams (Horizontal) | 65 | Horizontal reflection | Valid |
 | 07 Houceck Yonggudo | $\approx 73$ (incomplete) | Positional pairs | Fails if mixed; valid if restricted to 16 pairs summing to 73 |
 
 The Houceck Yonggudo shows the necessity of the condition: if the pair sums are not constant, the modular action splits by individual sums. This theorem generalizes to any layout with symmetric complement pairs, extending component-pair checks to arbitrary mod N classes.
 
-**Significance & Limitations**: This property is shared by all solutions satisfying the antipodal pair hypothesis (including Seed 42), meaning it cannot uniquely identify the original layout. However, it serves as a validation tool: if a clearer original manuscript is found and does not display this symmetry, the antipodal complement hypothesis is mathematically disproven.
+**Significance & Limitations**: This property is shared by all solutions satisfying the antipodal pair hypothesis (including Seed 42 witness solution), meaning it cannot uniquely identify the original layout. However, it serves as a validation tool: if a clearer original manuscript is found and does not display this symmetry, the antipodal complement hypothesis is mathematically disproven.
