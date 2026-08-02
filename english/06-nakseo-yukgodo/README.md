@@ -14,15 +14,15 @@
 
 ## Appended Manuscript Commentary Image (Handwritten Naejeok Method)
 
-The manuscript commentary describing the Naejeok Method (來積法) is extremely faintly scanned, making the characters difficult to decipher at a glance. Early automated AI reconstructions were discarded due to hallucinations. Instead, **the scan was subjected to contrast adjustment, and blurred strokes of every character were split across multiple cropped images for meticulous manual reconstruction**. Combining this stroke-by-stroke manual analysis with algebraic graph verification, **the manuscript commentary was completely deciphered and transcribed into [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)**.
+The manuscript commentary describing the Naejeok Method (來積法) is extremely faintly scanned, making the characters difficult to decipher at a glance. Consequently, early automated AI reconstructions (pseudo-transcription data containing hallucinations) were completely discarded. **After contrast adjustment, blurred strokes of every character were split across cropped images for meticulous manual reconstruction, resulting in the character-by-character complete decipherment and transcription into [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)**.
 
-By reverse-engineering these manually deciphered numbers via algebraic graph analysis (`python3 -m yukgodo.naejeok`), we confirmed that the commentary is not a spatial number placement algorithm, but a **calculative chain for verifying the total cell count of the hexagonal grid (積=271, 虛一 270)**.
+By verifying the core numerical properties and operations in this manual transcription text via algebraic graph analysis (`python3 -m yukgodo.naejeok`), we established the high-confidence interpretation that the commentary is not a spatial number placement algorithm, but a **calculative area-chain for verifying the total cell count of the hexagonal grid (積=271, 虛一 270)**.
 
 ---
 
 # Nakseo Yukgodo Reconstruction Project
 
-A Python 3 program to reverse-engineer layout configurations (optimal solutions) satisfying the numerical conditions from the manuscript commentary OCR.
+A Python 3 program to reverse-engineer layout configurations (optimal solutions) satisfying the numerical conditions from the deciphered manuscript commentary.
 
 ## Interdisciplinary Gap and Restoration Methodology
 
@@ -30,7 +30,7 @@ As detailed in [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/en
 
 This project implements a 5-step methodology to establish a formal interface across these fields:
 1. Reconstruct grid specifications from readable numbers (`ALGO_OCR_SUCCESS.md`, cross-validated with Su Lin's commentary in *Book of Han*).
-2. Disprove competing interpretations (192 variations of 添六 spatial placement rules) via search optimization (`output/hypotheses.json`).
+2. Refute 192 specific constructive models interpreting 添六 as a $\pm 6$ value shift (192 variations) or ring-wise arithmetic progression via numerical evaluation (`output/hypotheses.json`).
 3. Disambiguate necessary derived invariants (ring sums $813k$, axis sums $2439$) from arbitrary optimization objectives (side/sector balance).
 4. Model the full solution space rather than a single instance (`output/solution.json`, $D_6$ symmetry group).
 5. Cross-validate generalized mod N antipodal modular theorems across other diagrams (`yukgodo/modn_generalization.py`).
@@ -72,19 +72,22 @@ python3 -m yukgodo.modn_generalization  # mod N antipodal modular action - cross
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/COMPARISON.md) — Comparative Literature Review
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — Geometric and Combinatorial Analysis
 
-## Manuscript Commentary (Naejeok Method) Decipherment & Computational Graph
+## Manuscript Commentary (Naejeok Method) Decipherment, Transcription & Calculation Structure Interpretation
 
-The handwritten manuscript commentary describing the **Naejeok Method (來積法)** in the margins of Nakseo Yukgodo was long misread due to extremely faint scans. Initial attempts at digital image reconstruction via generative AI produced hallucinations and errors (e.g., misreading 504 as 506, incorrect line breaks). Consequently, the AI reconstruction was discarded, and **[ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) represents the high-confidence manual transcription** derived by cross-referencing text fragments with geometric calculations.
+The handwritten manuscript commentary describing the **Naejeok Method (來積法)** in the margins of Nakseo Yukgodo has been **completely deciphered and transcribed character by character** by analyzing stroke details in the scan ([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)). Early automated AI pseudo-transcription output (containing hallucinations such as misreading 504 as 506 and incorrect line breaks) was completely discarded, and the confirmed transcription text was established by combining manual character decipherment with algebraic calculation graph verification.
 
-Through this manual transcription and algebraic graph verification ([`naejeok.py`](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/yukgodo/naejeok.py)), the true identity of the commentary was fully resolved.
+The academic status and confidence criteria for this commentary transcription are as follows:
+- **Character Decipherment & Order**: Confirmed (Complete manual decipherment & transcription)
+- **Numerical Decipherment & Calculation Chain**: Confirmed (Exhaustively verified via algebraic computational graph)
+- **Syntactical Segmentation & Mathematical Function**: Partially Unresolved (Mathematical placement meaning of phrases such as `寄左`/`序左`)
 
 ### 1. Essence of the Commentary: Grid Cell Count (積), Not Spatial Placement
 * Previous works guessed phrases like `添六` (Add 6) meant placing numbers at intervals of 6 across the grid.
-* Systematic hypothesis testing (`output/hypotheses.json`) disproved all 192 variations of spatial placement rules.
-* The commentary is a **calculative algorithm for computing the total cell count of the hexagonal grid (積=271, 虛一則 270)**, rather than a spatial arrangement recipe.
+* However, systematic hypothesis testing (`output/hypotheses.json`) numerically refuted 192 specific constructive models interpreting 添六 as a $\pm 6$ value shift or ring-wise arithmetic progression.
+* The commentary is supported with high confidence as a **calculative algorithm for computing the total cell count of the hexagonal grid (積=271, 虛一則 270)**, rather than a spatial arrangement recipe.
 
 ### 2. Computational Graph of Manually Deciphered Numbers
-Manually deciphered numbers in the text ($54, 60, 10, 20, 19, 152, 252, 504, 271, 270$) form a fully connected computational chain:
+Manually deciphered core numbers in the text ($54, 60, 10, 20, 19, 252, 504, 271, 270$) form a strong algebraic calculation chain:
 
 ```
 置外周五十四，添六得六十      54 + 6 = 60          ┐ 60 is a hub for two paths:
@@ -97,8 +100,8 @@ Manually deciphered numbers in the text ($54, 60, 10, 20, 19, 152, 252, 504, 271
 虛一則二百七十               271 − 1 = 270        = 共積二百七十
 ```
 
-* **Node 152**: Derived via `(20 − 12) × 19 = 152` (linking `寄左以數十二`) and `9 × 19 − 19 = 152`, merging into 252 via `152 + 100(合百) = 252`.
-* **AI Reconstruction Error Correction (504 vs 506)**: Unlike the discarded AI reconstruction which blurred strokes into `五百六` (506), manual transcription and mathematical restoration proved **`五百四` (504, double of 252)** to be the exact historical reading.
+* **Confirmation of 504**: Early AI pseudo-transcription misreading `五百六` (506) was discarded, confirming **`五百四` (504, 倍之得五百四)** via manual character decipherment and algebraic doubling verification ($252 \times 2 = 504$).
+* **Separation of 152 & Nodes 12, 100**: Operations such as `(20 − 12) × 19 = 152` (`寄左以數十二`) and `152 + 100(合百) = 252` are managed separately as contextually useful auxiliary nodes / tentative hypotheses, protecting the independent confidence of the main calculation chain.
 
 ### 3. Historical Cross-Validation with *Book of Han* & Su Lin
 * `校計周五十四` matches Su Lin's commentary **"其表六九五十四"** (perimeter 54 cells).
