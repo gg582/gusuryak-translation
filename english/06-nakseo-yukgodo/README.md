@@ -88,8 +88,8 @@ Manually deciphered numbers in the text ($54, 60, 10, 20, 19, 152, 252, 504, 271
 
 ```
 置外周五十四，添六得六十      54 + 6 = 60          ┐ 60 is a hub for two paths:
-六而一得一十                 60 ÷ 6 = 10          ├ ① Cell count per side
-倍之得二十                   10 × 2 = 20          │ ② First+last ring sum term
+六而一得一十                 60 ÷ 6 = 10           ├ ① Cell count per side
+倍之得二十                   10 × 2 = 20           │ ② First+last ring sum term
 減一為十九，為中觚數也        20 − 1 = 19          ┘    (6 + 54) × 9 ÷ 2 = 270
 添一 iteration (而一加一/添十一) 10→11→…→18 (sum 126)   Upper 9 rows sum
 九乘得二百五十二              (10+18) × 9 = 252     = 2 × 126
