@@ -56,6 +56,44 @@ python3 -m yukgodo.mod5           # mod 5 잉여류 채색 + 5층 기하 관계 
 python3 -m yukgodo.modn_generalization  # mod N 대척 잉여류 작용 — 교차 도안 검증
 ```
 
+## 프로젝트 문서
+
+- [NAEJEOK_ASSESSMENT.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/NAEJEOK_ASSESSMENT.md) — 來積法 신뢰 범위 및 종합 증거 판정
+- [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/INTERDISCIPLINARY.md) — 학제 간 삼중 공백 및 표준 인터페이스 명세
+- [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) — 흐린 친필 주석 판독 텍스트 및 수치 증거
+- [COMPARISON.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/COMPARISON.md) — 기존 학설과의 비교 검증
+- [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — 기하학적·조합론적 심층 분석
+
+## 친필 주석(來積法) 판독 및 계산 구조 해설
+
+낙서육고도 여백에 필사된 **來積法(내적법)** 친필 주석은 판본이 흐려 오랫동안 오독되거나 방치되었습니다. 본 프로젝트에서는 1급 확정 판독([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md))과 대수적 그래프 검증([`naejeok.py`](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/yukgodo/naejeok.py))을 통해 이 주석의 실체를 완벽히 해독했습니다.
+
+### 1. 주석의 본질: '배치 규칙'이 아닌 '칸 수 계산법(積)'
+* 기존 연구에서는 `添六`(6을 더함) 등의 구절을 "숫자 6 간격으로 격자에 값을 배치하는 알고리즘"으로 추측했습니다.
+* 그러나 탐색 역산(`output/hypotheses.json`)으로 192가지 배치 변형 가설을 수치적으로 완전 반증했습니다.
+* 친필 주석은 숫자의 공간 배치가 아니라 **육각 격자의 전체 칸 수(積=271, 虛一則 270)를 구하는 한구석 계산 절차(Calculative Algorithm for Hexagonal Grid Area)**입니다.
+
+### 2. 판독 수치 간 연결 사슬 (Computational Graph)
+원문 주석에 적힌 파편적 수치들($54, 60, 10, 20, 19, 152, 252, 504, 271, 270$)은 모두 하나의 조화로운 계산 사슬에 속합니다.
+
+```
+置外周五十四，添六得六十      54 + 6 = 60          ┐ 60은 두 경로의 허브:
+六而一得一十                 60 ÷ 6 = 10          ├ ① 변당 칸 수 산출
+倍之得二十                   10 × 2 = 20          │ ② (首環6+末環54)×9÷2 = 270
+減一為十九，為中觚數也        20 − 1 = 19          ┘    의 首+末 항과 동일치
+添一의 반복 (而一加一/添十一)  10→11→…→18 (합 126)   상9행 생성
+九乘得二百五十二              (10+18) × 9 = 252     = 2 × 126
+二百五十二 + 中觚十九         252 + 19 = 271
+虛一則二百七十               271 − 1 = 270        = 共積二百七十
+```
+
+* **152 노드**: `(20 − 12) × 19 = 152` (`寄左以數十二` 조각 연결) 및 `9 × 19 − 19 = 152`, `152 + 100(合百) = 252`.
+* **504 (五百四) 오독 교정**: 기존 AI 및 미숙한 역산에서 500 또는 506으로 뭉개진 필획은 `252`의 2배인 **504 (倍之得五百四)**로 정상 판독되어 계산 사슬에 합류했습니다.
+
+### 3. 《漢書·律曆志》 및 蘇林 注와의 역사적 교차 증증
+* 주석의 `校計周五十四`는 《漢書·律曆志》 蘇林 注의 **"其表六九五十四"**(외주 54칸)와 정확히 일치합니다.
+* `二百七十一枚而成六觚` (271칸) 및 `虛一則二百七十` (270칸) 또한 문헌적·기하학적으로 완벽히 교차 검증되어 낙서육고도의 물리적 실체를 확정짓습니다.
+
 ## 프로젝트 구조
 
 ```

@@ -54,6 +54,44 @@ python3 -m yukgodo.mod5           # mod 5 coloring + 5-layer geometric analysis 
 python3 -m yukgodo.modn_generalization  # mod N antipodal modular action - cross-layout validation
 ```
 
+## Project Documentation
+
+- [NAEJEOK_ASSESSMENT.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/NAEJEOK_ASSESSMENT.md) — Naejeok Method Evidence & Assessment
+- [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/INTERDISCIPLINARY.md) — Triple Interdisciplinary Void & Standard Interface Specification
+- [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) — Deciphered Manuscript Commentary & Numerical Evidence
+- [COMPARISON.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/COMPARISON.md) — Comparative Literature Review
+- [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — Geometric and Combinatorial Analysis
+
+## Manuscript Commentary (Naejeok Method) Decipherment & Computational Graph
+
+The handwritten manuscript commentary describing the **Naejeok Method (來積法)** in the margins of Nakseo Yukgodo was long misread due to faint scans. Through high-confidence decipherment ([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)) and algebraic graph verification ([`naejeok.py`](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/yukgodo/naejeok.py)), this project fully resolved its true mathematical identity.
+
+### 1. Essence of the Commentary: Grid Cell Count (積), Not Spatial Placement
+* Previous works guessed phrases like `添六` (Add 6) meant placing numbers at intervals of 6 across the grid.
+* Systematic hypothesis testing (`output/hypotheses.json`) disproved all 192 variations of spatial placement rules.
+* The commentary is a **calculative algorithm for computing the total cell count of the hexagonal grid (積=271, 虛一則 270)**, rather than a spatial arrangement recipe.
+
+### 2. Computational Graph of Deciphered Numbers
+Fragmented numbers in the text ($54, 60, 10, 20, 19, 152, 252, 504, 271, 270$) form a fully connected computational chain:
+
+```
+置外周五十四，添六得六十      54 + 6 = 60          ┐ 60 is a hub for two paths:
+六而一得一十                 60 ÷ 6 = 10          ├ ① Cell count per side
+倍之得二十                   10 × 2 = 20          │ ② First+last ring sum term
+減一為十九，為中觚數也        20 − 1 = 19          ┘    (6 + 54) × 9 ÷ 2 = 270
+添一 iteration (而一加一/添十一) 10→11→…→18 (sum 126)   Upper 9 rows sum
+九乘得二百五十二              (10+18) × 9 = 252     = 2 × 126
+二百五十二 + 中觚十九         252 + 19 = 271
+虛一則二百七十               271 − 1 = 270        = 共積二百七十
+```
+
+* **Node 152**: Derived via `(20 − 12) × 19 = 152` (linking `寄左以數十二`) and `9 × 19 − 19 = 152`, merging into 252 via `152 + 100(合百) = 252`.
+* **504 (五百四) Correction**: Characters previously blurred as 500 or 506 were restored to **504 (倍之得五百四)**, double of 252.
+
+### 3. Historical Cross-Validation with *Book of Han* & Su Lin
+* `校計周五十四` matches Su Lin's commentary **"其表六九五十四"** (perimeter 54 cells).
+* `二百七通信而成六觚` (271 cells) and `虛一則二百七十` (270 cells) confirm the exact physical grid specification of Nakseo Yukgodo.
+
 ## Project Structure
 
 ```
