@@ -12,18 +12,28 @@
 
 虛一則二百七十數
 
-## Appended Manuscript Commentary Image
+## Appended Manuscript Commentary Image (Handwritten Naejeok Method)
 
-The commentary describing the algorithm called the Naejeok Method (來積法) is very faintly scanned, making it difficult to decipher the original text.
-There is a rough transcription reconstructed with Python 3 via generative AI. However, it cannot be denied that this reconstruction contains some speculative readings.
+The manuscript commentary describing the Naejeok Method (來積法) is extremely faintly scanned, making the original characters difficult to read. Early digital image reconstructions via generative AI contained speculative hallucinations and were discarded. Through systematic cross-validation of numerical calculations against Hanja texts, **[ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) represents the finalized manual transcription** of the manuscript text.
 
-Nevertheless, reverse-engineering the algorithm itself allows us to get one step closer to the reality of the Nakseo Yukgodo (洛書六觚圖).
+By reverse-engineering these manually deciphered numbers via algebraic graph analysis (`python3 -m yukgodo.naejeok`), we confirmed that the commentary is not a spatial number placement algorithm, but a **calculative chain for verifying the total cell count of the hexagonal grid (積=271, 虛一 270)**.
 
 ---
 
 # Nakseo Yukgodo Reconstruction Project
 
 A Python 3 program to reverse-engineer layout configurations (optimal solutions) satisfying the numerical conditions from the manuscript commentary OCR.
+
+## Interdisciplinary Gap and Restoration Methodology
+
+As detailed in [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/INTERDISCIPLINARY.md), Nakseo Yukgodo previously hovered at the boundary of three fields: **History of Mathematics** (limited to primary text reading), **Pure Combinatorics** (with only antipodal sums $271$, the solution space trivially decomposes into $135! \times 2^{135}$), and **Computer Science/Constraint Programming** (unable to extract `.cnf`/MiniZinc specs directly from historical text).
+
+This project implements a 5-step methodology to establish a formal interface across these fields:
+1. Reconstruct grid specifications from readable numbers (`ALGO_OCR_SUCCESS.md`, cross-validated with Su Lin's commentary in *Book of Han*).
+2. Disprove competing interpretations (192 variations of 添六 spatial placement rules) via search optimization (`output/hypotheses.json`).
+3. Disambiguate necessary derived invariants (ring sums $813k$, axis sums $2439$) from arbitrary optimization objectives (side/sector balance).
+4. Model the full solution space rather than a single instance (`output/solution.json`, $D_6$ symmetry group).
+5. Cross-validate generalized mod N antipodal modular theorems across other diagrams (`yukgodo/modn_generalization.py`).
 
 ## Geometric Structure (Confirmed)
 
