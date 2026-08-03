@@ -36,7 +36,7 @@ and cross-checking against manuscript commentary fragments.
 | 倍之得五百사 / 折半淂二百五두 | double 252 to get 504, halve to get 252 | transcription confirmed (algebraic check passed) | 252 * 2 = 504 and halving back to 252. Discarded early AI pseudo-transcription misreading of 506 |
 | 合從九目淂二百五十二不倍 / 去中觚 | combine 9 rings excluding central axes to get 252, not doubled | transcription confirmed (algebraic check passed) | excluding 18 non-central axis cells from 270 total ring cells gives 252 |
 | 寄左 / 序左 | mathematical phrasing (decipherment complete) | unresolved (function unconfirmed) | character decipherment complete, but whether these indicate intermediate storage, calculation progress, or diagram expansion is unconfirmed; no evidence for a cell placement order |
-| 以算遠則係以六 | mathematical instruction (decipherment complete) | unresolved (function unconfirmed) | character decipherment complete, but mathematical functional meaning remains unconfirmed in context |
+| 以筭遠則係以六 | mathematical instruction (decipherment complete) | unresolved (function unconfirmed) | character decipherment complete, but mathematical functional meaning remains unconfirmed in context |
 
 ## 4. Determination on Existence of Regular Constructive Rule
 
@@ -53,5 +53,5 @@ Optima found using different seeds match at exactly 0/270 cells. No common local
 ### What remains unconfirmed and refuted
 
 - Evaluated ±6 shift 192 variations and ring-wise AP models all failed.
-- Character decipherment of 寄左/序左/以算遠則係以六 is complete,
+- Character decipherment of 寄左/序左/以筭遠則係以六 is complete,
   but their exact mathematical functions remain unconfirmed.

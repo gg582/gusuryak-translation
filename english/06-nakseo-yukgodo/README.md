@@ -4,7 +4,7 @@
 
 校計周五十四數
 
-以算遠則係以六
+以筭遠則係以六
 
 通加洛書數六倍
 
@@ -39,7 +39,7 @@ This project implements the following 5-step restoration methodology to establis
 
 ## Geometric Structure (Confirmed)
 
-Literary numerical values and geometric calculations align exactly, confirming the 271-cell centered hexagonal grid structure of Yukgodo (*Book of Han·Lüli Zhi*: "二百七十一枚而成六觚, 爲一握" and Su Lin's commentary: "其表六九五十四, 算中積凡得二百七十一枚").
+Literary numerical values and geometric calculations align exactly, confirming the 271-cell centered hexagonal grid structure of Yukgodo (*Book of Han·Lüli Zhi*: "二百七十一枚而成六觚, 爲一握" and Su Lin's commentary: "其表六九五十四, 筭中積凡得二百七十一枚").
 
 - Hexagonal grid of side length 10: center 1 + ring k (each 6k cells, k=1..9) = **271 cells**
 - **虛一**: Center left empty → **270 cells** (共積二百七十 / 虛一則二百七十數)
@@ -179,7 +179,7 @@ python3 -m yukgodo.reverse    # verification → output/reverse_engineering.{jso
 
 - **Confirmed (cell count·geometry)**: 共積二百七十, 虛一則二百七十數, 校計周五十四數, 通加洛書數六倍(270=6×45), 十九爲中觚數也, 置外周五十四以九乘之得四百八十六 and 折半加九得二百五十二 (confirmation of the geometric derivation formula outer perimeter 54 * 9 / 2 + 9 = 252), 倍之得五百四 and 折半得二百五十二 (confirmation of the 504 doubling and halving verification formula), 合從九目得二百五十二 and 去中觚 (252 remaining after removing the 18 central axis cells from the 270 total ring cells), 置外周添六 (cell count reading that rings increase by 6 cells each).
 - **Refuted (concrete value placement reading)**: The evaluated ±6 shift and ring-wise arithmetic progression models all failed.
-- **Unresolved (algorithmic function unconfirmed)**: Character decipherment of `寄左`·`序左`·`以算遠則係以六` is complete, but which mathematical function they refer to remains unconfirmed in context.
+- **Unresolved (algorithmic function unconfirmed)**: Character decipherment of `寄左`·`序左`·`以筭遠則係以六` is complete, but which mathematical function they refer to remains unconfirmed in context.
 
 **Determination on the existence of a regular constructive rule:**
 

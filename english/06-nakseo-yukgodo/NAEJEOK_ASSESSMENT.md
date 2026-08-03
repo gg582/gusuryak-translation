@@ -9,7 +9,7 @@ The faint manuscript commentary's numerical and computational relationships were
 
 | Tier | Artifacts | Nature |
 |---|---|---|
-| Confirmed Text | The 6 core passages in README.md (共積二百七十, 校計周五十四數, 以算遠則係以六, 通加洛書數六倍之數見甲編數器章, 虛一則二百七十數) | Confirmed transcription |
+| Confirmed Text | The 6 core passages in README.md (共積二百七十, 校計周五十四數, 以筭遠則係以六, 通加洛書數六倍之數見甲編數器章, 虛一則二百七十數) | Confirmed transcription |
 | New OCR | ALGO_OCR_SUCCESS.md (39 lines) | Confirmed transcription numbers. The circle "〇" is a start/end marker (not 0; in *Gusuryak*, zero is exclusively written as "零") |
 | Geometric Model | yukgodo/hexgrid.py, tests/test_hexgrid.py | 271 cells / 270 after 虛一 / outer perimeter 54 / side length 10 / 中觚 19 / sector 45×6. All tests pass |
 | Computation Graph | yukgodo/naejeok.py | Exhaustive search of equations connecting textual numbers |
@@ -92,7 +92,7 @@ Furthermore, **manual character decipherment and algebraic cross-verification** 
 
 - 序左十九六合百: $19 \times 6 + 100 = 214$, $19 \times 6 = 114$, $19 + 6 + 100 = 125$ — All reading combinations of 六 as a multiplier mismatch textual values. Unresolved as-written.
 - 寄左/序左 instructions: While the numbers (12, 19) and character glyphs are 100% confirmed, the **mathematical placement instructions** and terminology remain open to interpretation.
-- 以算遠則係以六: Character decipherment is complete, but connection to the Naejeok calculation chain and contextual mathematical meaning remain unconfirmed.
+- 以筭遠則係以六: Character decipherment is complete, but connection to the Naejeok calculation chain and contextual mathematical meaning remain unconfirmed.
 
 ### Rejected — Numerically Refuted
 
@@ -159,7 +159,7 @@ Under the antipodal pair sum constraint $v(c) + v(-c) = 271$, we searched for so
 
 ## 6. Future Work
 
-* **Interpretation of Mathematical Phrasing (`寄左`/`序左`)**: While the main calculation chain and character transcriptions are completely confirmed, the exact academic interpretation of mathematical instructions like `寄左`, `序左`, and `以算遠則係以六` as specific algorithmic placement steps remains a subject for ongoing research.
+* **Interpretation of Mathematical Phrasing (`寄左`/`序左`)**: While the main calculation chain and character transcriptions are completely confirmed, the exact academic interpretation of mathematical instructions like `寄左`, `序左`, and `以筭遠則係以六` as specific algorithmic placement steps remains a subject for ongoing research.
 
 ## 7. Replication
 
