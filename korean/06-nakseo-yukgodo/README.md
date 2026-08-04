@@ -67,6 +67,20 @@ python3 -m yukgodo.mod5           # mod 5 잉여류 채색 + 5층 기하 관계 
 python3 -m yukgodo.modn_generalization  # mod N 대척 잉여류 작용 — 교차 도안 검증
 ```
 
+## 외부 증거 서브모듈
+
+외부 궤도/불변량 검증 스크립트를 위해 `nakseo-yukgodo-prompt` git 서브모듈을 포함했다.
+
+```bash
+git submodule update --init --recursive
+python3 nakseo-yukgodo-prompt/verify_lee_invariants.py
+python3 nakseo-yukgodo-prompt/verify_lee_all.py
+```
+
+현재 확인된 결론:
+- 고리별 $\sum v(c)^2$는 궤도 계열 전반에서 **불변량이 아님**.
+- 선형 대척쌍 항등식(섹터/광선/변/꼭짓점)은 유효하며 SMT 제약으로 사용 가능.
+
 ## 프로젝트 문서
 
 - [NAEJEOK_ASSESSMENT.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/NAEJEOK_ASSESSMENT.md) — 來積法 신뢰 범위 및 종합 증거 판정

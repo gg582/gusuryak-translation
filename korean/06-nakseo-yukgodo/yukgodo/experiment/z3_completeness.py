@@ -44,15 +44,14 @@ def build_z3_yukgodo_solver(grid: HexGrid) -> tuple[z3.Solver, dict[Cell, z3.Ari
     for side in grid.sides:
         solver.add(z3.Sum([vars_dict[c] for c in side]) == int(SIDE_TARGET))
         
-    # 3. 6개 섹터 합 in [6097, 6098]
-    for wedge in grid.wedges:
-        w_sum = z3.Sum([vars_dict[c] for c in wedge])
-        solver.add(w_sum >= 6097, w_sum <= 6098)
-        
-    # 4. 6개 광선 합 in [1219, 1220]
-    for ray in grid.rays:
-        r_sum = z3.Sum([vars_dict[c] for c in ray])
-        solver.add(r_sum >= 1219, r_sum <= 1220)
+    # 3. 섹터/광선 대척쌍 선형 제약 (독립 방정식 수 절반 축소)
+    wedge_sums = [z3.Sum([vars_dict[c] for c in wedge]) for wedge in grid.wedges]
+    ray_sums = [z3.Sum([vars_dict[c] for c in ray]) for ray in grid.rays]
+    for i in range(3):
+        solver.add(wedge_sums[i] >= 6097, wedge_sums[i] <= 6098)
+        solver.add(wedge_sums[i + 3] == 12195 - wedge_sums[i])
+        solver.add(ray_sums[i] >= 1219, ray_sums[i] <= 1220)
+        solver.add(ray_sums[i + 3] == 2439 - ray_sums[i])
         
     return solver, vars_dict, []
 
@@ -64,7 +63,7 @@ def verify_generator_coverage_with_z3(grid: HexGrid, outdir: str = "output/exper
     # 1. Z3 기본 마법 제약 생성
     t0 = time.time()
     solver, vars_dict, _ = build_z3_yukgodo_solver(grid)
-    print(f"Z3 인코딩 완료 (셀 270개, 대척쌍 135개, 변 6개, 섹터 6개, 광선 6개)")
+    print("Z3 인코딩 완료 (셀 270개, 대척쌍 135개, 변 6개, 섹터/광선 대척쌍 3+3 독립 제약)")
     
     # 2. 기존 결정론적 솔버(DFS/Equalizer)가 생성한 해 파일 로드
     enhanced_sol_path = "output/enhanced_rotation_solution.json"

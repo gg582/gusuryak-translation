@@ -74,15 +74,14 @@ def prove_completeness_and_counterexamples(grid: HexGrid, outdir: str = "yukgodo
         side_expr = z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in side])
         z3_solver.add(side_expr == int(SIDE_TARGET))
         
-    #Sector sum ∈ [6097, 6098]
-    for wedge in grid.wedges:
-        w_expr = z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in wedge])
-        z3_solver.add(w_expr >= 6097, w_expr <= 6098)
-        
-    #Ray sum ∈ [1219, 1220]
-    for ray in grid.rays:
-        r_expr = z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in ray])
-        z3_solver.add(r_expr >= 1219, r_expr <= 1220)
+    #Antipodal wedge/ray linear pairing constraints
+    wedge_sums = [z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in wedge]) for wedge in grid.wedges]
+    ray_sums = [z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in ray]) for ray in grid.rays]
+    for i in range(3):
+        z3_solver.add(wedge_sums[i] >= 6097, wedge_sums[i] <= 6098)
+        z3_solver.add(wedge_sums[i + 3] == 12195 - wedge_sums[i])
+        z3_solver.add(ray_sums[i] >= 1219, ray_sums[i] <= 1220)
+        z3_solver.add(ray_sums[i + 3] == 2439 - ray_sums[i])
         
     print("Z3 SMT Solver equation encoding established (135 integer permutation variables + 135 Boolean direction variables)")
     

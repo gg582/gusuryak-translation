@@ -65,14 +65,13 @@ def prove_completeness_and_unreachable_solutions(grid: HexGrid, outdir: str = "y
         
     for side in grid.sides:
         solver.add(z3.Sum([cell_expr(*cell_to_slot[c]) for c in side]) == int(SIDE_TARGET))
-        
-    for wedge in grid.wedges:
-        w_e = z3.Sum([cell_expr(*cell_to_slot[c]) for c in wedge])
-        solver.add(w_e >= 6097, w_e <= 6098)
-        
-    for ray in grid.rays:
-        r_e = z3.Sum([cell_expr(*cell_to_slot[c]) for c in ray])
-        solver.add(r_e >= 1219, r_e <= 1220)
+    wedge_sums = [z3.Sum([cell_expr(*cell_to_slot[c]) for c in wedge]) for wedge in grid.wedges]
+    ray_sums = [z3.Sum([cell_expr(*cell_to_slot[c]) for c in ray]) for ray in grid.rays]
+    for i in range(3):
+        solver.add(wedge_sums[i] >= 6097, wedge_sums[i] <= 6098)
+        solver.add(wedge_sums[i + 3] == 12195 - wedge_sums[i])
+        solver.add(ray_sums[i] >= 1219, ray_sums[i] <= 1220)
+        solver.add(ray_sums[i + 3] == 2439 - ray_sums[i])
         
     print(f"Z3 135-불리언 시스템 설정 완료 (소요시간: {time.time()-t0:.3f}초)")
     

@@ -64,15 +64,14 @@ def solve_fast_z3_yukgodo(grid: HexGrid, outdir: str = "yukgodo/experiment") -> 
         side_sum_expr = z3.Sum([cell_val_expr(s, is_cb) for s, is_cb in side_mem[sd]])
         solver.add(side_sum_expr == int(SIDE_TARGET))
         
-    #Sector sum constraints ∈ [6097, 6098]
-    for w in range(6):
-        w_sum_expr = z3.Sum([cell_val_expr(s, is_cb) for s, is_cb in wedge_mem[w]])
-        solver.add(w_sum_expr >= 6097, w_sum_expr <= 6098)
-        
-    #Ray sum constraint ∈ [1219, 1220]
-    for r in range(6):
-        r_sum_expr = z3.Sum([cell_val_expr(s, is_cb) for s, is_cb in ray_mem[r]])
-        solver.add(r_sum_expr >= 1219, r_sum_expr <= 1220)
+    #Antipodal wedge/ray pairing (3 independent + 3 derived equations)
+    wedge_sums = [z3.Sum([cell_val_expr(s, is_cb) for s, is_cb in wedge_mem[w]]) for w in range(6)]
+    ray_sums = [z3.Sum([cell_val_expr(s, is_cb) for s, is_cb in ray_mem[r]]) for r in range(6)]
+    for i in range(3):
+        solver.add(wedge_sums[i] >= 6097, wedge_sums[i] <= 6098)
+        solver.add(wedge_sums[i + 3] == 12195 - wedge_sums[i])
+        solver.add(ray_sums[i] >= 1219, ray_sums[i] <= 1220)
+        solver.add(ray_sums[i + 3] == 2439 - ray_sums[i])
         
     print(f"Z3 reduction module encoding completed (time:{time.time()-t0:.3f}candle)")
     

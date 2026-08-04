@@ -1,0 +1,3 @@
+[submodule "nakseo-yukgodo-prompt"]
+	path = nakseo-yukgodo-prompt
+	url = https://github.com/dasilva333/nakseo-yukgodo-prompt.git

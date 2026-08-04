@@ -62,15 +62,16 @@ class MasterYukgodoPipeline:
             val_large = PAIR_SUM - val_small
             return z3.If(x_vars[s], val_large, val_small) if not is_cb else z3.If(x_vars[s], val_small, val_large)
 
-        # 6개 변, 6개 섹터, 6개 광선 마법 방정식 부과
+        # 변 방정식 + 섹터/광선 대척쌍 방정식 부과
         for side in grid.sides:
             solver.add(z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in side]) == int(SIDE_TARGET))
-        for wedge in grid.wedges:
-            we = z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in wedge])
-            solver.add(we >= 6097, we <= 6098)
-        for ray in grid.rays:
-            re = z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in ray])
-            solver.add(re >= 1219, re <= 1220)
+        wedge_sums = [z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in wedge]) for wedge in grid.wedges]
+        ray_sums = [z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in ray]) for ray in grid.rays]
+        for i in range(3):
+            solver.add(wedge_sums[i] >= 6097, wedge_sums[i] <= 6098)
+            solver.add(wedge_sums[i + 3] == 12195 - wedge_sums[i])
+            solver.add(ray_sums[i] >= 1219, ray_sums[i] <= 1220)
+            solver.add(ray_sums[i + 3] == 2439 - ray_sums[i])
 
         print(f"Z3 코어 인코딩 완료 (실효 순률 P_base 기반 135개 대척 보수쌍 불리언 수식)")
 

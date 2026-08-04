@@ -68,15 +68,14 @@ def prove_unreachable_solutions_with_z3(grid: HexGrid, outdir: str = "yukgodo/ex
         s_expr = z3.Sum([cell_expr(*cell_to_slot[c]) for c in side])
         solver.add(s_expr == int(SIDE_TARGET))
         
-    # 6개 섹터 합 ∈ [6097, 6098]
-    for wedge in grid.wedges:
-        w_expr = z3.Sum([cell_expr(*cell_to_slot[c]) for c in wedge])
-        solver.add(w_expr >= 6097, w_expr <= 6098)
-        
-    # 6개 광선 합 ∈ [1219, 1220]
-    for ray in grid.rays:
-        r_expr = z3.Sum([cell_expr(*cell_to_slot[c]) for c in ray])
-        solver.add(r_expr >= 1219, r_expr <= 1220)
+    # 섹터/광선 대척쌍 선형 제약
+    wedge_sums = [z3.Sum([cell_expr(*cell_to_slot[c]) for c in wedge]) for wedge in grid.wedges]
+    ray_sums = [z3.Sum([cell_expr(*cell_to_slot[c]) for c in ray]) for ray in grid.rays]
+    for i in range(3):
+        solver.add(wedge_sums[i] >= 6097, wedge_sums[i] <= 6098)
+        solver.add(wedge_sums[i + 3] == 12195 - wedge_sums[i])
+        solver.add(ray_sums[i] >= 1219, ray_sums[i] <= 1220)
+        solver.add(ray_sums[i + 3] == 2439 - ray_sums[i])
         
     print(f"Z3 135-불리언 방정식 인코딩 완료 (시간: {time.time()-t0:.3f}초)")
     

@@ -84,15 +84,14 @@ def prove_completeness_and_counterexamples(grid: HexGrid, outdir: str = "yukgodo
         side_expr = z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in side])
         z3_solver.add(side_expr == int(SIDE_TARGET))
         
-    # 섹터 합 ∈ [6097, 6098]
-    for wedge in grid.wedges:
-        w_expr = z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in wedge])
-        z3_solver.add(w_expr >= 6097, w_expr <= 6098)
-        
-    # 광선 합 ∈ [1219, 1220]
-    for ray in grid.rays:
-        r_expr = z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in ray])
-        z3_solver.add(r_expr >= 1219, r_expr <= 1220)
+    # 섹터/광선 대척쌍 선형 제약
+    wedge_sums = [z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in wedge]) for wedge in grid.wedges]
+    ray_sums = [z3.Sum([get_cell_z3_expr(*cell_to_slot[c]) for c in ray]) for ray in grid.rays]
+    for i in range(3):
+        z3_solver.add(wedge_sums[i] >= 6097, wedge_sums[i] <= 6098)
+        z3_solver.add(wedge_sums[i + 3] == 12195 - wedge_sums[i])
+        z3_solver.add(ray_sums[i] >= 1219, ray_sums[i] <= 1220)
+        z3_solver.add(ray_sums[i + 3] == 2439 - ray_sums[i])
         
     print("Z3 SMT Solver 방정식 인코딩 성립 (135개 정수 순열 변수 + 135개 불리언 방향 변수)")
     

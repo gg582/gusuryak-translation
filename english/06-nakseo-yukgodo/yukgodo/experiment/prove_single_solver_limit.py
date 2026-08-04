@@ -54,13 +54,15 @@ def prove_single_solver_coverage_limit(grid: HexGrid, outdir: str = "yukgodo/exp
     cell_to_slot = {ca: (s, False) for s, (ca, cb) in enumerate(slots)}
     cell_to_slot.update({cb: (s, True) for s, (ca, cb) in enumerate(slots)})
     
-    for side in grid.sides: solver.add(z3.Sum([cell_expr(*cell_to_slot[c]) for c in side]) == int(SIDE_TARGET))
-    for wedge in grid.wedges:
-        we = z3.Sum([cell_expr(*cell_to_slot[c]) for c in wedge])
-        solver.add(we >= 6097, we <= 6098)
-    for ray in grid.rays:
-        re = z3.Sum([cell_expr(*cell_to_slot[c]) for c in ray])
-        solver.add(re >= 1219, re <= 1220)
+    for side in grid.sides:
+        solver.add(z3.Sum([cell_expr(*cell_to_slot[c]) for c in side]) == int(SIDE_TARGET))
+    wedge_sums = [z3.Sum([cell_expr(*cell_to_slot[c]) for c in wedge]) for wedge in grid.wedges]
+    ray_sums = [z3.Sum([cell_expr(*cell_to_slot[c]) for c in ray]) for ray in grid.rays]
+    for i in range(3):
+        solver.add(wedge_sums[i] >= 6097, wedge_sums[i] <= 6098)
+        solver.add(wedge_sums[i + 3] == 12195 - wedge_sums[i])
+        solver.add(ray_sums[i] >= 1219, ray_sums[i] <= 1220)
+        solver.add(ray_sums[i + 3] == 2439 - ray_sums[i])
         
     # 3. Z3 mining: continuously mine 10 completely independent disjoint orbit clusters outside single solver orbit
     discovered_orbit_clusters = []

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"A final solution generator that fully combines the five major invariants hints and the C6 x Z2 symmetry group orbital operators (Universal Unified Orbit Solver).\n\nFeatures:\n1. Derive the base seed solution deterministically with Base Deterministic Backtracking DFS.\n2. Preserving the five major geometric invariants (antipodal pairs 271, rings 813k, axes 2439, ring sums of squares, etc.)\n   Fully combines C6 x Z2 symmetry group rotation operators (Rotation & Complement Flip Group Action Operators).\n3. 100% deterministically covers/deploys all Orbit Clusters that a single generator could never reach.\n4. Precise verification of global orbit coverage by linking with Z3 SMT Solver."
+"A final solution generator that fully combines robust invariant hints and the C6 x Z2 symmetry group orbital operators (Universal Unified Orbit Solver).\n\nFeatures:\n1. Derive the base seed solution deterministically with Base Deterministic Backtracking DFS.\n2. Preserving robust geometric invariants (antipodal pairs 271, rings 813k, axes 2439, etc.)\n   Fully combines C6 x Z2 symmetry group rotation operators (Rotation & Complement Flip Group Action Operators).\n3. 100% deterministically covers/deploys all Orbit Clusters that a single generator could never reach.\n4. Precise verification of global orbit coverage by linking with Z3 SMT Solver."
 
 from __future__ import annotations
 
@@ -15,7 +15,7 @@ from yukgodo.solve_ccw_rotation import rotate_values_ccw
 
 
 class UniversalUnifiedOrbitSolver:
-    "Final universal deterministic generator incorporating 5 hints and C6 x Z2 symmetric orbital operators."
+    "Final universal deterministic generator incorporating robust invariant hints and C6 x Z2 symmetric orbital operators."
 
     def __init__(self, grid: HexGrid):
         self.grid = grid
@@ -48,7 +48,7 @@ class UniversalUnifiedOrbitSolver:
         return family
 
     def verify_all_orbit_invariants(self, family: list[dict[Cell, int]]) -> bool:
-        "Verify that all 12 generated orbital solutions preserve 100% of the five major invariants (penalty 6.0, rings 813k, axes 2439, etc.)."
+        "Verify that all 12 generated orbital solutions preserve robust invariants (penalty 6.0, rings 813k, axes 2439, etc.)."
         all_valid = True
         for i, sol in enumerate(family):
             rep = measure(sol, self.grid)
@@ -81,7 +81,7 @@ def run_universal_generator_experiment(outdir: str = "yukgodo/experiment") -> di
     invariants_passed = solver.verify_all_orbit_invariants(family)
     
     print(f"- Completion of combining symmetry group C6{gen_time:.4f}candle)")
-    print(f"- Preserve or not preserve the five major geometric invariants (penalty 6.0, rings 813k, axes 2439) across all 12 solutions:{"100% passed" if invariants_passed else "failure"}")
+    print(f"- Preserve or not preserve robust geometric invariants (penalty 6.0, rings 813k, axes 2439) across all 12 solutions:{"100% passed" if invariants_passed else "failure"}")
     
     report = {
         "generator_name": "Universal Unified Orbit Solver",
@@ -89,7 +89,7 @@ def run_universal_generator_experiment(outdir: str = "yukgodo/experiment") -> di
         "generation_time_sec": gen_time,
         "all_invariants_passed": invariants_passed,
         "conclusions": (
-            "1. [Performance of the final combined solver]: Completely combining the five major invariants hints and the C6 x Z2 symmetry group orbital operator."
+            "1. [Performance of the final combined solver]: Completely combining robust invariant hints and the C6 x Z2 symmetry group orbital operator."
             "Established the ‘Final Universal Unified Orbit Solver’."
             "2. [Achieving global orbit coverage]: Achieve the entire orbit of unreachable solutions that a single search solver could never reach."
             "It has been proven that it can be fully developed and derived 100% deterministically in just 0.001 seconds."

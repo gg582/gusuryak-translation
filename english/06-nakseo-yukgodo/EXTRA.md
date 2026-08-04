@@ -34,9 +34,11 @@ This document records the **deep algebraic properties** and **structural invaria
 
 ---
 
-### 4. Ring Polynomial Spectrum Invariants
-- For each concentric ring $k$ ($k=1 \dots 9$), the sum of squares of cell values $\sum_{c \in \text{Ring}_k} v(c)^2$ remains **strictly invariant ($\text{Const}_k$)** across rotational transformations and orbit variations.
-- This proves that the geometric energy distribution of Nakseo Yukgodo is rigidly fixed per ring layer.
+### 4. Ring Sum-of-Squares Claim Falsified (Not an Invariant)
+- The previous claim that each ring has a fixed sum-of-squares constant
+  $\sum_{c \in \text{Ring}_k} v(c)^2 = \text{Const}_k$ is **false**.
+- Empirical verification over all 12 validated orbit families produced multiple different values per ring, so this quantity is **not orbit-invariant**.
+- Therefore, ring sum-of-squares must **not** be used as a hard SMT/Z3 constraint; doing so can incorrectly eliminate valid solutions.
 
 ---
 
@@ -55,4 +57,4 @@ This document records the **deep algebraic properties** and **structural invaria
 
 ## 3. Conclusion
 
-These 6 discovered mathematical properties demonstrate that Nakseo Yukgodo is a highly sophisticated geometric algebra structure embodying **antipodal complementarity ($271$), $C_6$ rotational symmetry, ring-wise polynomial spectrum invariants, and strict arithmetic parity partitioning**.
+These findings show that Nakseo Yukgodo is a highly structured geometric algebra system embodying **antipodal complementarity ($271$), $C_6$ rotational symmetry, and strict arithmetic parity partitioning**. In practice, linear antipodal pair identities are robust constraints, while ring sum-of-squares is not.

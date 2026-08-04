@@ -62,15 +62,16 @@ class MasterYukgodoPipeline:
             val_large = PAIR_SUM - val_small
             return z3.If(x_vars[s], val_large, val_small) if not is_cb else z3.If(x_vars[s], val_small, val_large)
 
-        # Impose 6 side, 6 sector, 6 ray magic equations
+        # Impose side equations and antipodal wedge/ray pairing equations
         for side in grid.sides:
             solver.add(z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in side]) == int(SIDE_TARGET))
-        for wedge in grid.wedges:
-            we = z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in wedge])
-            solver.add(we >= 6097, we <= 6098)
-        for ray in grid.rays:
-            re = z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in ray])
-            solver.add(re >= 1219, re <= 1220)
+        wedge_sums = [z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in wedge]) for wedge in grid.wedges]
+        ray_sums = [z3.Sum([cell_expr(*self.cell_to_slot[c]) for c in ray]) for ray in grid.rays]
+        for i in range(3):
+            solver.add(wedge_sums[i] >= 6097, wedge_sums[i] <= 6098)
+            solver.add(wedge_sums[i + 3] == 12195 - wedge_sums[i])
+            solver.add(ray_sums[i] >= 1219, ray_sums[i] <= 1220)
+            solver.add(ray_sums[i + 3] == 2439 - ray_sums[i])
 
         print(f"Z3 core encoding complete (135-slot boolean equations based on effective permutation P_base)")
 

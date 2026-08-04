@@ -66,6 +66,20 @@ python3 -m yukgodo.mod5           # mod 5 residue class coloring + 5-layer geome
 python3 -m yukgodo.modn_generalization  # mod N antipodal residue action — cross-diagram validation
 ```
 
+## External Evidence Submodule
+
+The repository now includes the `nakseo-yukgodo-prompt` git submodule for external orbit/invariant evidence scripts:
+
+```bash
+git submodule update --init --recursive
+python3 nakseo-yukgodo-prompt/verify_lee_invariants.py
+python3 nakseo-yukgodo-prompt/verify_lee_all.py
+```
+
+Current confirmed interpretation from these scripts:
+- ring-wise $\sum v(c)^2$ is **not** invariant across orbit families;
+- linear antipodal pair identities (wedge/ray/side/corner sums) are valid and usable as SMT constraints.
+
 ## Project Documentation
 
 - [NAEJEOK_ASSESSMENT.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/NAEJEOK_ASSESSMENT.md) — Naejeok Method reliability scope and comprehensive evidence assessment
