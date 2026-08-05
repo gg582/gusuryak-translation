@@ -42,14 +42,9 @@ This document records the **deep algebraic properties** and **structural invaria
 
 ---
 
-### 5. Geometric Difference Between Commentary Value '252' and Slot Count ($252 - 135 = 117$)
-- A clear arithmetic relationship exists between the key deciphered manuscript commentary value **'二百五十二(252)'** (trapezoidal area sum $(10+18) \times 9 = 252$) and the number of antipodal slots **$135$**:
-  $$252 - 135 = 117 = 9 \times 13$$
-- Here, $9$ is the number of concentric rings, and $13$ represents the structural density constant governing ring-wise slot and axial distribution.
-
----
-
-### 6. Arithmetic Odd/Even Parity Split
+### 5. Parity Split of 135 Antipodal Pairs
+- Among the numbers 1..270, the odd and even numbers split 100% symmetrically across antipodal slots $(c, -c)$: if one side is odd, the opposite MUST be even.
+- This is a direct arithmetic consequence of $v(c) + v(-c) = 271$ (odd).
 - Across all 135 antipodal slot pairs $(c, -c)$, **exactly one cell contains an odd number and the other contains an even number** with 100% precision.
 - Since $v(c) + v(-c) = 271$ (an odd number), the combination of (Odd + Odd = Even) or (Even + Even = Even) is arithmetically impossible.
 

@@ -137,16 +137,16 @@ The residual penalty of 6.0 is not a failure but a structural bound: sectors (45
 
 Under the antipodal pair sum constraint $v(c) + v(-c) = 271$, we searched for solutions that enforce the **generative placement formula** $v(P_t) \equiv 6 \cdot t \pmod{271}$ representing the "6-multiplier (添六)" property while satisfying the magic sum conditions (`search_constructive.py`).
 
-1. **Experimental Results (α=0.0 primary solution vs. α=2.0 additional experiment)**
-   - **No Geometric Constraint ($\alpha=0.0$) — Primary Reconstructed Solution**:
+1. **Experimental Results (α=0.0 relaxed candidate solution vs. α=2.0 additional experiment)**
+   - **No Geometric Constraint ($\alpha=0.0$) — 6-multiplier Relaxed Candidate Solution**:
      * Result: Final penalty **14.0**, average hex distance **8.52** (random scatter level).
-     * Interpretation: A magic-square solution that fully enforces the algebraic structure $v(P_t) \equiv 6 \cdot t \pmod{271}$ **exists**, as proven by convergence. This is the **primary reconstructed solution** of this project, saved in `output/constructive_solution.json` and rendered in `output/constructive_nakseo_yukgodo.png` / `output/constructive_nakseo_yukgodo.svg`.
-     * Key insight: The 6-multiplier rule acts as the rule that determines the value of the t-th slot. Optimizing over the spatial permutation of which grid cell becomes the t-th position yields a valid magic-square solution.
+     * Interpretation: Under a modified constraint model forcing the algebraic structure $v(P_t) \equiv 6 \cdot t \pmod{271}$, a relaxed candidate solution with penalty 14.0 was obtained, saved in `output/constructive_solution.json` and rendered in `output/constructive_nakseo_yukgodo.png` / `output/constructive_nakseo_yukgodo.svg`. (Note: Since its penalty 14.0 exceeds the unconstrained theoretical floor of 6.0, it is strictly classified as a relaxed candidate solution under the additional 6-multiplier constraint).
+     * Key insight: Tested whether interpreting the 6-multiplier rule as a slot-value selector yields an approximate magic-square solution.
    - **Strong Geometric Constraint ($\alpha=2.0$) — Additional Experiment**:
      * Result: Final penalty **58.0**, average hex distance **4.297** (path continuity improved, magic sums destroyed).
      * Interpretation: Adding the constraint that t-th and (t+1)-th cells must also be physically adjacent on the grid (on top of the α=0.0 solution) makes the magic sum condition unachievable.
    - **Conclusion**:
-     * **α=0.0 is the primary reconstructed solution**: Successfully enforcing the 6-multiplier algebraic structure while achieving magic sum convergence is the main result.
+     * **α=0.0 is a relaxed candidate solution**: Enforces the 6-multiplier algebraic structure while assessing magic sum convergence.
      * **α=2.0 is a post-hoc verification for the meaning of `添六`**: Magic-square balance requires large and small values to be globally dispersed, but spatial continuity forces numerically adjacent values ($6t$ and $6(t+1)$, differing by 6) to cluster locally. The structural conflict between these two conditions confirms that `添六` was the parameter of an area calculation formula, not a spatial movement rule.
 
 ## 5. Value of the Naejeok Method

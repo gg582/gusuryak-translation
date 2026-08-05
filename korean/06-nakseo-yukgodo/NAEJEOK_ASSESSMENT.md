@@ -145,16 +145,16 @@ $\frac{54 \times 9}{2} + 9 = 243 + 9 = 252$ 식은 육각 격자의 기하학적
 
 대척 보수쌍 조건 $v(c) + v(-c) = 271$ 하에서, 원문의 핵심 수치 배수 특징인 '6-승수(添六/係以六)'를 반영한 **생성적 배치 공식** $v(P_t) \equiv 6 \cdot t \pmod{271}$을 강제하면서도 마방진 합 조건을 만족하는 해가 존재하는지 탐색했습니다 ([search_constructive.py](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/yukgodo/search_constructive.py)).
 
-1. **실험 결과 및 해석 (α=0.0 정해 vs. α=2.0 추가 실험)**
-   - **기하 연속성 제약 없음 ($\alpha=0.0$) — 재구성 정해**:
+1. **실험 결과 및 해석 (α=0.0 변형 제약 후보해 vs. α=2.0 추가 실험)**
+   - **기하 연속성 제약 없음 ($\alpha=0.0$) — 6-승수 변형 제약 후보해**:
      * 결과: 최종 벌점 **14.0**, 평균 hex 거리 **8.52** (무작위 수준).
-     * 해석: $v(P_t) \equiv 6 \cdot t \pmod{271}$의 대수 구조를 완전히 강제하면서도 마방진 조건에 수렴하는 해가 **존재함**이 증명되었습니다. 이것이 이 프로젝트의 **1차 재구성 정해**이며, [output/constructive_solution.json](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/output/constructive_solution.json)에 저장되고 [output/constructive_nakseo_yukgodo.png](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/output/constructive_nakseo_yukgodo.png) / [output/constructive_nakseo_yukgodo.svg](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/output/constructive_nakseo_yukgodo.svg)로 렌더링되었습니다.
-     * 핵심: 6-승수 규칙은 "t번째 슬롯의 값"을 결정하는 규칙으로 작동하며, 어느 격자 위치가 t번째가 될지의 공간 배열을 SA로 최적화하면 유효한 마방진 해가 성립합니다.
+     * 해석: $v(P_t) \equiv 6 \cdot t \pmod{271}$ 대수 구조를 하드 제약으로 강제하는 변형 제약 하에서 벌점 14.0인 유효 완화 후보해(Relaxed Candidate Solution)가 산출되었습니다. 이는 [output/constructive_solution.json](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/output/constructive_solution.json)에 저장되고 [output/constructive_nakseo_yukgodo.png](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/output/constructive_nakseo_yukgodo.png) / [output/constructive_nakseo_yukgodo.svg](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/output/constructive_nakseo_yukgodo.svg)로 렌더링되었습니다. (주: 기본 문제의 최적 하한 6.0보다 벌점이 높으므로, 6-승수 제약이 추가된 변형 모델 내에서의 완화 후보해로 엄밀히 규정함)
+     * 핵심: 6-승수 규칙을 슬롯 값 결정 규칙으로 해석할 때 마방진 합 조건과의 근접 완화해 성립 여부를 검증한 실험입니다.
    - **강한 기하 연속성 제약 ($\alpha=2.0$) — 추가 실험**:
      * 결과: 최종 벌점 **58.0**, 평균 hex 거리 **4.297** (공간 연속성 개선, 마방진 붕괴).
      * 해석: "값 순서뿐 아니라 격자 위에서도 t, t+1번째 칸이 물리적으로 인접해야 한다"는 제약을 α=0.0 해에 추가로 부과했을 때, 마방진 조건이 달성 불가능해집니다.
    - **결론**:
-     * **α=0.0이 재구성 정해**: 6-승수 대수 구조를 강제하면서 마방진을 달성한 것이 주된 성과입니다.
+     * **α=0.0은 변형 제약 완화해**: 6-승수 대수 구조와 마방진 완화 조건의 정합성을 검증한 성과입니다.
      * **α=2.0은 '添六의 의미' 규명을 위한 사후 검증**: 마방진 균등성을 위해 큰/작은 값이 격자 전역에 분산되어야 하지만, 공간 연속성 제약은 수치적으로 인접한 값($6t$와 $6(t+1)$, 차이 6)들이 국소 영역에 뭉치도록 강제합니다. 두 조건이 구조적으로 충돌한다는 사실이 '添六'이 공간 이동 규칙이 아닌 면적 산출 계산식의 매개변수였음을 재확인해줍니다.
 
 ## 5. 來積法의 가치

@@ -44,31 +44,30 @@
 이 알고리즘은 무작위 난수를 0% 사용하며, 사전 정렬된 슬롯 순서와 획정된 제약 전파(Constraint Propagation)만으로 페널티 $6.0$의 완벽한 해를 구성한다.
 
 ```python
-# pseudo-code of Deterministic DFS Generator
-1. Initialize 135 slots S_0 ... S_134 with paired values (t, 271-t) for t in 1..135.
-2. Sort slots deterministically by structural impact:
-   - Primary Key: Number of perimeter side memberships (2 sides > 1 side > 0 sides)
-   - Secondary Key: Ray membership boolean (Is on ray?)
+# pseudo-code of Deterministic DFS Generator (Pair Selection + Orientation Backtracking)
+1. Define 135 antipodal slots S_0 ... S_134 sorted deterministically by structural impact:
+   - Primary Key: Perimeter side memberships
+   - Secondary Key: Ray membership
    - Tertiary Key: Axial index q, then r
-3. Define state vector (assigned_values, side_sums[6], wedge_sums[6], ray_sums[6])
-4. Function DFS(slot_idx, current_partial_penalty):
+2. Define unassigned pairs set UnassignedPairs = {(1, 270), (2, 269), ..., (135, 136)}
+3. Function DFS(slot_idx, current_partial_penalty):
    a. If slot_idx == 135:
         If current_partial_penalty <= 6.0: Return Success(assigned_values)
    b. Slot = SortedSlots[slot_idx]
-   c. Try deterministic Branch 1: Set Slot.cell_A = slot_idx + 1, Slot.cell_B = 271 - (slot_idx + 1)
-        Update partial sums (side_sums, wedge_sums, ray_sums)
-        Calculate lower-bound partial penalty P_bound
-        If P_bound < Best_Penalty:
-            If DFS(slot_idx + 1, P_bound) is Success: Return Success
-        Revert partial sums
-   d. Try deterministic Branch 2: Set Slot.cell_A = 271 - (slot_idx + 1), Slot.cell_B = slot_idx + 1
-        Update partial sums
-        Calculate lower-bound partial penalty P_bound
-        If P_bound < Best_Penalty:
-            If DFS(slot_idx + 1, P_bound) is Success: Return Success
-        Revert partial sums
-   e. Return Failure
+   c. For pair in UnassignedPairs (in deterministic numerical order):
+        For (cell_A_val, cell_B_val) in [(pair.t, 271 - pair.t), (271 - pair.t, pair.t)]:
+            Set Slot.cell_A = cell_A_val, Slot.cell_B = cell_B_val
+            Mark pair as assigned
+            Update partial sums (side_sums, wedge_sums, ray_sums)
+            Calculate lower-bound partial penalty P_bound
+            If P_bound < Best_Penalty:
+                If DFS(slot_idx + 1, P_bound) is Success: Return Success
+            Revert partial sums & unmark pair
+   d. Return Failure
 ```
+
+> [!NOTE]
+> 사전 지정된 특정 슬롯-보수쌍 고정 매핑($S_i \mapsto (i+1, 271-i-1)$) 아래에서는 방향 $2^{135}$만 탐색하여 빠른 최적해 도달이 가능하지만, 일반적인 해공간 탐색을 위해서는 위와 같이 각 단계에서 보수쌍 선택과 방향 선정을 동시 수행해야 한다.
 
 ---
 
@@ -91,17 +90,18 @@ def rotation_orbit_swap(state, slot_1, rot_k):
 
 ---
 
-## 5. SMT Solver의 100% 완전성(Completeness) 및 궤도 분리 실증 (SMT Completeness & Orbit Separation)
+## 5. SMT Solver의 조건부 완전성(Completeness) 및 궤도 분리 실증 (SMT Completeness & Orbit Separation)
 
-`yukgodo/experiment/smt_completeness_proof.py`를 통하여, SMT Solver의 완전성과 궤도 분리 성질을 수리 실증하였다.
+`yukgodo/experiment/smt_completeness_proof.py`를 통하여, 인코딩된 제약 조건 아래에서의 SMT Solver 완전성과 궤도 분리 성질을 수리 실증하였다.
 
 ### 핵심 수리 판정 및 검증 결과
 
-1. **SMT Solver의 100% 완전 탐색성 (Completeness)**:
-   - Z3 SMT Solver는 제약 방정식(변 1355, 섹터 6097/6098, 광선 1219/1220, 대척쌍 271)이 인코딩된 수리 공간에서 단 1개의 해도 놓치지 않고 **100% 완전 열거(Complete Enumeration)**를 수행하며, 모든 해 탐색 완료 시 명확히 `UNSAT` 종결 신호를 돌려준다 (실증 완료: 부분 공간 54개 해 완전 추출 후 `UNSAT` 도착).
+1. **지정된 인코딩 및 부분공간 내에서의 SMT Solver 완전 탐색성**:
+   - Z3 SMT Solver는 명시적으로 인코딩된 제약 방정식(변 1355, 섹터 6097/6098, 광선 1219/1220, 대척쌍 271)과 고정된 부분공간 조건 아래에서 단 1개의 해도 놓치지 않고 **조건부 완전 열거(Conditional Complete Enumeration)**를 수행하며, 해당 하위 제약 공간 탐색 완료 시 `UNSAT` 신호를 반환한다 (실증 완료: 지정 부분 공간 내 54개 모델 열거 후 `UNSAT` 도달).
+   - 이는 전체 해공간($135! \times 2^{135}$) 전체에 대한 완전 열거 완료를 의미하는 것이 아니라, 명시된 하위 제약 인코딩 범위 내에서의 논리적 완전성을 의미한다.
 2. **단일 특정 생성기의 한계와 궤도의 분리 (Orbit Separation)**:
    - 고정된 1개의 탐색 트리를 사용하는 특정 결정론적 생성기 $G_A$는 자신의 대수적 궤도 $\text{Orbit}(G_A)$ 속 해들만 산출하므로, 다른 궤도에 속한 참인 해들을 스스로 생성하지 못한다.
-   - 그러나 이 다른 궤도의 해들 역시 육고도의 마법 제약식을 100% 충족하는 참인 해이므로, **Z3 SMT Solver나 제약 전파 탐색기를 통하여 100% 완전 탐색 및 생성이 가능**하다.
+   - 그러나 이 다른 궤도의 해들 역시 육고도의 마법 제약식을 100% 충족하는 참인 해이므로, **Z3 SMT Solver나 제약 전파 탐색기를 통하여 탐색 및 생성이 가능**하다.
 
 ---
 
@@ -109,9 +109,10 @@ def rotation_orbit_swap(state, slot_1, rot_k):
 
 1. **단순 수식 해의 부재**:
    낙서육고도는 한 줄짜리 계산 수식($v = 6t \pmod{271}$ 등)으로 즉시 풀리는 구조가 아니며, 복합적인 면적 및 6축 균형 제약이 얽혀 있다.
-2. **결정론적 알고리즘 존재 확인**:
-   난수(Stochastic Seed) 없이 순수한 결정론적 백트래킹 및 회전 대칭 전이 규칙만으로 항상 참인 최적해(벌점 6.0)를 구성할 수 있다.
+2. **결정론적 백트래킹 탐색기의 유효성**:
+   사전 지정된 규칙과 가지치기를 통한 결정론적 백트래킹을 통해 이론적 하한(벌점 6.0)을 만족하는 최적해에 도달할 수 있다. 다만 일반적인 종료 및 완전성 보장을 위해서는 별도의 수리적 증명이 요구된다.
 3. **SMT Solver 완전성에 기반한 통합 탐색 파이프라인**:
-   특정 단일 생성기가 커버하지 못하는 다른 대수적 궤도의 해들도 SMT Solver의 완전성(Completeness)을 이용하면 100% 탐색 및 생성이 가능하며, Z3 + $C_6 \times \mathbb{Z}_2$ 통합 파이프라인을 통해 해 공간 전체를 차례대로 완전 탐색(Enumeration)할 수 있다.
-4. **《구수략》 원문 재해석**:
-   원문의 **'來積法'** 및 **'添六'** 구절은 해를 구하는 단일 계산식이 아니라, **대척 보수쌍을 배치한 후 회전 및 배치 조정을 거치는 결정론적 제약 충족 절차(Algorithm Procedure)**를 서술한 것임을 수학적으로 증명하였다.
+   특정 인코딩 제약 아래에서 Z3 SMT Solver는 모델 열거와 UNSAT 판정의 완전성을 제공하며, 대칭군 $C_6 \times \mathbb{Z}_2$ 작용과 결합하여 부분공간별 해 구조를 체계적으로 분석할 수 있다.
+4. **《구수략》 원문과 현대 탐색기의 provenance 구분**:
+   원문의 **'來積法'**은 육각 격자의 칸 수와 기하 상수를 산출하는 문헌적 사술 절차로 확인된다. 현대의 결정론적 제약 충족 생성기는 이 기하 조건(270칸, 변당 10칸, 중고 19칸 등)을 입력 제약으로 활용하지만, 탐색기 자체의 백트래킹 알고리즘이 원문 문헌에 명시되어 있었다고 볼 증거는 없다.
+
