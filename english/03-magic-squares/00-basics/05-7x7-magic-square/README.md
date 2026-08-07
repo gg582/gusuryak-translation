@@ -1,7 +1,7 @@
 # 7×7 Magic Square Basics (行數圖)
 
-Surprisingly, this square is called *Hengsudo* (行數圖).
-Apparently 7 was referred to as *heng-su* (行數) in the scholarly usage of the time.
+Surprisingly, this square is called *Haengsudo* (行數圖).
+Apparently 7 was referred to as *haeng-su* (行數) in the scholarly usage of the time.
 
 It would have been more consistent simply to call it *Chilchil-do*, but this was the academic notation then in use.
 

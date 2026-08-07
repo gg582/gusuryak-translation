@@ -97,7 +97,7 @@ If we split this superposition matrix into left and right components, the follow
 8 9 6
 ```
 
-This is the intermediate stage after only the left-right swap (*左右上更*) has been applied to the initial diagonal placement of the nine numbers (*九子斜排*). The top and bottom numbers (1 and 9) have not yet been exchanged and remain in their original positions (1 in the first row, 9 in the third row).
+This is the intermediate stage after only the left-right swap (*左右上更*) of the left and right numbers (3 and 7) has been applied to the initial diagonal placement of the nine numbers (*九子斜排*). The top and bottom numbers (1 and 9) have not yet been exchanged and remain in their original positions (1 in the first row, 9 in the third row).
 
 ### 2. Right-component magic square (final Nakseo magic square)
 

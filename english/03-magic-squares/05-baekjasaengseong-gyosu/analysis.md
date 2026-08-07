@@ -19,15 +19,6 @@ Order: 10×10
 - Bimagic: No
 - 180° rotational symmetry: No
 
-## Source and Correction Note
-
-The original array fails the normal `1..100` set check, and its line sums also
-fail the stated magic-square conditions. Considering the source properties
-together with differences between printed editions, the discrepancy is most
-consistent with a publication error or a copying error by a proofreader. The
-original array is retained as transcription evidence; `corrected.md` provides a
-separate arrangement satisfying the normal-set and line-sum conditions.
-
 ## Value Frequency Analysis (Example 1)
 - Total cells: 100
 - Distinct values: 52

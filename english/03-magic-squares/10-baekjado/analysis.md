@@ -39,7 +39,7 @@ Order: 10×10
 | (Row 8, Col 1) | 88 | 13 | -75 |
 | (Row 8, Col 10) | 13 | 88 | +75 |
 
-### Error Analysis and Mathematical Impact
+### Analysis of Error Causes and Mathematical Impact
 - **Error Analysis of Row/Column Sums**:
-  * **Original Row Sums**: All row sums satisfy the target sum of 505.
-  * **Original Column Sums**: All column sums satisfy the target sum of 505.
+  - **Original Row Sums**: All row sums satisfy the target sum of 505.
+  - **Original Column Sums**: All column sums satisfy the target sum of 505.

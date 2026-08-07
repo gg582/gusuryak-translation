@@ -76,11 +76,11 @@
 
 ```
 90 89 78 67 56 45 34 23 12  1
-86 79 39 58 97  4 43 32 21 15
-77 66 50 99 88 13  2 41 25 24
+86 70 39 58 97  4 43 32 21 15
+77 66 50 99 88 13  2 41 35 24
 68 57 96 80 79 22 11  5 44 33
 59 98 87 76 60 31 25 14  3 42
-24  3 14 25 31 60 76 87 98 59
+42  3 14 25 31 60 76 87 98 59
 33 44  5 11 22 79 80 96 57 68
 24 35 41  2 13 88 99 50 66 77
 15 21 32 43  4 97 58 69 70 86
@@ -90,17 +90,20 @@
 ## Baekjasaengseong-gyosu (Hundred-Numbers Crossed-Numbers Diagram, 百子生成交數圖)
 
 ```
-46 55 64 73 82 91 100 19 28 37
- 7 94 53 62 71 85  16 20 39 48
-18 83 92 51 65 74  27 36 40  9
-29 72 81 95 54 63  38 47  6 10
-30 61 75 84 93 52  59  8 17 26
-61 30 26 17  8 49  42 93 84 75
-72 29 10  6 47 38  63 54 95 81
-83 18  9 40 36 27  74 65 51 92
-94  7 48 39 20 16  85 71 62 53
-55 46 37 28 19 100 91 82 73 64
+ 10 19 28 37 46 55 64 73 82 91 
+ 16 20 39 48  7 94 53 62 71 85 
+ 27 36 40  9 18 83 92 51 65 74 
+ 38 47  6 10 29 72 81 95 54 63 
+ 59  8 17 26 30 61 75 84 93 52 
+ 42 93 84 75 61 30 26 17  8 49 
+ 63 54 95 81 72 29 10  6 47 38 
+ 74 65 51 92 83 18  9 40 36 27 
+ 85 71 62 53 94  7 48 39 20 16 
+ 91 82 73 64 55 46 37 28 19 10
 ```
+
+*The 16 at row 2, column 1 should be 11 (by symmetry, the 16 at row 9, column 10 should also be 11).*
+*The 85 at row 9, column 1 should be 86 (by symmetry, the 85 at row 2, column 10 should also be 86).*
 
 ## Baekjayin-yang-jamo-chakjong (Hundred-Numbers Yin-Yang Mother-Child Intertwining Diagram, 百子陰陽子母錯綜圖)
 
@@ -114,25 +117,44 @@
  24 35 41  2 83 18 99 60 66 77
  93 94 85 71 52 49 30 16  7  8
  82 63 64 95 81 20  6 37 38 19
-11 22 33 44  5 96 57 68 79 90
+ 11 22 33 44  5 96 57 68 79 90
 ```
 
-## Use of the corrected order-ten diagrams
+## Baekjado (Hundred-Numbers Diagram, 百子圖)
 
-The four blocks above are source-transcription arrays retained for comparison
-with the *Gusuryak* material. For numerical verification and follow-up analysis
-that requires a normal magic-square arrangement, use these corrected versions:
+```
+ 1 20 21 40 41 60 61 80 81 100
+99 82 79 62 59 42 39 22 19  2
+ 3 18 23 38 43 58 63 78 83 98
+97 84 77 64 57 44 37 24 17  4
+ 5 86 75 66 55 46 35 26 15 96
+95 16 25 36 45 56 65 76 85  6
+14  7 34 27 54 47 74 67 94 87
+88 93 68 73 48 53 28 33  8 13
+12  9 32 29 52 49 72 69 92 89
+91 90 71 70 51 50 31 30 11 10
+```
+
+## Use of the corrected order-ten Baekja diagrams
+
+The blocks of the five diagrams above are the original arrays, retained for
+comparison with the *Gusuryak* transcription material. When numerical
+verification or follow-up analysis requires a normal magic-square arrangement,
+use the following corrected versions as the reference:
 
 - [Baekjajasuyin-yang-chakjong correction](03-baekjajasuyin-yang-chakjong/corrected.md)
 - [Baekjasaengseong-sunsu correction](04-baekjasaengseong-sunsu/corrected.md)
 - [Baekjasaengseong-gyosu correction](05-baekjasaengseong-gyosu/corrected.md)
 - [Baekjayin-yang-jamo-chakjong correction](06-baekjayin-yang-jamo-chakjong/corrected.md)
+- [Baekjado correction](07-baekjado/corrected.md)
 
 Each corrected arrangement uses every value from 1 through 100 exactly once,
-and every row, column, and main diagonal sums to 505. Three source arrays fail
-the normal-set check; the analyses record the possibility of a printing,
-publication, or proofreader-copying error. The fourth source array is a normal
-set but does not itself satisfy the magic-square conditions.
+and every row, column, and main diagonal sums to 505. For the three diagrams
+whose original arrays were not confirmed to be normal sets, the notes record
+the possibility of differences between print editions or of copying errors
+introduced in the publication or proofreading process; the other diagrams are
+normal sets, but the original arrays themselves do not satisfy the
+magic-square conditions.
 
 ## References
 

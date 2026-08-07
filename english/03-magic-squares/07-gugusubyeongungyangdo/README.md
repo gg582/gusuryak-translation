@@ -1,14 +1,16 @@
-> Transcription and translation of 《九九數變宮陽圖》
+# 九九母數變宮陽圖
+
+> Transcription and translation of 《九九母數變宮陽圖》
 
 —-
 
 # Title
 
-> 九九數變宮陽圖
+> 九九母數變宮陽圖
 
 ## Translation
 
-**Arrangement of the *yang* side (陽圖) of the palace (宮) using the nine-nine numbers (九九數)**
+**The *yang* (陽) arrangement of the palaces (宮) using the nine-nine numbers (九九數)**
 
 Here, **陽圖** (*yang-myeon*) does not carry the full philosophical sense of yin and yang; it appears to mean the basic or standard arrangement.
 
@@ -25,14 +27,16 @@ Here, **陽圖** (*yang-myeon*) does not carry the full philosophical sense of y
 
 ## Literal Translation
 
-- The palaces (*gung*, 宮) transform two at a time, one change at a time.
-- Viewed horizontally and vertically, the arrangement follows the same pattern.
-- Among the nine numbers, not one is repeated.
-- The four diagrams below are newly established.
+- The palaces (*gung*, 宮) transform two at a time.
+- Viewed back and forth, horizontally and vertically, they resemble one another.
+- Among the nine numbers, not a single one
+- is repeated.
+- The four diagrams below
+- are newly established.
 
 ## Free Translation
 
-This arrangement corresponds palace-by-palace and follows a fixed transformation rule. Across rows and columns it follows the same pattern, while the nine numbers in each arrangement are deliberately used without repetition. The four figures that follow are newly organized arrangements based on this principle.
+This arrangement corresponds palace-by-palace and follows a fixed transformation rule. Horizontally it retains a nearly identical structure, while the nine numbers used are deliberately arranged without repetition. The four figures that follow are newly organized arrangements based on this principle.
 
 —-
 
@@ -58,11 +62,11 @@ This arrangement corresponds palace-by-palace and follows a fixed transformation
 
 ## Literal Translation
 
-Calculating in the horizontal direction, every row obtains ninety; the total accumulated sum is 810.
+In both the vertical and horizontal directions, every line yields ninety (90), and the grand total is eight hundred ten.
 
 ## Free Translation
 
-Every horizontal row has the same sum (90), and the overall computed result is 810.
+Every vertical and horizontal line makes the same sum (90), and the overall computed result is 810.
 
 —-
 
@@ -92,3 +96,33 @@ Two points in the commentary are especially important:
 - **九數無一重複者** — This emphasizes that the nine numbers used in each arrangement are not repeated.
 
 Therefore, the core of this chapter is not the completed magic square itself, but the generation rule that transforms the basic arrangement into different palace arrangements.
+
+—-
+
+# Overlay Analysis of the Yang and Yin Diagrams
+
+This is the result of overlaying 《九九母數變宮陽圖》(Gugumosubyeongungyangdo) and 《九九母數變宮陰圖》(Gugumosubyeongeumdo) coordinate by coordinate for verification (`../analyze_overlay.py`, `../visualize_overlay.py`).
+
+**Common properties**
+
+- In both diagrams, all 81 ordered pairs (a, b) appear exactly once, without duplication.
+- In both diagrams, every row and column sums to 90, and the grand total is 810.
+
+**Complementary structure — the yang diagram is row/column Latin, the yin diagram is palace Latin**
+
+- In the yang diagram, each component (the first number, the second number) uses 1–9 exactly once in every row and column — it is a Latin square. The row/column sum of 90 follows from this property. However, within a palace (3×3) the components do not form a permutation, so the palace sums are uneven, ranging from 36 to 144 — exactly as stated in the text's **陽圖則九宮數多少不齊**.
+- In the yin diagram, each component uses 1–9 exactly once within each palace. The nine palaces (九宮) each summing to 90 and each mini-row (3 cells) within a palace summing to 30 follow from this property. Rows and columns are not permutations, yet they still maintain the sum of 90.
+
+**Numerical confirmation of 宮兩一變**
+
+- The palace sums of the yang diagram pair up between vertically symmetric palaces to make 180 (63+117, 144+36). This matches **宮兩一變**, which states that the palaces correspond in pairs of two.
+- In the yin diagram, all nine palaces are uniformly 90, so the paired-palace imbalance of the yang diagram is resolved.
+
+**Overlay permutation**
+
+- The correspondence from the yang pair to the yin pair at the same position is a permutation on the 81 pairs, with the center (5,5) as its only fixed point (cycle lengths 1, 2, 6, 8, 8, 8, 8, 9, 10, 21).
+- Within each palace, interleaving the yang component with the yin component yields all 9 combinations without duplication (because the yin component is a permutation of 1–9 within the palace).
+- We confirmed that no simple generation rule — such as a positional transformation (rotation or reflection) or a mod 9–based correspondence — holds.
+
+![Cell-sum heatmap](../yang-yin-sums.png)
+![Yang–yin overlay table](../yang-yin-overlay.png)
