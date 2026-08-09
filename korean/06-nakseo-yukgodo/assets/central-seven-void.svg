@@ -1,20 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 260" width="760" height="520" role="img" aria-labelledby="title desc">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 275" width="760" height="550" role="img" aria-labelledby="title desc">
   <title id="title">圓束樣式: 중심 공백을 둔 7칸 육각 군</title>
-  <desc id="desc">가운데 검은 육각 칸 하나와 이를 둘러싼 여섯 칸. 서로 마주 보는 세 쌍이 같은 색으로 이어진다.</desc>
-  <rect width="380" height="260" fill="#fffdf7"/>
-  <g fill="none" stroke="#4a4032" stroke-width="3">
-    <path d="M190 20 L242 50 L242 110 L190 140 L138 110 L138 50 Z" fill="#e4eff5"/>
-    <path d="M277 70 L329 100 L329 160 L277 190 L225 160 L225 100 Z" fill="#f7e2cf"/>
-    <path d="M277 170 L329 200 L329 260 L277 290 L225 260 L225 200 Z" transform="translate(0,-50)" fill="#e5efd8"/>
-    <path d="M190 220 L242 250 L242 310 L190 340 L138 310 L138 250 Z" transform="translate(0,-100)" fill="#e4eff5"/>
-    <path d="M103 170 L155 200 L155 260 L103 290 L51 260 L51 200 Z" transform="translate(0,-50)" fill="#f7e2cf"/>
-    <path d="M103 70 L155 100 L155 160 L103 190 L51 160 L51 100 Z" fill="#e5efd8"/>
-    <path d="M190 95 L242 125 L242 185 L190 215 L138 185 L138 125 Z" fill="#252525"/>
+  <desc id="desc">정육각 격자로 맞닿은 가운데 검은 육각 칸 하나와 주변 여섯 칸. 서로 마주 보는 세 쌍이 같은 색이다.</desc>
+  <rect width="380" height="275" fill="#fffdf7"/>
+  <g stroke="#4a4032" stroke-width="2.5" stroke-linejoin="round">
+    <!-- Pointy-top regular hexagons, radius 40; neighboring centers are sqrt(3)*40 apart. -->
+    <polygon points="155.36,25 190,45 190,85 155.36,105 120.72,85 120.72,45" fill="#e4eff5"/>
+    <polygon points="224.64,145 259.28,165 259.28,205 224.64,225 190,205 190,165" fill="#e4eff5"/>
+    <polygon points="224.64,25 259.28,45 259.28,85 224.64,105 190,85 190,45" fill="#f7e2cf"/>
+    <polygon points="155.36,145 190,165 190,205 155.36,225 120.72,205 120.72,165" fill="#f7e2cf"/>
+    <polygon points="259.28,85 293.92,105 293.92,145 259.28,165 224.64,145 224.64,105" fill="#e5efd8"/>
+    <polygon points="120.72,85 155.36,105 155.36,145 120.72,165 86.08,145 86.08,105" fill="#e5efd8"/>
+    <polygon points="190,85 224.64,105 224.64,145 190,165 155.36,145 155.36,105" fill="#252525"/>
   </g>
   <g font-family="sans-serif" font-size="15" text-anchor="middle" fill="#221d17">
-    <text x="190" y="78">A</text><text x="277" y="128">B</text><text x="277" y="178">C</text>
-    <text x="190" y="178">A′</text><text x="103" y="178">B′</text><text x="103" y="128">C′</text>
+    <text x="155.36" y="69">A</text><text x="224.64" y="189">A′</text>
+    <text x="224.64" y="69">B</text><text x="155.36" y="189">B′</text>
+    <text x="259.28" y="129">C</text><text x="120.72" y="129">C′</text>
   </g>
-  <text x="190" y="163" font-family="sans-serif" font-size="14" text-anchor="middle" fill="white">虛</text>
-  <text x="190" y="246" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#493d2e">圓束樣式 개념도: 중심 공백 + 주변 3 대척쌍</text>
+  <text x="190" y="130" font-family="sans-serif" font-size="14" text-anchor="middle" fill="white">虛</text>
+  <text x="190" y="260" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#493d2e">圓束樣式 개념도: 중심 공백 + 주변 3 대척쌍</text>
 </svg>
