@@ -73,6 +73,8 @@ The characters formerly read as `展樣/展積` are corrected to `假樣/假積`
 
 This strongly supports the reading of a geometric cell-count calculation for the central row and two congruent regions. The contemporary mathematical function of `假樣` and the omitted characters remain unresolved, so this is not extended into a spatial value-placement instruction or a direct statement of antipodal sum 271.
 
+The user-provided direct OCR of the Bing-section [parallel text](BING_PARALLEL_OCR.md) strengthens this conclusion one step further. Its consecutive phrases `每十八隻包中六外成六觚`, `添六隻`, and `以十二而一得八隻` place `包`, `添六`, and `而一` in an actual vocabulary of hexagonal formation and count calculation. This strengthens the reading of the Naejeok Method as a procedure for units, perimeter, and accumulated hexagonal count rather than an independent value-placement rule. The Bing examples using `假如` support the correction to `假樣/假積`, but do not settle the exact technical meaning of `假樣`.
+
 ### Independent Verifications Reaching 270 (All endpoints match textual values)
 
 - $6 \times 45 = 270$ — 通加洛書數六倍 (Confirmed text)

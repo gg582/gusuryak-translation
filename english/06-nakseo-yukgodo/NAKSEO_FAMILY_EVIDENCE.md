@@ -26,7 +26,7 @@ This cannot be assessed by counting only favorable examples. `python3 tests/test
 
 The first full-expansion failures are `17+71=88` in Gugudo (not 82), `23+13=36` in Ogudo (not 34), and `31+58=89` in Chilgudo (not 64). Because the existing Chilgudo transcription contains some values reconstructed under its documented rule, this is not a claim about a universal original rule for that diagram; it is a check that the stored diagram data do not show full positional equivariance.
 
-The exact common denominator is therefore not "every expanded cell repeats the same complement placement." What all three diagrams repeat is the position-involution/value-complement equivariance of the **3×3 Lo Shu control layer**. Gugudo then adds a separate local construction using 91-complement pairs. Yukgodo antipodal complements may be an interpretation that extends this control layer to 270 cells, but the other expanded diagrams are not direct precedents already doing the same thing. This negative result deliberately limits the evidence to its actual scope.
+The exact common denominator is therefore not "every expanded cell repeats the same complement placement." What all three diagrams repeat is the position-involution/value-complement equivariance of the **3×3 Lo Shu control layer**. Gugudo then adds a separate local construction using 91-complement pairs. For Yukgodo, extending that control layer to 270 cells is a strong internal reconstruction principle, not a direct precedent already executed across every expanded cell of the other diagrams. This negative result deliberately limits the evidence to its actual scope without making the reconstruction principle unsupported.
 
 ## Compound-condition threshold experiment
 

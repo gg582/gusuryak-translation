@@ -23,6 +23,8 @@ The characters previously read as `展` in `去中觚為而展樣也` and the fo
 
 The transcription supports investigation of a count decomposition through `中觚`, `十八下廣`, `九`, `假樣/假積`, and `倍之`. In particular, `假樣` after `去中觚` is compatible with a construction that sets up an auxiliary figure excluding the central row, but is not yet translated as a settled instruction. It does not itself contain a confirmed statement that values in antipodal cells sum to 271. That condition is treated as a separately evidenced reconstruction principle; see `ANTIPODAL_AUDIT.md` and the Nakseo Generalization linked from the README.
 
+The user-provided direct OCR of the [parallel Bing-section text](BING_PARALLEL_OCR.md) preserves `三積算子`, `外周九十隻`, `每十八隻包中六外成六觚`, `添六隻`, and `以十二而一得八隻` in one context. It supplies independent internal context connecting `包`, `添六`, `六而一`, and hexagonal count calculation. Its examples with `假如` also support correcting the Naejeok glyph to `假` in `假樣/假積` as calculation vocabulary of assumption or setup. It still does not say that the values of antipodal **cells** sum to 271; the geometric/count interpretation and the antipodal-complement placement hypothesis therefore remain distinct.
+
 ## Discarded Digital Reconstruction Data
 
 The data below has been identified as unreliable AI reconstruction. Use the transcription above.

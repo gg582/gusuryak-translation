@@ -18,19 +18,21 @@ The manuscript commentary marked as Naejeok Method (來積法) was so faintly sc
 
 Algebraic graph analysis (`python3 -m yukgodo.naejeok`) cross-checks several numerical relationships in this manual transcription. The current, high-confidence interpretation is that the commentary concerns **calculating and checking the total cell count of the hexagonal grid (積=271, 虛一 270)** rather than a spatial number-placement algorithm; this is an interpretation, not a recovered placement rule.
 
+The user-provided direct OCR of a [parallel Bing-section text](BING_PARALLEL_OCR.md) supplies additional internal evidence for this reading. `每十八隻包中六外成六觚`, followed by `添六隻` and `以十二而一得八隻`, places `包`, `隻`, `添六`, and `而一` in one vocabulary of hexagonal formation and count calculation. The OCR is preserved without silent character normalization, with a separately marked working layout of spaces and paragraphs. This strengthens the geometric/count reading of the Naejeok Method; it does not create a direct textual instruction that antipodal cell values sum to 271.
+
 ---
 
 # Nakseo Yukgodo Reconstruction Search Project
 
-A Python 3 program to restore the historical grid specifications of Nakseo Yukgodo and search for feasible balanced solutions (witness solutions) under the antipodal complement hypothesis.
+A Python 3 program to restore the historical grid specifications of Nakseo Yukgodo and search for feasible balanced solutions (witness solutions) under the internal antipodal-complement reconstruction principle.
 
-This project does not assume the restoration of a unique original arrangement or a lost placement rule for Nakseo Yukgodo. It formalizes the cell-count structure of the hexagonal grid confirmed from printed text and the handwritten Naejeok Method, applies the antipodal complement technique as a **strong reconstruction hypothesis**, and analyzes its conditional consequences. It then formalizes the structure of the basic solution space and searches for witness solutions under additional balance constraints separated from historical invariants.
+This project does not assume the restoration of a unique original arrangement or a lost placement rule for Nakseo Yukgodo. It formalizes the cell-count structure of the hexagonal grid confirmed from printed text and the handwritten Naejeok Method, applies the complement-pair construction attested in Choi's other Lo Shu diagrams as an **internal antipodal-complement reconstruction principle**, and analyzes its conditional consequences. It then formalizes the structure of the basic solution space and searches for witness solutions under additional balance constraints separated from historical invariants.
 
 ## Evidence protocol for the antipodal-complement claim
 
 The rule `v(c)+v(-c)=271` is not treated as a directly transcribed instruction in the presently confirmed Yukgodo text. Directly supported by text and calculation are: 271 cells, 270 after the central vacancy, perimeter 54, side length 10, a central row of 19, and the strongly coherent count decomposition `19 + 2×((10+18)×9/2) = 271`. `通加洛書數六倍` and `54+6=60` are exactly compatible with lifting the Lo Shu complement pairs to sixfold ring sizes; by themselves they do not state a position-to-value correspondence.
 
-The solver's antipodal-slot representation is therefore a conditional search space: it is used after adopting the reconstruction rule, not as a proof that the rule follows from the cell-count text. The separate [antipodal audit](ANTIPODAL_AUDIT.md) removes that rule and supplies a countermodel preserving the aggregate balances while breaking antipodal value complements.
+The solver's antipodal-slot representation is therefore a conditional search space: it is used after adopting this reconstruction principle, not as a proof that the rule follows from the cell-count text alone. The separate [antipodal audit](ANTIPODAL_AUDIT.md) removes that rule and supplies a countermodel preserving the aggregate balances while breaking antipodal value complements. [ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md](ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md) states why this logical non-implication is not an absence of internal historical support.
 
 ### Why the source title matters: 洛書六觚圖
 
@@ -175,6 +177,8 @@ Current confirmed interpretation from these scripts:
 - [NAEJEOK_ASSESSMENT.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/NAEJEOK_ASSESSMENT.md) — Naejeok Method reliability scope and comprehensive evidence assessment
 - [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/INTERDISCIPLINARY.md) — research handoff materials and claim boundaries
 - [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) — Deciphered faint manuscript commentary text and numerical evidence
+- [BING_PARALLEL_OCR.md](BING_PARALLEL_OCR.md) — User-provided Bing-section parallel OCR, working paragraph layout, and comparison with the Naejeok Method
+- [ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md](ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md) — Integrated assessment distinguishing direct transcription from a strong internal reconstruction principle
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/COMPARISON.md) — Comparative verification against existing scholarship
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — Geometric and combinatorial deep analysis
 - [ANTIPODAL_AUDIT.md](ANTIPODAL_AUDIT.md) — Countermodel audit separating logical implication from reconstruction support
@@ -183,6 +187,8 @@ Current confirmed interpretation from these scripts:
 ## Manuscript Commentary (Naejeok Method) Decipherment, Transcription & Calculation Structure Interpretation
 
 The handwritten **Naejeok Method (來積法)** commentary in the margins of Nakseo Yukgodo has a current character-level transcription based on close inspection of faint strokes in the scan ([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)). Early generative-AI pseudo-transcription output, including `五百六` (506) and incorrect line breaks, was discarded because it lacked source support. The current reading combines manual re-reading with algebraic calculation-graph cross-checks; unresolved operation terms remain marked as such.
+
+The direct OCR of the Bing parallel passage records an explicit hexagonal-count problem: `三積算子`, `外周`, `隻`, `包中六外成六觚`, and `添六隻` occur together. This source comparison restores the Naejeok phrases `包`, `添六`, and `六而一` to a documented procedural context rather than treating them as isolated unclear fragments. The full OCR, working paragraph layout, and bounded interpretation are recorded in [BING_PARALLEL_OCR.md](BING_PARALLEL_OCR.md).
 
 The decipherment reliability and academic status criteria for this handwritten commentary transcription are as follows:
 - **Character and numerical transcription**: Confirmed
@@ -298,7 +304,7 @@ python3 -m yukgodo.reverse    # verification → output/reverse_engineering.{jso
 mod 5 residue class coloring is a technique repeatedly used throughout the Gusuryak analysis (e.g., `mod5_residue_diagram.py` for section 02's Ojagakdeuk, the Hadosaodo 5-coloring document for section 01).
 In this project, `yukgodo/mod5.py` separates the witness solution into 5 layers by residue class (54 cells each) and exhaustively examines D6 symmetry 12 elements × all layer pairs.
 
-**Antipodal complement hypothesis mod 5 consequence (computational verification)**: Residue layers 2↔4 and 1↔0 are fully congruent at 54/54 under 180° rotation (point symmetry), and residue layer 3 is self-symmetric. No other symmetries exist (maximum overlap 13–17/54 for other pairs). This is an algebraic consequence derived from the antipodal action $r \mapsto (1-r) \bmod 5$ under $S=271 \equiv 1 \pmod 5$.
+**Antipodal-complement reconstruction principle: mod-5 consequence (computational verification)**: Residue layers 2↔4 and 1↔0 are fully congruent at 54/54 under 180° rotation (point symmetry), and residue layer 3 is self-symmetric. No other symmetries exist (maximum overlap 13–17/54 for other pairs). This is an algebraic consequence derived from the antipodal action $r \mapsto (1-r) \bmod 5$ under $S=271 \equiv 1 \pmod 5$.
 
 **Derived theorem (mod N generalization)**: If all pair sums under a positional involution π(π²=id) equal a constant S, then for any modulus m, π acts on mod m residue classes as **r ↦ (S−r) mod m**. The reason is four steps:
 
