@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"Z3 SMT Solver-based six-altitude completeness and counterexample true solution mathematical proof final module.\n\nMathematical proof question:\n1. Can the generator generate all valid solutions for land elevation?\n2. Is there an ‘Unreachable Valid Counterexample Solution’ with this generator/solver?\n\nZ3 proof structure:\n- 135 antipodal complement pair integer permutations P_s ∈ {1..135} and Boolean direction X_s ∈ {True, False} are modeled as Z3 equations.\n- Added a condition to negate the slot permutation and direction state S_gen of the solution V_gen derived by a deterministic explorer (Enhanced Rotation Solver, Deterministic DFS, etc.) to Z3 (Negation Constraint).\n- Verify that even under this negative condition, Z3 additionally derives (SAT) a valid magic solution with a penalty of 6.0."
+"Z3 SMT Solver-based six-altitude completeness and counterexample true solution mathematical proof final module.\n\nMathematical proof question:\n1. Can the generator generate all valid solutions for land elevation?\n2. Is there an 'Unreachable Valid Counterexample Solution' with this generator/solver?\n\nZ3 proof structure:\n- 135 antipodal complement pair integer permutations P_s ∈ {1..135} and Boolean direction X_s ∈ {True, False} are modeled as Z3 equations.\n- Added a condition to negate the slot permutation and direction state S_gen of the solution V_gen derived by a deterministic explorer (Enhanced Rotation Solver, Deterministic DFS, etc.) to Z3 (Negation Constraint).\n- Verify that even under this negative condition, Z3 additionally derives (SAT) a valid magic solution with a penalty of 6.0."
 
 from __future__ import annotations
 
@@ -131,7 +131,7 @@ def prove_z3_generator_completeness_and_counterexample(grid: HexGrid, outdir: st
                 "As a result of imposing V != V_gen and performing a mathematical search, a completely new generator outside the existing generator orbit is generated in just 0.02 seconds."
                 "Z3 mathematically proved and calculated the 'Unreachable Valid Counterexample Solution (penalty 6.0)' (SAT)."
                 "3. [Academic Implications]: The solution space of land altitude is much larger than the search range of a single generator,"
-                "It was strictly proven using the Z3 SMT Solver that there are countless ‘true solutions that can never be created’ that cannot be reached by the generator rules."
+                "It was strictly proven using the Z3 SMT Solver that there are countless 'true solutions that can never be created' that cannot be reached by the generator rules."
             )
         }
     }

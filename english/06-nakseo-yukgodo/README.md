@@ -24,7 +24,93 @@ Algebraic graph analysis (`python3 -m yukgodo.naejeok`) cross-checks several num
 
 A Python 3 program to restore the historical grid specifications of Nakseo Yukgodo and search for feasible balanced solutions (witness solutions) under the antipodal complement hypothesis.
 
-This project does not assume the restoration of a unique original arrangement or a lost placement rule for Nakseo Yukgodo. It formalizes the cell-count structure of the hexagonal grid confirmed from printed text and the handwritten Naejeok Method, applies the antipodal complement technique confirmed in Choi Seok-jeong's other diagrams as a reconstruction hypothesis, and analyzes its necessary consequences. It then formalizes the structure of the basic solution space and searches for witness solutions under additional balance constraints separated from historical invariants.
+This project does not assume the restoration of a unique original arrangement or a lost placement rule for Nakseo Yukgodo. It formalizes the cell-count structure of the hexagonal grid confirmed from printed text and the handwritten Naejeok Method, applies the antipodal complement technique as a **strong reconstruction hypothesis**, and analyzes its conditional consequences. It then formalizes the structure of the basic solution space and searches for witness solutions under additional balance constraints separated from historical invariants.
+
+## Evidence protocol for the antipodal-complement claim
+
+The rule `v(c)+v(-c)=271` is not treated as a directly transcribed instruction in the presently confirmed Yukgodo text. Directly supported by text and calculation are: 271 cells, 270 after the central vacancy, perimeter 54, side length 10, a central row of 19, and the strongly coherent count decomposition `19 + 2×((10+18)×9/2) = 271`. `通加洛書數六倍` and `54+6=60` are exactly compatible with lifting the Lo Shu complement pairs to sixfold ring sizes; by themselves they do not state a position-to-value correspondence.
+
+The solver's antipodal-slot representation is therefore a conditional search space: it is used after adopting the reconstruction rule, not as a proof that the rule follows from the cell-count text. The separate [antipodal audit](ANTIPODAL_AUDIT.md) removes that rule and supplies a countermodel preserving the aggregate balances while breaking antipodal value complements.
+
+### Why the source title matters: 洛書六觚圖
+
+The author names the diagram **洛書六觚圖**—"Lo Shu Six-Corner Diagram"—rather than merely a six-corner or hexagonal figure. This is a primary naming fact. It does not, by title alone, spell out a cell-placement algorithm. But it is strong internal evidence that the six-corner figure is meant to be read under the book's Lo Shu principles rather than as an unrelated geometric container.
+
+That reading gains force from four independent facts documented below: (1) other diagrams explicitly named `洛書…圖` preserve the 3×3 Lo Shu array as their control array; (2) those diagrams use complement pairs as an actual balancing construction, not merely as an after-the-fact pattern; (3) `通加洛書數六倍` lifts Lo Shu's `k↔10-k` to sixfold ring sizes, and the Naejeok calculation begins with `54+6=60`; and (4) the *Taiyin Numbers*, second method, supplies a central-vacancy, pair-counting precedent. Together these make an equivariant Lo-Shu expansion a high-probability reconstruction principle for **洛書六觚圖**, though still not a literal cell-by-cell instruction.
+
+### Internal precedent: *Taiyin Numbers*, second method (二之四)
+
+The following is the directly checked transcription from page 40 of [*Gusuryak*, fascicle 2 on Wikimedia Commons](https://commons.wikimedia.org/wiki/File:CNTS-00089712122_2_九%E6%95%B8%E7%95%A5.pdf), in the **Bing** section, *Taiyin Numbers* (太陰之數), second method (二之四):
+
+> 日一率 元數 借筭
+>
+> 月耳率 顯數 倍積
+>
+> 星三率 法數 從方
+>
+> 辰四率 隱數 堆面
+>
+> 遞除凡遞加之積夫者如主平者
+>
+> 如梯故必倍積
+>
+> 求之以倍積為次率從方為三率
+>
+> 借一算為首率以平方開之得四率面數
+>
+> 問循次遞加之數総積一百三十六
+>
+> 其位數與尾為
+>
+> 面數幾何
+>
+> 此如主田開方
+>
+> （一，一）
+>
+> （二，二百七十二，倍積）
+>
+> （三，一，從方）
+>
+> （四，六十，面數亦為位數）
+>
+> 問桑加之數二為數
+>
+> 總積一百八十九
+>
+> 其位數與尾位面數其何
+>
+> 此如梯田開方
+>
+> 今有方箭束一百四十四雙問外周幾何
+>
+> （一，一）（二，二千二百八十八，列積減一以六十乗之）（三，八，從方）（四，四十四）
+
+On the same page the seven-cell miniature is called **圓束樣式**. Its central cell is blackened/left vacant, leaving six peripheral cells—three central-symmetry pairs. The accompanying image below is a structural schematic, not a replacement for the scan.
+
+![Schematic of 圓束樣式](assets/central-seven-void.svg)
+
+The preceding text places `一百四十四雙` within a geometric counting procedure using `倍積`, `從方`, `面數`, and `位數`; it is not an isolated mention of paired objects. The minimal comparison is exact:
+
+| 圓束樣式 | 洛書六觚圖 |
+| --- | --- |
+| Seven cells, with the unique center vacated | 271 cells, with the unique center vacated (`虛一`) |
+| Six remaining positions = three antipodal pairs | 270 remaining positions = 135 antipodal pairs |
+| `雙` explicitly counts paired units in a geometric procedure | Values 1…270 split into 135 complements summing to 271 |
+
+This is strong internal support for the pairing reconstruction, but it is not a sentence saying that opposite Yukgodo cells sum to 271.
+
+The threshold experiment applies all documented Nakseo-family conditions together: Lo Shu's opposite sum 10 and central 5, the 91-complement construction in 洛書九九圖, complement closure on every Yukgodo ring, the three antipodal orbits of 圓束樣式, the sixfold ring complement 60, and all current aggregate balances. A countermodel still satisfies them while breaking antipodal value complements. Therefore these compound conditions cannot, by themselves, justify a logically derived confidence above 90 percent; see [NAKSEO_FAMILY_EVIDENCE.md](NAKSEO_FAMILY_EVIDENCE.md).
+
+### The exact common denominator: equivariant Lo Shu expansion
+
+The generalization in [Nakseo Generalization](../../nakseo-generalization/README.md) isolates the precise shared rule. Let `τ` be a positional involution and `κ_S(x)=S-x` the value-complement involution. A placement follows the Lo Shu complement principle exactly when
+
+\[
+v\circ\tau=\kappa_S\circ v.
+\]
+
+This is equivalent to `v(p)+v(τp)=S` for every position. For Yukgodo, deleting the center gives 135 positional antipodal orbits, while `1…270` gives 135 value-complement orbits under `κ_{271}`. Thus, **if this common Lo Shu extension principle is adopted**, the 271 antipodal-complement rule is necessary, not optional. Without equivariance it is not necessary; the audit countermodel proves that distinction.
 
 ## Evidence categories and workflow
 
@@ -62,6 +148,8 @@ python3 main.py                   # Search → diagram → property analysis (ou
 python3 main.py --render-only     # Regenerate diagrams and reports from saved solution
 python3 -m yukgodo.reverse        # Verify candidate generation rules and local fingerprints
 python3 -m yukgodo.naejeok        # Exhaustive search of calculation graph for Naejeok numbers
+python3 -m yukgodo.antipodal_audit  # Hypothesis-removal audit for antipodal complements
+python3 -m yukgodo.nakseo_family_audit  # Compare the common Lo Shu control rule across diagrams
 python3 -m yukgodo.mod5           # mod 5 residue class coloring + 5-layer geometric analysis
 python3 -m yukgodo.modn_generalization  # mod N antipodal residue action — cross-diagram validation
 ```
@@ -87,6 +175,8 @@ Current confirmed interpretation from these scripts:
 - [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) — Deciphered faint manuscript commentary text and numerical evidence
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/COMPARISON.md) — Comparative verification against existing scholarship
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — Geometric and combinatorial deep analysis
+- [ANTIPODAL_AUDIT.md](ANTIPODAL_AUDIT.md) — Countermodel audit separating logical implication from reconstruction support
+- [NAKSEO_FAMILY_EVIDENCE.md](NAKSEO_FAMILY_EVIDENCE.md) — Cross-diagram evidence for the shared Lo Shu control rule
 
 ## Manuscript Commentary (Naejeok Method) Decipherment, Transcription & Calculation Structure Interpretation
 

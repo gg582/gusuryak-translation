@@ -90,10 +90,10 @@ def run_universal_generator_experiment(outdir: str = "yukgodo/experiment") -> di
         "all_invariants_passed": invariants_passed,
         "conclusions": (
             "1. [Performance of the final combined solver]: Completely combining robust invariant hints and the C6 x Z2 symmetry group orbital operator."
-            "Established the ‘Final Universal Unified Orbit Solver’."
+            "Established the 'Final Universal Unified Orbit Solver'."
             "2. [Achieving global orbit coverage]: Achieve the entire orbit of unreachable solutions that a single search solver could never reach."
             "It has been proven that it can be fully developed and derived 100% deterministically in just 0.001 seconds."
-            "3. [Academic completeness]: As a result, the solution space structure of the hexagon is not a random search, but a combination of ‘deterministic backtracking seed + symmetry group orbital operator’."
+            "3. [Academic completeness]: As a result, the solution space structure of the hexagon is not a random search, but a combination of 'deterministic backtracking seed + symmetry group orbital operator'."
             "It was finally established mathematically that the entire orbital space can be freely controlled only through mathematical combinations."
         )
     }

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 380 260" width="760" height="520" role="img" aria-labelledby="title desc">
+  <title id="title">圓束樣式: 중심 공백을 둔 7칸 육각 군</title>
+  <desc id="desc">가운데 검은 육각 칸 하나와 이를 둘러싼 여섯 칸. 서로 마주 보는 세 쌍이 같은 색으로 이어진다.</desc>
+  <rect width="380" height="260" fill="#fffdf7"/>
+  <g fill="none" stroke="#4a4032" stroke-width="3">
+    <path d="M190 20 L242 50 L242 110 L190 140 L138 110 L138 50 Z" fill="#e4eff5"/>
+    <path d="M277 70 L329 100 L329 160 L277 190 L225 160 L225 100 Z" fill="#f7e2cf"/>
+    <path d="M277 170 L329 200 L329 260 L277 290 L225 260 L225 200 Z" transform="translate(0,-50)" fill="#e5efd8"/>
+    <path d="M190 220 L242 250 L242 310 L190 340 L138 310 L138 250 Z" transform="translate(0,-100)" fill="#e4eff5"/>
+    <path d="M103 170 L155 200 L155 260 L103 290 L51 260 L51 200 Z" transform="translate(0,-50)" fill="#f7e2cf"/>
+    <path d="M103 70 L155 100 L155 160 L103 190 L51 160 L51 100 Z" fill="#e5efd8"/>
+    <path d="M190 95 L242 125 L242 185 L190 215 L138 185 L138 125 Z" fill="#252525"/>
+  </g>
+  <g font-family="sans-serif" font-size="15" text-anchor="middle" fill="#221d17">
+    <text x="190" y="78">A</text><text x="277" y="128">B</text><text x="277" y="178">C</text>
+    <text x="190" y="178">A′</text><text x="103" y="178">B′</text><text x="103" y="128">C′</text>
+  </g>
+  <text x="190" y="163" font-family="sans-serif" font-size="14" text-anchor="middle" fill="white">虛</text>
+  <text x="190" y="246" font-family="sans-serif" font-size="14" text-anchor="middle" fill="#493d2e">圓束樣式 개념도: 중심 공백 + 주변 3 대척쌍</text>
+</svg>

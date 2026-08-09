@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"Z3 SMT Solver-based hexaploid solution completeness and counterexample verification final proof script.\n\nQuestion:\n1. Can the generator produce all valid magic solutions?\n2. Is it possible for an ‘Unreachable Valid Counterexample Solution’ to exist with this generator/solver?\n\nZ3 proof method:\n- Implemented integer/boolean equation encoding for 270 cells of the six-altitude map.\n- After giving the Z3 SMT Solver a condition (V != V_gen) that negates the solution V_gen found by the existing generator,\n  Verify (SAT) whether Z3 finds another true solution (Valid Magic Solution, penalty 6.0) in the area outside it."
+"Z3 SMT Solver-based hexaploid solution completeness and counterexample verification final proof script.\n\nQuestion:\n1. Can the generator produce all valid magic solutions?\n2. Is it possible for an 'Unreachable Valid Counterexample Solution' to exist with this generator/solver?\n\nZ3 proof method:\n- Implemented integer/boolean equation encoding for 270 cells of the six-altitude map.\n- After giving the Z3 SMT Solver a condition (V != V_gen) that negates the solution V_gen found by the existing generator,\n  Verify (SAT) whether Z3 finds another true solution (Valid Magic Solution, penalty 6.0) in the area outside it."
 
 from __future__ import annotations
 
@@ -83,7 +83,7 @@ def prove_completeness_and_unreachable_solutions(grid: HexGrid, outdir: str = "y
         rep1 = measure(z3_valid_sol1, grid)
         print(f"\n[Z3 Verification 1] SAT success! ({sat_time:.3f}seconds) -> Penalty{rep1.penalty:.1f}discovery")
         
-    #4. Search for ‘Unreachable Valid Solutions’ by deterministic generators
+    #4. Search for 'Unreachable Valid Solutions' by deterministic generators
     #Imposing a condition on Z3 to exclude solutions produced by the generator (gen_solutions)
     #Forces solutions that are completely different from each generator solution v_gen for 20 or more slot positions.
     if gen_solutions:
@@ -115,7 +115,7 @@ def prove_completeness_and_unreachable_solutions(grid: HexGrid, outdir: str = "y
             
         rep2 = measure(counterexample_vals, grid)
         print(f"\n[Z3 repair proof completed!] (Search time:{ce_time:.3f}candle)")
-        print(f"- Discovery of a completely independent ‘Counterexample Valid Solution’ that the generator can never derive (SAT)")
+        print(f"- Discovery of a completely independent 'Counterexample Valid Solution' that the generator can never derive (SAT)")
         print(f"- Counterexample penalty:{rep2.penalty:.1f}(Theoretical lower limit{PENALTY_FLOOR})")
         print(f"- Variable sum:{rep2.side_sums}")
         print(f"- Sector sum:{rep2.wedge_sums}")

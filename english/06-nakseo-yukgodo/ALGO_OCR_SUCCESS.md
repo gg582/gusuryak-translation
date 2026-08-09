@@ -13,6 +13,10 @@ Naejeok Method (來積法)
 去중觚위이전양야
 이양전언지십팔하광????야광상???????전적배지득???????중고수
 
+## Scope of interpretation
+
+The transcription supports investigation of a count decomposition through `中觚`, `十八下廣`, `九`, `展`, and `倍之`. It does not itself contain a confirmed statement that values in antipodal cells sum to 271. That condition is treated as a separately evidenced reconstruction principle; see `ANTIPODAL_AUDIT.md` and the Nakseo Generalization linked from the README.
+
 ## Discarded Digital Reconstruction Data
 
 The data below has been identified as unreliable AI reconstruction. Use the transcription above.

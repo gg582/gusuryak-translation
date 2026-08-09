@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"Z3 SMT Solver and group theory-based orbit proof module.\n\nQuestion:\n1. Can the ‘Unreachable Valid Solution’ of an existing deterministic solver be created with another deterministic solver (e.g. rotational phase offset solver, orbital transformation solver)?\n2. Is there a ‘Strictly Non-Deterministic / Orbit-Isolated Solution’ that cannot be created by any deterministic generator?\n\nMathematical proof structure:\n- Specifies the group action of the symmetry group G = C6\n- When a random deterministic generator Gen_0 generates a solution v_0, the symmetry group generator Gen_G = { g . Gen_0 | g in G } proves that the entire G-orbit can be derived deterministically.\n- On the other hand, with the Z3 SMT Solver, it is verified whether completely independent equivalent orbits Orbit_1 and Orbit_2 exist that cannot be exchanged with just the G-orbit operator."
+"Z3 SMT Solver and group theory-based orbit proof module.\n\nQuestion:\n1. Can the 'Unreachable Valid Solution' of an existing deterministic solver be created with another deterministic solver (e.g. rotational phase offset solver, orbital transformation solver)?\n2. Is there a 'Strictly Non-Deterministic / Orbit-Isolated Solution' that cannot be created by any deterministic generator?\n\nMathematical proof structure:\n- Specifies the group action of the symmetry group G = C6\n- When a random deterministic generator Gen_0 generates a solution v_0, the symmetry group generator Gen_G = { g . Gen_0 | g in G } proves that the entire G-orbit can be derived deterministically.\n- On the other hand, with the Z3 SMT Solver, it is verified whether completely independent equivalent orbits Orbit_1 and Orbit_2 exist that cannot be exchanged with just the G-orbit operator."
 
 from __future__ import annotations
 
@@ -37,7 +37,7 @@ def prove_orbit_determinism_and_isolation(grid: HexGrid, outdir: str = "yukgodo/
         
     print(f"[Verification of Orbit 1] Number of deterministic solutions that can be derived from a single solution v0 by C6 x Z2 symmetry group operation:{len(orbit_1_solutions)}Dogs (all penalty 6.0)")
     
-    #3. Search for ‘Orbit 2 (independent orbit solution)’, which is completely structurally independent from the entire Orbit 1 (12 solutions) with Z3 SMT Solver.
+    #3. Search for 'Orbit 2 (independent orbit solution)', which is completely structurally independent from the entire Orbit 1 (12 solutions) with Z3 SMT Solver.
     #Z3 Boolean 135-Slot System Encoding
     solver = z3.Solver()
     slots = grid.slots
@@ -89,7 +89,7 @@ def prove_orbit_determinism_and_isolation(grid: HexGrid, outdir: str = "yukgodo/
             
         rep2 = measure(orbit_2_sample, grid)
         print(f"\n[Z3 repair proof successful!] (Search time:{sat_time:.3f}candle)")
-        print(f"- A completely new ‘Orbit 2 true solution’ discovered outside of Orbit 1 (12 rotationally symmetric solutions)!")
+        print(f"- A completely new 'Orbit 2 true solution' discovered outside of Orbit 1 (12 rotationally symmetric solutions)!")
         print(f"- Orbit 2 year penalty:{rep2.penalty:.1f}(Theoretical lower limit{PENALTY_FLOOR})")
     else:
         print(f"- Z3 navigation results:{res}")

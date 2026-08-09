@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"Z3 SMT Solver-based complete subspace enumeration & pipeline naming verification script.\n\nRepair Verification Goals:\n1. It is mathematically proven that ‘isolated solution’ is a conceptual error and that the correct proposition is [Case B: Separation of Algebraic Orbits and 100% Completeness of SMT Solver].\n2. It directly proves that within a certain set condition/subspace, the Z3 SMT Solver can 100% Complete Enumerate all true solutions that exist in that space without missing a single one, and clearly returns a ‘UNSAT’ termination signal at the end.\n3. Through this, it is finally mathematically and computationally established that the SMT solver or constraint propagation explorer can catch 100% if a true solution exists in the solution space."
+"Z3 SMT Solver-based complete subspace enumeration & pipeline naming verification script.\n\nRepair Verification Goals:\n1. It is mathematically proven that 'isolated solution' is a conceptual error and that the correct proposition is [Case B: Separation of Algebraic Orbits and 100% Completeness of SMT Solver].\n2. It directly proves that within a certain set condition/subspace, the Z3 SMT Solver can 100% Complete Enumerate all true solutions that exist in that space without missing a single one, and clearly returns a 'UNSAT' termination signal at the end.\n3. Through this, it is finally mathematically and computationally established that the SMT solver or constraint propagation explorer can catch 100% if a true solution exists in the solution space."
 
 from __future__ import annotations
 
@@ -87,7 +87,7 @@ def verify_smt_completeness(grid: HexGrid, outdir: str = "yukgodo/experiment") -
             "1. [100% proven SMT Solver completeness]: SMT Solver (Z3) solves problems within a space where constraints are defined."
             "100% complete enumeration without missing a single true solution, and upon completion of searching all solutions"
             "The repair was clearly demonstrated to return the UNSAT termination signal."
-            "2. [Logic error correction]: The indication ‘an isolated solution that can never be created by any solver’ was a clear logical error in the concept of completeness;"
+            "2. [Logic error correction]: The indication 'an isolated solution that can never be created by any solver' was a clear logical error in the concept of completeness;"
             "The correct proposition is [Case B: A single specific generator G_A produces solutions only in its own orbit, but the Z3 SMT Solver and the generalized solver"
             "It is precisely established that all true solutions in the solution space can be 100% searched and generated."
         )
