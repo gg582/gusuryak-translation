@@ -3,7 +3,7 @@ Naejeok Method (來積法)
 置外周
 
 添六案面置外圍六歸以導按平加一合德置外周添六得外周乘這得置外周添六淂六十乃六觚數也
-六而一得一十乃每一危數也
+六而一得一十乃每一包敉也
 倍之得二十減一為十九為中觚數也
 寄左以數十二而一加一亦合得 置外添六淂六十乃六觚數也
 寄左以為宲口力置外周五十四以九
@@ -12,6 +12,10 @@ Naejeok Method (來積法)
 左十九一灬合終
 去중觚위이전양야
 이양전언지십팔하광????야광상???????전적배지득???????중고수
+
+## Transcription revision
+
+The Korean master transcription has corrected the character in `六而一得一十乃每一包敉也`: it is **包**, not 危. This is a character-level correction only. It does not alter the confirmed numerical nodes `54, 60, 10, 19, 252, 504, 271, 270` or the geometric calculation network; the mathematical function of `包敉` remains unresolved.
 
 ## Scope of interpretation
 

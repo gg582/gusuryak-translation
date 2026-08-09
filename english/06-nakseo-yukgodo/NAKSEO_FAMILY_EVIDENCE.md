@@ -32,7 +32,7 @@ The exact common denominator is therefore not "every expanded cell repeats the s
 
 `python3 tests/test_equivariance_threshold_audit.py` simultaneously imposes: the 271/270/135 Yukgodo geometry; the value set 1...270; the Lo Shu opposite sum 10 and central 5; the documented 91-complement construction of 洛書九九圖; `6k+6(10-k)=60`; complement closure within every Yukgodo ring; the three antipodal orbits of 圓束樣式; and every current non-antipodal solver balance (rings, axes, sides, sectors, and rays).
 
-A countermodel still exists. Moreover, an exhaustive scan of local exchanges that swap only two values with the same ring, axis, and side membership in the English conditional equivariant witness leaves **504** countermodels (the independently stored Korean witness yields 514). This is not one rare exception at the edge of a vast solution space: it is a structural gap in aggregate proxy constraints, which do not preserve a position-value correspondence.
+A countermodel still exists. Moreover, an exhaustive scan of local exchanges that swap only two values with the same ring, axis, and side membership leaves **more than 500** countermodels. This is not one rare exception at the edge of a vast solution space: it is a structural gap in aggregate proxy constraints, which do not preserve a position-value correspondence.
 
 ![Local countermodel for aggregate proxy constraints](output/antipodal_countermodel.png)
 

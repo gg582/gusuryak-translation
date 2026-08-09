@@ -82,7 +82,7 @@ The following is the directly checked transcription from page 40 of [*Gusuryak*,
 >
 > 此如梯田開方
 >
-> 今有方箭束一百四十四雙問外周幾何
+> 今有方箭束一百四十四隻問外周幾何
 >
 > （一，一）（二，二千二百八十八，列積減一以六十乗之）（三，八，從方）（四，四十四）
 
@@ -90,17 +90,17 @@ On the same page the seven-cell miniature is called **圓束樣式**. Its centra
 
 ![Schematic of 圓束樣式](assets/central-seven-void.svg)
 
-The preceding text places `一百四十四雙` within a geometric counting procedure using `倍積`, `從方`, `面數`, and `位數`; it is not an isolated mention of paired objects. The minimal comparison is exact:
+The preceding text places `一百四十四隻` within a geometric counting procedure using `倍積`, `從方`, `面數`, and `位數`. Here `隻` counts one member of a pair, an unpaired side, rather than merely an undifferentiated object. Read with the vacant-center 圓束樣式, it is therefore a precedent for counting the individual members of antipodal pair-orbits. It does not literally state a Yukgodo value sum, but it strengthens rather than weakens the pair-structured reconstruction.
 
 | 圓束樣式 | 洛書六觚圖 |
 | --- | --- |
 | Seven cells, with the unique center vacated | 271 cells, with the unique center vacated (`虛一`) |
 | Six remaining positions = three antipodal pairs | 270 remaining positions = 135 antipodal pairs |
-| `雙` explicitly counts paired units in a geometric procedure | Values 1…270 split into 135 complements summing to 271 |
+| `一百四十四隻` counts the individual side of a pair in a geometric procedure | Values 1…270 split into 135 complements summing to 271 |
 
 This is strong internal support for the pairing reconstruction, but it is not a sentence saying that opposite Yukgodo cells sum to 271.
 
-The threshold experiment applies all documented Nakseo-family conditions together: Lo Shu's opposite sum 10 and central 5, the 91-complement construction in 洛書九九圖, complement closure on every Yukgodo ring, the three antipodal orbits of 圓束樣式, the sixfold ring complement 60, and all current aggregate balances. A countermodel still satisfies them while breaking antipodal value complements; 504 local exchanges with identical ring/axis/side membership do so as well in the English witness (514 in the independently stored Korean witness). This is a structural limit of aggregate proxy constraints, not a counterexample to the source's placement principle. Therefore these compound conditions cannot, by themselves, justify a logically derived confidence above 90 percent, but the countermodel does not independently lower the historical interpretation; see [NAKSEO_FAMILY_EVIDENCE.md](NAKSEO_FAMILY_EVIDENCE.md).
+The threshold experiment applies all documented Nakseo-family conditions together: Lo Shu's opposite sum 10 and central 5, the 91-complement construction in 洛書九九圖, complement closure on every Yukgodo ring, the three antipodal orbits of 圓束樣式, the sixfold ring complement 60, and all current aggregate balances. A countermodel still satisfies them while breaking antipodal value complements; more than 500 local exchanges with identical ring/axis/side membership do so as well. This is a structural limit of aggregate proxy constraints, not a counterexample to the source's placement principle. Therefore these compound conditions cannot, by themselves, justify a logically derived confidence above 90 percent, but the countermodel does not independently lower the historical interpretation; see [NAKSEO_FAMILY_EVIDENCE.md](NAKSEO_FAMILY_EVIDENCE.md).
 
 ### The exact common denominator: equivariant Lo Shu expansion
 
@@ -109,6 +109,8 @@ The generalization in [Nakseo Generalization](../../nakseo-generalization/README
 \[
 v\circ\tau=\kappa_S\circ v.
 \]
+
+The broader auditable use of this rule across *Gusuryak*, together with the revised `包` and `隻` transcription basis, is documented in the [Gusuryak Equivariance Audit](GUSURYAK_EQUIVARIANCE_AUDIT.md).
 
 This is equivalent to `v(p)+v(τp)=S` for every position. For Yukgodo, deleting the center gives 135 positional antipodal orbits, while `1…270` gives 135 value-complement orbits under `κ_{271}`. Thus, **if this common Lo Shu extension principle is adopted**, the 271 antipodal-complement rule is necessary, not optional. Without equivariance it is not necessary; the audit countermodel proves that distinction.
 

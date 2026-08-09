@@ -10,7 +10,7 @@ The distinction is exact. If the placement is an equivariant Lo Shu expansion, `
 
 `yukgodo.solver` begins by assigning `(i,271-i)` to every antipodal slot, so it can search under the hypothesis but cannot derive it. The audit swaps values 10 and 124 at `(-9,1)` and `(-9,2)`. It preserves the value set 1…270, all ring sums, all three axis sums, all six side sums, and the solver's sector/ray balance ranges; after the swap only 133 of 135 antipodal pairs sum to 271.
 
-Hence those aggregate conditions are compatible with, but do not imply, antipodal complements. An exhaustive scan of the same kind of local exchange in the English conditional witness finds 504 such countermodels (the independently stored Korean witness yields 514). This is not a single accidental exception in a vast space; it is a structural fact that aggregate constraints do not replace position-value equivariance.
+Hence those aggregate conditions are compatible with, but do not imply, antipodal complements. An exhaustive scan of the same kind of local exchange finds more than 500 such countermodels. This is not a single accidental exception in a vast space; it is a structural fact that aggregate constraints do not replace position-value equivariance.
 
 ![Local countermodel for aggregate proxy constraints](output/antipodal_countermodel.png)
 
