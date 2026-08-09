@@ -60,6 +60,8 @@ The rule `v(c)+v(-c)=271` is not treated as a directly transcribed instruction i
 
 The solver's antipodal-slot representation is therefore a conditional search space: it is used after adopting this reconstruction principle, not as a proof that the rule follows from the cell-count text alone. The separate [antipodal audit](ANTIPODAL_AUDIT.md) removes that rule and supplies a countermodel preserving the aggregate balances while breaking antipodal value complements. [ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md](ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md) states why this logical non-implication is not an absence of internal historical support.
 
+The earliest in-book starting point for this principle is the Hetu/Lo Shu account in `數原第一`. `併上下數共一十一` and `化裁五格各得一十一數` directly calculate constant sums by pairing the extremes; the following 3×3 Lo Shu places `4+6=9+1=2+8=3+7=10` at opposing positions and fixes central 5. The continuous sequence from `河圖為體` and `洛書為用` to `洛書六觚圖`, `通加洛書數六倍`, and `54+6=60` materially strengthens the internal basis for the Yukgodo antipodal-complement reconstruction principle. [HETU_LUOSHU_ORIGIN_EVIDENCE.md](HETU_LUOSHU_ORIGIN_EVIDENCE.md) records the quotations and their scope.
+
 ### Why the source title matters: 洛書六觚圖
 
 The author names the diagram **洛書六觚圖**—"Lo Shu Six-Corner Diagram"—rather than merely a six-corner or hexagonal figure. This is a primary naming fact. It does not, by title alone, spell out a cell-placement algorithm. But it is strong internal evidence that the six-corner figure is meant to be read under the book's Lo Shu principles rather than as an unrelated geometric container.
@@ -205,6 +207,7 @@ Current confirmed interpretation from these scripts:
 - [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) — Deciphered faint manuscript commentary text and numerical evidence
 - [BING_PARALLEL_OCR.md](BING_PARALLEL_OCR.md) — User-provided Bing-section parallel OCR, working paragraph layout, and comparison with the Naejeok Method
 - [ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md](ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md) — Integrated assessment distinguishing direct transcription from a strong internal reconstruction principle
+- [HETU_LUOSHU_ORIGIN_EVIDENCE.md](HETU_LUOSHU_ORIGIN_EVIDENCE.md) — Hetu complement pairs and Lo Shu antipodal complements in `數原第一`, with the sixfold Yukgodo lift
 - [ALTERNATIVE_CONDITIONS_AUDIT.md](ALTERNATIVE_CONDITIONS_AUDIT.md) — Competing conditions beyond antipodal complements, the Cheonsu Yong-o reprint criterion, and reproducible experiments
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/COMPARISON.md) — Comparative verification against existing scholarship
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — Geometric and combinatorial deep analysis

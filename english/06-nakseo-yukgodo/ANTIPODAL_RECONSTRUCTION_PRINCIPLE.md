@@ -15,6 +15,8 @@ The essential distinction is:
 | Ground | Status | Relevance to the antipodal-complement principle |
 | --- | --- | --- |
 | The author's title `洛書六觚圖` | Direct text | Primary naming evidence that the hexagon is to be read under the book's Lo Shu principles, not as an unrelated rod figure |
+| `數原第一`: `併上下數共一十一` | Direct text | Direct Hetu arithmetic precedent: pair the extremes of 1…10 so each of five cells obtains complement sum 11 |
+| The `數原第一` 3×3 Lo Shu | Direct diagram and text | `4+6=9+1=2+8=3+7=10` at opposing positions, with central 5 fixed: direct coupling of position-involution and value complement |
 | `通加洛書數六倍` | Direct text | Explicitly specifies the nine-ring structure as sixfold Lo Shu numbers |
 | `54+6=60` | Confirmed by the Naejeok calculation | Uses the first and last rings of the sixfold lift of the Lo Shu complements: `6k+6(10-k)=60` |
 | Complement-pair construction in other `洛書…圖` | Internal precedent | In the Lo Shu family, complement pairs are an actual construction method, not merely an after-the-fact pattern |
@@ -53,4 +55,4 @@ It shows that the complement condition is not an accidental by-product of other 
 - Avoid: "unsupported hypothesis," or "a constraint derived only from other aggregate sums."
 - Always retain: this is not yet a literally transcribed cell-by-cell command in the Yukgodo text.
 
-The Bing parallel passage placing `包`, `添六`, and `六而一` in a vocabulary of hexagonal count calculation is recorded in [BING_PARALLEL_OCR.md](BING_PARALLEL_OCR.md). The countermodels establishing logical non-implication are recorded in [ANTIPODAL_AUDIT.md](ANTIPODAL_AUDIT.md).
+The full chain from the `數原第一` Hetu pairs and Lo Shu antipodal complements to the sixfold Yukgodo lift is recorded in [HETU_LUOSHU_ORIGIN_EVIDENCE.md](HETU_LUOSHU_ORIGIN_EVIDENCE.md). The Bing parallel passage placing `包`, `添六`, and `六而一` in a vocabulary of hexagonal count calculation is recorded in [BING_PARALLEL_OCR.md](BING_PARALLEL_OCR.md). The countermodels establishing logical non-implication are recorded in [ANTIPODAL_AUDIT.md](ANTIPODAL_AUDIT.md).

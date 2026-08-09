@@ -60,6 +60,8 @@
 
 따라서 솔버의 대척 슬롯 표현은 이 **복원원리를 채택한 뒤의 조건부 탐색 공간**이다. 별도 감사 실험은 대척 조건을 제거한 모델에서, (a) 원문·기하 조건이 대척보수를 강제하는지, (b) 추가한 집계 제약이 이를 강제하는지를 반례 탐색으로 각각 판정한다. 결과와 증인 반례는 `ANTIPODAL_AUDIT.md`에 기록한다. 반례의 올바른 범위와 책 내부 근거의 종합은 [ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md](ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md)에 정리한다.
 
+이 원리의 가장 이른 책 내부 출발점은 `數原第一`의 하도·낙서 설명이다. `併上下數共一十一`과 `化裁五格各得一十一數`은 양 끝 수를 보수쌍으로 묶어 일정합을 만드는 계산을 직접 보이고, 이어지는 낙서 3×3은 대척 위치에서 `4+6=9+1=2+8=3+7=10`, 중심 5 고정을 실제로 배치한다. `河圖為體`·`洛書為用`의 연속 뒤 `洛書六觚圖`·`通加洛書數六倍`와 `54+6=60`이 나오는 사슬은, 육고도 대척보수 복원원리의 문헌 내적 근거를 한층 강화한다. 원문 인용과 범위는 [HETU_LUOSHU_ORIGIN_EVIDENCE.md](HETU_LUOSHU_ORIGIN_EVIDENCE.md)에 정리한다.
+
 낙서 계열을 하나의 원리로 정식화한 [낙서 확장 일반화](../nakseo-generalization/README.md)는 대척보수의 정확한 공통분모를 위치 대합–값 보수 대합의 **등변성**으로 쓴다.
 
 《구수략》 전체에서 이 등변성이 실제로 쓰이는 범위, 그리고 `包`·`隻` 전사 수정 뒤의 가설 재정식화는 [구수략 등변성 범위 감사](GUSURYAK_EQUIVARIANCE_AUDIT.md)에 기록한다.
@@ -214,6 +216,7 @@ python3 nakseo-yukgodo-prompt/verify_lee_all.py
 - [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) — 흐린 친필 주석 판독 텍스트 및 수치 증거
 - [BING_PARALLEL_OCR.md](BING_PARALLEL_OCR.md) — 사용자 직접 OCR한 병편 병행 원문, 띄어쓰기·단락 작업본 및 내적법과의 대조
 - [ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md](ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md) — 직접 전사와 강한 문헌 내적 대척보수 복원원리를 구별한 종합 판정
+- [HETU_LUOSHU_ORIGIN_EVIDENCE.md](HETU_LUOSHU_ORIGIN_EVIDENCE.md) — `數原第一`의 하도 보수쌍·낙서 대척보수와 육고도의 6배 승격
 - [ALTERNATIVE_CONDITIONS_AUDIT.md](ALTERNATIVE_CONDITIONS_AUDIT.md) — 대척보수 외 경쟁 조건, 천수용오도 재인쇄 준거 및 재현 실험
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/COMPARISON.md) — 기존 학설과의 비교 검증
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — 기하학적·조합론적 심층 분석
