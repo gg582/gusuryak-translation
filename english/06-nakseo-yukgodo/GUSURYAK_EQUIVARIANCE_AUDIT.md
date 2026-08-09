@@ -29,6 +29,7 @@ Equivariance is therefore not a one-off pattern in the book. It recurs as (1) ce
 The current transcription baseline is:
 
 - In `六而一得一十乃每一包敉也`, the character is **包**, not 危. The mathematical function of `包敉` is unresolved; the correction does not change the numerical calculation network.
+- In `去中觚為而假樣也` and `假積`, the character is **假**, not 展. The former "unfolding" reading is withdrawn. The wording is compatible with setting up an auxiliary figure or assumed area calculation after `去中觚`, but its exact function is unresolved.
 - In `今有方箭束一百四十四隻問外周幾何`, `隻` counts one side of a pair, an unpaired member. Read with the vacant-center 圓束樣式, this strongly indicates counting the individual members of a pair structure.
 
 The revised hypothesis is consequently both stricter and stronger:

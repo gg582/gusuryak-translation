@@ -10,16 +10,18 @@ Naejeok Method (來積法)
 乘之得四百八十六折半加九得二百五十二倍之得五百사折半淂二百五十二
 加八寄九淂二百七十一합종구목淂이백오십이불배
 左十九一灬合終
-去중觚위이전양야
-이양전언지십팔하광????야광상???????전적배지득???????중고수
+去中觚為而假樣也
+以樣田言之十八下廣????九也廣相???????假積倍之得????共中觚數
 
 ## Transcription revision
 
 The Korean master transcription has corrected the character in `六而一得一十乃每一包敉也`: it is **包**, not 危. This is a character-level correction only. It does not alter the confirmed numerical nodes `54, 60, 10, 19, 252, 504, 271, 270` or the geometric calculation network; the mathematical function of `包敉` remains unresolved.
 
+The characters previously read as `展` in `去中觚為而展樣也` and the following `展積` are corrected to **`假`**: `去中觚為而假樣也` and `假積`. The former "unfolding" interpretation is withdrawn. `假樣` and `假積` are compatible with setting up an auxiliary figure or assumed area calculation after removing the central row, but their precise mathematical function remains unresolved.
+
 ## Scope of interpretation
 
-The transcription supports investigation of a count decomposition through `中觚`, `十八下廣`, `九`, `展`, and `倍之`. It does not itself contain a confirmed statement that values in antipodal cells sum to 271. That condition is treated as a separately evidenced reconstruction principle; see `ANTIPODAL_AUDIT.md` and the Nakseo Generalization linked from the README.
+The transcription supports investigation of a count decomposition through `中觚`, `十八下廣`, `九`, `假樣/假積`, and `倍之`. In particular, `假樣` after `去中觚` is compatible with a construction that sets up an auxiliary figure excluding the central row, but is not yet translated as a settled instruction. It does not itself contain a confirmed statement that values in antipodal cells sum to 271. That condition is treated as a separately evidenced reconstruction principle; see `ANTIPODAL_AUDIT.md` and the Nakseo Generalization linked from the README.
 
 ## Discarded Digital Reconstruction Data
 

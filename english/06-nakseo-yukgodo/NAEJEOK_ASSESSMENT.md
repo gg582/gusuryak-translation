@@ -63,6 +63,16 @@ The formula $\frac{54 \times 9}{2} + 9 = 243 + 9 = 252$ aligns perfectly with th
 * The equation $\frac{54 \times 9}{2} + 9 = 243 + 9 = 252$ is geometrically equivalent to $\left(\frac{54}{2} + 1\right) \times 9 = 28 \times 9 = 252$, which matches the trapezoid area sum $(10 + 18) \times 9 = 252$.
 * Thus, the author used a mathematical shortcut to directly calculate the area of the non-axial region (252) using only two fundamental constants: the outer perimeter (54) and the ring count (9), without having to calculate individual row lengths.
 
+### `假樣/假積` after `去中觚` (new OCR correction)
+
+The characters formerly read as `展樣/展積` are corrected to `假樣/假積`. The basis for translating them as "unfolding the figure" is therefore withdrawn. Conversely, the sequence `去中觚` followed by `假樣` directly fits an interpretation in which an **auxiliary figure is posited or set up for calculation** after the central row is removed:
+
+\[
+去中觚 \longrightarrow 假樣 \longrightarrow 以樣田言之 \longrightarrow 十八下廣,\ 九,\ 倍之.
+\]
+
+This strongly supports the reading of a geometric cell-count calculation for the central row and two congruent regions. The contemporary mathematical function of `假樣` and the omitted characters remain unresolved, so this is not extended into a spatial value-placement instruction or a direct statement of antipodal sum 271.
+
 ### Independent Verifications Reaching 270 (All endpoints match textual values)
 
 - $6 \times 45 = 270$ — 通加洛書數六倍 (Confirmed text)
