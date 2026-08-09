@@ -1,18 +1,48 @@
-# The Shared 3×3 Lo Shu Rule Across the Nakseo Diagrams
+# The 3×3 Lo Shu Origin Rule Across the Nakseo Family and the Yukgodo
 
-The stored data for 洛書九九圖, 洛書五九圖, and 洛書七九圖 each retain the same 3×3 Lo Shu control array, up to rotation or reflection:
+## Confirmed shared control array
+
+The actual stored data for the project’s three Nakseo diagrams are all the same 3×3 Lo Shu array, up to rotation or reflection:
 
 \[
 \begin{matrix}8&1&6\\3&5&7\\4&9&2\end{matrix}.
 \]
 
-Its opposite pairs sum to 10 and its central 5 is the unique fixed point. This shows that the Lo Shu array is repeatedly used as a control structure, not merely as a title ornament.
+| Diagram | Data location | Result |
+| --- | --- | --- |
+| 洛書九九圖 | Nine central labels in `01-saodo-family/낙서구구도/visualize.py` | Lo Shu array |
+| 洛書五九圖 | Nine-palace centres in `낙서오구도/nakseo_ogudo.py` | Lo Shu array |
+| 洛書七九圖 | Nine palace centres in `낙서칠구도/visualize_basic.py` | Lo Shu array |
 
-The construction of 洛書九九圖 additionally partitions its outer values 10…81 into 36 complement pairs summing to 91, using three such pairs plus a center-dependent correction pair to balance every nine-cell cluster at 369. Complement pairs are therefore an explicit construction technique in the Nakseo family.
+The basic Lo Shu’s central symmetry gives `1+9=2+8=3+7=4+6=10` for its four positional pairs, while only the central 5 is fixed. In other words, the 3×3 array is repeatedly used in this family as a control array that determines centre, symmetry, and sums—not as a mere title ornament.
 
-For Yukgodo, `通加洛書數六倍` lifts `k↔10-k` to `6k↔6(10-k)`, whose two members always sum to 60. The Naejeok calculation begins exactly with `54+6=60`. Together with the central-vacancy pairing precedent of 圓束樣式, this materially strengthens the reconstruction rule for a diagram explicitly entitled 洛書六觚圖.
+## Complement pairs are an actual construction tool
 
-The precise logical criterion is supplied by [Nakseo Generalization](../../nakseo-generalization/README.md): an equivariant placement `v∘τ=κ∘v` forces complement pairs; the aggregate geometry alone does not.
+洛書九九圖 partitions its outer values 10…81 into 36 complementary pairs summing to 91. Each group receives three 91-pairs and a centre-value correction pair to give a group sum of 369. This is important: in this family, complementary pairs are documented as an actual method for constructing balance in a diagram, not a post hoc observation.
+
+## The exact lift to the Yukgodo
+
+The Yukgodo’s confirmed phrase `通加洛書數六倍` lifts the Lo Shu numbers \(k=1,\ldots,9\) to ring sizes \(6k\). Thus the basic Lo Shu complementary-pair sum becomes:
+
+\[
+6k+6(10-k)=60.
+\]
+
+In fact, the Naejeok Method calculates the first complementary ring pair as `54+6=60`. This exactly agrees with lifting the Lo Shu complementary pair sum to the Yukgodo ring structure.
+
+## Weight for the Yukgodo antipodal-complement reconstruction principle
+
+The following three levels are distinct, but point in one direction:
+
+1. Nakseo-family diagrams repeatedly preserve the 3×3 Lo Shu as a control array.
+2. The family includes 洛書九九圖, which uses complementary pairs as an actual balancing construction rule.
+3. The Yukgodo explicitly reproduces the basic Lo Shu complementary sum at the ring level through `通加洛書數六倍` and `54+6=60`.
+
+Together with the 圓束樣式 in the second method of *Taiyin Numbers*—three antipodal pairs after the centre is left vacant—and the Yukgodo’s `271→270=2×135`, pairing antipodal positions with values summing to 271 accords very closely with the book’s internal numerical-construction grammar.
+
+This report does not overstate the evidence level. The author’s title **洛書六觚圖** is strong internal grounds for reading the Yukgodo as a subordinate or expanded diagram of Lo Shu principles. These facts, however, add only **strong internal reconstruction evidence** for `v(c)+v(-c)=271`; a Yukgodo text literally commanding that formula has not yet been found. This is compatible with the logical non-derivability shown by the audit countermodels.
+
+The exact common denominator revealed by the Nakseo-expansion generalisation is equivariance between the positional involution \(\tau\) and the value-complement involution \(\kappa\): `v∘τ=κ∘v`. If this condition is adopted, Yukgodo complementary pairs are necessary; if it is not, they are not. The detailed necessary-and-sufficient proof and reproducible code are in [Nakseo Generalization](../../nakseo-generalization/README.md).
 
 ## Where equivariance appears in the other Nakseo diagrams
 

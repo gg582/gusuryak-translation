@@ -78,6 +78,10 @@ This algorithm implements the classical annotations **'序左'** (ordering count
 #### Counterclockwise Rotation Formula in Axial Coordinates
 $$(q, r) \mapsto (-r, q + r)$$
 
+#### Orbit-shift operation
+
+For a slot \(s_1=(c_a,c_b)\), find the slot \(s_2=R_k(s_1)\) at the counterclockwise position \(k\times60^\circ\). Exchange the complementary pairs assigned to the two slots as a neighbouring-swap operation to escape local minima.
+
 ```python
 # pseudo-code of CCW Rotation-Orbit Move
 def rotation_orbit_swap(state, slot_1, rot_k):
@@ -107,4 +111,3 @@ Verified via `yukgodo/experiment/smt_completeness_proof.py`.
 2. **Efficacy of Deterministic Backtracking**: Deterministic pruning backtracking reaches theoretical penalty floors (6.0). General termination and completeness guarantees require explicit mathematical proof.
 3. **Completeness of Constraint Solvers**: SMT Solvers guarantee complete search coverage within specified sub-space encodings.
 4. **Scholarly Provenance Distinction**: The original **'來積法'** text represents a historical calculation procedure for determining grid dimensions and constants. Modern constraint solvers use these geometric constants as input parameters, but there is no evidence that modern backtracking algorithms were contained in the primary text.
-
