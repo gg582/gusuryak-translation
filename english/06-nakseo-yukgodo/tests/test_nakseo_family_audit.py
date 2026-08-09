@@ -15,6 +15,10 @@ def main() -> None:
     assert result["lo_shu_fixed_center"] == 5
     assert result["gugudo_documented_outer_complement_sum"] == 91
     assert result["yukgodo_sixfold_ring_complement_sum"] == 60
+    assert all(
+        not item["holds"]
+        for item in result["full_expansion_equivariance"].values()
+    )
     print("Nakseo-family common-rule audit passed")
 
 

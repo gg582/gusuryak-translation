@@ -37,6 +37,24 @@ def _load(path: Path) -> dict:
     return runpy.run_path(str(path))
 
 
+def _violations(
+    values: dict[tuple[object, ...], int],
+    opposite: dict[tuple[object, ...], tuple[object, ...]],
+    total: int,
+) -> list[tuple[tuple[object, ...], int, tuple[object, ...], int, int]]:
+    """Return one representative from each failed positional complement orbit."""
+    failures = []
+    seen = set()
+    for place, value in values.items():
+        other = opposite[place]
+        if place in seen:
+            continue
+        seen.update((place, other))
+        if value + values[other] != total:
+            failures.append((place, value, other, values[other], value + values[other]))
+    return failures
+
+
 def family_evidence() -> dict[str, object]:
     gugudo = _load(FAMILY / "낙서구구도" / "visualize.py")
     ogudo = _load(FAMILY / "낙서오구도" / "nakseo_ogudo.py")
@@ -74,6 +92,58 @@ def family_evidence() -> dict[str, object]:
     outer_pairs = [(value, 91 - value) for value in range(10, 46)]
     assert all(left + right == 91 for left, right in outer_pairs)
 
+    # 확장 도안도 같은 '위치 대합 -> 값 보수' 등변성을 전부 갖는지를 직접 검사한다.
+    # 결론은 층위가 갈린다. 세 도안 모두 3x3 제어 배열에서는 성립하지만, 저장된
+    # 전체 확장 셀 배치에서는 성립하지 않는다. 따라서 제어 배열의 반복을 전체 셀 규칙의
+    # 자동 증명으로 과장하지 않는다.
+    gugudo_values = {
+        (row, col, offset): value
+        for row, line in enumerate(gugudo["CLUSTERS"])
+        for col, cluster in enumerate(line)
+        for offset, value in enumerate(cluster.values)
+    }
+    gugudo_opposite = {
+        (row, col, offset): (2 - row, 2 - col, (offset + 4) % 8)
+        for row, col, offset in gugudo_values
+    }
+
+    ogudo_values_full = ogudo["VALUES"]
+    ogudo_opposite = {
+        place: (6 - place[0], 2 - place[1])
+        for place in ogudo_values_full
+    }
+    assert set(ogudo_opposite.values()) == set(ogudo_values_full)
+
+    chilgudo_values = {
+        (group["pos"][0], group["pos"][1], offset): value
+        for group in chilgudo_groups
+        for offset, value in enumerate(group["surround"])
+    }
+    chilgudo_opposite = {
+        (x, y, offset): (4 - x, 4 - y, (offset + 3) % 6)
+        for x, y, offset in chilgudo_values
+    }
+    assert set(chilgudo_opposite.values()) == set(chilgudo_values)
+
+    expansion_equivariance = {
+        "nakseo_gugudo": {
+            "value_total": 82,
+            "holds": not _violations(gugudo_values, gugudo_opposite, 82),
+            "first_failure": _violations(gugudo_values, gugudo_opposite, 82)[0],
+        },
+        "nakseo_ogudo": {
+            "value_total": 34,
+            "holds": not _violations(ogudo_values_full, ogudo_opposite, 34),
+            "first_failure": _violations(ogudo_values_full, ogudo_opposite, 34)[0],
+        },
+        "nakseo_chilgudo": {
+            "value_total": 64,
+            "holds": not _violations(chilgudo_values, chilgudo_opposite, 64),
+            "first_failure": _violations(chilgudo_values, chilgudo_opposite, 64)[0],
+        },
+    }
+    assert not any(item["holds"] for item in expansion_equivariance.values())
+
     result = {
         "lo_shu_control_arrays": {
             "nakseo_gugudo": gugudo_square,
@@ -91,6 +161,15 @@ def family_evidence() -> dict[str, object]:
             "outer_value_range": [10, 81],
             "constant_complement_sum": 91,
             "pair_count": len(outer_pairs),
+        },
+        "equivariance_scope": {
+            "control_array": "all three stored 3×3 Lo Shu arrays satisfy v(p)+v(τp)=10",
+            "expanded_cells": expansion_equivariance,
+            "boundary": (
+                "The exact position-value equivariance is repeated at the shared 3×3 control layer, "
+                "not at every cell of the three stored expansions. Gugudo nevertheless documents "
+                "91-complement pairs as a local construction device."
+            ),
         },
         "yukgodo_tier_lift": {
             "rule": "k ↔ 10-k  maps to  6k ↔ 6(10-k)",

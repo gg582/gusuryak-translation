@@ -15,6 +15,7 @@ def main() -> None:
     assert result["without_equivariance"]["all_non_antipodal_aggregate_constraints"]
     assert not result["without_equivariance"]["antipodal_complement_forced"]
     assert result["with_equivariance"]["antipodal_complement_forced"]
+    assert result["local_transposition_countermodels"] == 514
     print("등변성 임계 감사 테스트 통과")
 
 

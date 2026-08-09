@@ -57,6 +57,38 @@ def audit() -> dict[str, object]:
     assert c0_geometry and c1_value_set and c2_sixfold_loshu_lift and c3_loshu_family_conditions and c4_aggregate_balance
     assert not c5_antipodal_complement
     assert c6_equivariance_implies_pairs
+
+    # 같은 고리·축·변 소속인 두 위치만 바꾸는 국소 교환을 전수 검사한다.
+    def profile(cell: tuple[int, int]) -> tuple[object, ...]:
+        return (
+            max(abs(cell[0]), abs(cell[1]), abs(cell[0] + cell[1])),
+            tuple(i for i, axis in enumerate(grid.axes) if cell in axis),
+            tuple(grid.sides_of.get(cell, ())),
+        )
+
+    local_countermodels = 0
+    for i, left in enumerate(grid.filled):
+        for right in grid.filled[i + 1:]:
+            if profile(left) != profile(right):
+                continue
+            candidate = witness.copy()
+            candidate[left], candidate[right] = candidate[right], candidate[left]
+            candidate_report = measure(candidate, grid)
+            if (
+                candidate_report.ring_sums == measure(witness, grid).ring_sums
+                and candidate_report.axis_sums == measure(witness, grid).axis_sums
+                and candidate_report.side_sums == measure(witness, grid).side_sums
+                and all(6097 <= total <= 6098 for total in candidate_report.wedge_sums)
+                and all(1219 <= total <= 1220 for total in candidate_report.ray_sums)
+                and all(
+                    {candidate[cell] for cell in grid.rings[k]}
+                    == {271 - candidate[cell] for cell in grid.rings[k]}
+                    for k in range(1, 10)
+                )
+                and candidate_report.parts["pairs"] > 0
+            ):
+                local_countermodels += 1
+    assert local_countermodels == 514
     return {
         "without_equivariance": {
             "geometry": c0_geometry,
@@ -70,10 +102,14 @@ def audit() -> dict[str, object]:
             "condition": "v(antipode(c)) = 271 - v(c)",
             "antipodal_complement_forced": c6_equivariance_implies_pairs,
         },
+        "local_transposition_countermodels": local_countermodels,
         "verdict": (
-            "현재 복합 조건만으로는 대척보수가 도출되지 않는다. 등변성은 충분조건이며 "
+            "현재 복합 조건만으로는 대척보수가 도출되지 않는다. 514개의 국소 교환 "
+            "반례는 이 현상이 거대 해공간의 희귀 예외가 아님을 보인다. 그러나 이는 "
+            "원문이 등변 배정 원리를 배제한다는 반증은 아니다. 등변성은 충분조건이며 "
             "이 경우 대척보수와 동치다. 따라서 현 자료만으로 90% 이상이라는 논리적 "
-            "확정 등급을 선언할 수 없다."
+            "확정 등급을 선언할 수 없지만, 반례만으로 역사적 복원 가능성을 90% 아래로 "
+            "낮출 근거도 없다."
         ),
     }
 

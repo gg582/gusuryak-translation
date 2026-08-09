@@ -14,8 +14,28 @@ For Yukgodo, `通加洛書數六倍` lifts `k↔10-k` to `6k↔6(10-k)`, whose t
 
 The precise logical criterion is supplied by [Nakseo Generalization](../../nakseo-generalization/README.md): an equivariant placement `v∘τ=κ∘v` forces complement pairs; the aggregate geometry alone does not.
 
+## Where equivariance appears in the other Nakseo diagrams
+
+This cannot be assessed by counting only favorable examples. `python3 tests/test_nakseo_family_audit.py` compares the actual stored coordinates and values of all three diagrams.
+
+| Layer | Nakseo Gugudo | Nakseo Ogudo | Nakseo Chilgudo | Result |
+| --- | --- | --- | --- | --- |
+| 3×3 control array | holds | holds | holds | all have `v(p)+v(τp)=10` and central 5 |
+| Global position-value equivariance over every expanded cell | fails | fails | fails | tested at totals 82, 34, and 64 respectively |
+| Complement pairs used as a construction device | holds | not directly audited here | not directly audited here | Gugudo explicitly uses pairs totaling 91 |
+
+The first full-expansion failures are `17+71=88` in Gugudo (not 82), `23+13=36` in Ogudo (not 34), and `31+58=89` in Chilgudo (not 64). Because the existing Chilgudo transcription contains some values reconstructed under its documented rule, this is not a claim about a universal original rule for that diagram; it is a check that the stored diagram data do not show full positional equivariance.
+
+The exact common denominator is therefore not "every expanded cell repeats the same complement placement." What all three diagrams repeat is the position-involution/value-complement equivariance of the **3×3 Lo Shu control layer**. Gugudo then adds a separate local construction using 91-complement pairs. Yukgodo antipodal complements may be an interpretation that extends this control layer to 270 cells, but the other expanded diagrams are not direct precedents already doing the same thing. This negative result deliberately limits the evidence to its actual scope.
+
 ## Compound-condition threshold experiment
 
 `python3 tests/test_equivariance_threshold_audit.py` simultaneously imposes: the 271/270/135 Yukgodo geometry; the value set 1...270; the Lo Shu opposite sum 10 and central 5; the documented 91-complement construction of 洛書九九圖; `6k+6(10-k)=60`; complement closure within every Yukgodo ring; the three antipodal orbits of 圓束樣式; and every current non-antipodal solver balance (rings, axes, sides, sectors, and rays).
 
-A countermodel still exists. Thus these compound conditions do not logically force antipodal sums of 271, and they do not by themselves justify raising the reconstruction confidence beyond 90 percent. Adding `v∘τ=κ_{271}∘v` immediately forces the rule, but that is an independently adopted historical placement principle, not a new consequence of the other conditions.
+A countermodel still exists. Moreover, an exhaustive scan of local exchanges that swap only two values with the same ring, axis, and side membership in the English conditional equivariant witness leaves **504** countermodels (the independently stored Korean witness yields 514). This is not one rare exception at the edge of a vast solution space: it is a structural gap in aggregate proxy constraints, which do not preserve a position-value correspondence.
+
+![Local countermodel for aggregate proxy constraints](output/antipodal_countermodel.png)
+
+This figure is not a counterexample to the source's placement principle. The exchange is a modern counterfactual that deliberately breaks the very condition under examination, `v∘τ=κ_{271}∘v`; it does not claim that the Naejeok text permits such an exchange. It establishes only that the present **compound proxy conditions** cannot logically derive antipodal complements and hence cannot independently support a confidence claim above 90 percent. The countermodel is not independent negative evidence that the author chose against equivariant placement.
+
+If a conservative numerical wording is retained, this keeps the approximately 85 percent interpretive reconstruction assessment from being promoted above 90 percent; it supplies no reason, by itself, to lower the estimate below 85 percent. Adding `v∘τ=κ_{271}∘v` immediately forces the rule, but that is an independently adopted historical placement principle, not a new consequence of the other conditions.

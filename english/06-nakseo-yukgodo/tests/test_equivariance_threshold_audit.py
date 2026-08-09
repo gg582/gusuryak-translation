@@ -15,6 +15,7 @@ def main() -> None:
     assert result["compound_non_equivariant_conditions_hold"]
     assert not result["antipodal_complement_forced_without_equivariance"]
     assert result["equivariance_forces_antipodal_complement"]
+    assert result["local_transposition_countermodels"] == 504
     print("Equivariance-threshold audit passed")
 
 

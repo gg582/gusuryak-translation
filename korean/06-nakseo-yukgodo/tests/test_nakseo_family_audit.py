@@ -16,6 +16,10 @@ def main() -> None:
     assert evidence["base_rule"]["center_fixed_value"] == 5
     assert evidence["documented_extension"]["constant_complement_sum"] == 91
     assert evidence["yukgodo_tier_lift"]["constant_sum"] == 60
+    assert all(
+        not item["holds"]
+        for item in evidence["equivariance_scope"]["expanded_cells"].values()
+    )
     print("낙서 계열 공통 규칙 감사 테스트 통과")
 
 

@@ -100,7 +100,7 @@ The preceding text places `一百四十四雙` within a geometric counting proce
 
 This is strong internal support for the pairing reconstruction, but it is not a sentence saying that opposite Yukgodo cells sum to 271.
 
-The threshold experiment applies all documented Nakseo-family conditions together: Lo Shu's opposite sum 10 and central 5, the 91-complement construction in 洛書九九圖, complement closure on every Yukgodo ring, the three antipodal orbits of 圓束樣式, the sixfold ring complement 60, and all current aggregate balances. A countermodel still satisfies them while breaking antipodal value complements. Therefore these compound conditions cannot, by themselves, justify a logically derived confidence above 90 percent; see [NAKSEO_FAMILY_EVIDENCE.md](NAKSEO_FAMILY_EVIDENCE.md).
+The threshold experiment applies all documented Nakseo-family conditions together: Lo Shu's opposite sum 10 and central 5, the 91-complement construction in 洛書九九圖, complement closure on every Yukgodo ring, the three antipodal orbits of 圓束樣式, the sixfold ring complement 60, and all current aggregate balances. A countermodel still satisfies them while breaking antipodal value complements; 504 local exchanges with identical ring/axis/side membership do so as well in the English witness (514 in the independently stored Korean witness). This is a structural limit of aggregate proxy constraints, not a counterexample to the source's placement principle. Therefore these compound conditions cannot, by themselves, justify a logically derived confidence above 90 percent, but the countermodel does not independently lower the historical interpretation; see [NAKSEO_FAMILY_EVIDENCE.md](NAKSEO_FAMILY_EVIDENCE.md).
 
 ### The exact common denominator: equivariant Lo Shu expansion
 
