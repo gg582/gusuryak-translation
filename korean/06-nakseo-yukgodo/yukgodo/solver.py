@@ -46,12 +46,12 @@ class SolveResult:
 class _State:
     """슬롯 단위 상태와 구조 합계의 증분 갱신."""
 
-    def __init__(self, grid: HexGrid) -> None:
+    def __init__(self, grid: HexGrid,
+                 slots: list[tuple[tuple[int, int], tuple[int, int]]] | None = None) -> None:
         self.grid = grid
         self.cell_index = {c: i for i, c in enumerate(grid.filled)}
-        self.slots = [
-            (self.cell_index[a], self.cell_index[b]) for a, b in grid.slots
-        ]
+        pairing = grid.slots if slots is None else slots
+        self.slots = [(self.cell_index[a], self.cell_index[b]) for a, b in pairing]
         # 셀 → 구조 소속: (변 목록, 섹터, 광선 or -1)
         self.side_mem: list[tuple[int, ...]] = []
         self.wedge_mem: list[int] = []
@@ -265,3 +265,39 @@ def solve(grid: HexGrid, iterations: int = 150_000, restarts: int = 8,
         restart_penalties=restart_pens,
         iterations=iterations,
     )
+
+
+def solve_with_pairing(
+    grid: HexGrid,
+    slots: list[tuple[tuple[int, int], tuple[int, int]]],
+    iterations: int = 80_000,
+    restarts: int = 6,
+    seed: int = 1715,
+) -> SolveResult:
+    """임의의 135쌍 위치 매칭에 보수값을 놓아 균형을 탐색한다.
+
+    이 함수는 점대척 쌍을 전제하지 않는다. 실험용 매칭이 270개의 서로 다른
+    채움칸을 정확히 한 번씩 덮는지만 확인한 뒤, 기존과 같은 변·섹터·광선 목적함수로
+    보수쌍의 방향과 보수쌍-위치 대응을 탐색한다.
+    """
+    if len(slots) != N_SLOTS:
+        raise ValueError(f"보수 위치쌍 수 {len(slots)} != {N_SLOTS}")
+    flattened = [cell for pair in slots for cell in pair]
+    if set(flattened) != set(grid.filled) or len(flattened) != len(set(flattened)):
+        raise ValueError("위치쌍이 270개 채움칸을 중복 없이 모두 덮지 않음")
+
+    rng = random.Random(seed)
+    best_values: dict[tuple[int, int], int] | None = None
+    best_pen = math.inf
+    restart_pens: list[float] = []
+    for _ in range(restarts):
+        state = _State(grid, slots)
+        _seed_random(state, rng)
+        pen = _anneal(state, rng, iterations)
+        pen = _polish(state, rng)
+        restart_pens.append(pen)
+        if pen < best_pen:
+            best_pen = pen
+            best_values = state.to_values()
+    assert best_values is not None
+    return SolveResult(best_values, best_pen, restart_pens, iterations)

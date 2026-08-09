@@ -20,6 +20,32 @@ Algebraic graph analysis (`python3 -m yukgodo.naejeok`) cross-checks several num
 
 The user-provided direct OCR of a [parallel Bing-section text](BING_PARALLEL_OCR.md) supplies additional internal evidence for this reading. `每十八隻包中六外成六觚`, followed by `添六隻` and `以十二而一得八隻`, places `包`, `隻`, `添六`, and `而一` in one vocabulary of hexagonal formation and count calculation. The OCR is preserved without silent character normalization, with a separately marked working layout of spaces and paragraphs. This strengthens the geometric/count reading of the Naejeok Method; it does not create a direct textual instruction that antipodal cell values sum to 271.
 
+## Competing placement conditions and the immediately preceding Cheonsu Yong-o reprint
+
+Rather than presupposing only antipodal complements, the project implements and compares non-antipodal complement pairs, intra-ring complements, sixfold rotation-orbit total 813, opposed-region aggregates only, nine Lo Shu rings plus a separate placement method, and sixfold generation from one 45-cell unit. They use the same geometry, value set, and balance objectives. [ALTERNATIVE_CONDITIONS_AUDIT.md](ALTERNATIVE_CONDITIONS_AUDIT.md) records the exact conditions, reproducible commands, and first-run values.
+
+If the Cheonsu Yong-o material reprinted immediately before Yukgodo is read as intentional preparation, its transcription
+
+> `去中宮十五` · `外合得二百一十六` · `無宮各得五十四爲六九之數`
+
+directly gives `216=4×54` and `54=6×9`. The strongest direct support from that reprint is therefore equal **aggregates of outer regions** after centre exclusion, and the numerical bridge `54=六九`. It is not itself a literal command for cell-wise antipodal complements; it is an independent criterion for comparing the alternatives.
+
+### Conditional plausibility ranking
+
+This ranking is conditional on reading the reprint as preparation for Yukgodo. Its criteria are: (i) directness to the preceding transcription, (ii) the construction precedents in `洛書六觚圖`, `通加洛書數六倍`, and the other Lo Shu diagrams, (iii) the number of arbitrary extra choices, and (iv) experimental cost under the same balance objective.
+
+| Rank | Condition family | Basis for assessment |
+| ---: | --- | --- |
+| 1 | **Internal antipodal-complement reconstruction principle** | Retains the Lo Shu family's positional/value complement precedents, the exact correspondence of 135 positional and 135 value pairs, and the ring relation `6k↔6(10-k)` totaling 60. It is compatible with the preceding `去中宮` and `54=6×9`, with penalty 6 and zero ring/axis deviation. A literal cell-by-cell command remains untranscribed. |
+| 2 | **Nine Lo Shu rings plus regional aggregates, with a separate placement method** | Closest to the preceding `外合` and `各得五十四`, while retaining Yukgodo's `通加洛書數六倍`. It does not determine a value-position rule because the separate method is not transcribed. |
+| 3 | **Intra-ring non-antipodal complement pairs** | Complement pairs within each ring automatically give `813k`; experimental penalty is also low at 10. No source criterion chooses adjacent, or any other, pair locations. |
+| 4 | **Opposed-region aggregates only** | Most resembles the preceding aggregate procedure and has a genuine penalty-6 non-antipodal countermodel. Precisely for that reason it is too weak as a cell-level placement rule. |
+| 5 | **Sixfold rotation-orbit total 813** | Fits the `6k` ring geometry and automatically preserves ring totals. There is no transcribed `六轉` or orbit-total-813 instruction, and its current balance penalty is 127. |
+| 6 | **One 45-cell unit plus a fixed six-cycle value transform** | A clear modern model generating 45 sixfold orbits through one value transformation. It is the strongest additional assumption; neither rotation nor transformation is instructed in the preceding reprint, and its penalty is 300. |
+| 7 | **Arbitrary global non-antipodal complement matching** | Mathematically reaches penalty 7, but the source supplies no criterion for choosing the matching, making it the most arbitrary positional choice. |
+
+The Cheonsu Yong-o reprint is therefore not disproof against antipodal complements. It strongly establishes an independent layer of **ring control, centre exclusion, and regional aggregates**. Once those layers are retained, the first-ranked antipodal-complement reconstruction principle still makes the fewest arbitrary placement choices; the second- and fourth-ranked models simultaneously show why aggregates alone cannot logically force it.
+
 ---
 
 # Nakseo Yukgodo Reconstruction Search Project
@@ -179,6 +205,7 @@ Current confirmed interpretation from these scripts:
 - [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) — Deciphered faint manuscript commentary text and numerical evidence
 - [BING_PARALLEL_OCR.md](BING_PARALLEL_OCR.md) — User-provided Bing-section parallel OCR, working paragraph layout, and comparison with the Naejeok Method
 - [ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md](ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md) — Integrated assessment distinguishing direct transcription from a strong internal reconstruction principle
+- [ALTERNATIVE_CONDITIONS_AUDIT.md](ALTERNATIVE_CONDITIONS_AUDIT.md) — Competing conditions beyond antipodal complements, the Cheonsu Yong-o reprint criterion, and reproducible experiments
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/COMPARISON.md) — Comparative verification against existing scholarship
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — Geometric and combinatorial deep analysis
 - [ANTIPODAL_AUDIT.md](ANTIPODAL_AUDIT.md) — Countermodel audit separating logical implication from reconstruction support
