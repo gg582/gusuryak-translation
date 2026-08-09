@@ -124,6 +124,8 @@ def analyze_siamese(values: dict[Cell, int], grid: HexGrid,
             "연속 수 이동이 120종으로 흩어지고, 짧은 주 이동/보정 이동 한 쌍의 최선도 "
             "269전이 중 6개만 맞춘다."
         ),
+        # 아래 문장은 원문 전사가 아니다. 현대 분석의 결론을 한문으로 역서술하여
+        # 읽을 수 있는 원문 조각과 다시 대조하기 위한 작업용 재구다.
         "hanmun_reconstruction": [
             "今按其圖，數雖成六觚之均，非一行添六可循而得也。",
             "以一數次第求其所之，或遠或近，步法凡百二十變。",
@@ -192,9 +194,13 @@ def write_siamese_markdown(analysis: dict, path: str) -> None:
         "",
         "## 산학식 한문 역번역",
         "",
+        "아래 문장은 원문 전사나 발견된 주석이 아니다. 최적해 역산의 현대적 결론을",
+        "한문으로 역서술하여, 읽을 수 있는 원문/판독 구절과 **다시 대조하기 위한",
+        "작업용 재구**다. 따라서 새 원문 증거나 육고도의 직접 명령으로 인용하지 않는다.",
+        "",
     ])
     lines.extend(f"- {s}" for s in analysis["hanmun_reconstruction"])
-    lines.extend(["", "## 원문 대조", "", "| 원문/판독 구절 | 현대 검토 | 한문 재서술 |", "|---|---|---|"])
+    lines.extend(["", "## 원문과의 역대조", "", "| 확인된 원문/판독 구절 | 현대 검토 | 작업용 한문 재서술 (원문 아님) |", "|---|---|---|"])
     for row in analysis["source_correspondence"]:
         lines.append(f"| {row['original']} | {row['modern_check']} | {row['hanmun']} |")
     lines.append("")
