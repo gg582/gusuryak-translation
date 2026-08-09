@@ -1,10 +1,10 @@
-# Interdisciplinary Gap & Standard Interface Specification
+# Research Handoff Materials and Claim Boundaries
 
-This document explains the **Triple Interdisciplinary Void** surrounding the **Nakseo Yukgodo (洛書六觚圖)** reconstruction project and defines the **Standard Interface Specification** established to bridge research across disciplines.
+This document records the materials that connect textual reading, combinatorial modeling, and constraint programming in the **Nakseo Yukgodo (洛書六觚圖)** project. It is a repository-level documentation scheme, not a disciplinary standard.
 
 ---
 
-## 1. The Triple Interdisciplinary Void
+## 1. A cross-disciplinary handoff problem
 
 The Nakseo Yukgodo remained historically buried or overlooked not due to intellectual incapacity, but because of structural drop-off points at the boundaries between **History of Mathematics**, **Pure Combinatorics**, and **Computer Science / Constraint Programming**.
 
@@ -33,7 +33,7 @@ While each piece appears trivial individually, uniting them across **manuscript 
 
 ---
 
-## 2. Standard Interfaces Connecting the Three Fields
+## 2. Materials connecting the three fields
 
 The bottleneck was not that a single researcher had to master all three fields, but that **there were no deliverable intermediate artifacts (interfaces)** between them. This project provides seven standard interfaces:
 
@@ -65,15 +65,15 @@ The bottleneck was not that a single researcher had to master all three fields, 
 * `output/solution.json`, `output/constructive_solution.json`: Standard JSON models of representative optimal solutions.
 * Ready-to-use variable and constraint definitions for MiniZinc / CP / SAT solvers.
 
-### ⑦ Historical Scope Claim
-* Proved that the Naejeok Method (來積法) is a calculation chain for grid cell counts (積), not a spatial number placement algorithm.
-* Completely disproved spatial placement interpretations (192 variations of 添六 rule) via exhaustive search (`output/hypotheses.json`).
+### ⑦ Historical scope and unresolved questions
+* The currently best-supported reading treats Naejeok Method as a calculation chain for grid cell counts (積), rather than a spatial number-placement algorithm. This remains an interpretation of the commentary.
+* The encoded 192 添六 placement variants failed the stated tests (`output/hypotheses.json`); this rejects those variants, not every possible placement reading.
 
 ---
 
-## 3. Conclusion: Computational History of Mathematics
+## 3. Reusable documentation practice
 
-This project establishes a methodology of **Text-Based Constraint Reconstruction**, enabling specialists in each domain to conduct independent research via standardized interfaces:
+The project offers one example of **text-based constraint reconstruction**. Its files are intended to make the sources, hypotheses, derived results, and experiments separately inspectable:
 
 * **Historians of Math**: Focus on Hanja texts, philology, and textual transmission chains.
 * **Combinatorists**: Study algebraic structures of the solution space under $D_6$ symmetry and antipodal constraints.

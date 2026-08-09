@@ -1,5 +1,7 @@
 # Gusuryak Puzzle Collection
 
+> **Reading note.** This repository separates direct source evidence, transcription, structural hypotheses, mathematical consequences, and computational experiments. See [EVIDENCE.md](EVIDENCE.md) before treating a reconstruction or solver output as a historical claim.
+
 A repository collecting modern combinatorial redefinitions, verification code, reports, and visualizations for a family of Korean/Chinese mathematical diagrams found in classical texts such as 《구수략(九數略)》.
 
 The project is primarily a computational translation, not a complete history of

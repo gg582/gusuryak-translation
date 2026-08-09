@@ -7,3 +7,7 @@
 3. Third, the transcribed materials are extended from the original problem to extract basic properties and shared characteristics.
 
 4. Fourth, additional exploration is carried out with Python 3-based solvers.
+
+## Evidence status
+
+Every conclusion should distinguish direct source evidence, a reading or transcription, a structural hypothesis, a mathematical consequence, and a computational experiment. A solver result is evidence about its encoded model, not by itself evidence of an original historical construction. See [EVIDENCE.md](EVIDENCE.md) for the repository-wide labels and claim scope.

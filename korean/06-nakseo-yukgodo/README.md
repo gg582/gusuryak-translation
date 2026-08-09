@@ -14,9 +14,9 @@
 
 ## 첨부 주석 이미지 (친필 來積法)
 
-來積法이라 적힌 친필 주석은 스캔이 매우 흐려 원필의 자형을 한눈에 식별하기 어려웠습니다. 이에 따라 초기의 단순 AI 자동 재구 데이터(환각이 섞인 의사전사 데이터)는 전면 폐기하였습니다. **스캔본의 명암과 대비를 조정하고, 뭉개진 자형을 세부 이미지로 분할하여 필획을 대조하는 정밀 판독 과정을 거쳐 친필 주석 원문을 자형 단위로 완전 판독·전사해낸 결과물이 바로 [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)**입니다.
+來積法이라 적힌 친필 주석은 스캔이 매우 흐려 원필의 자형을 한눈에 식별하기 어려웠습니다. 이에 따라 초기의 단순 AI 자동 재구 데이터(환각이 섞인 의사전사 데이터)는 폐기하였습니다. **[ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)는 스캔의 명암·대비 조정과 흐린 자형의 세부 이미지 필획 대조를 거친 현재의 자형 단위 전사를 기록하며, 불확실한 조작 기능은 읽을 수 있는 글자와 분리해 둡니다.**
 
-이 수기 전사문에 나타나는 핵심 수치와 계산 관계를 대수적 계산 그래프 분석(`python3 -m yukgodo.naejeok`)으로 검증함으로써, 친필 주석이 숫자의 공간 배치 알고리즘이 아닌 **육각 격자의 총수를 산출·검산하는 절차(積=271, 虛一 270)**라는 고신뢰도 해석을 도출했습니다.
+이 수기 전사문에 나타나는 일부 핵심 수치와 계산 관계는 대수적 계산 그래프 분석(`python3 -m yukgodo.naejeok`)으로 교차 점검합니다. 현재 가장 잘 지지되는 해석은 친필 주석이 숫자의 공간 배치 알고리즘보다 **육각 격자의 총수를 산출·검산하는 절차(積=271, 虛一 270)**에 관한 것이라는 견해입니다. 이는 해석이지 복원된 배치 규칙은 아닙니다.
 
 ---
 
@@ -26,11 +26,11 @@
 
 이 프로젝트는 洛書六觚圖의 유일한 원배열이나 소실된 배정법을 복원한다고 전제하지 않는다. 인쇄 본문과 친필 來積法에서 확인되는 육각 격자의 적수 구조를 형식화하고, 최석정의 다른 도상에서 확인되는 대척보수 수법을 재구 가설로 적용하여 그 필연적 귀결을 분석한다. 이어 역사적 불변량과 분리된 현대적 균형 목적함수 아래 기본 해공간의 구조를 형식화하고, 추가 균형 제약 아래 증인해를 탐색한다.
 
-## 학제 간 삼중 공백 및 복원 방법론
+## 근거 범주와 작업 흐름
 
 [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/INTERDISCIPLINARY.md) 문서에서 상세히 조명하듯, 낙서육고도는 **수학사** (1차 원문 해독에 머무름), **순수조합론** (1–270 순열과 대척보수 조건만 두면 해공간이 $135! \times 2^{135}$로 직접 분해되어 추가 제약 없이 단순 분해됨), **CS/제약프로그래밍** (원문에서 `.cnf`나 MiniZinc 사양을 독자적으로 추출 불가능)의 경계에 걸쳐 있었습니다.
 
-본 프로젝트는 이 세 분야 사이의 정식 인터페이스를 구축하기 위해 다음 5단계 복원 방법론을 이행합니다:
+다음 작업 흐름은 원문 근거·가설·파생 결과·계산 실험을 분리합니다([EVIDENCE.ko.md](../../EVIDENCE.ko.md) 참고).
 1. 판독 가능한 수치에서 격자 사양 복원 (`ALGO_OCR_SUCCESS.md`, 《漢書·律曆志》 蘇林 注 대조)
 2. `添六`을 값의 ±6 이동으로 해석한 192개 변형과 고리별 등차 배정 모형을 각각 검증하여 반증 (`output/hypotheses.json`)
 3. 필연적 파생 조건(고리합 $813k$, 축합 $2439$)과 임의 목적함수(섹터·광선 균형)의 엄격한 분리
@@ -84,14 +84,14 @@ python3 nakseo-yukgodo-prompt/verify_lee_all.py
 ## 프로젝트 문서
 
 - [NAEJEOK_ASSESSMENT.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/NAEJEOK_ASSESSMENT.md) — 來積法 신뢰 범위 및 종합 증거 판정
-- [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/INTERDISCIPLINARY.md) — 학제 간 삼중 공백 및 표준 인터페이스 명세
+- [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/INTERDISCIPLINARY.md) — 연구 인계 자료와 주장 경계
 - [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) — 흐린 친필 주석 판독 텍스트 및 수치 증거
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/COMPARISON.md) — 기존 학설과의 비교 검증
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — 기하학적·조합론적 심층 분석
 
 ## 친필 주석(來積法) 판독·전사 및 계산 구조 해석
 
-낙서육고도 여백의 **來積法(내적법)** 친필 주석은 스캔본의 흐린 글자 획을 정밀 분석하여 **자형 단위로 완전 판독·전사**를 마쳤습니다([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)). 초기 생성형 AI가 출력한 `五百六`(506) 오독 및 잘못된 줄바꿈 등 환각이 섞인 의사(擬似)전사 데이터는 전면 폐기하였으며, 수동 자형 재판독과 대수적 계산 그래프 교차 검증을 결합하여 확정 전사문을 완성했습니다.
+낙서육고도 여백의 **來積法(내적법)** 친필 주석에는 스캔본의 흐린 글자 획을 세밀하게 대조한 현재의 자형 단위 전사가 있습니다([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)). 초기 생성형 AI가 출력한 `五百六`(506) 오독 및 잘못된 줄바꿈 등 의사(擬似)전사 데이터는 원문 지지가 없어 폐기했습니다. 현재 전사는 수동 자형 재판독과 대수적 계산 그래프 교차 검증을 결합했으며, 미해결 조작어는 미해결로 남깁니다.
 
 본 친필 주석 전사문의 판독 신뢰도 및 학술적 상태 기준은 다음과 같습니다:
 - **자형 및 수치 전사**: 확정

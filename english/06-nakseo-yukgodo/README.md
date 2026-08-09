@@ -14,9 +14,9 @@
 
 ## Appended Manuscript Commentary Image (Handwritten Naejeok Method)
 
-The manuscript commentary marked as Naejeok Method (來積法) was so faintly scanned that individual character strokes were difficult to identify at a glance. Consequently, early automated AI reconstructions (pseudo-transcription data containing hallucinations) were completely discarded. **After adjusting brightness and contrast of the scan and splitting blurred characters into cropped detail images for stroke-by-stroke comparison, the complete character-by-character decipherment and transcription of the original commentary is available as [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)**.
+The manuscript commentary marked as Naejeok Method (來積法) was so faintly scanned that individual character strokes were difficult to identify at a glance. Early automated AI reconstructions (pseudo-transcription data containing hallucinations) were therefore discarded. **[ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) records the current character-level transcription, obtained by adjusting the scan and comparing cropped strokes; uncertain functions are kept separate from the readable characters.**
 
-By verifying the core numerical values and computational relationships in this manual transcription via algebraic graph analysis (`python3 -m yukgodo.naejeok`), we derived the high-confidence interpretation that the commentary is not a spatial number placement algorithm, but a **procedure for calculating and verifying the total cell count of the hexagonal grid (積=271, 虛一 270)**.
+Algebraic graph analysis (`python3 -m yukgodo.naejeok`) cross-checks several numerical relationships in this manual transcription. The current, high-confidence interpretation is that the commentary concerns **calculating and checking the total cell count of the hexagonal grid (積=271, 虛一 270)** rather than a spatial number-placement algorithm; this is an interpretation, not a recovered placement rule.
 
 ---
 
@@ -26,11 +26,11 @@ A Python 3 program to restore the historical grid specifications of Nakseo Yukgo
 
 This project does not assume the restoration of a unique original arrangement or a lost placement rule for Nakseo Yukgodo. It formalizes the cell-count structure of the hexagonal grid confirmed from printed text and the handwritten Naejeok Method, applies the antipodal complement technique confirmed in Choi Seok-jeong's other diagrams as a reconstruction hypothesis, and analyzes its necessary consequences. It then formalizes the structure of the basic solution space and searches for witness solutions under additional balance constraints separated from historical invariants.
 
-## Triple Interdisciplinary Gap and Restoration Methodology
+## Evidence categories and workflow
 
 As detailed in [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/INTERDISCIPLINARY.md), Nakseo Yukgodo straddles the boundary of **History of Mathematics** (limited to primary text reading), **Pure Combinatorics** (with only 1–270 permutations and antipodal complement conditions, the solution space decomposes trivially into $135! \times 2^{135}$ without additional constraints), and **CS/Constraint Programming** (unable to independently extract `.cnf` or MiniZinc specifications from the source text).
 
-This project implements the following 5-step restoration methodology to establish a formal interface across these three fields:
+The following workflow keeps source evidence, hypotheses, derived results, and computational experiments distinct (see [EVIDENCE.md](../../EVIDENCE.md)):
 1. Restore grid specifications from readable numerical values (`ALGO_OCR_SUCCESS.md`, cross-referenced with Su Lin's commentary in *Book of Han·Lüli Zhi*)
 2. Verify and refute the 192 variations interpreting `添六` as a ±6 value shift, and the ring-wise arithmetic progression model (`output/hypotheses.json`)
 3. Strict separation of necessary derived conditions (ring sum $813k$, axis sum $2439$) from arbitrary objective functions (sector/ray balance)
@@ -83,14 +83,14 @@ Current confirmed interpretation from these scripts:
 ## Project Documentation
 
 - [NAEJEOK_ASSESSMENT.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/NAEJEOK_ASSESSMENT.md) — Naejeok Method reliability scope and comprehensive evidence assessment
-- [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/INTERDISCIPLINARY.md) — Triple interdisciplinary gap and standard interface specification
+- [INTERDISCIPLINARY.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/INTERDISCIPLINARY.md) — research handoff materials and claim boundaries
 - [ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md) — Deciphered faint manuscript commentary text and numerical evidence
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/COMPARISON.md) — Comparative verification against existing scholarship
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — Geometric and combinatorial deep analysis
 
 ## Manuscript Commentary (Naejeok Method) Decipherment, Transcription & Calculation Structure Interpretation
 
-The handwritten **Naejeok Method (來積法)** commentary in the margins of Nakseo Yukgodo has been **completely deciphered and transcribed character by character** through meticulous analysis of faint strokes in the scan ([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)). Early generative AI pseudo-transcription output containing hallucinations — including the misreading of `五百六` (506) and incorrect line breaks — was completely discarded, and the confirmed transcription was completed by combining manual character re-decipherment with algebraic calculation graph cross-verification.
+The handwritten **Naejeok Method (來積法)** commentary in the margins of Nakseo Yukgodo has a current character-level transcription based on close inspection of faint strokes in the scan ([ALGO_OCR_SUCCESS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/ALGO_OCR_SUCCESS.md)). Early generative-AI pseudo-transcription output, including `五百六` (506) and incorrect line breaks, was discarded because it lacked source support. The current reading combines manual re-reading with algebraic calculation-graph cross-checks; unresolved operation terms remain marked as such.
 
 The decipherment reliability and academic status criteria for this handwritten commentary transcription are as follows:
 - **Character and numerical transcription**: Confirmed
@@ -166,8 +166,8 @@ This arrangement does not reproduce the Naejeok Method procedure or a unique ori
 
 ## Hypothesis Verification Conclusions (`output/hypotheses.json`)
 
-1. All numerically readable values in the commentary are **geometric skeleton and cell count verifications** — 54+6=60, 60/6=10 (cells per side), 中觚 19, 252, 252×2=504, 270=6×45. That is, everything verifiable in the commentary has been confirmed as the geometric structure of the diagram and its corresponding cell count arithmetic.
-2. The evaluated 192 ±6 shift variations and the ring-wise arithmetic progression model all failed.
+1. The readable values support a **geometric skeleton and cell-count calculation** — 54+6=60, 60/6=10 (cells per side), 中觚 19, 252, 252×2=504, 270=6×45. This supports the stated reading; it does not identify a placement algorithm.
+2. The evaluated 192 ±6 shift variants and the ring-wise arithmetic-progression model failed the stated tests.
 3. Character decipherment of `寄左` and `序左` is complete, but which algorithmic function they refer to — intermediate value storage, calculation progress, or diagram construction — remains unconfirmed in the mathematical context. There is currently no evidence that they denote a regular cell placement order.
 
 ## Candidate Generation Rules and Local Fingerprint Verification (`output/reverse_engineering.md`)
