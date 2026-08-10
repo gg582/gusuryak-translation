@@ -103,7 +103,7 @@ $$
 $$
 \begin{array}{c}
 2\times 30\
-\hline
+\rule{8em}{0.4pt}\
 2\times 3\times 10
 \end{array}
 $$
@@ -137,7 +137,7 @@ $$
 $$
 \begin{array}{c}
 10\times 30\
-\hline
+\rule{8em}{0.4pt}\
 1\times 3\times 100
 \end{array}
 $$
@@ -183,6 +183,7 @@ $$
 &=360
 \end{aligned}
 $$
+
 
 #### 산목 풀이 1
 
