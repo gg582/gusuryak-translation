@@ -182,7 +182,7 @@ Under this hypothesis, ring k sum = 813k and the sum of 18 values on each antipo
 - Ring k receives the consecutive interval 3k(k−1)+1 … 3k(k+1) (ring 1: 1..6, …, ring 9: 217..270)
 - Within each ring, values proceed consecutively around the circumference
 
-The starting point and direction of each ring are a normalization of rotational symmetry, not a manuscript claim. This is a separate candidate from the antipodal-complement hypothesis (its ring sums are 18k³+3k, not 813k). Running the script verifies satisfiability and draws the arrangement (`reconstruction_1.png`).
+The starting point and direction of each ring are a normalization of rotational symmetry, not a manuscript claim. This is a separate candidate from the antipodal-complement hypothesis (its ring sums are 18k³+3k, not 813k). Running the script verifies satisfiability and draws the arrangement (`reconstruction_1.png`). The solver and its results (output/) live in the independent mini-repo [yukgodo2/](yukgodo2/).
 
 ## Execution
 
