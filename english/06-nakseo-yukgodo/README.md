@@ -223,6 +223,7 @@ Current confirmed interpretation from these scripts:
 - [HETU_LUOSHU_ORIGIN_EVIDENCE.md](HETU_LUOSHU_ORIGIN_EVIDENCE.md) — Hetu complement pairs and Lo Shu antipodal complements in `數原第一`, with the sixfold Yukgodo lift
 - [ALTERNATIVE_CONDITIONS_AUDIT.md](ALTERNATIVE_CONDITIONS_AUDIT.md) — Competing conditions beyond antipodal complements, the Cheonsu Yong-o reprint criterion, and reproducible experiments
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/COMPARISON.md) — Comparative verification against existing scholarship
+- [RECONSTRUCTION_COMPARISON.md](RECONSTRUCTION_COMPARISON.md) — Legitimacy comparison of the two reconstruction hypotheses: antipodal complements vs consecutive ring values ([yukgodo2/](yukgodo2/))
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/english/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — Geometric and combinatorial deep analysis
 - [ANTIPODAL_AUDIT.md](ANTIPODAL_AUDIT.md) — Countermodel audit separating logical implication from reconstruction support
 - [NAKSEO_FAMILY_EVIDENCE.md](NAKSEO_FAMILY_EVIDENCE.md) — Cross-diagram evidence for the shared Lo Shu control rule

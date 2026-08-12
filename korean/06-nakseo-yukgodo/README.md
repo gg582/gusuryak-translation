@@ -232,6 +232,7 @@ python3 nakseo-yukgodo-prompt/verify_lee_all.py
 - [HETU_LUOSHU_ORIGIN_EVIDENCE.md](HETU_LUOSHU_ORIGIN_EVIDENCE.md) — `數原第一`의 하도 보수쌍·낙서 대척보수와 육고도의 6배 승격
 - [ALTERNATIVE_CONDITIONS_AUDIT.md](ALTERNATIVE_CONDITIONS_AUDIT.md) — 대척보수 외 경쟁 조건, 천수용오도 재인쇄 준거 및 재현 실험
 - [COMPARISON.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/COMPARISON.md) — 기존 학설과의 비교 검증
+- [RECONSTRUCTION_COMPARISON.md](RECONSTRUCTION_COMPARISON.md) — 대척보수 vs 고리별 연속값([yukgodo2/](yukgodo2/)), 두 재구 가설의 정당성 비교
 - [DEEP_ANALYSIS.md](file:///home/yjlee/gusuryak-translation/korean/06-nakseo-yukgodo/DEEP_ANALYSIS.md) — 기하학적·조합론적 심층 분석
 
 ## 친필 주석(來積法) 판독·전사 및 계산 구조 해석
