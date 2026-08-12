@@ -17,7 +17,7 @@ The essential distinction is:
 | The author's title `洛書六觚圖` | Direct text | Primary naming evidence that the hexagon is to be read under the book's Lo Shu principles, not as an unrelated rod figure |
 | `數原第一`: `併上下數共一十一` | Direct text | Direct Hetu arithmetic precedent: pair the extremes of 1…10 so each of five cells obtains complement sum 11 |
 | The `數原第一` 3×3 Lo Shu | Direct diagram and text | `4+6=9+1=2+8=3+7=10` at opposing positions, with central 5 fixed: direct coupling of position-involution and value complement |
-| `通加洛書數六倍` | Direct text | Explicitly specifies the nine-ring structure as sixfold Lo Shu numbers |
+| `逓加洛書數六倍` | Direct text | Explicitly specifies the nine-ring structure as sixfold Lo Shu numbers |
 | `54+6=60` | Confirmed by the Naejeok calculation | Uses the first and last rings of the sixfold lift of the Lo Shu complements: `6k+6(10-k)=60` |
 | Complement-pair construction in other `洛書…圖` | Internal precedent | In the Lo Shu family, complement pairs are an actual construction method, not merely an after-the-fact pattern |
 | Yukgodo geometry after `虛一` | Geometrically confirmed | The 270 positions split into exactly 135 centrally antipodal pairs |

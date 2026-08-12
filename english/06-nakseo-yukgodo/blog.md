@@ -32,7 +32,7 @@ Its mathematical rules help explain why Choe Seok-jeong called this diagram “N
 
 1. **Total number of cells**: The rings surrounding the central cell increase by six cells each time they expand outward (\(6 \times k\) cells). A side length of ten requires nine rings, giving \(1 + (6 + 12 + \dots + 54) = 271\) cells in total.
 2. **The heoil condition**: The central cell is left empty by the *heoil* (虛一) method. Thus **270 cells** must be filled, with each of the natural numbers from \(1\) through \(270\) used exactly once.
-3. **The Luoshu number and ring sums (通加洛書數六倍)**: In traditional mathematics, the Luoshu number (洛書數) is \(45\), the sum of \(1\) through \(9\). Six times \(45\), or **270**, is precisely the number of cells to be filled. Their total is \(1+2+\dots+270 = 36{,}585\). The values in the \(k\)-th ring must also be distributed so that their sum is exactly **\(813 \times k\)**.
+3. **The Luoshu number and ring sums (逓加洛書數六倍)**: In traditional mathematics, the Luoshu number (洛書數) is \(45\), the sum of \(1\) through \(9\). Six times \(45\), or **270**, is precisely the number of cells to be filled. Their total is \(1+2+\dots+270 = 36{,}585\). The values in the \(k\)-th ring must also be distributed so that their sum is exactly **\(813 \times k\)**.
 4. **Outer perimeter (外周)**: The outermost ring has 54 cells. The sum of the numbers on each of the six outside sides of the hexagon must be **1355**.
 5. **The three axes and junggo (中觚)**: Each of the three axes passing through the centre, with 19 cells per axis, must sum to **2439**.
 

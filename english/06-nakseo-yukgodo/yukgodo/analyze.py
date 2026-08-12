@@ -17,7 +17,7 @@ OCR_ANCHORS = [
     ("共積二百七十", "270 cells are filled", "270 cells (center excluded by 虛一)"),
     ("虛一則二百七十數", "voiding the one leaves 270 numbers", "center cell unused"),
     ("校計周五十四數", "counting the perimeter gives 54", "outermost ring has 54 cells"),
-    ("通加洛書數六倍", "six times the Luoshu number (1+..+9=45) = 270", "total cells = 6×45"),
+    ("逓加洛書數六倍", "six times the Luoshu number (1+..+9=45) = 270", "total cells = 6×45"),
     ("十九爲中觚數也", "the central row has 19", "中觚 (row through the center) has 19 cells"),
     ("置外周添六", "proceeds around the outer ring adding six", "ring k has 6k cells (6,12,...,54)"),
     ("之數見甲編數器章", "provenance note for the numbers", "values 1..270 (籌數略 system)"),
@@ -106,7 +106,7 @@ def write_markdown(analysis: dict, report: PropertyReport,
                  f"({analysis['pair_check']['n_pairs']} pairs)")
     lines.append("")
     lines.append("## 4. Sums by structure\n")
-    lines.append("### Rings (通加洛書數六倍)\n")
+    lines.append("### Rings (逓加洛書數六倍)\n")
     lines.append("| ring k | cells 6k | sum | target 813k | met |")
     lines.append("|---|---|---|---|---|")
     for k in range(1, 10):

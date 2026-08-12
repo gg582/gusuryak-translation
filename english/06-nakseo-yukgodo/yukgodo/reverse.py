@@ -261,7 +261,7 @@ def annotation_crosscheck(analysis: dict) -> list[dict]:
             "evidence": "outermost ring has 54 cells (= 六九五十四)",
         },
         {
-            "fragment": "通加洛書數六倍",
+            "fragment": "逓加洛書數六倍",
             "reading": "six times the Luoshu number (1+..+9=45) = 270",
             "status": "confirmed",
             "evidence": "total cells 270 = 6×45",

@@ -14,7 +14,7 @@
 | 共積二百七十 | 270 cells are filled | 270 cells (center excluded by 虛一) |
 | 虛一則二百七十數 | voiding the one leaves 270 numbers | center cell unused |
 | 校計周五十四數 | counting the perimeter gives 54 | outermost ring has 54 cells |
-| 通加洛書數六倍 | six times the Luoshu number (1+..+9=45) = 270 | total cells = 6×45 |
+| 逓加洛書數六倍 | six times the Luoshu number (1+..+9=45) = 270 | total cells = 6×45 |
 | 十九爲中觚數也 | the central row has 19 | 中觚 (row through the center) has 19 cells |
 | 置外周添六 | proceeds around the outer ring adding six | ring k has 6k cells (6,12,...,54) |
 | 之數見甲編數器章 | provenance note for the numbers | values 1..270 (籌數略 system) |
@@ -27,7 +27,7 @@
 
 ## 4. Sums by structure
 
-### Rings (通加洛書數六倍)
+### Rings (逓加洛書數六倍)
 
 | ring k | cells 6k | sum | target 813k | met |
 |---|---|---|---|---|

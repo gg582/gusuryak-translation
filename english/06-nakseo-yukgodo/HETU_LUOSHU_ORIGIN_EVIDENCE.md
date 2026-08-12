@@ -87,7 +87,7 @@ Yukgodo is named and described as:
 
 > 洛書六觚圖
 >
-> 通加洛書數六倍
+> 逓加洛書數六倍
 
 Lifting Lo Shu's `k↔10-k` to sixfold ring sizes gives
 
@@ -127,7 +127,7 @@ Once adopted, it necessarily gives `v(c)+v(-c)=271`.
 | Hetu arithmetic | `併上下數` and five complement pairs totaling 11 | Direct arithmetic precedent for treating complements as computational/construction units |
 | Lo Shu control diagram | Four opposing complement pairs totaling 10, central 5 fixed | Direct coupling of positional opposition and value complement |
 | `體`/`用` distinction | Hetu 1…10; Lo Shu 1…9 | Continuous numerical-theoretical context for pairing and Lo Shu control |
-| Yukgodo text | `洛書六觚圖`, `通加洛書數六倍`, `54+6=60` | Actual sixfold lift and use of the Lo Shu complement relation |
+| Yukgodo text | `洛書六觚圖`, `逓加洛書數六倍`, `54+6=60` | Actual sixfold lift and use of the Lo Shu complement relation |
 | Yukgodo geometry/value set | 135 positional pairs and 135 value pairs | A gapless domain for the equivariant extension |
 
 `v(c)+v(-c)=271` is still not a literally transcribed one-line cell-by-cell command in the Yukgodo passage. But the rule no longer rests only on title, geometry, and value-set compatibility. The author first (a) composes constant sums from complementary values, then (b) places complementary Lo Shu values in opposing positions, and subsequently names and calculates Yukgodo as a sixfold Lo Shu figure. This continuous internal evidence materially strengthens the characterization of the condition as a strong internal antipodal-complement reconstruction principle, not an unsupported hypothesis.

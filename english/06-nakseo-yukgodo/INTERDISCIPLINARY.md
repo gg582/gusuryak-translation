@@ -39,7 +39,7 @@ The bottleneck was not that a single researcher had to master all three fields, 
 
 ### ① Textual Corpus & Provenance
 * Confirmed cross-textual evidence with *Book of Han (漢書·律曆志)* and Su Lin's commentary.
-* 6 confirmed primary textual statements (`共積二百七十`, `校計周五十四數`, `以筭遠則係以六`, `通加洛書數六倍`, `見甲編數器章`, `虛一則二百七十數`).
+* 6 confirmed primary textual statements (`共積二百七十`, `校計周五十四數`, `以筭遠則係以六`, `逓加洛書數六倍`, `見甲編數器章`, `虛一則二百七十數`).
 * High-confidence OCR numerical baseline in `ALGO_OCR_SUCCESS.md`.
 
 ### ② Numerical Evidence Chain

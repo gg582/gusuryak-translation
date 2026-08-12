@@ -143,7 +143,7 @@ def analyze_siamese(values: dict[Cell, int], grid: HexGrid,
                 "classical_chinese": "虛其中一，以二百七十數布之",
             },
             {
-                "original": "通加洛書數六倍",
+                "original": "逓加洛書數六倍",
                 "modern_check": "The count 270=6×45 and the complementary-pair structure remain valid.",
                 "classical_chinese": "六觚之均，由對位相補而成",
             },

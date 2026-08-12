@@ -42,7 +42,7 @@ PENALTY_FLOOR = 6.0                      # half-cell error limit of sectors and 
 
 
 def ring_target(k: int) -> int:
-    """Target sum of ring k = 813k (通加洛書數六倍: the total 6×45×271/2 distributed per ring)."""
+    """Target sum of ring k = 813k (逓加洛書數六倍: the total 6×45×271/2 distributed per ring)."""
     return 3 * k * PAIR_SUM
 
 

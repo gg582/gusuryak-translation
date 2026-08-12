@@ -9,7 +9,7 @@ The faint manuscript commentary's numerical and computational relationships were
 
 | Tier | Artifacts | Nature |
 |---|---|---|
-| Confirmed Text | The 6 core passages in README.md (共積二百七十, 校計周五十四數, 以筭遠則係以六, 通加洛書數六倍之數見甲編數器章, 虛一則二百七十數) | Confirmed transcription |
+| Confirmed Text | The 6 core passages in README.md (共積二百七十, 校計周五十四數, 以筭遠則係以六, 逓加洛書數六倍之數見甲編數器章, 虛一則二百七十數) | Confirmed transcription |
 | New OCR | ALGO_OCR_SUCCESS.md (39 lines) | Confirmed transcription numbers. The circle "〇" is a start/end marker (not 0; in *Gusuryak*, zero is exclusively written as "零") |
 | Geometric Model | yukgodo/hexgrid.py, tests/test_hexgrid.py | 271 cells / 270 after 虛一 / outer perimeter 54 / side length 10 / 中觚 19 / sector 45×6. All tests pass |
 | Computation Graph | yukgodo/naejeok.py | Exhaustive search of equations connecting textual numbers |
@@ -77,7 +77,7 @@ The user-provided direct OCR of the Bing-section [parallel text](BING_PARALLEL_O
 
 ### Independent Verifications Reaching 270 (All endpoints match textual values)
 
-- $6 \times 45 = 270$ — 通加洛書數六倍 (Confirmed text)
+- $6 \times 45 = 270$ — 逓加洛書數六倍 (Confirmed text)
 - $(6 + 54) \times 9 \div 2 = 270$ — Ring sum progression; the 60 in 添六得六十 represents the sum of the first and last rings.
 - $60 \times 9 \div 2 = 270$ — Identical path to above.
 - $271 - 1 = 270$ — 虛一則二百七十數 (Confirmed text)
@@ -118,7 +118,7 @@ The Naejeok chain determines the **cell counts and geometric skeleton**: 270 (�
 | Naejeok Value | Search Optimum Property (output/report.md) |
 |---|---|
 | 共積二百七十 / 虛一 | 270-cell layout, center excluded, total sum 36,585 |
-| 通加洛書數六倍 (6×45) | Ring $k$ sum = $813k$ (all 9 rings hold exactly) |
+| 逓加洛書數六倍 (6×45) | Ring $k$ sum = $813k$ (all 9 rings hold exactly) |
 | 十九爲中觚數也 | 3 axes of 19 cells each, axis sum $2,439 = 9 \times 271$ |
 | 校計周五十四數 | Outer perimeter of 54 cells, 6 side sums = 1,355 each |
 

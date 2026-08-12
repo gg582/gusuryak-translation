@@ -9,7 +9,7 @@ Search space:
         - antipodal pair sum 271            (the complementary structure of
                                              虛一·共積二百七十)
         - ring k sum = 813k                 (the per-ring distribution of
-                                             通加洛書數六倍)
+                                             逓加洛書數六倍)
         - axis (中觚) sum = 2439            (十九爲中觚數也)
 
     Only the remaining goals — side sums equal at 1355 and the half-cell

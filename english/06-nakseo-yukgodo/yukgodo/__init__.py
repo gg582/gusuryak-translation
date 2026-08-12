@@ -9,7 +9,7 @@ the *Hanshu* 律曆志):
     - hexagonal lattice with 10 cells per side: center 1 + 9 rings = 271 cells
     - 虛一: the center is left void → 270 cells (共積二百七十)
     - 54 perimeter cells (校計周五十四數); ring k has 6k cells
-    - total cells 270 = 6 × (1+2+...+9) = 6 × 45 (通加洛書數六倍)
+    - total cells 270 = 6 × (1+2+...+9) = 6 × 45 (逓加洛書數六倍)
     - central horizontal row (中觚) has 19 cells (十九爲中觚數也)
 
 Hypotheses (same technique as Choi Seok-jeong's other magic diagrams):

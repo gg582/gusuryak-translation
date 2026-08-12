@@ -19,7 +19,7 @@ def main() -> None:
     assert len(g.cells) == 271, len(g.cells)
     assert len(g.filled) == 270
 
-    # 고리 크기: 1, 6, 12, ..., 54 (通加洛書數六倍 = 6×45)
+    # 고리 크기: 1, 6, 12, ..., 54 (逓加洛書數六倍 = 6×45)
     sizes = [len(r) for r in g.rings]
     assert sizes == [1, 6, 12, 18, 24, 30, 36, 42, 48, 54], sizes
 

@@ -28,7 +28,7 @@ and cross-checking against manuscript commentary fragments.
 | 共積二百七十 | 270 cells are filled | confirmed | value set 1..270 over 270 cells (validated) |
 | 虛一則二百七十數 | voiding the one leaves 270 numbers | confirmed | center cell (0,0) unused |
 | 校計周五十四數 | counting the perimeter gives 54 | confirmed | outermost ring has 54 cells (= 六九五十四) |
-| 通加洛書數六倍 | six times the Luoshu number (1+..+9=45) = 270 | confirmed | total cells 270 = 6×45 |
+| 逓加洛書數六倍 | six times the Luoshu number (1+..+9=45) = 270 | confirmed | total cells 270 = 6×45 |
 | 十九爲中觚數也 | the central row has 19 | confirmed | 中觚 19 cells, sum 2439 = 9×271 |
 | 置外周添六 | outward, each ring grows by six cells | confirmed (cell-count reading) | ring k has 6k cells (6,12,...,54) |
 | 置外周添六 (value-rule reading) | place the values adding six | refuted | all 192 ±6 (mod 271) spiral variants fail (hypotheses.py best penalty 27672); best per-ring AP match 16.7% |

@@ -144,7 +144,7 @@ def analyze_siamese(values: dict[Cell, int], grid: HexGrid,
                 "hanmun": "虛其中一，以二百七十數布之",
             },
             {
-                "original": "通加洛書數六倍",
+                "original": "逓加洛書數六倍",
                 "modern_check": "칸 수 270=6×45 및 보수쌍 구조는 유지",
                 "hanmun": "六觚之均，由對位相補而成",
             },

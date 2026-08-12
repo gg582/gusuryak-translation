@@ -145,7 +145,7 @@ def ring_ap_analysis() -> dict:
                    "violating the 1..270 placement condition → unfit as a placement rule",
         "model_C_class_sums": class_sums,
         "model_C_note": "mod-6 residue classes: 6 classes × 45 values = another reading of "
-                        "通加洛書數六倍. Class sums run 5985..6210 (common difference 45); "
+                        "逓加洛書數六倍. Class sums run 5985..6210 (common difference 45); "
                         "opposite class pairs sum to 12195.",
     }
 

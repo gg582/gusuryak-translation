@@ -132,7 +132,7 @@ def draw_dashboard(report: PropertyReport, grid: HexGrid,
            label="target 813k")
     ax.bar([i + 0.2 for i in x], got, width=0.4, color="#807dba",
            label="measured")
-    ax.set_title("Ring sums (通加洛書數六倍)")
+    ax.set_title("Ring sums (逓加洛書數六倍)")
     ax.set_xticks(x)
     ax.set_xticklabels([f"ring {k}" for k in ks])
     ax.legend()

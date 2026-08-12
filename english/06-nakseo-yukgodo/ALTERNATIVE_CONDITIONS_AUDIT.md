@@ -27,7 +27,7 @@ These are fixed-seed, reproducible first comparison values. The models have broa
 ## Scope of each model
 
 1. **Non-antipodal complement pairs** are easy to realize mathematically, but the choice of matching is arbitrary unless a source specifies it.
-2. **Intra-ring complement pairs** automatically give ring sums `813k`. They fit the ring structure and `通加洛書數六倍`, but require an independent reason to choose adjacent pairings.
+2. **Intra-ring complement pairs** automatically give ring sums `813k`. They fit the ring structure and `逓加洛書數六倍`, but require an independent reason to choose adjacent pairings.
 3. **Sixfold rotation-orbit sum 813** naturally fits rings of size `6k` and automatically preserves their sums. No currently read text says `六轉` or specifies orbit total 813.
 4. **Opposed-region aggregates only** already have a penalty-6 countermodel. Aggregate invariants cannot replace a cell-level positional rule.
 5. **Nine Lo Shu rings plus a separate placement method** remains viable in both the countermodel and the intra-ring model. `洛書數六倍` strongly controls ring size/order, but does not by itself choose one value placement.

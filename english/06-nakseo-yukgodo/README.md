@@ -6,7 +6,7 @@
 
 以筭遠則係以六
 
-通加洛書數六倍
+逓加洛書數六倍
 
 之數見甲編數器章
 
@@ -18,7 +18,7 @@ The manuscript commentary marked as Naejeok Method (來積法) was so faintly sc
 
 Algebraic graph analysis (`python3 -m yukgodo.naejeok`) cross-checks several numerical relationships in this manual transcription. The current, high-confidence interpretation is that the commentary concerns **calculating and checking the total cell count of the hexagonal grid (積=271, 虛一 270)** rather than a spatial number-placement algorithm; this is an interpretation, not a recovered placement rule.
 
-The user-provided direct OCR of a [parallel Bing-section text](BING_PARALLEL_OCR.md) supplies additional internal evidence for this reading. `每十八隻包中六外成六觚`, followed by `添六隻` and `以十二而一得八隻`, places `包`, `隻`, `添六`, and `而一` in one vocabulary of hexagonal formation and count calculation. The OCR is preserved without silent character normalization, with a separately marked working layout of spaces and paragraphs. This strengthens the geometric/count reading of the Naejeok Method; it does not create a direct textual instruction that antipodal cell values sum to 271.
+The user-provided direct OCR of a [parallel Bing-section text](BING_PARALLEL_OCR.md) supplies additional internal evidence for this reading. `每十八隻包中六外成六觚`, followed by `添六隻` and `以十二而一得八隻`, places `包`, `隻`, `添六`, and `而一` in one vocabulary of hexagonal formation and count calculation. The OCR is preserved without silent character normalization, with a separately marked working layout of spaces and paragraphs. This reading of `包` — six wrapping a central node in a ring — is independently attested by `六包一` on page 11 of the published translation of the 九數略 Kun (坤) volume (tr. Jeong Hae-nam and Heo Min, Gyowusa), where it serves to compute a series of the form 1+(6+12+18+…); that series meshes term by term with the Yukgodo ring arithmetic (1 + 6×45 = 271, then 270 after the central vacancy). The original-text format of page 48 of the same edition is transcribed separately in [minimal.md](minimal.md). This strengthens the geometric/count reading of the Naejeok Method; it does not create a direct textual instruction that antipodal cell values sum to 271.
 
 ## Competing placement conditions and the immediately preceding Cheonsu Yong-o reprint
 
@@ -32,12 +32,12 @@ directly gives `216=4×54` and `54=6×9`. The strongest direct support from that
 
 ### Conditional plausibility ranking
 
-This ranking is conditional on reading the reprint as preparation for Yukgodo. Its criteria are: (i) directness to the preceding transcription, (ii) the construction precedents in `洛書六觚圖`, `通加洛書數六倍`, and the other Lo Shu diagrams, (iii) the number of arbitrary extra choices, and (iv) experimental cost under the same balance objective.
+This ranking is conditional on reading the reprint as preparation for Yukgodo. Its criteria are: (i) directness to the preceding transcription, (ii) the construction precedents in `洛書六觚圖`, `逓加洛書數六倍`, and the other Lo Shu diagrams, (iii) the number of arbitrary extra choices, and (iv) experimental cost under the same balance objective.
 
 | Rank | Condition family | Basis for assessment |
 | ---: | --- | --- |
 | 1 | **Internal antipodal-complement reconstruction principle** | Retains the Lo Shu family's positional/value complement precedents, the exact correspondence of 135 positional and 135 value pairs, and the ring relation `6k↔6(10-k)` totaling 60. It is compatible with the preceding `去中宮` and `54=6×9`, with penalty 6 and zero ring/axis deviation. A literal cell-by-cell command remains untranscribed. |
-| 2 | **Nine Lo Shu rings plus regional aggregates, with a separate placement method** | Closest to the preceding `外合` and `各得五十四`, while retaining Yukgodo's `通加洛書數六倍`. It does not determine a value-position rule because the separate method is not transcribed. |
+| 2 | **Nine Lo Shu rings plus regional aggregates, with a separate placement method** | Closest to the preceding `外合` and `各得五十四`, while retaining Yukgodo's `逓加洛書數六倍`. It does not determine a value-position rule because the separate method is not transcribed. |
 | 3 | **Intra-ring non-antipodal complement pairs** | Complement pairs within each ring automatically give `813k`; experimental penalty is also low at 10. No source criterion chooses adjacent, or any other, pair locations. |
 | 4 | **Opposed-region aggregates only** | Most resembles the preceding aggregate procedure and has a genuine penalty-6 non-antipodal countermodel. Precisely for that reason it is too weak as a cell-level placement rule. |
 | 5 | **Sixfold rotation-orbit total 813** | Fits the `6k` ring geometry and automatically preserves ring totals. There is no transcribed `六轉` or orbit-total-813 instruction, and its current balance penalty is 127. |
@@ -56,17 +56,19 @@ This project does not assume the restoration of a unique original arrangement or
 
 ## Evidence protocol for the antipodal-complement claim
 
-The rule `v(c)+v(-c)=271` is not treated as a directly transcribed instruction in the presently confirmed Yukgodo text. Directly supported by text and calculation are: 271 cells, 270 after the central vacancy, perimeter 54, side length 10, a central row of 19, and the strongly coherent count decomposition `19 + 2×((10+18)×9/2) = 271`. `通加洛書數六倍` and `54+6=60` are exactly compatible with lifting the Lo Shu complement pairs to sixfold ring sizes; by themselves they do not state a position-to-value correspondence.
+**The antipodal-complement rule (antipodal cell values summing to 271) is one of the most interesting hypotheses in this project, but it is not confirmed.** No passage commanding it has been transcribed anywhere in the source, and the countermodel audit shows that the remaining aggregate conditions do not logically force it. Every search result below is a conditional consequence of adopting this hypothesis, not direct evidence that the source actually placed values that way.
+
+The rule `v(c)+v(-c)=271` is not treated as a directly transcribed instruction in the presently confirmed Yukgodo text. Directly supported by text and calculation are: 271 cells, 270 after the central vacancy, perimeter 54, side length 10, a central row of 19, and the strongly coherent count decomposition `19 + 2×((10+18)×9/2) = 271`. `逓加洛書數六倍` and `54+6=60` are exactly compatible with lifting the Lo Shu complement pairs to sixfold ring sizes; by themselves they do not state a position-to-value correspondence.
 
 The solver's antipodal-slot representation is therefore a conditional search space: it is used after adopting this reconstruction principle, not as a proof that the rule follows from the cell-count text alone. The separate [antipodal audit](ANTIPODAL_AUDIT.md) removes that rule and supplies a countermodel preserving the aggregate balances while breaking antipodal value complements. [ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md](ANTIPODAL_RECONSTRUCTION_PRINCIPLE.md) states why this logical non-implication is not an absence of internal historical support.
 
-The earliest in-book starting point for this principle is the Hetu/Lo Shu account in `數原第一`. `併上下數共一十一` and `化裁五格各得一十一數` directly calculate constant sums by pairing the extremes; the following 3×3 Lo Shu places `4+6=9+1=2+8=3+7=10` at opposing positions and fixes central 5. The continuous sequence from `河圖為體` and `洛書為用` to `洛書六觚圖`, `通加洛書數六倍`, and `54+6=60` materially strengthens the internal basis for the Yukgodo antipodal-complement reconstruction principle. [HETU_LUOSHU_ORIGIN_EVIDENCE.md](HETU_LUOSHU_ORIGIN_EVIDENCE.md) records the quotations and their scope.
+The earliest in-book starting point for this principle is the Hetu/Lo Shu account in `數原第一`. `併上下數共一十一` and `化裁五格各得一十一數` directly calculate constant sums by pairing the extremes; the following 3×3 Lo Shu places `4+6=9+1=2+8=3+7=10` at opposing positions and fixes central 5. The continuous sequence from `河圖為體` and `洛書為用` to `洛書六觚圖`, `逓加洛書數六倍`, and `54+6=60` materially strengthens the internal basis for the Yukgodo antipodal-complement reconstruction principle. [HETU_LUOSHU_ORIGIN_EVIDENCE.md](HETU_LUOSHU_ORIGIN_EVIDENCE.md) records the quotations and their scope.
 
 ### Why the source title matters: 洛書六觚圖
 
 The author names the diagram **洛書六觚圖**—"Lo Shu Six-Corner Diagram"—rather than merely a six-corner or hexagonal figure. This is a primary naming fact. It does not, by title alone, spell out a cell-placement algorithm. But it is strong internal evidence that the six-corner figure is meant to be read under the book's Lo Shu principles rather than as an unrelated geometric container.
 
-That reading gains force from four independent facts documented below: (1) other diagrams explicitly named `洛書…圖` preserve the 3×3 Lo Shu array as their control array; (2) those diagrams use complement pairs as an actual balancing construction, not merely as an after-the-fact pattern; (3) `通加洛書數六倍` lifts Lo Shu's `k↔10-k` to sixfold ring sizes, and the Naejeok calculation begins with `54+6=60`; and (4) the *Taiyin Numbers*, second method, supplies a central-vacancy, pair-counting precedent. Together these make an equivariant Lo-Shu expansion a high-probability reconstruction principle for **洛書六觚圖**, though still not a literal cell-by-cell instruction.
+That reading gains force from four independent facts documented below: (1) other diagrams explicitly named `洛書…圖` preserve the 3×3 Lo Shu array as their control array; (2) those diagrams use complement pairs as an actual balancing construction, not merely as an after-the-fact pattern; (3) `逓加洛書數六倍` lifts Lo Shu's `k↔10-k` to sixfold ring sizes, and the Naejeok calculation begins with `54+6=60`; and (4) the *Taiyin Numbers*, second method, supplies a central-vacancy, pair-counting precedent. Together these make an equivariant Lo-Shu expansion a high-probability reconstruction principle for **洛書六觚圖**, though still not a literal cell-by-cell instruction.
 
 ### Internal precedent: *Taiyin Numbers*, second method (二之四)
 
@@ -162,7 +164,7 @@ Literary numerical values and geometric calculations align exactly, confirming t
 - Hexagonal grid of side length 10: center 1 + ring k (each 6k cells, k=1..9) = **271 cells**
 - **虛一**: Center left empty → **270 cells** (共積二百七十 / 虛一則二百七十數)
 - Outer perimeter of **54 cells** (校計周五十四數 = Su Lin's 六九五十四)
-- Total cells 270 = 6×(1+2+...+9) = **6×45** (通加洛書數六倍)
+- Total cells 270 = 6×(1+2+...+9) = **6×45** (逓加洛書數六倍)
 - Central row (中觚) of **19 cells** (十九爲中觚數也)
 
 ## Reconstruction Hypothesis: Applying the Complement Involution Technique Confirmed in Choi Seok-jeong's Other Diagrams
@@ -171,6 +173,16 @@ Literary numerical values and geometric calculations align exactly, confirming t
 - Two values at antipodal (point-symmetric) positions form a complement pair summing to **271** (complement pair technique as in Joongsang Gwinumdo, etc.)
 
 Under this hypothesis, ring k sum = 813k and the sum of 18 values on each antipodal axis excluding the center vacancy = 9×271 = 2439 are structurally guaranteed automatically, and the search finds only the balance of sides, sectors, and rays.
+
+## Reconstruction Hypothesis: Consecutive Ring Values (Z3 Arithmetic Reconstruction)
+
+`z3_arithmetic_reconstruction.py` formalizes another leading hypothesis. It encodes the arithmetic structure directly supported by the text — the 逓加 ring sizes 6k, the Naejeok chain (54+6=60, 60÷6=10, 2×10−1=19, (10+18)×9=252, 252+19=271), and the central vacancy 虛一 giving 270 — as Z3 constraints, and adds the following hypothesis to recover individual values:
+
+- Place values 1..270 each exactly once
+- Ring k receives the consecutive interval 3k(k−1)+1 … 3k(k+1) (ring 1: 1..6, …, ring 9: 217..270)
+- Within each ring, values proceed consecutively around the circumference
+
+The starting point and direction of each ring are a normalization of rotational symmetry, not a manuscript claim. This is a separate candidate from the antipodal-complement hypothesis (its ring sums are 18k³+3k, not 813k). Running the script verifies satisfiability and draws the arrangement (`reconstruction_1.png`).
 
 ## Execution
 
@@ -184,6 +196,7 @@ python3 -m yukgodo.antipodal_audit  # Hypothesis-removal audit for antipodal com
 python3 -m yukgodo.nakseo_family_audit  # Compare the common Lo Shu control rule across diagrams
 python3 -m yukgodo.mod5           # mod 5 residue class coloring + 5-layer geometric analysis
 python3 -m yukgodo.modn_generalization  # mod N antipodal residue action — cross-diagram validation
+python3 z3_arithmetic_reconstruction.py  # Z3 arithmetic reconstruction of the consecutive ring-value hypothesis + diagram
 ```
 
 ## External Evidence Submodule
@@ -290,7 +303,7 @@ Sector and ray sums cannot be exactly equal because cell counts are odd (45 cell
 
 ## Note
 
-This arrangement does not reproduce the Naejeok Method procedure or a unique original layout; it is an optimal witness solution produced by applying the antipodal complement reconstruction hypothesis and a modern balance objective function to the grid specifications restored from the literature.
+This arrangement does not reproduce the Naejeok Method procedure or a unique original layout; it is an optimal witness solution produced by applying the antipodal complement reconstruction hypothesis and a modern balance objective function to the grid specifications restored from the literature. In other words, the antipodal-complement rule is an interesting hypothesis and one of the leading candidate interpretations only — not a confirmed textual condition — and whether the historical diagram actually followed it remains unresolved.
 
 ## Hypothesis Verification Conclusions (`output/hypotheses.json`)
 
@@ -319,7 +332,7 @@ python3 -m yukgodo.reverse    # verification → output/reverse_engineering.{jso
 
 **Commentary comparison results:**
 
-- **Confirmed (cell count·geometry)**: 共積二百七十, 虛一則二百七十數, 校計周五十四數, 通加洛書數六倍(270=6×45), 十九爲中觚數也, 置外周五十四以九乘之得四百八十六 and 折半加九得二百五十二 (confirmation of the geometric derivation formula outer perimeter 54 * 9 / 2 + 9 = 252), 倍之得五百四 and 折半得二百五十二 (confirmation of the 504 doubling and halving verification formula), 合從九目得二百五十二 and 去中觚 (252 remaining after removing the 18 central axis cells from the 270 total ring cells), 置外周添六 (cell count reading that rings increase by 6 cells each).
+- **Confirmed (cell count·geometry)**: 共積二百七十, 虛一則二百七十數, 校計周五十四數, 逓加洛書數六倍(270=6×45), 十九爲中觚數也, 置外周五十四以九乘之得四百八十六 and 折半加九得二百五十二 (confirmation of the geometric derivation formula outer perimeter 54 * 9 / 2 + 9 = 252), 倍之得五百四 and 折半得二百五十二 (confirmation of the 504 doubling and halving verification formula), 合從九目得二百五十二 and 去中觚 (252 remaining after removing the 18 central axis cells from the 270 total ring cells), 置外周添六 (cell count reading that rings increase by 6 cells each).
 - **Refuted (concrete value placement reading)**: The evaluated ±6 shift and ring-wise arithmetic progression models all failed.
 - **Unresolved (algorithmic function unconfirmed)**: Character decipherment of `寄左`·`序左`·`以筭遠則係以六` is complete, but which mathematical function they refer to remains unconfirmed in context.
 

@@ -114,3 +114,25 @@ This parallel passage strongly reinforces three points:
 3. The Yukgodo Naejeok Method is much more likely to be read as one instance of a Bing-section computational method linking perimeter, increments, division, powers/multiples, and hexagonal accumulated counts—not as an instruction for placing values.
 
 This parallel passage still does not provide a direct counterpart for Yukgodo cell values such as `對觚相合二百七十一`. It therefore does not elevate the evidential status of the antipodal-complement rule to direct transcription. It is recorded as independent parallel evidence that strongly reinforces the **geometrical/accumulated-count** interpretation of the Naejeok Method.
+
+## Parallel vocabulary in a published translation
+
+As a separate, independent document, [minimal.md](minimal.md) transcribes the original-text format from page 48 of the published translation of the 九數略, Kun (坤) volume (tr. Jeong Hae-nam and Heo Min, Gyowusa). On page 11 of the same edition, `六包一` — "six wrapping one" — is used in the context of computing a series of the form 1+(6+12+18+…), the centered hexagonal numbers. This is an independent published-translation attestation supporting the reading above of `包` as wrapping circularly around a central node.
+
+### Alignment with the computational rings
+
+The `六包一` series meshes term by term with the Yukgodo ring arithmetic:
+
+```
+六包一 series (Gyowusa p. 11):    1 + (6 + 12 + … + 6n) = 1 + 3n(n+1)
+Yukgodo (n = 9):                  1 + 270 = 271
+  逓加洛書數六倍:                  6 × (1+…+9) = 6 × 45 = 270   ← the parenthesized part
+  虛一:                            271 − 1 = 270
+  來積法:                          54 = 6×9 (last term of the series = perimeter)
+                                   54 ÷ 6 = 9 (ring count)
+                                   60 ÷ 6 = 10 (cells per side), 2×10 − 1 = 19 (中觚)
+圓束樣式 (Gyowusa p. 48, minimal.md): minimal case n = 1 — 1 + 6 = 7 cells, center void
+z3_arithmetic_reconstruction.py:    ring_sizes[k] = 6k,  occupied = Σ 6k = 270,  + 1 void = 271
+```
+
+This alignment also matches the readings above of `包中六外成六觚` (wrapping the centre, six outward, forming the six 觚) and of the 圓束樣式 seven-cell figure (six cells wrapping one central cell). The evidence strengthens the lexical reading and the cell-count arithmetic only; it is unrelated to any value-placement condition for the Yukgodo cells.

@@ -22,7 +22,7 @@ The basic Lo Shu’s central symmetry gives `1+9=2+8=3+7=4+6=10` for its four po
 
 ## The exact lift to the Yukgodo
 
-The Yukgodo’s confirmed phrase `通加洛書數六倍` lifts the Lo Shu numbers \(k=1,\ldots,9\) to ring sizes \(6k\). Thus the basic Lo Shu complementary-pair sum becomes:
+The Yukgodo’s confirmed phrase `逓加洛書數六倍` lifts the Lo Shu numbers \(k=1,\ldots,9\) to ring sizes \(6k\). Thus the basic Lo Shu complementary-pair sum becomes:
 
 \[
 6k+6(10-k)=60.
@@ -36,7 +36,7 @@ The following three levels are distinct, but point in one direction:
 
 1. Nakseo-family diagrams repeatedly preserve the 3×3 Lo Shu as a control array.
 2. The family includes 洛書九九圖, which uses complementary pairs as an actual balancing construction rule.
-3. The Yukgodo explicitly reproduces the basic Lo Shu complementary sum at the ring level through `通加洛書數六倍` and `54+6=60`.
+3. The Yukgodo explicitly reproduces the basic Lo Shu complementary sum at the ring level through `逓加洛書數六倍` and `54+6=60`.
 
 Together with the 圓束樣式 in the second method of *Taiyin Numbers*—three antipodal pairs after the centre is left vacant—and the Yukgodo’s `271→270=2×135`, pairing antipodal positions with values summing to 271 accords very closely with the book’s internal numerical-construction grammar.
 

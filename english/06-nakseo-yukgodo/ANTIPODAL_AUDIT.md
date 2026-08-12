@@ -2,7 +2,7 @@
 
 ## Verdict
 
-`v(c)+v(-c)=271` is **not logically derived** from the presently deciphered Naejeok Method and the geometric values. Lo Shu complementary pair sums, `通加洛書數六倍`, `54+6=60`, centrally symmetric geometry, and the complementary set 1…270 form strong internal coherence. The Bing-section `圓束樣式` adds a geometrical precedent for a vacant centre; its `一百四十四隻` uses `隻` to count one member of each pair, adding a strong internal precedent for the antipodal-pair unit as well.
+`v(c)+v(-c)=271` is **not logically derived** from the presently deciphered Naejeok Method and the geometric values. Lo Shu complementary pair sums, `逓加洛書數六倍`, `54+6=60`, centrally symmetric geometry, and the complementary set 1…270 form strong internal coherence. The Bing-section `圓束樣式` adds a geometrical precedent for a vacant centre; its `一百四十四隻` uses `隻` to count one member of each pair, adding a strong internal precedent for the antipodal-pair unit as well.
 
 The documentation therefore distinguishes the following two levels.
 
