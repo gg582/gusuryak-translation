@@ -1,4 +1,4 @@
-# Valid Magic Square Correction
+# Baekjado Correction
 
 ## baekjado correction
 
@@ -18,7 +18,11 @@
 - Order: 10×10
 - Row sums: [505, 505, 505, 505, 505, 505, 505, 505, 505, 505]
 - Column sums: [505, 505, 505, 505, 505, 505, 505, 505, 505, 505]
-- Diagonal sums: [np.int64(490), np.int64(520)]
+- Main-diagonal sums: [490, 520]
 - Normal set (1~100): Yes
 - Semi-magic: Yes
 - Magic square: No
+
+Every row and column sums to 505, but neither main diagonal does. The
+corrected diagram is therefore a normal **semi-magic square**, not a complete
+magic square.
