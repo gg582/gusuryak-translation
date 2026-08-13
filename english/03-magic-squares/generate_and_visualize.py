@@ -154,16 +154,6 @@ def generate_corrected_10x10():
     m04 = ORIGINALS["baekjasaengseong_sunsu_original"].copy()
     m04[1, 2] = 69
     
-    # 2. Baekjasaengseong-gyosu correction: Restore original symmetry and apply annotated corrections
-    m05 = ORIGINALS["baekjasaengseong_gyosu_original"].copy()
-    m05[5, 0] = 52 # 42 -> 52
-    m05[5, 9] = 59 # 49 -> 59
-    # Apply corrections from the original textual annotations (16 -> 11, 85 -> 86)
-    m05[1, 0] = 11
-    m05[8, 9] = 11
-    m05[8, 0] = 86
-    m05[1, 9] = 86
-    
     # 3. Baekjayin-yang-jamo-chakjong correction: Restore semi-magic structure and 1-100 permutation with minimal correction (5 cells corrected)
     m06 = ORIGINALS["baekjayin_yang_jamo_chakjong_original"].copy()
     m06[1, 2] = 54
@@ -185,7 +175,6 @@ def generate_corrected_10x10():
     
     corrected = {
         "baekjasaengseong_sunsu_correction": m04,
-        "baekjasaengseong_gyosu_correction": m05,
         "baekjayin_yang_jamo_chakjong_correction": m06,
         "baekjado_correction": m07,
     }
@@ -217,7 +206,6 @@ def main():
     # Save corrected.md files in their respective folders
     folder_map = {
         "baekjasaengseong_sunsu_correction": "04-baekjasaengseong-sunsu",
-        "baekjasaengseong_gyosu_correction": "05-baekjasaengseong-gyosu",
         "baekjayin_yang_jamo_chakjong_correction": "06-baekjayin-yang-jamo-chakjong",
         "baekjado_correction": "10-baekjado",
     }

@@ -99,20 +99,19 @@ and 520.
 ### Baekjasaengseong-gyosu (Hundred-Numbers Crossed-Numbers Diagram, 百子生成交數圖)
 
 ```
- 10 19 28 37 46 55 64 73 82 91 
- 16 20 39 48  7 94 53 62 71 85 
- 27 36 40  9 18 83 92 51 65 74 
- 38 47  6 10 29 72 81 95 54 63 
- 59  8 17 26 30 61 75 84 93 52 
- 42 93 84 75 61 30 26 17  8 49 
- 63 54 95 81 72 29 10  6 47 38 
- 74 65 51 92 83 18  9 40 36 27 
- 85 71 62 53 94  7 48 39 20 16 
- 91 82 73 64 55 46 37 28 19 10
+ (0,10) (1,9) (2,8) (3,7) (4,6) (5,5) (6,4) (7,3) (8,2) (9,1)
+ (1,6) (2,0) (3,9) (4,8) (0,7) (9,4) (5,3) (6,2) (7,1) (8,5)
+ (2,7) (3,6) (4,0) (0,9) (1,8) (8,3) (9,2) (5,1) (6,5) (7,4)
+ (3,8) (4,7) (0,6) (0,10) (2,9) (7,2) (8,1) (9,5) (5,4) (6,3)
+ (5,9) (0,8) (1,7) (2,6) (3,0) (6,1) (7,5) (8,4) (9,3) (5,2)
+ (4,2) (9,3) (8,4) (7,5) (6,1) (3,0) (2,6) (1,7) (0,8) (4,9)
+ (6,3) (5,4) (9,5) (8,1) (7,2) (2,9) (0,10) (0,6) (4,7) (3,8)
+ (7,4) (6,5) (5,1) (9,2) (8,3) (1,8) (0,9) (4,0) (3,6) (2,7)
+ (8,5) (7,1) (6,2) (5,3) (9,4) (0,7) (4,8) (3,9) (2,0) (1,6)
+ (9,1) (8,2) (7,3) (6,4) (5,5) (4,6) (3,7) (2,8) (1,9) (0,10)
 ```
 
-*The 16 at row 2, column 1 should be 11 (by symmetry, the 16 at row 9, column 10 should also be 11).*
-*The 85 at row 9, column 1 should be 86 (by symmetry, the 85 at row 2, column 10 should also be 86).*
+The source records ordered pairs, not decimal integers formed by concatenating their components. It is a 50-orthogonal superposition of two order-ten Latin squares, in which 50 ordered pairs each occur twice. The earlier numerical “corrections” (`16→11`, `85→86`, and symmetry-based substitutions) therefore do not apply. This diagram is a pair-grid, not a magic square.
 
 ### Baekjayin-yang-jamo-chakjong (Hundred-Numbers Yin-Yang Mother-Child Intertwining Diagram, 百子陰陽子母錯綜圖)
 
@@ -182,14 +181,14 @@ corrected versions for numerical verification and follow-up analysis:
 
 - [Baekjajasuyin-yang-chakjong correction](03-baekjajasuyin-yang-chakjong/corrected.md)
 - [Baekjasaengseong-sunsu correction](04-baekjasaengseong-sunsu/corrected.md)
-- [Baekjasaengseong-gyosu correction](05-baekjasaengseong-gyosu/corrected.md)
+- [Baekjasaengseong-gyosu analysis](05-baekjasaengseong-gyosu/analysis.md)
 - [Baekjayin-yang-jamo-chakjong correction](06-baekjayin-yang-jamo-chakjong/corrected.md)
 - [Baekjado correction](10-baekjado/corrected.md)
 
-The corrected Sunsu, Gyosu, and Jamo-chakjong diagrams use every value from 1
-through 100 exactly once and are complete magic squares: every row, column,
-and main diagonal sums to 505. The Baekjado correction is instead a semi-magic
-square, with only its row and column sums equal to 505. The child and mother
+Gyosu-do is not a correction target: it is an order-ten 50-orthogonal Latin-square
+pair recorded as ordered pairs, not a magic-square verification target. The Baekjado
+correction is instead a semi-magic square, with only its row and column sums equal
+to 505. The child and mother
 diagrams are recorded in the source as separate Latin-square bases, rather
 than as a single composed source diagram. Notes for arrays not confirmed as
 normal sets record the possibility of differences between print editions or

@@ -1,24 +1,3 @@
-# Valid Magic Square Correction
+# Baekjasaengseong-gyosu: no corrected edition
 
-## baekjasaengseong gyosu correction
-
-```
- 10  19  28  37  46  55  64  73  82  91
- 11  20  39  48   7  94  53  62  71  86
- 27  36  40   9  18  83  92  51  65  74
- 38  47   6  10  29  72  81  95  54  63
- 59   8  17  26  30  61  75  84  93  52
- 52  93  84  75  61  30  26  17   8  59
- 63  54  95  81  72  29  10   6  47  38
- 74  65  51  92  83  18   9  40  36  27
- 86  71  62  53  94   7  48  39  20  11
- 91  82  73  64  55  46  37  28  19  10
-```
-
-- Order: 10×10
-- Row sums: [505, 491, 495, 495, 505, 505, 495, 495, 491, 505]
-- Column sums: [511, 495, 495, 495, 495, 495, 495, 495, 495, 511]
-- Diagonal sums: [np.int64(220), np.int64(710)]
-- Normal set (1~100): No
-- Semi-magic: No
-- Magic square: No
+Baekjasaengseong-gyosu is correctly transcribed as a pair-grid and is not corrected into a numerical magic square. See [analysis.md](analysis.md) for the transcription and classification.
