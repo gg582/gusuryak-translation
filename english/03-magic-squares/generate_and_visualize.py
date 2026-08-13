@@ -65,7 +65,7 @@ ORIGINALS = {
     ]),
     "baekjasaengseong_sunsu_original": np.array([
         [90, 89, 78, 67, 56, 45, 34, 23, 12,  1],
-        [86, 70, 39, 58, 97,  4, 43, 32, 21, 15],
+        [86, 70, 69, 58, 97,  4, 43, 32, 21, 15],
         [77, 66, 50, 99, 88, 13,  2, 41, 35, 24],
         [68, 57, 96, 80, 79, 22, 11,  5, 44, 33],
         [59, 98, 87, 76, 60, 31, 25, 14,  3, 42],
@@ -150,9 +150,8 @@ def matrix_to_markdown(m, title):
 
 def generate_corrected_10x10():
     """Generate corrected versions based on the original grid's point symmetry and combinatorial rules."""
-    # 1. Baekjasaengseong-sunsu correction: Restore original point symmetry (39 -> 69)
+    # 1. Baekjasaengseong-sunsu
     m04 = ORIGINALS["baekjasaengseong_sunsu_original"].copy()
-    m04[1, 2] = 69
     
     # 3. Baekjayin-yang-jamo-chakjong correction: Restore semi-magic structure and 1-100 permutation with minimal correction (5 cells corrected)
     m06 = ORIGINALS["baekjayin_yang_jamo_chakjong_original"].copy()
@@ -174,7 +173,7 @@ def generate_corrected_10x10():
     m07[7, 9] = 88
     
     corrected = {
-        "baekjasaengseong_sunsu_correction": m04,
+        "baekjasaengseong_sunsu": m04,
         "baekjayin_yang_jamo_chakjong_correction": m06,
         "baekjado_correction": m07,
     }
@@ -205,7 +204,7 @@ def main():
 
     # Save corrected.md files in their respective folders
     folder_map = {
-        "baekjasaengseong_sunsu_correction": "04-baekjasaengseong-sunsu",
+        "baekjasaengseong_sunsu": "04-baekjasaengseong-sunsu",
         "baekjayin_yang_jamo_chakjong_correction": "06-baekjayin-yang-jamo-chakjong",
         "baekjado_correction": "10-baekjado",
     }

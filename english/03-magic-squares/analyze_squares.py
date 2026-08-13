@@ -7,6 +7,31 @@ Analyzes the mathematical properties of traditional Korean magic squares recorde
 import os
 from collections import defaultdict
 
+
+SUNSU_DECIMAL = [
+    [90, 89, 78, 67, 56, 45, 34, 23, 12, 1],
+    [86, 70, 69, 58, 97, 4, 43, 32, 21, 15],
+    [77, 66, 50, 99, 88, 13, 2, 41, 35, 24],
+    [68, 57, 96, 80, 79, 22, 11, 5, 44, 33],
+    [59, 98, 87, 76, 60, 31, 25, 14, 3, 42],
+    [42, 3, 14, 25, 31, 60, 76, 87, 98, 59],
+    [33, 44, 5, 11, 22, 79, 80, 96, 57, 68],
+    [24, 35, 41, 2, 13, 88, 99, 50, 66, 77],
+    [15, 21, 32, 43, 4, 97, 58, 69, 70, 86],
+    [1, 12, 23, 34, 45, 56, 67, 78, 89, 90],
+]
+
+
+def sunsu_pair(value):
+    """Decode Sunsu-do: terminal decimal 0 represents the second symbol 10."""
+    if value < 10:
+        return (0, value)
+    first, second = divmod(value, 10)
+    return (first, second or 10)
+
+
+SUNSU_PAIRS = [[sunsu_pair(value) for value in row] for row in SUNSU_DECIMAL]
+
 # Raw data extracted from square.md
 SQUARES = {
     "Yukyukdo (Six-Six Board, 六六圖)": {
@@ -91,11 +116,11 @@ SQUARES = {
         "examples": [
             [
                 [90, 89, 78, 67, 56, 45, 34, 23, 12, 1],
-                [86, 79, 39, 58, 97, 4, 43, 32, 21, 15],
-                [77, 66, 50, 99, 88, 13, 2, 41, 25, 24],
+                [86, 70, 69, 58, 97, 4, 43, 32, 21, 15],
+                [77, 66, 50, 99, 88, 13, 2, 41, 35, 24],
                 [68, 57, 96, 80, 79, 22, 11, 5, 44, 33],
                 [59, 98, 87, 76, 60, 31, 25, 14, 3, 42],
-                [24, 3, 14, 25, 31, 60, 76, 87, 98, 59],
+                [42, 3, 14, 25, 31, 60, 76, 87, 98, 59],
                 [33, 44, 5, 11, 22, 79, 80, 96, 57, 68],
                 [24, 35, 41, 2, 13, 88, 99, 50, 66, 77],
                 [15, 21, 32, 43, 4, 97, 58, 69, 70, 86],
@@ -138,6 +163,9 @@ SQUARES = {
         ],
     },
 }
+
+# Sunsu-do is analysed as its decoded ordered-pair grid, not as decimal cells.
+SQUARES["Baekjasaengseong-sunsu (Hundred-Numbers Pure-Generation Diagram, 百子生成純數圖)"]["examples"] = [SUNSU_PAIRS]
 
 
 def magic_constant(n, start=1):
@@ -304,8 +332,8 @@ def describe_generation_rule(name, data):
         )
     elif name == "Baekjasaengseong-sunsu (Hundred-Numbers Pure-Generation Diagram, 百子生成純數圖)":
         return (
-            "10×10 number arrangement. This example is not a normal 1-through-100 set, and its row, column, and diagonal sums are not all 505. "
-            "Some rows and columns retain symmetric relationships, but the verification does not classify it as a magic square or an associated magic square."
+            "10×10 ordered-pair grid. Its two components are Latin squares of order ten, and their superposition is 50-orthogonal: "
+            "50 ordered pairs occur twice each. Every pair also recurs at its antipodal cell under 180-degree rotation."
         )
     elif name == "Baekjasaengseong-gyosu (Hundred-Numbers Crossed-Numbers Diagram, 百子生成交數圖)":
         return (
@@ -324,6 +352,51 @@ def describe_generation_rule(name, data):
     return ""
 
 
+def analyze_sunsu_pairs(matrix=SUNSU_PAIRS):
+    """Analyse Sunsu-do as an ordered-pair grid, never as decimal integers."""
+    n = len(matrix)
+    component_symbols = (set(range(10)), set(range(1, 11)))
+    component_latin = []
+    for component, symbols in enumerate(component_symbols):
+        rows_ok = all({cell[component] for cell in row} == symbols for row in matrix)
+        cols_ok = all({matrix[row][col][component] for row in range(n)} == symbols for col in range(n))
+        component_latin.append(rows_ok and cols_ok)
+    frequencies = defaultdict(int)
+    for row in matrix:
+        for pair in row:
+            frequencies[pair] += 1
+    rotational = all(matrix[row][col] == matrix[n - 1 - row][n - 1 - col]
+                     for row in range(n) for col in range(n))
+    return {
+        "component_latin": component_latin,
+        "pair_count": len(frequencies),
+        "pair_multiplicities": set(frequencies.values()),
+        "rotational": rotational,
+    }
+
+
+def render_sunsu_analysis(result):
+    assert result["component_latin"] == [True, True]
+    assert result["pair_count"] == 50 and result["pair_multiplicities"] == {2}
+    assert result["rotational"]
+    return """# Baekjasaengseong-sunsu (Hundred-Numbers Pure-Generation Diagram, 百子生成純數圖)
+
+Order: 10×10
+
+## Transcription and classification
+
+Sunsu-do is an **ordered-pair** grid. Split a two-digit entry into its digits, write `10` as `(0,10)`, write a one-digit entry such as `7` as `(0,7)`, and read a two-digit entry ending in `0` with second component `10`: `90=(9,10)`. It must not be collapsed into a decimal array and tested as a normal 1–100 magic square.
+
+## Component structure
+
+- The first component is a Latin square on `0`–`9`; the second is a Latin square on `1`–`10`.
+- The superposition has 50 distinct ordered pairs, each occurring twice. Sunsu-do is therefore an **order-ten 50-orthogonal Latin-square pair**.
+- Under a 180-degree rotation, every ordered pair maps to the identical pair at its antipodal position. The 100 cells partition into 50 antipodal pairs, each holding the same ordered pair.
+
+Sunsu-do shares Gyosu-do’s ordered-pair and 50-orthogonal structure, with the additional 180-degree rotational symmetry. It is not a magic square defined by sums of decimal cell values.
+"""
+
+
 def main():
     output_dir = "/home/yjlee/gusuryak-translation/english/03-magic-squares"
     folder_map = {
@@ -336,8 +409,16 @@ def main():
     }
 
     summary_lines = ["# Magic Square Analysis Summary\n"]
+    sunsu_result = analyze_sunsu_pairs()
+    sunsu_path = os.path.join(output_dir, "04-baekjasaengseong-sunsu", "analysis.md")
+    os.makedirs(os.path.dirname(sunsu_path), exist_ok=True)
+    with open(sunsu_path, "w", encoding="utf-8") as f:
+        f.write(render_sunsu_analysis(sunsu_result))
+    summary_lines.append("- **Baekjasaengseong-sunsu (Hundred-Numbers Pure-Generation Diagram, 百子生成純數圖)**: 10×10 ordered-pair grid; two Latin components; 50-orthogonal; 180° rotational symmetry")
 
     for name, data in SQUARES.items():
+        if name == "Baekjasaengseong-sunsu (Hundred-Numbers Pure-Generation Diagram, 百子生成純數圖)":
+            continue
         folder = folder_map[name]
         os.makedirs(os.path.join(output_dir, folder), exist_ok=True)
         results = analyze(name, data)

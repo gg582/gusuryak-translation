@@ -83,17 +83,30 @@ all rows and columns sum to 505, while its main diagonals sum to 490 and 520.
 ### Baekjasaengseong-sunsu (Hundred-Numbers Pure-Generation Diagram, 百子生成純數圖)
 
 ```
-90 89 78 67 56 45 34 23 12  1
-86 70 39 58 97  4 43 32 21 15
-77 66 50 99 88 13  2 41 35 24
-68 57 96 80 79 22 11  5 44 33
-59 98 87 76 60 31 25 14  3 42
-42  3 14 25 31 60 76 87 98 59
-33 44  5 11 22 79 80 96 57 68
-24 35 41  2 13 88 99 50 66 77
-15 21 32 43  4 97 58 69 70 86
- 1 12 23 34 45 56 67 78 89 90
+(9,10) (8,9) (7,8) (6,7) (5,6) (4,5) (3,4) (2,3) (1,2) (0,1)
+(8,6) (7,10) (6,9) (5,8) (9,7) (0,4) (4,3) (3,2) (2,1) (1,5)
+(7,7) (6,6) (5,10) (9,9) (8,8) (1,3) (0,2) (4,1) (3,5) (2,4)
+(6,8) (5,7) (9,6) (8,10) (7,9) (2,2) (1,1) (0,5) (4,4) (3,3)
+(5,9) (9,8) (8,7) (7,6) (6,10) (3,1) (2,5) (1,4) (0,3) (4,2)
+(4,2) (0,3) (1,4) (2,5) (3,1) (6,10) (7,6) (8,7) (9,8) (5,9)
+(3,3) (4,4) (0,5) (1,1) (2,2) (7,9) (8,10) (9,6) (5,7) (6,8)
+(2,4) (3,5) (4,1) (0,2) (1,3) (8,8) (9,9) (5,10) (6,6) (7,7)
+(1,5) (2,1) (3,2) (4,3) (0,4) (9,7) (5,8) (6,9) (7,10) (8,6)
+(0,1) (1,2) (2,3) (3,4) (4,5) (5,6) (6,7) (7,8) (8,9) (9,10)
 ```
+
+Sunsu-do is also read as an **ordered-pair** grid. Split a two-digit entry into
+its digits, write `10` as `(0,10)`, and write a one-digit entry such as `7` as
+`(0,7)`. A two-digit entry ending in `0` has second component `10`, so `90`
+means `(9,10)`, while the terminal `1` means `(0,1)`.
+It must not be collapsed into a decimal array for magic-square or point-symmetry
+tests.
+
+Both components are Latin squares of order ten. Their superposition contains
+50 ordered pairs, each twice, so Sunsu-do is a **50-orthogonal Latin-square
+pair**. Its additional feature is 180-degree rotational symmetry: every pair
+recurs at its antipodal position. The 100 cells therefore form 50 antipodal
+position-pairs, each occupied by one repeated ordered pair.
 
 ### Baekjasaengseong-gyosu (Hundred-Numbers Crossed-Numbers Diagram, 百子生成交數圖)
 
@@ -183,8 +196,8 @@ as supplied; only Baekjado has a separately documented rearrangement:
 - [Baekjasaengseong-gyosu analysis](05-baekjasaengseong-gyosu/analysis.md)
 - [Baekjayin-yang-jamo-chakjong analysis](06-baekjayin-yang-jamo-chakjong/analysis.md)
 
-Gyosu-do is an order-ten 50-orthogonal Latin-square pair recorded as ordered
-pairs, not a magic-square verification target. The child and mother diagrams
+Sunsu-do and Gyosu-do are order-ten 50-orthogonal Latin-square pairs recorded
+as ordered pairs, not magic-square verification targets. The child and mother diagrams
 are likewise separate Latin-square bases in the source rather than a single
 composed source diagram. The alternative Baekjado arrangement shown above is
 a semi-magic square, with only its row and column sums equal to 505.

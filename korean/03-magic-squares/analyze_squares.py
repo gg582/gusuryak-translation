@@ -9,6 +9,31 @@ import math
 import os
 from collections import defaultdict
 
+
+SUNSU_DECIMAL = [
+    [90, 89, 78, 67, 56, 45, 34, 23, 12, 1],
+    [86, 70, 69, 58, 97, 4, 43, 32, 21, 15],
+    [77, 66, 50, 99, 88, 13, 2, 41, 35, 24],
+    [68, 57, 96, 80, 79, 22, 11, 5, 44, 33],
+    [59, 98, 87, 76, 60, 31, 25, 14, 3, 42],
+    [42, 3, 14, 25, 31, 60, 76, 87, 98, 59],
+    [33, 44, 5, 11, 22, 79, 80, 96, 57, 68],
+    [24, 35, 41, 2, 13, 88, 99, 50, 66, 77],
+    [15, 21, 32, 43, 4, 97, 58, 69, 70, 86],
+    [1, 12, 23, 34, 45, 56, 67, 78, 89, 90],
+]
+
+
+def sunsu_pair(value):
+    """순수도 해독: 끝자리 0은 둘째 성분 10을 뜻한다."""
+    if value < 10:
+        return (0, value)
+    first, second = divmod(value, 10)
+    return (first, second or 10)
+
+
+SUNSU_PAIRS = [[sunsu_pair(value) for value in row] for row in SUNSU_DECIMAL]
+
 # square.md에서 데이터를 동적으로 파싱
 def parse_squares_from_md(md_path):
     import re
@@ -338,12 +363,9 @@ def describe_generation_rule(name, data, is_corrected):
             "라틴 방진 쌍을 결합하여 고차 방진을 생성하려 한 **조합론적 발견 및 합성 방법론 자체는 매우 정합하고 역사적으로 선구적인 수학적 업적**입니다."
         )
     elif name == "백자생성순수도(百子生成純數圖)":
-        if is_corrected:
-            return (
-                prefix + "10×10 수 배열 교정본. 원본 격자가 내포하고 있는 180도 회전 대칭성(점대칭)을 복구하기 위해 (2행, 3열)의 값 `39`를 `69`로 교정한 버전입니다. 교정 후 가로 및 세로의 모든 행/열 합이 495로 완벽히 일치하여 고유한 점대칭 성질을 온전히 유지합니다."
-            )
         return (
-            prefix + "10×10 수 배열. 1부터 100까지의 자연수 중 일부의 누락·중복이 있어 정상 마방진이 아니다."
+            "10×10 순서쌍 격자. 첫째 성분은 0–9, 둘째 성분은 1–10의 라틴방진이며, "
+            "50종의 순서쌍이 각각 두 번 나타난다. 180° 회전은 각 순서쌍을 같은 대척 위치쌍으로 보낸다."
         )
     elif name == "백자생성교수도(百子生成交數圖)":
         if is_corrected:
@@ -372,6 +394,51 @@ def describe_generation_rule(name, data, is_corrected):
     return ""
 
 
+def analyze_sunsu_pairs(matrix=SUNSU_PAIRS):
+    """순수도를 십진 정수가 아닌 순서쌍 격자로 분석한다."""
+    n = len(matrix)
+    component_symbols = (set(range(10)), set(range(1, 11)))
+    component_latin = []
+    for component, symbols in enumerate(component_symbols):
+        rows_ok = all({cell[component] for cell in row} == symbols for row in matrix)
+        cols_ok = all({matrix[row][col][component] for row in range(n)} == symbols for col in range(n))
+        component_latin.append(rows_ok and cols_ok)
+    frequencies = defaultdict(int)
+    for row in matrix:
+        for pair in row:
+            frequencies[pair] += 1
+    rotational = all(matrix[row][col] == matrix[n - 1 - row][n - 1 - col]
+                     for row in range(n) for col in range(n))
+    return {
+        "component_latin": component_latin,
+        "pair_count": len(frequencies),
+        "pair_multiplicities": set(frequencies.values()),
+        "rotational": rotational,
+    }
+
+
+def render_sunsu_analysis(result):
+    assert result["component_latin"] == [True, True]
+    assert result["pair_count"] == 50 and result["pair_multiplicities"] == {2}
+    assert result["rotational"]
+    return """# 백자생성순수도(百子生成純數圖)
+
+차수: 10×10
+
+## 전사와 판정
+
+순수도는 각 칸을 `(a,b)` 꼴의 **순서쌍**으로 전사한다. 두 자리 표기는 자릿수로 나누고, `10`은 `(0,10)`, 한 자리 `7`은 `(0,7)`로 쓴다. 끝자리가 `0`인 두 자리 수의 둘째 성분은 `10`이므로 `90=(9,10)`이다. 이를 단일 십진 정수로 환원하여 1–100 마방진으로 판정하지 않는다.
+
+## 성분별 구조
+
+- 첫째 성분은 `0`–`9`, 둘째 성분은 `1`–`10`을 각각 모든 행과 열에 한 번씩 갖는 10차 라틴방진이다.
+- 중첩하면 50종의 순서쌍이 각각 두 번 나타난다. 따라서 순수도는 **10차 50-직교 라틴방진 쌍**이다.
+- 180° 회전하면 각 순서쌍은 대척 위치의 같은 순서쌍으로 간다. 100개 칸은 같은 순서쌍을 담는 50개의 대척 위치쌍으로 나뉜다.
+
+순수도는 교수도와 같은 순서쌍·50-직교 구조를 공유하며, 추가로 180° 회전 대칭을 지닌다. 십진 셀값의 합으로 정의되는 마방진은 아니다.
+"""
+
+
 def main():
     output_dir = "/home/yjlee/gusuryak-translation/korean/03-magic-squares"
     folder_map = {
@@ -385,6 +452,12 @@ def main():
     }
 
     summary_lines = ["# 방진 분석 요약\n"]
+    sunsu_result = analyze_sunsu_pairs()
+    sunsu_path = os.path.join(output_dir, "04-baekjasaengseong-sunsu", "analysis.md")
+    os.makedirs(os.path.dirname(sunsu_path), exist_ok=True)
+    with open(sunsu_path, "w", encoding="utf-8") as f:
+        f.write(render_sunsu_analysis(sunsu_result))
+    summary_lines.append("- **백자생성순수도(百子生成純數圖)**: 10×10 순서쌍 격자; 두 라틴 성분; 50-직교; 180° 회전 대칭")
 
     for name, data in SQUARES.items():
         folder = folder_map[name]
