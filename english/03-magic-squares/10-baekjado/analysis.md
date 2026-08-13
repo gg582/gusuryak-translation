@@ -2,7 +2,7 @@
 
 Order: 10×10
 
-[Corrected version] This page records the 10×10 Baekjado in the *Gusuryak* transcription alongside a corrected arrangement. The correction uses every integer from 1 through 100 once and makes every row and column sum to 505. Its two main diagonals sum to 490 and 520, so it is a normal semi-magic square rather than a complete magic square.
+[Alternative rearrangement] This page records the 10×10 Baekjado in the *Gusuryak* transcription alongside an alternative arrangement. The rearrangement uses every integer from 1 through 100 once and makes every row and column sum to 505. Its two main diagonals sum to 490 and 520, so it is a normal semi-magic square rather than a complete magic square.
 
 ## Example (Reconstructed Version)
 - Value Range: 1 ~ 100
@@ -24,7 +24,7 @@ Order: 10×10
 - Unique Values: 100
 - No Duplicates
 
-## Differences between the source array and the correction
+## Differences between the source array and the rearrangement
 
 - **Changed cells**: 14
 
@@ -45,6 +45,6 @@ Order: 10×10
 | (Row 8, Col 1) | 88 | 13 | -75 |
 | (Row 8, Col 10) | 13 | 88 | +75 |
 
-Every row and column of the corrected array sums to 505. Since the main
+Every row and column of the rearranged array sums to 505. Since the main
 diagonals sum to 490 and 520, this property does not make Baekjado a complete
 order-ten magic square.

@@ -16,7 +16,7 @@ Under each language edition the puzzles are grouped into the following families:
 
 1. **01-saodo-family** — diagrams from the Hado/Nakseo mod-5 coloring tradition
 2. **02-gakdeuk-series** — *gakdeuk* (各得, "each gets") puzzles
-3. **03-magic-squares** — classical magic squares and corrected completions
+3. **03-magic-squares** — classical magic squares and source-transcription analysis
 4. **04-unification** — a generalization framework that contains the above families as special cases
 5. **05-extra-five** — five additional gakdeuk diagrams
 6. **06-nakseo-yukgodo** — the Nakseo Yukgodo and the 270-cell hexagonal-lattice analysis

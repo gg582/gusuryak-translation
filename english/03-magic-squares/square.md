@@ -47,11 +47,10 @@
 ## Order-ten Baekja (Hundred-Numbers, 百子) diagrams
 
 These are the 10×10 Baekja-family diagrams recorded in transcriptions of
-*Gusuryak*. Some source arrays contain printing or copying errors that break
-the normal-set or sum conditions, so the source arrays and corrected arrays
-are recorded separately. The corrected **Baekjado** is a normal semi-magic
-square: all rows and columns sum to 505, while its main diagonals sum to 490
-and 520.
+*Gusuryak*. The source arrays are retained as transcriptions and analysed as
+such; they are not silently normalized to fit a magic-square condition. The
+separately documented Baekjado rearrangement is a normal semi-magic square:
+all rows and columns sum to 505, while its main diagonals sum to 490 and 520.
 
 ### Baekjayin-yang-chakjong: child and mother Latin squares
 
@@ -85,7 +84,7 @@ and 520.
 
 ```
 90 89 78 67 56 45 34 23 12  1
-86 70 69 58 97  4 43 32 21 15
+86 70 39 58 97  4 43 32 21 15
 77 66 50 99 88 13  2 41 35 24
 68 57 96 80 79 22 11  5 44 33
 59 98 87 76 60 31 25 14  3 42
@@ -145,7 +144,7 @@ The source records ordered pairs, not decimal integers formed by concatenating t
 91 90 71 70 51 50 31 30 11 10
 ```
 
-#### Corrected array
+#### Alternative rearrangement
 
 ```
  1 20 21 40 41 60 61 80 81 100
@@ -160,11 +159,11 @@ The source records ordered pairs, not decimal integers formed by concatenating t
 91 90 71 70 51 50 31 30 11  10
 ```
 
-The corrected array uses every number from 1 through 100 exactly once, and
+The alternative rearrangement uses every number from 1 through 100 exactly once, and
 every row and column sums to 505. Its main diagonals sum to 490 and 520, so it
 is not a complete magic square.
 
-| Coordinates (row, column) | Source values | Corrected values |
+| Coordinates (row, column) | Source values | Rearranged values |
 | --- | ---: | ---: |
 | (5, 1), (5, 2), (5, 3) | 5, 16, 25 | 96, 86, 75 |
 | (5, 8), (5, 9) | 76, 85 | 26, 15 |
@@ -173,26 +172,22 @@ is not a complete magic square.
 | (7, 1), (7, 10) | 14, 87 | 87, 14 |
 | (8, 1), (8, 10) | 88, 13 | 13, 88 |
 
-## Use of the corrected order-ten Baekja diagrams
+## Source-transcription analysis and the Baekjado rearrangement
 
-The blocks of the five diagrams above are the original arrays, retained for
-comparison with the *Gusuryak* transcription material. Use the following
-corrected versions for numerical verification and follow-up analysis:
+The blocks of the five diagrams above are source transcriptions retained for
+comparison with the *Gusuryak* material. Their analyses describe the readings
+as supplied; only Baekjado has a separately documented rearrangement:
 
-- [Baekjajasuyin-yang-chakjong correction](03-baekjajasuyin-yang-chakjong/corrected.md)
-- [Baekjasaengseong-sunsu correction](04-baekjasaengseong-sunsu/corrected.md)
+- [Baekjajasuyin-yang-chakjong analysis](03-baekjajasuyin-yang-chakjong/analysis.md)
+- [Baekjasaengseong-sunsu analysis](04-baekjasaengseong-sunsu/analysis.md)
 - [Baekjasaengseong-gyosu analysis](05-baekjasaengseong-gyosu/analysis.md)
-- [Baekjayin-yang-jamo-chakjong correction](06-baekjayin-yang-jamo-chakjong/corrected.md)
-- [Baekjado correction](10-baekjado/corrected.md)
+- [Baekjayin-yang-jamo-chakjong analysis](06-baekjayin-yang-jamo-chakjong/analysis.md)
 
-Gyosu-do is not a correction target: it is an order-ten 50-orthogonal Latin-square
-pair recorded as ordered pairs, not a magic-square verification target. The Baekjado
-correction is instead a semi-magic square, with only its row and column sums equal
-to 505. The child and mother
-diagrams are recorded in the source as separate Latin-square bases, rather
-than as a single composed source diagram. Notes for arrays not confirmed as
-normal sets record the possibility of differences between print editions or
-copying and proofreading errors.
+Gyosu-do is an order-ten 50-orthogonal Latin-square pair recorded as ordered
+pairs, not a magic-square verification target. The child and mother diagrams
+are likewise separate Latin-square bases in the source rather than a single
+composed source diagram. The alternative Baekjado arrangement shown above is
+a semi-magic square, with only its row and column sums equal to 505.
 
 ## References
 

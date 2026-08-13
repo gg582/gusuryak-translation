@@ -145,9 +145,13 @@ This correction swaps a total of 5 values and keeps 59 of the original 64 value-
 
 This investigation follows the same methodologies used across the repository.
 
-### The `corrected.md` approach in the magic-square series
+### Source-transcription treatment in the magic-square series
 
-The 10×10 magic squares in `korean/03-magic-squares/` are not regular magic squares in the source text, so the source text is kept as-is and a corrected normal magic square is presented separately in `corrected.md`. The same principle is applied to the Eight-Formation Diagram: the original transcription visualization and the corrected visualization are separated.
+The 10×10 arrays in `korean/03-magic-squares/` are retained and analysed as
+source transcriptions; they are not normalized into purported magic squares.
+The Eight-Formation Diagram remains different: its original transcription
+visualization and a separately justified correction visualization are preserved
+side by side.
 
 ### The MILP minimal-correction approach in unified generalization
 

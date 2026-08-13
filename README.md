@@ -248,16 +248,14 @@ Key facts:
 - Magic constants: `M_6 = 111`, `M_9 = 369`, `M_10 = 505`.
 - **Yukyukdo** (`6×6`) and **Gusudo** (`9×9`) are normal magic squares; a `6×6` associated square is impossible.
 - **Gusudo** Example 1 is fully associated (`a_{i,j} + a_{8-i,8-j} = 82`); Example 2 can be corrected to associated.
-- Three of the four source `10×10` arrays fail the normal-set check, while the fourth is a normal set but is not a magic square. Valid corrected arrangements using `1..100` with all rows, columns, and diagonals summing to `505` are provided in the `corrected.md` files.
+- The order-ten Baekja arrays are retained and analysed as source transcriptions; they are not normalized into purported magic squares. A separately documented Baekjado rearrangement is a semi-magic square: its rows and columns, but not its diagonals, sum to `505`.
 - **Gugusubyeongungyangdo** is an additional transformation diagram based on the nine-palace framework.
 - None of the six squares is pan-diagonal.
 
-The four source 10x10 arrays are kept as transcriptions, while their duplicated or
-non-normal readings are treated as transcription damage under the project rule that
-the intended 1..100 set is normal. The corresponding `corrected.md` files contain
-verified 1..100 normal magic-square arrangements: every row, column, and diagonal
-sums to 505. The analyses note that differences between printed editions or
-publication/proofreader copying may account for the damaged readings.
+The order-ten Baekja arrays are kept as source transcriptions. Their analyses
+report the values and invariants actually present rather than introducing a
+normalized 1–100 magic-square version. The one separately documented Baekjado
+rearrangement is a semi-magic square with row and column sums of 505.
 
 ### 05. Extra five diagrams
 
