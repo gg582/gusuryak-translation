@@ -170,7 +170,7 @@ Literary numerical values and geometric calculations align exactly, confirming t
 ## Reconstruction Hypothesis: Applying the Complement Involution Technique Confirmed in Choi Seok-jeong's Other Diagrams
 
 - Place values 1..270 each exactly once (same system as Jisu Gwinumdo 1..30, Huchaek Yonggudo 1..72, etc.)
-- Two values at antipodal (point-symmetric) positions form a complement pair summing to **271** (complement pair technique as in Joongsang Gwinumdo, etc.)
+- Two values at antipodal (point-symmetric) positions form a complement pair summing to **271** (complement pair technique as in Joongsang Yonggudo, etc.)
 
 Under this hypothesis, ring k sum = 813k and the sum of 18 values on each antipodal axis excluding the center vacancy = 9×271 = 2439 are structurally guaranteed automatically, and the search finds only the balance of sides, sectors, and rays.
 
