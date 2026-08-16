@@ -499,4 +499,8 @@ static void print_res(const char *tag, const int *t, size_t t_len, const int *re
 合得八百六十四步
 합은 864보를 얻는다.
  
+此一問以留頭乗求之亦得
 
+이 문제는 "유두승"으로 구해도 얻을 수 있다.
+
+*유두승에 대해서는 본문에서 해설해 주지 않는다. 추후 부록으로 남기도록 하겠다.*
