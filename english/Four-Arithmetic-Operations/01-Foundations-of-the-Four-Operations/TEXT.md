@@ -1,6 +1,6 @@
-### General Discourse on the Four Operations (總論四法)
+### Unified Theory of the Four Operations (統論四法)
 
-General discourse on the four operations: an overview of the four computational methods (the four arithmetic operations)
+Unified theory of the four operations: an integrated theory of the four computational methods (the four arithmetic operations)
 
 有四法加減乘除是已加減二法俗云行筭加者
 
