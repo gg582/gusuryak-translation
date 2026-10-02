@@ -1,6 +1,6 @@
-## 본문
+## 구구단표
 
-![九九母數名圖](./gugu_mosu_myeongdo.png)
+![九九母數名圖](https://raw.githubusercontent.com/gg582/gusuryak-translation/refs/heads/arithmetic/korean/%ED%86%B5%EB%A1%A0%EC%82%AC%EB%B2%95/02-%EC%88%98%EB%A5%BC-%EB%B0%B0%EC%97%B4%EB%A1%9C-%EC%9D%BD%EB%8A%94-%EB%B2%95%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/gugu_mosu_myeongdo.png)
 
 上為綱數
 
@@ -10,9 +10,9 @@
 
 아래 수가 목이 되는 수이다.
 
-*생물학 및 학술 분류에서 강이 상위 개념, 목이 하위 개념이다.*
+*생물학 및 학술 분류에서 강이 상위 개념, 목이 하위 개념이다. 생물학에서 유래한 것은 아니지만 한문에서 전통적으로 쓰이던 체계가 여기서도 쓰였다.*
 
-![九九母數象圖](./gugu_mosu_sangdo.png)
+![九九母數象圖](https://raw.githubusercontent.com/gg582/gusuryak-translation/refs/heads/arithmetic/korean/%ED%86%B5%EB%A1%A0%EC%82%AC%EB%B2%95/02-%EC%88%98%EB%A5%BC-%EB%B0%B0%EC%97%B4%EB%A1%9C-%EC%9D%BD%EB%8A%94-%EB%B2%95%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/gugu_mosu_sangdo.png)
 
 右為目數
 
@@ -30,21 +30,21 @@
 
 그림은 채씨(채침, 남송의 철학자이자 수학자)가 말한 범수방도이다.
 
-![九九子數名圖](./gugu_jasu_myeongdo.png)
+![九九子數名圖](https://raw.githubusercontent.com/gg582/gusuryak-translation/refs/heads/arithmetic/korean/%ED%86%B5%EB%A1%A0%EC%82%AC%EB%B2%95/02-%EC%88%98%EB%A5%BC-%EB%B0%B0%EC%97%B4%EB%A1%9C-%EC%9D%BD%EB%8A%94-%EB%B2%95%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/gugu_jasu_myeongdo.png)
 
 自上而下橫格有九自右而左直行有九綱第一直行為目直行自上看其相值處即相乘數
-위에서 아래로 아홉 행을 두고, 오른쪽에서 왼쪽으로 아홉 열을 둔다. 첫째 세로줄을 머리항목으로 삼아 위에서부터 읽으며, 행과 열이 만나는 칸에는 두 수의 곱을 적는다.
+위에서 아래로 가로 칸이 아홉이고, 오른쪽에서 왼쪽으로 세로 줄이 아홉이다. 강(綱)이 첫머리가 되고 세로 줄은 목(目)이 되니, 세로 줄을 위에서부터 보아 서로 만나는 자리가 곧 서로 곱한 수이다.
 
 *전치행렬의 두 쌍을 곱한 것이다.*
 
-![九九子數象圖](./gugu_jasu_sangdo.png)
+![九九子數象圖](https://raw.githubusercontent.com/gg582/gusuryak-translation/refs/heads/arithmetic/korean/%ED%86%B5%EB%A1%A0%EC%82%AC%EB%B2%95/02-%EC%88%98%EB%A5%BC-%EB%B0%B0%EC%97%B4%EB%A1%9C-%EC%9D%BD%EB%8A%94-%EB%B2%95%EC%97%90-%EB%8C%80%ED%95%98%EC%97%AC/gugu_jasu_sangdo.png)
 
 右為單數
 오른쪽 수가 1의 자리이다.
 左為十數
 왼쪽 자리가 10의 자리이다.
 從一而衡十也
-1을 따라 가로로 눕히면 10의 자리이다.
+세로로 세우면 1, 가로로 눕히면 10의 자리이다.
 
 九九合數口訣
 구구합수구결(구구단 외는 법)
