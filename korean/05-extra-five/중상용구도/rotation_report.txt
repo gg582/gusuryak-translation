@@ -1,5 +1,5 @@
 ============================================================
-Per-cluster rotation analysis: 중상용구도 (象上用九圖)
+Per-cluster rotation analysis: 중상용구도 (重象用九圖)
 ============================================================
 
 Cluster: d1고리
@@ -74,7 +74,7 @@ Cluster: 대각축2
   Note: 홀수 길이(9)이므로 대향 합은 생략됨
   Note: 합 147 = 69+9+69 (광선+중심+광선)
 
-Global rotational symmetry for 중상용구도 (象上用九圖)
+Global rotational symmetry for 중상용구도 (重象用九圖)
 --------------------------------------------------
 No nontrivial global rotation maps clusters to clusters.
 

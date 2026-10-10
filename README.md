@@ -266,7 +266,7 @@ Additional source diagrams in the Gakdeuk family:
 | Gichaek-yongpaldo | `english/05-extra-five/gichaek-yongpaldo/` | `korean/05-extra-five/기책용팔도/` |
 | Beomsu-yongodo | `english/05-extra-five/beomsu-yong-odo/` | `korean/05-extra-five/범수용오도/` |
 | Jangchaek-yongchil-do | `english/05-extra-five/jangchaek-yong-chil-do/` | `korean/05-extra-five/장책용칠도/` |
-| Jungsang-yonggudo (象上用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
+| Jungsang-yonggudo (重象用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
 | Jungui-yongyukdo | `english/05-extra-five/jungui-yong-yukdo/` | `korean/05-extra-five/중의용육도/` |
 
 These are fixed source diagrams. Their stated sums, overlaps, and counts can be
@@ -373,7 +373,7 @@ Additional diagrams that obey the same Gakdeuk-style equal-sum constraints.
 | Gichaek-yong-paldo (奇策用八圖) | `english/05-extra-five/gichaek-yong-paldo/` | `korean/05-extra-five/기책용팔도/` |
 | Beomsu-yong-odo (泛水用五圖) | `english/05-extra-five/beomsu-yong-odo/` | `korean/05-extra-five/범수용오도/` |
 | Jangchaek-yong-chil-do (長策用七圖) | `english/05-extra-five/jangchaek-yong-chil-do/` | `korean/05-extra-five/장책용칠도/` |
-| Jungsang-yong-gudo (象上用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
+| Jungsang-yong-gudo (重象用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
 | Jungui-yong-yukdo (中用六圖) | `english/05-extra-five/jungui-yong-yukdo/` | `korean/05-extra-five/중의용육도/` |
 | Junggwae-yong-paldo (中卦用八圖) | `english/07-extra-two/junggwae-yong-paldo/` | `korean/07-extra-two/중괘용팔도/` |
 | Huchaek-yong-gudo (後策用九圖) | `english/07-extra-two/huchaek-yong-gudo/` | `korean/07-extra-two/후책용구도/` |

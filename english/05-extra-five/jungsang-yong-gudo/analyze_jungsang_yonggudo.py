@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Jungsang-yonggudo (象上用九圖) — Modern graph-theoretic and combinatorial deep analysis
+Jungsang-yonggudo (重象用九圖) — Modern graph-theoretic and combinatorial deep analysis
 
 A reinterpretation of Jungsang-yonggudo, one of the diagrams of the Gusuryak
 (九數略) family, in modern mathematical language.

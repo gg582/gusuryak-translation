@@ -120,7 +120,7 @@ The common difference equals the Wuxing-group size `m`, because each group conta
 
 Moreover, each subset sum `S` often coincides with the middle term (Wood group sum) of this arithmetic progression.
 
-- Yukjagakdeuk: S = 63 = Wood (42)? No. But 63 = (34+50)/2 + 14; complicated.
+- Yukjagakdeuk: S = 63 differs from the Wood group sum 42. Instead it equals the mean of 1–20 (10.5) times the six elements of one hexagon (10.5 × 6 = 63), i.e. 6/4 of the Wood group sum 42.
 - Paljagakdeuk: S = 164 = Wood group sum 164 (exact match)
 - Gujagakdeuk: S = 207 = Wood group sum 207 (exact match)
 - Chiljagakdeuk: S = 120, while the full 5×7 Wood group sum is 126. 120 = 126 − 6.

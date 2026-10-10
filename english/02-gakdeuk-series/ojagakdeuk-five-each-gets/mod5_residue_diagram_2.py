@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) Layout 2 — mod 5 residue class diagram.
+Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers) Layout 2 — mod 5 residue class diagram.
 
 Reuses draw() from mod5_residue_diagram.py, replacing POSITIONS/GROUPS with the
 Layout 2 (1–21) data and saving to files with the _2 suffix.

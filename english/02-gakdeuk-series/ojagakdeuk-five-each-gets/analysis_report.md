@@ -1,6 +1,6 @@
-# Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) — Modern Combinatorial and Positional Analysis Report
+# Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers) — Modern Combinatorial and Positional Analysis Report
 
-> A modern mathematical reinterpretation of the Ojagakdeuk (五子各得) diagram, also known as Cheonsu-yong-odo (天水用五圖), from the *Gusuryak* (九數略) family of diagrams.
+> A modern mathematical reinterpretation of the Ojagakdeuk (五子各得) diagram, also known as Cheonsu-yong-odo (天數用五圖), from the *Gusuryak* (九數略) family of diagrams.
 > **Analysis target**: A diagram placing 21 of the numbers 1 through 24 in the Cheonsu-yong-odo form.
 > **Analysis premise**: The original diagram contains only points (nodes) and no connecting lines, so this report considers only positional, wuxing (five-phase), and combinatorial invariants.
 > **Clarification**: This report and its associated visualization figures represent a **Rule Variation Model** constructed for mathematical study, rather than a raw historical facsimile of the original manuscript.
@@ -24,25 +24,20 @@ Ojagakdeuk places 21 of the natural numbers 1–24 in a specific geometric form.
 
 ### 1.2 Cheonsu-yong-odo Form
 
-The 21 nodes form a Cheonsu-yong-odo geometry converging from the upper vertex (19) to the lower vertex (2). A central vertical axis 19-6-20-5-17-2 runs through the middle, and the widest horizontal band lies near y = 2.0.
+The 21 nodes form a Cheonsu-yong-odo geometry converging from the upper vertex (19) to the lower vertex (2). A central vertical axis 19-6-20-5-24-17-2 runs through the middle, and the widest horizontal band lies near y = 2.0.
 
 ```
-        19 (upper vertex)
-       /  \
-     12 — 6 — 8
-      \   |   /
-        20
-       / | \
-  21-23-1-5-15-14-18 (central horizontal band)
-   \  |  X  |  /
-    16-24-11
-      \ | /
-       17
-        |
-        2 (lower vertex)
+                 19
+           12          8
+                 6
+     4           20          7
+21   23    1     5    15    14   18
+     16          24          11
+           9     17    13
+                 2
 ```
 
-> Observation 1: The upper 19 and lower 2 are the two extremes of the Cheonsu-yong-odo, while the central 1-5-15 axis acts as the vertical axis of the whole structure.
+> Observation 1: The upper 19 and lower 2 are the two extremes of the Cheonsu-yong-odo; the vertical axis (19-6-20-5-24-17-2) and the central horizontal band (21-23-1-5-15-14-18) cross at the central 5.
 
 ---
 
@@ -55,10 +50,10 @@ The original text mentions no edges or specific relationships between points, an
 - **Number of nodes**: 21
 - **Upper vertex**: 19 (y = 6.0)
 - **Lower vertex**: 2 (y = -1.7)
-- **Vertical central axis**: 19 → 6 → 20 → 5 → 17 → 2
+- **Vertical central axis**: 19 → 6 → 20 → 5 → 24 → 17 → 2 (7 nodes, sum 93)
 - **Central horizontal band**: 7 nodes (1, 5, 14, 15, 18, 21, 23) at y = 2.0
 
-> Observation 2: The 1 and 15 on the vertical axis are structural centers that connect both the left-right extremes and the upper-lower parts. They lie at the horizontal center and pass through the widest horizontal band (y = 2.0).
+> Observation 2: The central 5 is the only point where the vertical axis meets the widest horizontal band (y = 2.0); the 1 and 15 on either side of it form the inner wings of that band.
 
 ### 2.2 Vertical Layer Distribution
 
@@ -92,13 +87,13 @@ The original text mentions no edges or specific relationships between points, an
 
 | Wuxing | Main positional feature |
 |:---:|:---|
-| Water | Distributed on the left and center (1, 6, 11, 16, 21) |
-| Fire | Includes the upper and lower extremes (2, 7, 12, 17) |
-| Wood | Distributed on the right and center (8, 13, 18, 23) |
+| Water | Left (1, 16, 21), center (6), and right (11) |
+| Fire | Lower vertex (2) and central axis (17), plus one each on the left (12) and right (7) |
+| Wood | Three on the right (8, 13, 18), one on the left (23) |
 | Metal | Evenly distributed across left, right, and center (4, 9, 14, 19, 24) |
-| Earth | Concentrated on the vertical central axis (5, 15, 20) |
+| Earth | On the vertical axis (5, 20) and immediately right of the center 5 (15) |
 
-> Observation 5: Earth (5, 15, 20) all lie on the vertical central axis 19-6-20-5-17-2, showing that Earth forms the center of the whole structure.
+> Observation 5: Of the Earth numbers, 5 and 20 lie on the vertical axis and 15 lies on the horizontal band just right of the center 5. All three cluster around the center 5, so Earth forms the core of the structure.
 
 ---
 
@@ -131,7 +126,25 @@ The original text mentions no edges or specific relationships between points, an
 
 ### 4.3 mod 5 Residue Spatial Pattern
 
-Viewing the coordinates as x-columns / y-rows, the mod 5 residues are not random. In particular, along the vertical central axis (y = 6.0 → -1.7) the sequence 19 (Metal) → 6 (Water) → 20 (Earth) → 5 (Earth) → 17 (Fire) → 2 (Fire) shows a continuous change of wuxing along the central axis.
+Viewing the coordinates as x-columns / y-rows, the mod 5 residues are not random. In particular, along the vertical central axis (y = 6.0 → -1.7) the sequence 19 (Metal) → 6 (Water) → 20 (Earth) → 5 (Earth) → 24 (Metal) → 17 (Fire) → 2 (Fire) shows a continuous change of wuxing along the central axis.
+
+### 4.4 Cross-Palace (Petal) Structure — Center 5, Each Palace Sums to 65
+
+Applying exactly the same slot partition as Layout 2 (`analysis_report_2.md` §5) to Layout 1, the four palaces (petals) around the center 5 each contain five numbers and all sum to 65.
+
+| Palace | Numbers | Sum |
+|:---:|:---|:---:|
+| Upper | 19, 12, 8, 6, 20 | 65 |
+| Left | 21, 4, 16, 23, 1 | 65 |
+| Right | 18, 7, 11, 14, 15 | 65 |
+| Lower | 2, 9, 13, 17, 24 | 65 |
+| Center | 5 | 5 |
+
+- **Verification**: 4 × 65 + 5 = 265.
+- Because the four partial sums are equal, opposite palaces (upper↔lower, left↔right) match under point reflection through the center 5, and the pattern of partial sums is unchanged by a 90° rotation.
+- Layout 1 has this petal structure **together with** left-right mirror balance (86 = 86, §4.2). Layout 2 keeps only the petal structure and loses the mirror balance, but in exchange its palace sum is 54 (= 6 × 9) and its outer total 216 (the Qian tally, 乾之策), exactly the numbers in the source text. The two layouts are compared in `10_symmetry_comparison.png`.
+
+![Symmetry comparison](10_symmetry_comparison.png)
 
 ---
 
@@ -175,14 +188,15 @@ Ojagakdeuk (Cheonsu-yong-odo) is not merely a placement of 21 numbers; it has th
 
 1. **21-number geometric placement**: 21 numbers from 1–24 excluding 3, 10, and 22.
 2. **Cheonsu-yong-odo form**: A geometric structure converging from the upper vertex (19) to the lower vertex (2).
-3. **Vertical central axis**: 19-6-20-5-17-2.
+3. **Vertical central axis**: 19-6-20-5-24-17-2 (sum 93).
 4. **Central horizontal band**: 7 nodes at y = 2.0 with sum 97.
 5. **Left-right symmetric sum = 86**: The strongest positional invariant.
 6. **Weight of the central horizontal band**: The y = 3.3–2.0 interval has the maximum sum, 128.
 7. **Wuxing sums**: Water 55, Fire 38, Wood 62, Metal 70, Earth 40.
-8. **Earth concentrated on the central axis**: 5, 15, and 20 all lie on the vertical central axis.
+8. **Earth concentrated at the center**: 5 and 20 lie on the vertical axis; 15 sits immediately right of the center 5.
 9. **Arithmetic progression on full 25-number extension**: 55, 60, 65, 70, 75 (common difference 5).
-10. **No edges in the original**: This analysis is based solely on position, wuxing, and combinatorial invariants.
+10. **Petal (cross-palace) structure**: the four palaces around the center 5 all sum to 65 (4 × 65 + 5 = 265); opposite palaces are point-symmetric.
+11. **No edges in the original**: This analysis is based solely on position, wuxing, and combinatorial invariants.
 
 ---
 
@@ -196,5 +210,5 @@ Running `analyze_ojagakdeuk.py` produces the following 8 images:
 - `04_symmetry_analysis.png` — Left-center-right symmetry and sums by horizontal level
 - `05_invariants.png` — Wuxing sums, left-center-right sums, level sums, and 5 × 5 extension counts
 - `06_wuxing_relations.png` — Wuxing mutual-generation and mutual-overcoming relation diagram
-- `07_local_extensions.png` — Complete 5 × 5 extension plus vertical layer sum distribution
+- `07_rule_variation_model.png` — Complete 5 × 5 extension plus vertical layer sum distribution
 - `08_position_patterns.png` — Sums by horizontal level and left-center-right symmetry

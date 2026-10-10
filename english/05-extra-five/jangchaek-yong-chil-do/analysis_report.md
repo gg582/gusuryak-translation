@@ -177,7 +177,7 @@ Jangchaek-yong-chil-do belongs to a family of Gusuryak star diagrams (a axes × 
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | Beomsu-yong-odo (範數用五圖) | 2 | 5 | 9 | 45 | 25 | 20 |
 | **Jangchaek-yong-chil-do (章策用七圖)** | **3** | **7** | **19** | **190** | **68** | **61** |
-| Jungsang-yong-gudo (中上用九圖) | 4 | 9 | 33 | 561 | 147 | 138 |
+| Jungsang-yong-gudo (重象用九圖) | 4 | 9 | 33 | 561 | 147 | 138 |
 
 Common relations: the center is L; from the duplication equation k·S = T + (a−1)·L one gets S = (T + (a−1)·L)/a, and the ring sum is R = (T − L)/a.
 

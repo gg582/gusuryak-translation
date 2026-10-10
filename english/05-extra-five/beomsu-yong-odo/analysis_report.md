@@ -180,7 +180,7 @@ R = (T − L)/a         (equal sum of the concentric distance rings)
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | Beomsu-yongodo (範數用五圖) | 2 × 5 | 9 | 5 | 45 | 25 | 20 |
 | Jangchaek-yongchildo (章策用七圖) | 3 × 7 | 19 | 7 | 190 | 68 | 61 |
-| Jungsang-yonggudo (象上用九圖) | 4 × 9 | 33 | 9 | 561 | 147 | 138 |
+| Jungsang-yonggudo (重象用九圖) | 4 × 9 | 33 | 9 | 561 | 147 | 138 |
 
 > Observation 11: in all three diagrams **the 用 number = axis length = center value** (用五→5, 用七→7, 用九→9), and N, S, R match the formulas exactly. The values for Beomsu-yongodo are verified directly in this report (S=25, R=20); the Jangchaek and Jungsang values are the stated figures from their own analyses (68/61, 147/138), checked only for formula consistency. This is a pattern observed across three instances; whether such equal-axis/equal-ring placements exist for arbitrary (a, L) is beyond this report's scope.
 

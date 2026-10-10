@@ -1,7 +1,7 @@
-## Jungsang-yong-gudo (象上用九圖) — Source Text Decoding
+## Jungsang-yong-gudo (重象用九圖) — Source Text Decoding
 
 ### 1. Diagram Title and Basic Composition
-> **象上用九圖 三十三子作 七十二子用**
+> **重象用九圖 三十三子作 七十二子用**
 * **Reading:** Jungsang-yong-gudo, samship-sam-ja-jak, chil-sip-i-ja-yong
 * **Interpretation:** Jungsang-yong-gudo is constructed from 33 numbers and uses a total of 72 positions (computational usages), counting overlaps.
 

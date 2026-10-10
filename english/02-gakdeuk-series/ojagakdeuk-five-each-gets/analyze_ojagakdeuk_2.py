@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) Layout 2 — modern combinatorial and positional analysis
+Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers) Layout 2 — modern combinatorial and positional analysis
 
 A variant with the same shape as the original placement (analyze_ojagakdeuk.py)
 but a different number placement.
@@ -128,7 +128,7 @@ def validate() -> None:
 validate()
 
 print("=" * 60)
-print("Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) Layout 2")
+print("Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers) Layout 2")
 print("Modern combinatorial and positional analysis")
 print("=" * 60)
 print(f"Number of nodes: {len(POSITIONS)}")
@@ -214,7 +214,7 @@ def draw_nodes(ax, highlight_values=None, alpha_other=1.0, radius=0.32):
 fig, ax = plt.subplots(figsize=(12, 12))
 draw_nodes(ax)
 ax.set_title(
-    "Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) Layout 2 — Original placement\n"
+    "Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers) Layout 2 — Original placement\n"
     "1–21 · mod 5 wuxing classification · Cheonsu-yong-odo geometric structure",
     fontsize=16,
     fontweight="bold",

@@ -1,4 +1,4 @@
-# Jungsang-yonggudo (象上用九圖) — Modern Graph & Combinatorial Analysis Report
+# Jungsang-yonggudo (重象用九圖) — Modern Graph & Combinatorial Analysis Report
 
 > A modern mathematical re-reading of the Jungsang-yonggudo diagram from the 《Gusuryak (九數略)》 family.
 > **Subject**: the integers 1–33 placed on four axes of 9 cells each, all sharing the center cell 9 — an eight-rayed star.
@@ -194,7 +194,7 @@ Jungsang-yonggudo belongs to the star family of the 《Gusuryak》 lineage (a ax
 |:---|:---:|:---:|:---:|:---:|:---:|:---:|
 | Beomsu-yongodo (範數用五圖) | 2 | 5 | 9 | 45 | 25 | 20 |
 | Jangchaek-yongchildo (章策用七圖) | 3 | 7 | 19 | 190 | 68 | 61 |
-| **Jungsang-yonggudo (象上用九圖)** | **4** | **9** | **33** | **561** | **147** | **138** |
+| **Jungsang-yonggudo (重象用九圖)** | **4** | **9** | **33** | **561** | **147** | **138** |
 
 Common relations: the center equals L; from k·S = T + (a−1)·L we get S = (T + (a−1)·L)/a and ring sum R = (T − L)/a.
 

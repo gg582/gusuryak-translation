@@ -172,7 +172,7 @@ def main() -> None:
 
     report_path = OUTPUT_DIR / "rotation_report.txt"
     write_report(
-        puzzle_name="중상용구도 (象上用九圖)",
+        puzzle_name="중상용구도 (重象用九圖)",
         analyses=analyses,
         global_symmetries=global_syms,
         save_path=str(report_path),

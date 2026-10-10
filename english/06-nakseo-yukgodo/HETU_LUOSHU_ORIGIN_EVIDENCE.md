@@ -67,7 +67,7 @@ This is more than the observation that complements to 10 exist. **Complementary 
 
 The textual genealogy makes the intended sequence explicit:
 
-> 易大傳曰天一地二天三地四天五地六天七天八天九地十
+> 易大傳曰天一地二天三地四天五地六天七地八天九地十
 >
 > 此即河圖之數也
 >

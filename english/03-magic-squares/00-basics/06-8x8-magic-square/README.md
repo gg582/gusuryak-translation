@@ -1,6 +1,6 @@
 # 8×8 Magic Square Basics (易數圖)
 
-The name of this magic square is also unusual: *Isudo* (易數圖).
+The name of this magic square is also unusual: *Yeoksudo* (易數圖).
 Apparently there was a tradition in the scholarly literature of the time of calling 8 *i-su* (易數).
 
 It would have been nicer if this, too, had been written as *Palpal-do*…

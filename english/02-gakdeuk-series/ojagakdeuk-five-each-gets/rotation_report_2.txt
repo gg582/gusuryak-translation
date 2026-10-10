@@ -1,5 +1,5 @@
 ============================================================
-Per-cluster rotation analysis: Ojagakdeuk Layout 2 (Five-Each-Gets / Heaven-Water Five-Use Diagram, 1–21)
+Per-cluster rotation analysis: Ojagakdeuk Layout 2 (Five-Each-Gets / Diagram Using Five Heavenly Numbers, 1–21)
 ============================================================
 
 Cluster: Water (r=1)
@@ -42,6 +42,6 @@ Cluster: Earth (r=5)
   No nontrivial rotational invariance.
   Note: Residue class arranged by angular position; no intrinsic cycle in original text.
 
-Global rotational symmetry for Ojagakdeuk Layout 2 (Five-Each-Gets / Heaven-Water Five-Use Diagram, 1–21)
+Global rotational symmetry for Ojagakdeuk Layout 2 (Five-Each-Gets / Diagram Using Five Heavenly Numbers, 1–21)
 --------------------------------------------------
 No nontrivial global rotation maps clusters to clusters.

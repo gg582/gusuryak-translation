@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Rotation analysis for Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) Layout 2.
+Rotation analysis for Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers) Layout 2.
 
 A variant with the same shape as the original placement (analyze_rotations.py)
 but a different number placement (1–21).  The original diagram has no explicit
@@ -127,7 +127,7 @@ def main() -> None:
     )
 
     write_report(
-        puzzle_name="Ojagakdeuk Layout 2 (Five-Each-Gets / Heaven-Water Five-Use Diagram, 1–21)",
+        puzzle_name="Ojagakdeuk Layout 2 (Five-Each-Gets / Diagram Using Five Heavenly Numbers, 1–21)",
         analyses=analyses,
         global_symmetries=global_syms,
         save_path=str(OUTPUT_DIR / "rotation_report_2.txt"),

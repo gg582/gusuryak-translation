@@ -1,10 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) — modern combinatorial and positional analysis
+Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers) — modern combinatorial and positional analysis
 
 A modern mathematical reinterpretation of Ojagakdeuk (五子各得), also known as
-Cheonsu-yong-odo (天水用五圖), from the *Gusuryak* (九數略) family of diagrams.
+Cheonsu-yong-odo (天數用五圖), from the *Gusuryak* (九數略) family of diagrams.
 Analysis target: a diagram placing 21 of the numbers 1–24 in the Cheonsu-yong-odo form.
 
 This script analyzes only positional, wuxing (five-phase), and combinatorial
@@ -80,11 +80,11 @@ GROUPS: dict[int, list[int]] = {
 }
 
 RESIDUE_STYLE: dict[int, dict[str, str]] = {
-    1: {"face": "#E0E0E0", "edge": "#333333", "name": "Water", "en": "Water"},
-    2: {"face": "#F4D0D0", "edge": "#B33B3B", "name": "Fire", "en": "Fire"},
-    3: {"face": "#D4E4F8", "edge": "#3A6FAE", "name": "Wood", "en": "Wood"},
-    4: {"face": "#E5E5E5", "edge": "#666666", "name": "Metal", "en": "Metal"},
-    0: {"face": "#F6E5A3", "edge": "#C39A00", "name": "Earth", "en": "Earth"},
+    1: {"face": "#CFE2F5", "edge": "#4488CC", "name": "Water", "en": "Water"},
+    2: {"face": "#F4D0D0", "edge": "#CC4444", "name": "Fire", "en": "Fire"},
+    3: {"face": "#D4ECD4", "edge": "#44AA44", "name": "Wood", "en": "Wood"},
+    4: {"face": "#E8E8E8", "edge": "#888888", "name": "Metal", "en": "Metal"},
+    0: {"face": "#F6E5A3", "edge": "#CC9944", "name": "Earth", "en": "Earth"},
 }
 
 PHASE_COLOR = {
@@ -122,7 +122,7 @@ def validate() -> None:
 validate()
 
 print("=" * 60)
-print("Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram)")
+print("Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers)")
 print("Modern combinatorial and positional analysis")
 print("=" * 60)
 print(f"Number of nodes: {len(POSITIONS)}")
@@ -208,7 +208,7 @@ def draw_nodes(ax, highlight_values=None, alpha_other=1.0, radius=0.32):
 fig, ax = plt.subplots(figsize=(12, 12))
 draw_nodes(ax)
 ax.set_title(
-    "Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) — Original placement\n"
+    "Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers) — Original placement\n"
     "21 numbers · mod 5 wuxing classification · Cheonsu-yong-odo geometric structure",
     fontsize=16,
     fontweight="bold",

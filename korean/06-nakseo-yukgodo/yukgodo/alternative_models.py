@@ -204,7 +204,7 @@ def run(iterations: int = 45_000, seed: int = 1715) -> dict[str, object]:
         "common_conditions": ["values_1_to_270", "central_vacancy", "hexagon_271", "nine_rings"],
         "models": models,
         "cheonsu_yong_o_precedent": {
-            "location": "육고도 직전 재인쇄된 天水用五圖 계열의 저장소 전사",
+            "location": "육고도 직전 재인쇄된 天數用五圖 계열의 저장소 전사",
             "transcription": [
                 "去中宮十五",
                 "外合得二百一十六",

@@ -292,7 +292,7 @@ FAMILY = [
      "N": 9, "center": 5, "S": 25, "R": 20, "self": True},
     {"name": "Jangchaek-yongchildo", "hanja": "章策用七圖", "axes": 3, "cells": 7,
      "N": 19, "center": 7, "S": 68, "R": 61, "self": False},
-    {"name": "Jungsang-yonggudo", "hanja": "象上用九圖", "axes": 4, "cells": 9,
+    {"name": "Jungsang-yonggudo", "hanja": "重象用九圖", "axes": 4, "cells": 9,
      "N": 33, "center": 9, "S": 147, "R": 138, "self": False},
 ]
 

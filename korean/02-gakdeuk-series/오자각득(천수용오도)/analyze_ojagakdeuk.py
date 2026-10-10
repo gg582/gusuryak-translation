@@ -3,7 +3,7 @@
 """
 五子各得 (오자각득 / 천수용오도) — 현대 조합론·위치 분석
 
-《구수략(九數略)》계열 도상 중 오자각득(五子各得) 혹은 천수용오도(天水用五圖)의
+《구수략(九數略)》계열 도상 중 오자각득(五子各得) 혹은 천수용오도(天數用五圖)의
 수 배치를 현대 수학 언어로 재해석.
 분석 대상: 1~24 중 21개 수를 천수용오도 형태로 배치한 도상.
 
@@ -79,11 +79,11 @@ GROUPS: dict[int, list[int]] = {
 }
 
 RESIDUE_STYLE: dict[int, dict[str, str]] = {
-    1: {"face": "#E0E0E0", "edge": "#333333", "name": "Water", "ko": "수"},
-    2: {"face": "#F4D0D0", "edge": "#B33B3B", "name": "Fire", "ko": "화"},
-    3: {"face": "#D4E4F8", "edge": "#3A6FAE", "name": "Wood", "ko": "목"},
-    4: {"face": "#E5E5E5", "edge": "#666666", "name": "Metal", "ko": "금"},
-    0: {"face": "#F6E5A3", "edge": "#C39A00", "name": "Earth", "ko": "토"},
+    1: {"face": "#CFE2F5", "edge": "#4488CC", "name": "Water", "ko": "수"},
+    2: {"face": "#F4D0D0", "edge": "#CC4444", "name": "Fire", "ko": "화"},
+    3: {"face": "#D4ECD4", "edge": "#44AA44", "name": "Wood", "ko": "목"},
+    4: {"face": "#E8E8E8", "edge": "#888888", "name": "Metal", "ko": "금"},
+    0: {"face": "#F6E5A3", "edge": "#CC9944", "name": "Earth", "ko": "토"},
 }
 
 DISPLAY_LABELS = {

@@ -1,6 +1,6 @@
-# Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram) Layout 2 — Modern Combinatorial and Positional Analysis Report
+# Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers) Layout 2 — Modern Combinatorial and Positional Analysis Report
 
-> A modern mathematical reinterpretation of the **second number placement** of the Ojagakdeuk (五子各得) diagram, also known as Cheonsu-yong-odo (天水用五圖), from the *Gusuryak* (九數略) family of diagrams.
+> A modern mathematical reinterpretation of the **second number placement** of the Ojagakdeuk (五子各得) diagram, also known as Cheonsu-yong-odo (天數用五圖), from the *Gusuryak* (九數略) family of diagrams.
 > **Analysis target**: A diagram with the same geometric form as the original placement, but placing all of the numbers 1 through 21.
 > **Placement rule (per the original text)**: Central line (top to bottom) 12, 5, 2, 15, 6, 1, 16 / Left (outer column to inner column, vertical) 7 / 13, 3, 11 / 17, 20, 10 / Right (outer column to inner column, vertical) 8 / 19, 4, 14 / 18, 9, 21.
 > **Analysis premise**: The original diagram contains only points (nodes) and no connecting lines, so this report considers only positional, wuxing (five-phase), and combinatorial invariants.
@@ -28,19 +28,14 @@ Layout 2 places all 21 natural numbers from 1 to 21 in the same Cheonsu-yong-odo
 The 21 nodes form the same geometric shape as the original, converging from the upper vertex (12) to the lower vertex (16). A central axis 12-5-2-15-6-1-16 runs through the middle, and the widest central horizontal band lies near y = 2.0.
 
 ```
-        12 (upper vertex)
-       /  \
-     17 — 5 — 18
-      \   |   /
-        2
-       / | \
-   7- 3-20-15- 9- 4- 8 (central horizontal band)
-   \  |  X  |  /
-    11- 6-14
-      \ | /
-        1
-        |
-        16 (lower vertex)
+                 12
+           17          18
+                 5
+     13          2           19
+ 7    3    20    15    9     4    8
+     11          6           14
+           10    1     21
+                 16
 ```
 
 > Observation 1: The upper vertex changed from 19 (original) to 12, and the lower vertex from 2 to 16. The central vertical axis 12-5-2-15-6-1-16 sums to 57.
@@ -59,7 +54,7 @@ The original text mentions no edges or specific relationships between points, so
 - **Vertical central axis**: 12 → 5 → 2 → 15 → 6 → 1 → 16 (7 nodes, sum 57)
 - **Central horizontal band**: 7 nodes (3, 4, 7, 8, 9, 15, 20) at y = 2.0
 
-> Observation 2: The original's vertical central axis had 6 nodes (19-6-20-5-17-2), but in Layout 2 the axis includes 15, the center of the central horizontal band, forming a single axis of 7 nodes. The mod 5 residues along this axis are Fire(2)-Earth(0)-Fire(2)-Earth(0)-Water(1)-Water(1)-Water(1): the upper part alternates Fire and Earth, while the lower part is three consecutive Waters — a regular pattern.
+> Observation 2: As in the original (19-6-20-5-24-17-2), the vertical central axis has 7 nodes; in Layout 2 it crosses the central horizontal band at its center, 15. The mod 5 residues along this axis are Fire(2)-Earth(0)-Fire(2)-Earth(0)-Water(1)-Water(1)-Water(1): the upper part alternates Fire and Earth, while the lower part is three consecutive Waters — a regular pattern.
 
 ### 2.2 Vertical Layer Distribution
 
@@ -154,6 +149,25 @@ This is the core structural rule of Layout 2. Taking 15, the center of the centr
 - **Relation to §4.2**: Under the straight left-center-right partition the sums were asymmetric (left 81 ≠ right 93, §4.2), but under the cross-palace partition the four palaces upper, lower, left, and right are perfectly equal. In other words, the balancing principle of Layout 2 lies not in an orthogonal straight-line partition but in the cross-palace partition centered on the center palace.
 - **Wuxing composition per palace**: The right palace is dominated by a single phase — 4 Metals plus 1 Wood (8); the lower palace likewise has 4 Waters plus 1 Earth (10). The upper palace consists of 3 Fires (2, 12, 17) plus Wood (18) and Earth (5), and the left palace consists of 2 Woods (3, 13) plus Fire (7), Water (11), and Earth (20).
 
+### 5.1 Petal Point Symmetry About 15
+
+The four palaces spread out like petals around 15. Since every partial sum is 54, opposite petals (upper↔lower, left↔right) have equal sums under point reflection through 15. Because all four values are equal, the pattern of partial sums is unchanged not only by a 180° rotation but also by a 90° rotation: a four-petal flower.
+
+The upper and lower palaces carry point-symmetric partial sums one level deeper. Splitting each petal into tip, two wings, middle and inner slot, the slots that are point-symmetric about 15 have equal sums:
+
+| Part | Upper palace | Lower palace | Sum |
+|:---|:---|:---|:---:|
+| tip + middle | 12 + 5 | 16 + 1 | 17 |
+| two wings + inner | 17 + 18 + 2 | 21 + 10 + 6 | 37 |
+
+The left and right palaces agree only in their full sum (54); this finer split does not hold for them.
+
+![Petal point symmetry](09_flower_point_symmetry_2.png)
+
+Layout 1 has the same petal structure under the same slot partition, with center 5 and palace sum 65 (`analysis_report.md` §4.4). Layout 1 also keeps left-right mirror balance (86 = 86); Layout 2 gives that up, but obtains exactly the source text's 54 (six-nines) and 216 (the Qian tally).
+
+![Symmetry comparison](10_symmetry_comparison.png)
+
 ---
 
 ## 6. Rotation Analysis
@@ -211,17 +225,18 @@ Layout 2 is a variant that places all of 1–21 without omission in the same geo
 ### Summary of Key Findings
 
 1. **Cross-palace structure — each palace sums to 54**: Excluding the center palace 15, the four palaces upper, lower, left, and right each contain 5 numbers and sum to exactly 54 (= 6 × 9). The outer total 216 corresponds to the tally number of Qian (乾之策). The strongest structural invariant of Layout 2.
-2. **21-number geometric placement**: All of 1–21 used, with no omissions. Total sum 231 = 216 + 15.
-3. **Cheonsu-yong-odo form**: The same geometric structure as the original, converging from the upper vertex (12) to the lower vertex (16).
-4. **Vertical central axis**: 12-5-2-15-6-1-16 (sum 57). Residue pattern: Fire-Earth-Fire-Earth-Water-Water-Water.
-5. **Central horizontal band**: 7 nodes at y = 2.0, sum 66.
-6. **Left-right asymmetry**: Left 81 ≠ right 93 (difference 12). The original's left-right sum equality (86 = 86) does not hold; the balancing principle of Layout 2 lies in the cross-palace partition (item 1).
-7. **Weight of the central horizontal band**: The y = 3.3–2.0 interval has the maximum sum, 100 (43.3% of the total).
-8. **Wuxing sums**: Water 55, Fire 38, Wood 42, Metal 46, Earth 50 — Fire, Wood, Metal, and Earth form an arithmetic progression with common difference 4.
-9. **Spatial bias of the wuxing**: Metal is entirely on the right; Earth appears only in the center and left.
-10. **Wood group opposite-pair sums = 21**: An auxiliary observation based on the angular ordering.
-11. **Arithmetic progression on full 25-number extension**: 55, 60, 65, 70, 75 (common difference 5) — identical to the original placement.
-12. **No edges in the original**: This analysis is based solely on position, wuxing, and combinatorial invariants.
+2. **Petal point symmetry about 15**: opposite palaces 54 = 54, partial sums unchanged by a 90° rotation; the upper and lower palaces add the finer symmetry 12 + 5 = 16 + 1 = 17 and 17 + 18 + 2 = 21 + 10 + 6 = 37.
+3. **21-number geometric placement**: All of 1–21 used, with no omissions. Total sum 231 = 216 + 15.
+4. **Cheonsu-yong-odo form**: The same geometric structure as the original, converging from the upper vertex (12) to the lower vertex (16).
+5. **Vertical central axis**: 12-5-2-15-6-1-16 (sum 57). Residue pattern: Fire-Earth-Fire-Earth-Water-Water-Water.
+6. **Central horizontal band**: 7 nodes at y = 2.0, sum 66.
+7. **Left-right asymmetry**: Left 81 ≠ right 93 (difference 12). The original's left-right sum equality (86 = 86) does not hold; the balancing principle of Layout 2 lies in the cross-palace partition (item 1).
+8. **Weight of the central horizontal band**: The y = 3.3–2.0 interval has the maximum sum, 100 (43.3% of the total).
+9. **Wuxing sums**: Water 55, Fire 38, Wood 42, Metal 46, Earth 50 — Fire, Wood, Metal, and Earth form an arithmetic progression with common difference 4.
+10. **Spatial bias of the wuxing**: Metal is entirely on the right; Earth appears only in the center and left.
+11. **Wood group opposite-pair sums = 21**: An auxiliary observation based on the angular ordering.
+12. **Arithmetic progression on full 25-number extension**: 55, 60, 65, 70, 75 (common difference 5) — identical to the original placement.
+13. **No edges in the original**: This analysis is based solely on position, wuxing, and combinatorial invariants.
 
 ---
 
@@ -237,5 +252,7 @@ Running `analyze_ojagakdeuk_2.py` produces the following 8 images:
 - `06_wuxing_relations_2.png` — Wuxing mutual-generation and mutual-overcoming relation diagram
 - `07_rule_variation_model_2.png` — Complete 5 × 5 extension plus vertical layer sum distribution
 - `08_position_patterns_2.png` — Sums by horizontal level and left-center-right symmetry
+
+`flower_symmetry.py` produces `09_flower_point_symmetry_2.png` (petal point symmetry) and `10_symmetry_comparison.png` (Layout 1 vs 2 symmetry comparison).
 
 In addition, `mod5_residue_diagram_2.py` generates `mod5_residue_diagram_2.png`/`mod5_residue_diagram_2.svg`, and `analyze_rotations_2.py` generates `rotation_cluster_*_2.png`, `rotation_overview_2.png`, and `rotation_report_2.txt`.

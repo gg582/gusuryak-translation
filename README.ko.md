@@ -259,7 +259,7 @@ mod-5 잉여류에 따라 분할된 대칭 배치를 기반으로 한 도상들�
 | 기책용팔도 | `english/05-extra-five/gichaek-yongpaldo/` | `korean/05-extra-five/기책용팔도/` |
 | 범수용오도 | `english/05-extra-five/beomsu-yong-odo/` | `korean/05-extra-five/범수용오도/` |
 | 장책용칠도 | `english/05-extra-five/jangchaek-yong-chil-do/` | `korean/05-extra-five/장책용칠도/` |
-| 중상용구도(象上用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
+| 중상용구도(重象用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
 | 중의용육도 | `english/05-extra-five/jungui-yong-yukdo/` | `korean/05-extra-five/중의용육도/` |
 
 고정된 원문 도안의 합·중복·자리 수 검증은 다항 시간(P)입니다. 임의 가중치·서로
@@ -352,8 +352,8 @@ Siamese식 지역 규칙 검토와 함께, 최종 재구 도안에서 출발해 
 | 기책용팔도(奇策用八圖) | `english/05-extra-five/gichaek-yong-paldo/` | `korean/05-extra-five/기책용팔도/` |
 | 범수용오도(泛水用五圖) | `english/05-extra-five/beomsu-yong-odo/` | `korean/05-extra-five/범수용오도/` |
 | 장책용칠도(長策用七圖) | `english/05-extra-five/jangchaek-yong-chil-do/` | `korean/05-extra-five/장책용칠도/` |
-| 중상용구도(象上用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
-| 중의용육도(中用六圖) | `english/05-extra-five/jungui-yong-yukdo/` | `korean/05-extra-five/중의용육도/` |
+| 중상용구도(重象用九圖) | `english/05-extra-five/jungsang-yong-gudo/` | `korean/05-extra-five/중상용구도/` |
+| 중의용육도(重儀用六圖) | `english/05-extra-five/jungui-yong-yukdo/` | `korean/05-extra-five/중의용육도/` |
 | 중괘용팔도(中卦用八圖) | `english/07-extra-two/junggwae-yong-paldo/` | `korean/07-extra-two/중괘용팔도/` |
 | 후책용구도(後策用九圖) | `english/07-extra-two/huchaek-yong-gudo/` | `korean/07-extra-two/후책용구도/` |
 

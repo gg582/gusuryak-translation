@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Rotation analysis for Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram).
+Rotation analysis for Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers).
 
 The original diagram has no explicit edges and no natural palace cycles.
 We therefore treat each mod-5 residue class as a cyclic cluster, ordering its
@@ -117,7 +117,7 @@ def main() -> None:
     )
 
     write_report(
-        puzzle_name="Ojagakdeuk (Five-Each-Gets / Heaven-Water Five-Use Diagram)",
+        puzzle_name="Ojagakdeuk (Five-Each-Gets / Diagram Using Five Heavenly Numbers)",
         analyses=analyses,
         global_symmetries=global_syms,
         save_path=str(OUTPUT_DIR / "rotation_report.txt"),
