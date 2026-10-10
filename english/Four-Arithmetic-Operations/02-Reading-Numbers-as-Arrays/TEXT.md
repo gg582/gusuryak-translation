@@ -231,19 +231,19 @@ Nine nines are eighty-one.
 
 *You have read more than a hundred lines of Classical Chinese, but all you have actually done is memorize the multiplication table.*
 
-致加减者存乎
+致加减者存乎乗除
 
-Is there one who brings addition and subtraction to their utmost?
+Bringing addition and subtraction to their utmost lies in multiplication and division;
 
-乗除妙乗除者存乎
+妙乗除者存乎九九
 
-Is there one who makes the marvel of multiplication and division reside in multiplication and division?
+making multiplication and division marvelous lies in the nine-nines (九九).
 
-九九如言九九八十一九
+如言九九八十一
 
-The "nine-nine" (九九) is like saying "nine nines are eighty-one (9×9=81)":
+When one says "nine nines are eighty-one (9×9=81)":
 
-九者九箇九也九九母數也八十一子數也
+九九者九箇九也九九母數也八十一子數也
 
 "nine-nine" means that there are nine nines. The "nine-nine" (9×9) is the mother number (母數, the original number), and the "eighty-one" (81) is the child number (子數, the number born as the result).
 
@@ -253,7 +253,7 @@ Likewise, in saying "eight nines are seventy-two (8×9=72)", "eight-nine" means 
 
 八為夫而九為妻也
 
-(Here) the 8 in front becomes the husband (the multiplier, the number that multiplies), and the 9 behind becomes the wife (the multiplicand, the number being multiplied).
+(Here) the 8 in front becomes the husband (元數), and the 9 behind becomes the wife (法數).
 
 諸數放此有四十五句或該而或省者圖以揭其全訣以提其要也
 

@@ -26,11 +26,11 @@ likewise belongs to yang and division likewise belongs to yin, so the method of 
 
 reckoning (a higher-order operation). Addition and subtraction are multiplication and division without fixed rules, the very beginnings of the art of reckoning; multiplication and division are
 
-法之加減筭術之型範也傳曰斷木為棋院革為鞠
+法之加減筭術之型範也傳曰斷木為棋梡革為鞠
 
 addition and subtraction with fixed rules, the standard model of the art of reckoning. Tradition says: "Cut wood to make Go stones; bind leather to make a ball" —
 
-亦皆有法焉况於望術乏精微乎
+亦皆有法焉况於筭術之精微乎
 
 even these all have their rules; how much more so for the refined and subtle art of reckoning!
 
@@ -42,9 +42,9 @@ even these all have their rules; how much more so for the refined and subtle art
 
 The method of adding and the method of subtracting
 
-一為主加一得二加二得三加三得四加四得五加主得六加六得七加七得八加八得九
+一為主加一得二加二得三加三得四加四得五加五得六加六得七加七得八加八得九
 
-Taking 1 as the base, adding 1 yields 2, adding 2 yields 3, adding 3 yields 4, adding 4 yields 5, adding 5 (主=五) yields 6, adding 6 yields 7, adding 7 yields 8, and adding 8 yields 9.
+Taking 1 as the base, adding 1 yields 2, adding 2 yields 3, adding 3 yields 4, adding 4 yields 5, adding 5 yields 6, adding 6 yields 7, adding 7 yields 8, and adding 8 yields 9.
 
 二為主加一得三加二得四加三得五加四得六加五得七加六得八加七得九
 
@@ -78,7 +78,7 @@ Taking 8 as the base, adding 1 yields 9.
 
 Carrying addition (進加): adding 9 to 1 makes 10, and to 2
 
-(※ This passage connects with 加八成十三 and similar phrases that follow; it is the rule for carrying addition using the complement of 10.)
+(※ The final 二 continues into the next line, 加八成十; this is the rule for carrying addition using the complement of 10.)
 
 加八成十
 
@@ -548,13 +548,13 @@ The addition table in the main text enumerates all single-digit additions whose 
 |  7 |  8 |  9 |    |    |    |    |    |    |
 |  8 |  9 |    |    |    |    |    |    |    |
 
-Because of the commutative law of addition, recording only half of this table suffices to know all the results.
+Because of the commutative law of addition, this table is symmetric about its diagonal.
 
 ```text
 a + b = b + a
 ```
 
-For example, the main text contains `2 + 7 = 9` but does not separately repeat `7 + 2 = 9`.
+The main text records both `2 + 7 = 9` (二為主加七得九) and `7 + 2 = 9` (七為主加二得九); it lists every case for each base number without omitting equations that share a result.
 
 | Recorded equation | Equation with the same result |
 | --------- | ----------- |
@@ -563,7 +563,7 @@ For example, the main text contains `2 + 7 = 9` but does not separately repeat `
 | 3 + 6 = 9 | 6 + 3 = 9   |
 | 4 + 5 = 9 | 5 + 4 = 9   |
 
-Thus the addition table is constructed in a triangular form with duplicates removed.
+The table is triangular not because duplicates were removed, but because only sums of 9 or less are listed.
 
 ### 7. Addition Pairs That Make 10
 
