@@ -26,7 +26,7 @@ Rather than presupposing only antipodal complements, the project implements and 
 
 If the Cheonsu Yong-o material reprinted immediately before Yukgodo is read as intentional preparation, its transcription
 
-> `去中宮十五` · `外合得二百一十六` · `無宮各得五十四爲六九之數`
+> `去中宮十五` · `外合得二百一十六` · `每宮各得五十四爲六九之數`
 
 directly gives `216=4×54` and `54=6×9`. The strongest direct support from that reprint is therefore equal **aggregates of outer regions** after centre exclusion, and the numerical bridge `54=六九`. It is not itself a literal command for cell-wise antipodal complements; it is an independent criterion for comparing the alternatives.
 

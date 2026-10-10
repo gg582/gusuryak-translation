@@ -208,8 +208,8 @@ def run(iterations: int = 45_000, seed: int = 1715) -> dict[str, object]:
             "transcription": [
                 "去中宮十五",
                 "外合得二百一十六",
-                "無宮各得五十四爲六九之數",
-                "二十二子作二十五子用同前",
+                "每宮各得五十四爲六九之數",
+                "二十一子作二十五子用同前",
             ],
             "arithmetic": {"216_equals_4_times_54": 216 == 4 * 54, "54_equals_6_times_9": 54 == 6 * 9},
             "supports": {

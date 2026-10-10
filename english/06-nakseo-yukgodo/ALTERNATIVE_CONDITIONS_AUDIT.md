@@ -41,9 +41,9 @@ The stored transcription for the Cheonsu Yong-o material immediately preceding Y
 >
 > 外合得二百一十六
 >
-> 無宮各得五十四爲六九之數
+> 每宮各得五十四爲六九之數
 >
-> 二十二子作二十五子用同前
+> 二十一子作二十五子用同前
 
 It contains two direct numerical bridges:
 
