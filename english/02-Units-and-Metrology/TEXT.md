@@ -89,7 +89,7 @@ Thirty geun make 1 gyun (鈞),
 四鈞為石
 and four gyun make 1 seok (石).
 
-後世両下有錢分整里毫不用銖絫
+後世両下有錢分釐毫不用銖絫
 In later ages, below the ryang (兩) there are the jeon (錢), bun (分), ri (釐), and ho (毫), so the su (銖) and ryu (絫) are not used.
 
 十五斤為一穪

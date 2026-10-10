@@ -13,8 +13,8 @@ Borrowing ordinary numbers (凡數) to record the places applies to volume (量)
 六㣲十纎為微九毫
 6 is in the mi (微) place; ten seom (纖) make one mi. (Example column: 9 ho (毫))
 
-三忽十㣲為忽八整
-3 is in the hol (忽) place; ten mi make one hol. (Example column: 8 ri, reading 整 as 釐)
+三忽十㣲為忽八釐
+3 is in the hol (忽) place; ten mi make one hol. (Example column: 8 ri (釐))
 
 五絲十忽為絲七分
 5 is in the sa (絲) place; ten hol make one sa. (Example column: 7 bun (分))
