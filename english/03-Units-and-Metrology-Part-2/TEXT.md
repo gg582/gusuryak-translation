@@ -11,25 +11,25 @@ Small numbers (小數) borrow the scattered numbers (散數, dispersed/small-uni
 Borrowing ordinary numbers (凡數) to record the places applies to volume (量) and weight (衡).
 
 六㣲十纎為微九毫
-6 mi (微): ten seom (纖) make one mi (微); this is 9 ho (毫).
+6 is in the mi (微) place; ten seom (纖) make one mi. (Example column: 9 ho (毫))
 
 三忽十㣲為忽八整
-3 hol (忽): ten mi (微) make one hol (忽); this is 8 jeong (整).
+3 is in the hol (忽) place; ten mi make one hol. (Example column: 8 ri, reading 整 as 釐)
 
 五絲十忽為絲七分
-5 sa (絲): ten hol (忽) make one sa (絲); this is 7 bun (分).
+5 is in the sa (絲) place; ten hol make one sa. (Example column: 7 bun (分))
 
 九毫十絲為毫六寸
-9 ho (毫): ten sa (絲) make one ho (毫); this is 6 chon (寸).
+9 is in the ho (毫) place; ten sa make one ho. (Example column: 6 chon (寸))
 
 四釐十毫為釐五尺
-4 ri (釐): ten ho (毫) make one ri (釐); this is 5 chi (尺).
+4 is in the ri (釐) place; ten ho make one ri. (Example column: 5 chi (尺))
 
 二分十一為文分
-2 bun (分): ten ri make one bun (分); this is the place of munbun (文分).
+2 is in the bun (分) place; ten ri make one bun.
 
 釐為分四十
-That the ri (釐) becomes the bun (分) corresponds to the 40 place.
+(Example column: 40)
 
 一右即單數下細分之
 The above (右) is the finer subdivision below the single-unit numbers (單數).
@@ -44,87 +44,91 @@ The above is like the chon (寸) and bun (分) below the chi (尺), or the seung
 The places are recorded with whole numbers (正數).
 
 借經世萬物之數一萬
-Borrowing the "number of the myriad things" from the Jingse (經世), 10,000.
+Borrowing the "number of the myriad things" from the Huangji Jingshi (皇極經世), the places are recorded.
 
 六即單位斛量斗下為小數
-6 is the unit place; for grain measures by the hu (斛), the places below the du (斗) become small numbers.
+6 is in the unit place; for grain volume (斛量), the places below the du (斗) become small numbers.
 
 七十一勺
-71 jak (勺).
+7 is in the tens place. (Example column: 1 jak (勺))
 
 五百六合
-506 hap (合).
+5 is in the hundreds place. (Example column: 6 hap (合))
 
 六千二升
-6,002 seung (升).
+6 is in the thousands place. (Example column: 2 seung (升))
 
 一萬七斗
-10,007 du (斗).
+1 is in the ten-thousands (萬) place. (Example column: 7 du (斗))
 
 八十即十萬位五石
-80, that is, 5 seok (石) at the hundred-thousands place.
+8 is at 'ten', that is, the hundred-thousands place. (Example column: 5 seok (石))
 
 九百即百萬位三十
-900, that is, 30 at the millions place.
+9 is at 'hundred', that is, the millions place. (Example column: 30 seok)
 
 八千即千萬位八百
-8,000, that is, 800 at the ten-millions place.
+8 is at 'thousand', that is, the ten-millions place. (Example column: 800 seok)
 
 二萬即萬萬位四千
 是為億數
-20,000, that is, 4,000 at the wanwan (萬萬, myriad-myriad) place.
+2 is at 'myriad', that is, the wanwan (萬萬, myriad-myriad) place. (Example column: 4,000 seok)
 This is a number of the eok order (億數).
+
+*Reading the place digits from the top gives 289,816,576, the "number of the myriad things" of the Huangji Jingshi (17,024²); the example column reads 4,835 seok 7 du 2 seung 6 hap 1 jak.*
 
 大數
 Large Numbers (大數)
 
 借經世元㑹之數紀位九萬
-Borrowing the numbers of the Jingse Yuanhui (經世元㑹), the places are recorded with 90,000.
+Borrowing the Yuanhui (元會) numbers of the Huangji Jingshi, the places are recorded.
 
 六億權𢖍錢下為小數
-600 million; in the weight units (權衡), the places below the jeon (錢, mace) become small numbers.
+6 is in the eok (億) place; in weights (權衡), the places below the jeon (錢, mace) become small numbers.
 
 五十即十億位一毫
-50, that is, 1 ho (毫) at the ten-eok (billions) place.
+5 is at 'ten', that is, the ten-eok place. (Example column: 1 ho (毫))
 
 四百即百億位二釐
-400, that is, 2 ri (釐) at the hundred-eok (ten-billions) place.
+4 is at 'hundred', that is, the hundred-eok place. (Example column: 2 ri (釐))
 
 七千即千億位三分
-7,000, that is, 3 bun (分) at the thousand-eok (hundred-billions) place.
+7 is at 'thousand', that is, the thousand-eok place. (Example column: 3 bun (分))
 
 ○萬即萬億位四錢
-10,000, that is, 4 jeon (錢) at the wan-eok (trillions) place.
+○ (zero) is at 'myriad', that is, the wan-eok place. (Example column: 4 jeon (錢))
 
 九十即十萬億位五两
-90, that is, 5 ryang (兩, tael) at the ten-wan-eok place.
+9 is at 'ten', that is, the ten-wan-eok place. (Example column: 5 ryang (兩, tael))
 
 九百即百萬億位六十
-900, that is, 60 at the hundred-wan-eok place.
+9 is at 'hundred', that is, the hundred-wan-eok place. (Example column: 60 ryang)
 
 ○即千萬億位七百
-—, that is, 700 at the thousand-wan-eok place.
+○ (zero) is in the thousand-wan-eok place. (Example column: 700 ryang)
 
 一兆即萬萬億位 是為兆數八千
-1 jo (兆), that is, the wanwan-eok (萬萬億) place; this is a number of the jo order, with 8,000.
-*In the modern Korean number-naming system, 1 jo is $10^{12}$.*
+1 is at jo (兆), that is, the wanwan-eok (萬萬億) place; this is a number of the jo order. (Example column: 8,000 ryang)
+*In the middle series (中數) adopted here, 1 jo is wanwan-eok, i.e. $10^{16}$, unlike the modern Korean 1 jo ($10^{12}$).*
 
 一十即十兆位九萬
-10, that is, 90,000 at the tens-of-jo place.
+1 is at 'ten', that is, the tens-of-jo place. (Example column: 90,000 ryang)
 
 二百即百兆位斤下帶两者用斤
-200, that is, the hundreds-of-jo place; amounts that carry ryang (兩) attached below the geun (斤, catty) use the geun as the unit.
+2 is at 'hundred', that is, the hundreds-of-jo place; amounts that carry ryang (兩) attached below the geun (斤, catty) use the geun as the unit.
 
 八千即千兆位下留两法詳見
 筭書
-8,000, that is, the thousands-of-jo place. The method of keeping the ryang below is set out in detail in
+8 is at 'thousand', that is, the thousands-of-jo place. The method of keeping the ryang below is set out in detail in
 books of computation (筭書).
 
 二萬即萬兆位
-20,000, that is, the ten-thousands-of-jo place.
+2 is at 'myriad', that is, the ten-thousands-of-jo place.
 
-大數有三等如言千萬曰億十億曰兆十兆曰亰此丁數也如言萬萬曰億萬萬億曰垂萬萬兆曰京此中數也如言萬萬曰億億億曰兆兆兆曰京此上數也
-Large numbers have three grades. To call ten million eok (億), ten eok jo (兆), and ten jo gyeong (京) is the lower series (下數). To call wanwan (萬萬) eok, wanwan-eok jo, and wanwan-jo gyeong is the middle series (中數). To call wanwan eok, eok-eok jo, and jo-jo gyeong is the upper series (上數).
+*Reading the place digits from the top gives 2·8·2·1·1·0·9·9·0·7·4·5·6, i.e. 28,211 jo 990 wan 7,456 eok; the weight example column reads 98,765 ryang 4 jeon 3 bun 2 ri 1 ho.*
+
+大數有三等如言十萬曰億十億曰兆十兆曰亰此下數也如言萬萬曰億萬萬億曰垂萬萬兆曰京此中數也如言萬萬曰億億億曰兆兆兆曰京此上數也
+Large numbers have three grades. To call a hundred thousand eok (億), ten eok jo (兆), and ten jo gyeong (京) is the lower series (下數). To call wanwan (萬萬) eok, wanwan-eok jo, and wanwan-jo gyeong is the middle series (中數). To call wanwan eok, eok-eok jo, and jo-jo gyeong is the upper series (上數).
 
 下數淺短計有未周上數宏廓用無所適故今以中數紀位
 The lower series is shallow and short, so that it falls short of what reckoning requires; the upper series is vast and boundless, so that it suits no practical use. Therefore we now record the places using the middle series.
@@ -145,15 +149,15 @@ The arithmetic value used in the Jeong-pyeon (正編) section of the Gusuryak, 1
 
 | Chinese passage | Interpretation and conversion | Meaning of the place | Number placement and example |
 | --- | --- | --- | --- |
-| 六即單位 斛量斗下為小數 | 6 du (units below the du are small numbers) | unit place ($10^0$) | 6 du (reference unit) |
-| 七十一勺 | 71 jak | small-number places 1–2 ($10^{-2}\sim 10^{-1}$) | 0.71 du |
-| 五百六合 | 506 hap | small-number places 3–5 ($10^{-5}\sim 10^{-3}$) | 0.0506 du |
-| 六千二升 | 6,002 seung | small-number places 6–9 ($10^{-9}\sim 10^{-6}$) | 0.6002 du |
-| 一萬七斗 | 10,007 du | whole-number places $10^1 \sim 10^4$ | 10,007 du |
+| 六即單位 斛量斗下為小數 | the unit place is 6 (for grain volume, units below the du are small numbers) | unit place ($10^0$) | 6 |
+| 七十一勺 | the tens place is 7; example 1 jak | tens ($10^1$) | 7 (example: 1 jak = 0.001 du) |
+| 五百六合 | the hundreds place is 5; example 6 hap | hundreds ($10^2$) | 5 (example: 6 hap = 0.06 du) |
+| 六千二升 | the thousands place is 6; example 2 seung | thousands ($10^3$) | 6 (example: 2 seung = 0.2 du) |
+| 一萬七斗 | the ten-thousands place is 1; example 7 du | ten-thousands ($10^4$) | 1 (example: 7 du) |
 | 八十即十萬位五石 | the hundred-thousands place is 8; example 5 seok | hundred-thousands place ($10^5$) | 8 (example: 5 seok = 75 du) |
-| 九百即百萬位三十 | the millions place is 9; example 30 | millions place ($10^6$) | 9 (example: 30 du) |
-| 八千即千萬位八百 | the ten-millions place is 8; example 800 | ten-millions place ($10^7$) | 8 (example: 800 du) |
-| 二萬即萬萬位四千 | the wanwan (eok) place is 2; example 4,000 | eok/wanwan place ($10^8$) | 2 (example: 4,000 du) |
+| 九百即百萬位三十 | the millions place is 9; example 30 | millions place ($10^6$) | 9 (example: 30 seok) |
+| 八千即千萬位八百 | the ten-millions place is 8; example 800 | ten-millions place ($10^7$) | 8 (example: 800 seok) |
+| 二萬即萬萬位四千 | the wanwan (eok) place is 2; example 4,000 | eok/wanwan place ($10^8$) | 2 (example: 4,000 seok) |
 | 是為億數 | confirmation of reaching the eok order | final place check | eok-order designation complete |
 
 Since the places reach the eok order, this is consistent with the phrase 是為億數 ("this is a number of the eok order").

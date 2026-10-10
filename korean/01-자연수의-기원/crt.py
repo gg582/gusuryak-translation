@@ -4,7 +4,7 @@ def crt(r_list, m_list):
     for m in m_list:
         M *= m
 
-    # 2. 연기수 (M_i = M / m_i)
+    # 2. 연수(衍數) (M_i = M / m_i)
     M_list = [M // m for m in m_list]
 
     # 3. 대연구일술: 필산 나눗셈 축약법으로 승수(z) 도출

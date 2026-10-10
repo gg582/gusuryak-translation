@@ -122,7 +122,7 @@ Transforming and arranging (化裁, hwajae) them, the five cells each obtain the
  6 + 5 = 11
 ```
 
-*This part calls for interpretation. In the Gusuryak, the four arithmetic operations are written as ga, gam, seung, je (加減承除: add, subtract, multiply/pair, divide), and there is a convention by which a grand total is written as jeok (積) and a partial sum as gakdeuk (各得). Here, however, the text says only "transform and arrange" (化裁) and merely lists the numbers. This admits of several interpretations. One interpretation: when writing 11 — the sum of 10, the first number in the decimal system that gains an extra digit, and 1, the smallest natural number in the decimal system — its foundation is that there is one unit in the tens place and one unit in the ones place, so the two places are set side by side. From this viewpoint, one cannot rule out an approach in which, even when 4 and 7 are added in this way, a 10 is completed to form the numbers of the River Map, while a 1 remains to make 11, so that the two digits come to occupy separate places. A second interpretation is a literary one, reading it as a philosophical symbol of Heaven and Earth meeting. A third interpretation is that it is simply a quotation with no particular meaning. The first interpretation reads naturally in the context of the Gusuryak before and after this passage, but the evidence for it is thin. The second interpretation is the most traditional, yet this is a mathematical treatise, not a philosophical one. The third interpretation is unlikely, given the publishing economics of an era when woodblock printing was expensive. The author's intent cannot be settled, and attempting to reconstruct the thinking of a scholar long gone from this world is liable to be inaccurate. Personally, I strongly advocate the first interpretation, but please judge for yourself after looking at the original text and the context that follows.*
+*This part calls for interpretation. In the Gusuryak, the four arithmetic operations are written as ga, gam, seung, je (加減乘除: add, subtract, multiply/pair, divide), and there is a convention by which a grand total is written as jeok (積) and a partial sum as gakdeuk (各得). Here, however, the text says only "transform and arrange" (化裁) and merely lists the numbers. This admits of several interpretations. One interpretation: when writing 11 — the sum of 10, the first number in the decimal system that gains an extra digit, and 1, the smallest natural number in the decimal system — its foundation is that there is one unit in the tens place and one unit in the ones place, so the two places are set side by side. From this viewpoint, one cannot rule out an approach in which, even when 4 and 7 are added in this way, a 10 is completed to form the numbers of the River Map, while a 1 remains to make 11, so that the two digits come to occupy separate places. A second interpretation is a literary one, reading it as a philosophical symbol of Heaven and Earth meeting. A third interpretation is that it is simply a quotation with no particular meaning. The first interpretation reads naturally in the context of the Gusuryak before and after this passage, but the evidence for it is thin. The second interpretation is the most traditional, yet this is a mathematical treatise, not a philosophical one. The third interpretation is unlikely, given the publishing economics of an era when woodblock printing was expensive. The author's intent cannot be settled, and attempting to reconstruct the thinking of a scholar long gone from this world is liable to be inaccurate. Personally, I strongly advocate the first interpretation, but please judge for yourself after looking at the original text and the context that follows.*
 
 
 Judging from the calculation that follows, the character 併 here most likely means pairing the numbers at the two ends together and summing them.
@@ -171,7 +171,7 @@ Since there are two complementary pairs of 10, the sum of the four corners is na
 
 
 
-易大傳曰天一地二天三地四天五地六天七天八天九地十
+易大傳曰天一地二天三地四天五地六天七地八天九地十
 The Great Commentary (大傳) of the I Ching (易) says:
 Heaven is 1, Earth is 2,
 Heaven is 3, Earth is 4,
@@ -236,7 +236,7 @@ Mᵢ = M / mᵢ
 
 zᵢ ≡ Mᵢ⁻¹ (mod mᵢ)
 
-Here, Mᵢ is called the "linked base number" (連基數, yeongisu) in East Asian mathematics.
+In East Asian mathematics (Qin Jiushao's Dayan method), M is called the "expansion mother" (衍母, yeonmo), Mᵢ the "expansion number" (衍數, yeonsu), and zᵢ the "multiplying rate" (乘率, seungnyul).
 
 One applies the Dayan search-for-one method (大衍求一術, Daeyeon gu'il-sul).
 
@@ -260,7 +260,7 @@ def crt(r_list, m_list):
 ```
 
 It stands to reason that crt([2,3,2],[3,5,7]) yields 23.
-子曰易有太極是生兩儀兩生象又曰蔘天兩地而倚數按太極者一也
+子曰易有太極是生兩儀兩生象又曰參天兩地而倚數按太極者一也
 一生二也二生三參兩而數立矣
 
 Confucius said: "In the I Ching there is the Supreme Ultimate (太極, taegeuk); it gives birth to the Two Modes (兩儀, yang'i), and the Two Modes give birth to the Four Images."

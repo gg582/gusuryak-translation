@@ -42,7 +42,7 @@ the Chinese mu (畝) rule takes 240 bo as 1 mu, while the li (里) rule takes 36
 In our country's custom of land measurement, 10,000 square chi are taken as 1 gyeol (結), 100 square chi as 1 bu (負), 10 square chi as 1 sok (束), and 1 square chi as 1 pa (把); the field chi (田尺) appears in the "Gyeongguk Daejeon" (大典).
 
 量起於圭六粒之粟十圭為撮十撮為抄十抄為勺十勺為合
-Volume (量) begins with the gyu (圭), which is the amount of six grains of foxtail millet (粟). Ten gyu make 1 chwal (撮), 10 chwal make 1 cho (鈔), 10 cho make 1 jak (勺), and 10 jak make 1 hap (合).
+Volume (量) begins with the gyu (圭), which is the amount of six grains of foxtail millet (粟). Ten gyu make 1 chwal (撮), 10 chwal make 1 cho (抄), 10 cho make 1 jak (勺), and 10 jak make 1 hap (合).
 
 黄鍾之實千二百黍實其龠両龠為合十合為升十升為斗十斗為斛又謂之石
 The actual capacity of the Yellow Bell pipe is such that 1,200 grains of millet (黍) fill its one yak (龠); two yak make 1 hap (合), 10 hap make 1 seung (升), 10 seung make 1 du (斗), and 10 du make 1 gok (斛), which is also called a seok (石).
@@ -57,13 +57,13 @@ The balance (權衡) begins with a millet grain (黍) the size of one grain of f
 One thousand millet grains make 1 ryu (絫),
 
 十絫為銖
-and ten ryu make 1 ju (銖),
+and ten ryu make 1 su (銖),
 
 八銖為錙
-while eight ju make 1 ji (錙).
+while eight su make 1 chi (錙).
 
 六銖為分
-Six ju make 1 bun (分),
+Six su make 1 bun (分),
 
 四分為両
 and four bun make 1 ryang (兩).
@@ -72,7 +72,7 @@ and four bun make 1 ryang (兩).
 The substance of the Yellow Bell (黃鍾) pipe is 1,200 millet grains,
 
 其重十二銖
-and its weight is 12 ju.
+and its weight is 12 su.
 
 両之為両
 Doubling this makes 1 ryang.
@@ -81,7 +81,7 @@ Doubling this makes 1 ryang.
 Sixteen ryang make 1 geun (斤),
 
 即三百八十四銖
-that is, 384 ju.
+that is, 384 su.
 
 三十斤為鈞
 Thirty geun make 1 gyun (鈞),
@@ -90,7 +90,7 @@ Thirty geun make 1 gyun (鈞),
 and four gyun make 1 seok (石).
 
 後世両下有錢分整里毫不用銖絫
-In later ages, below the ryang (兩) there are the jeon (錢), bun (分), ri (釐), and ho (毫), so the ju (銖) and ryu (絫) are not used.
+In later ages, below the ryang (兩) there are the jeon (錢), bun (分), ri (釐), and ho (毫), so the su (銖) and ryu (絫) are not used.
 
 十五斤為一穪
 Fifteen geun are called 1 ching (稱),
@@ -99,7 +99,7 @@ Fifteen geun are called 1 ching (稱),
 and 200 geun are called 1 in (引).
 
 錢鈔千文為母貟
-One thousand mun (文) of paper money and copper coins gathered together are called 1 won (圓),
+For paper money and copper coins, one thousand mun (文) make 1 gwan (貫),
 
 五貫為錠
 and five gwan (貫) are called 1 jeong (錠).
@@ -135,10 +135,10 @@ The sovereign becomes the master of the complete number (成數).
 One, ten, hundred, thousand, and ten thousand are called the regular numbers (正數),
 
 億延京域科穰溝澗正載是謂大數
-and eok (億), ja (延), gyeong (京), hae (域), seo (科), yang (穰), gu (溝), gan (澗), jeong (正), and jae (載) are called the great numbers (大數),
+and eok (億), jo (兆/延), gyeong (京), hae (垓/域), ja (秭/科), yang (穰), gu (溝), gan (澗), jeong (正), and jae (載) are called the great numbers (大數),
 
 分啓厘毫絲忽㣲纎沙塵竢側漠是謂小數
-while bun (分), rim (厘), ho (毫), sa (絲), hol (忽), mi (微), seom (纖), sa (沙), jin (塵), ae (埃), byeong (渺), and mak (漠) are called the small numbers (小數).
+while bun (分), ri (厘), ho (毫), sa (絲), hol (忽), mi (微), seom (纖), sa (沙), jin (塵), ae (埃), myo (渺), and mak (漠) are called the small numbers (小數).
 
 大數之上推之至於無極
 Extending upward from the great numbers, one reaches the limitless (無極),
@@ -147,7 +147,7 @@ Extending upward from the great numbers, one reaches the limitless (無極),
 and extending downward from the small numbers, one enters the incomparable (無倫).
 
 此聖人所謂語大莫能載語小莫䏻志者毁
-This is what the sage meant when he said, "Speaking of the great, nothing can contain it; speaking of the small, nothing can record it."
+This is what the sage meant when he said, "Speak of the great, and nothing in the world can contain it; speak of the small, and nothing in the world can split it" (Doctrine of the Mean).
 
 ## Commentary
 
@@ -203,7 +203,7 @@ However, in things like the calendar for knowing the heavens, it is sometimes wr
 
 By the same principle, names are given in units of 10 for length, grain, and so on, but 5, 6, 8, and others are sometimes mixed in depending on the system of weights and measures.
 Typically, even the units hap, doe, mal, and seom used in markets differ by region.
-In some regions, 10 hap make 1 doe, 15 doe make 1 mal, and 10 mal make 1 seom; they do not always follow the formula.
+In some regions, 10 hap make 1 doe, 10 doe make 1 mal, and 15 mal make 1 seom; they do not always follow the formula.
 
 This shows that in measuring numbers, the units and their usage matter.
 
@@ -254,13 +254,13 @@ Now let us work out the ratios between the values.
 | chi:sim       | 1:8   |
 | chi:jang      | 1:10  |
 | sim:pil (24 chi) | 1:3 |
-| sim:pil (30 chi) | 4:15 |
+| sim:pil (32 chi) | 1:4 |
 | sim:pil (40 chi) | 1:5  |
 | sim:pil (35 chi) | 8:35 |
 
-One can see how complex the system is. First, because the standard of the Yellow Bell chi is fixed by weighing the millet of a particular year, if the standard chi made of bronze wears away and is lost, it cannot be recovered. Second, if sim:pil were made 1:8:24, the ratios would be easy to compute as composites of 1:8 and 1:3, but most were arranged and adjusted with international concerns in mind, so the values are very messy. Third, if the weight of millet changes greatly due to climate change, past administrative records become badly distorted, causing difficulty in calculating national income, economic indices, and the like. When this happens, the disaster of having to excavate a standard chi from hundreds of years ago arises.
+One can see how complex the system is. First, because the standard of the Yellow Bell chi is fixed by weighing the millet of a particular year, if the standard chi made of bronze wears away and is lost, it cannot be recovered. Second, if chi:sim:pil were made 1:8:24, the ratios would be easy to compute as composites of 1:8 and 1:3, but most were arranged and adjusted with international concerns in mind, so the values are very messy. Third, if the weight of millet changes greatly due to climate change, past administrative records become badly distorted, causing difficulty in calculating national income, economic indices, and the like. When this happens, the disaster of having to excavate a standard chi from hundreds of years ago arises.
 
-This is why the SI system was created and came to be used internationally. The SI system established in France can easily be restored even if the standard prototypes disappear.
+This is why the SI system was created and came to be used internationally. The SI system, descended from the French metric system, can easily be restored even if the standard prototypes disappear.
 
 ### Dimension
 

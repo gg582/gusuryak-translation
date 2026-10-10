@@ -25,7 +25,7 @@ The thousands place and the tens place share the same form with each other, and 
 When the count reaches 6 or more, the rod representing 5 is placed on top.
 
 六不積聚五不單張
-For 6, six individual rods are not piled up; for 5, a rod is not spread out alone at the bottom.
+For 6, six individual rods are not piled up; for 5, a single (upper) rod is not laid out alone.
 
 言十過身不滿自當
 When the count passes 10, the place value is carried up; when 10 is not filled, the number is taken as it stands in that place.
@@ -69,7 +69,7 @@ The vertical is the number of zhou (宙, time), and the horizontal is the number
 
 ## Commentary
 
-The counting-rod notation is a form in which a base-5 system is embedded within a base-10 system. For example, 6 is written as 5+1, and 7 is written as 2+5. When the place value changes, the rods are rotated. Through this, a reading rule arises: rods in the upright orientation occupy the $10^{2x}$ place, while rods in the inverted (rotated) orientation occupy the $10^{2n+1}$ place. This rotation rule is a great help not only for the mathematics of the past, but also for understanding modern techniques. Even setting aside the mathematico-philosophical declaration that the cosmos can be explained through mathematics, this is perfectly clear.
+The counting-rod notation is a form in which a base-5 system is embedded within a base-10 system. For example, 6 is written as 5+1, and 7 is written as 2+5. When the place value changes, the rods are rotated. Through this, a reading rule arises: rods in the upright orientation occupy the $10^{2n}$ place, while rods in the inverted (rotated) orientation occupy the $10^{2n+1}$ place. This rotation rule is a great help not only for the mathematics of the past, but also for understanding modern techniques. Even setting aside the mathematico-philosophical declaration that the cosmos can be explained through mathematics, this is perfectly clear.
 
 Suppose one were to notate f(x)/f'(x): the derivative is flipped in both orientation (horizontal and vertical) while dropping one dimension. Consider the case where the degree of the derivative was written down incorrectly by mistake. Suppose you intended to notate $f'(x)=3x^2+2$, the tangent line of $f(x)=x^3+2x+1$, but by mistake placed it in the position of $f(x)=3x^3+2x$. If you remembered even the rotation but erred only in the place value, you would immediately know that the position of the derivative notation is wrong, and you would only need to shift it one space to the right. Unfortunately, in the period when Choi Seok-jeong lived, calculus was only just beginning to develop even in the West, and it was of course out of the question that it had been imported into the East. Yet paradoxically, in this era when calculus has been imported and everyone knows the concept of the derivative, the place-value notation of counting rods happens to confer a great advantage at the verification stage. Accordingly, the supplementary commentary to this textbook likewise proceeds using counting rods whenever the state can be reused or whenever verification is important.
 

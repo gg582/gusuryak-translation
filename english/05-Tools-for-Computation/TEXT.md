@@ -36,7 +36,7 @@ The pitch pipes, length measures, capacity measures, and the balance (律度量�
 
 𢖍運生䂓䂓圜生矩矩方生䋲䋲直生凖
 
-The balance (𢖍) in motion gives rise to the compass (䂓); the compass draws the circle; the carpenter's square (矩) makes the square; the inked line (䋲) makes the straight; and the level (凖) makes the flat.
+The balance beam (𢖍) in rotation gives rise to the compass (䂓); the roundness of the compass gives rise to the carpenter's square (矩); the squareness of the square gives rise to the inked line (䋲); and the straightness of the inked line gives rise to the level (凖).
 
 䂓矩䋲凖器之則也
 
