@@ -10,8 +10,10 @@ Hard constraints:
 - ring positions use each integer 10..81 exactly once
 
 Objective:
-- preserve the user's reading of the source diagram as much as possible
-- each ring slot keeps its read value at cost 0; any change costs 1
+- the original diagram has every value inscribed correctly; the errors were
+  introduced while transcribing it (four cells), so preserve the transcription
+  wherever it stays consistent with the constraints
+- each ring slot keeps its transcribed value at cost 0; any change costs 1
 
 Solved with scipy.optimize.milp (HiGHS).
 """
@@ -121,12 +123,12 @@ def main() -> None:
         print(f"palace {label} (center {center}): {ring} sum={center + sum(ring)}")
         for value, s in zip(reads, slots):
             if value not in VALUES:
-                changed.append((label, s, value, solution[(pi, s)], "invalid read"))
+                changed.append((label, s, value, solution[(pi, s)], "misread"))
             elif solution[(pi, s)] != value:
                 changed.append((label, s, value, solution[(pi, s)], ""))
         for s in range(1, 9):
             if s not in slots:
-                changed.append((label, s, "—", solution[(pi, s)], "unread slot"))
+                changed.append((label, s, "—", solution[(pi, s)], "dropped in transcription"))
     print(f"\ncorrections: {len(changed)}")
     for label, s, old, new, note in changed:
         print(f"  palace {label} slot {s}: {old} -> {new} {note}")

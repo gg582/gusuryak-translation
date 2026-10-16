@@ -22,6 +22,7 @@ Under each language edition the puzzles are grouped into the following families:
 6. **06-nakseo-yukgodo** — the Nakseo Yukgodo and the 270-cell hexagonal-lattice analysis
 7. **07-extra-two** — two additional diagrams
 8. **08-modn-antipodal** — mod-N residue generalization for diagrams with positionally symmetric complementary pairs (cross-chapter analysis)
+9. **not-on-a-textbook** — experiments on the domain, image, and codomain of the x→y naming function in the Nakseo X-gudo family (off-textbook observations)
 
 ---
 

@@ -1,3 +1,7 @@
+import matplotlib
+
+matplotlib.use("Agg")
+
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
 import numpy as np
@@ -42,28 +46,26 @@ if CJK_FONT is not None:
     plt.rcParams["axes.unicode_minus"] = False
 
 # 1. Define the arrangement on a 7x7 grid (row, col indices are 0..6).
-#    Empty cells are represented by None. The missing numbers (11, 15, 29)
-#    are filled into symmetric positions.
+#    Empty cells are represented by None. The arrangement below is the one
+#    reconstructed by reconstruct_milp.py so that each of the nine wells
+#    (井, the empty center of each 3x3 block) is surrounded by 8 cells
+#    summing to 164. Only 6 cells were corrected from the observed layout.
 grid_data = [
     # Row 1 (index 0)
-    [5, 11, 30, 25, 4, 32, 9],
+    [5, 11, 30, 25, 9, 32, 13],
     # Row 2 (index 1)
-    [36, None, 17, None, 33, None, 28],
+    [36, None, 17, None, 29, None, 28],
     # Row 3 (index 2)
-    [1, 40, 24, 18, 12, None, 13],
+    [1, 40, 24, 18, 12, 37, 4],
     # Row 4 (index 3)
     [27, None, 23, None, 19, None, 16],
     # Row 5 (index 4)
     [8, 26, 15, 22, 31, 10, 35],
     # Row 6 (index 5)
-    [37, None, 38, None, 20, None, 2],  # Existing typo '28' corrected to '38'
+    [33, None, 38, None, 20, None, 2],
     # Row 7 (index 6)
     [7, 34, 3, 14, 21, 39, 6]
 ]
-
-# Fill the empty cell that most likely holds 29 according to the grid shape
-# (position may be adjusted if necessary).
-grid_data[2][5] = 29
 
 def get_color_properties(val):
     """Classify border color and background color by n mod 5."""
@@ -117,7 +119,7 @@ def draw_ojungto():
     ax.set_ylim(0, 7)
     plt.tight_layout()
     plt.savefig('ojungto_pattern.png', dpi=300, bbox_inches='tight')
-    plt.show()
+    plt.close(fig)
 
 if __name__ == "__main__":
     draw_ojungto()

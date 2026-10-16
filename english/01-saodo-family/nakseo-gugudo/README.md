@@ -1,160 +1,98 @@
 # Analysis of Nakseo Gugudo
 
-Nakseo Gugudo is an expanded magic-square construction using the Lo Shu 3x3 center square and eight surrounding numbers for each center. The construction uses all numbers from 1 to 81. Each of the nine clusters consists of one center number and eight surrounding numbers, and every cluster has the same total: 369.
+Nakseo Gugudo (낙서구구도) is a 1–81 magic diagram built on the 3×3 central array of the regular Nakseo (Lo Shu) magic square, with eight outer numbers attached to each center value. Each cluster consists of one center number and eight surrounding numbers, and all nine clusters sum to 369.
 
 ```text
-8 1 6
-3 5 7
 4 9 2
+3 5 7
+8 1 6
 ```
 
-## Total Sum and Magic Constant
+(On the diagram the palaces are placed in the order obtained by flipping the Nakseo array above vertically: 八·一·六 / 三·五·七 / 四·九·二.)
 
-The sum of the numbers from 1 to 81 is:
+## Total sum and target constant
+
+The sum of the integers from 1 to 81 is:
 
 ```text
 1 + 2 + ... + 81 = 81 x 82 / 2 = 3321
 ```
 
-Dividing this total into nine equal clusters gives:
+Dividing this into nine equal clusters gives the target sum per cluster:
 
 ```text
 3321 / 9 = 369
 ```
 
-Therefore, if the center number is `n`, the eight surrounding numbers must sum to:
+Therefore the eight numbers surrounding a center `n` must sum to exactly:
 
 ```text
 surrounding sum = 369 - n
 ```
 
-The larger the center number is, the smaller the surrounding sum must be. The smaller the center number is, the larger the surrounding sum must be.
+## Transcribing the source diagram and correcting transcription errors
 
-## 91 Complement Pairs
+The original diagram has every one of the nine palaces' numbers inscribed correctly. The placement data is a transcription of this diagram from the upper-left palace onward, each palace in the order center number then ring (clockwise from the upper-left cell). During transcription four cells were miscopied, and `reconstruct_milp.py` corrects them back to the original values subject to the constraints (every palace sums to 369, each of 10..81 used exactly once, centers fixed).
 
-The surrounding numbers are 10 through 81. These 72 numbers can be divided into 36 complement pairs whose sums are 91.
+| Palace | Transcription error | Value inscribed in the original |
+|---|---|---|
+| 四 (center 4) | last ring cell dropped during transcription | **47** |
+| 三 (center 3) | 19 transcribed as 71 | **19** |
+| 七 (center 7) | 31 transcribed as 3 | **31** |
+| 六 (center 6) | 30 transcribed as 38 | **30** |
 
-```text
-10 + 81 = 91
-11 + 80 = 91
-12 + 79 = 91
-...
-45 + 46 = 91
-```
+## Verification of the current diagram
 
-If every center used four ordinary 91-pairs, the eight surrounding numbers would always sum to:
+| Palace (center) | Ring of 8 | Ring sum | Total |
+|---|---|---:|---:|
+| 八 (8) | 16, 51, 56, 27, 64, 32, 40, 75 | 361 | 369 |
+| 一 (1) | 69, 34, 77, 12, 53, 58, 45, 20 | 368 | 369 |
+| 六 (6) | 38, 79, 14, 63, 46, 22, 71, 30 | 363 | 369 |
+| 三 (3) | 11, 76, 60, 36, 19, 68, 52, 44 | 366 | 369 |
+| 五 (5) | 29, 24, 62, 37, 70, 81, 48, 13 | 364 | 369 |
+| 七 (7) | 74, 26, 55, 31, 42, 50, 66, 18 | 362 | 369 |
+| 四 (4) | 15, 80, 61, 23, 28, 72, 39, 47 | 365 | 369 |
+| 九 (9) | 49, 57, 17, 73, 41, 25, 65, 33 | 360 | 369 |
+| 二 (2) | 54, 43, 67, 10, 59, 21, 78, 35 | 367 | 369 |
 
-```text
-91 x 4 = 364
-```
+## The mod-9 transversal structure
 
-Then the cluster total would be `364 + n`, so only the cluster with center 5 would total 369. Nakseo Gugudo solves this imbalance by keeping three of the four pairs as 91-pairs and adjusting the remaining pair according to the center number.
+The core generation principle of this arrangement is not the 91 complement-pair rule but **mod-9 residue distribution**.
 
-## Center-Correction Pair
+- The eight ring numbers of each palace carry the **eight mod-9 residue classes exactly once each**.
+- However, **the residue class of its own center is missing** (because the center number itself represents that class).
+- Hence each whole cluster (center + ring) is a complete transversal set carrying the mod-9 residues 0–8 exactly once each.
+- Since the residues sum to 0+1+...+8 = 36 ≡ 0 (mod 9), every cluster sum is a multiple of 9, and 369 = 9 × 41 follows naturally.
 
-Three 91-pairs contribute:
+| Palace (center) | Mod-9 residue missing from the ring |
+|---|---:|
+| 八 (8) | 8 |
+| 一 (1) | 1 |
+| 六 (6) | 6 |
+| 三 (3) | 3 |
+| 五 (5) | 5 |
+| 七 (7) | 7 |
+| 四 (4) | 4 |
+| 九 (9) | 0 |
+| 二 (2) | 2 |
 
-```text
-91 x 3 = 273
-```
-
-To make the cluster total 369, the remaining pair must have this sum:
-
-```text
-correction-pair sum = 369 - n - 273 = 96 - n
-```
-
-Thus the correction-pair sums run once each from 87 to 95.
-
-| center | correction-pair sum |
-|---:|---:|
-| 9 | 87 |
-| 8 | 88 |
-| 7 | 89 |
-| 6 | 90 |
-| 5 | 91 |
-| 4 | 92 |
-| 3 | 93 |
-| 2 | 94 |
-| 1 | 95 |
-
-This table is the core of the construction. The different center values are exactly cancelled by the different correction-pair sums, so all nine clusters total 369.
-
-## Verification of the Current Diagram
-
-The arrangement encoded in `visualize.py` verifies as follows.
-
-| center | correction pair | correction sum | surrounding sum | total |
-|---:|---:|---:|---:|---:|
-| 8 | 46 + 42 | 88 | 361 | 369 |
-| 1 | 54 + 41 | 95 | 368 | 369 |
-| 6 | 47 + 43 | 90 | 363 | 369 |
-| 3 | 53 + 40 | 93 | 366 | 369 |
-| 5 | 52 + 39 | 91 | 364 | 369 |
-| 7 | 51 + 38 | 89 | 362 | 369 |
-| 4 | 48 + 44 | 92 | 365 | 369 |
-| 9 | 50 + 37 | 87 | 360 | 369 |
-| 2 | 49 + 45 | 94 | 367 | 369 |
-
-Each cluster contains one correction pair and three ordinary 91 complement pairs. For example, the center-8 cluster is:
-
-```text
-17 + 74 = 91
-35 + 56 = 91
-26 + 65 = 91
-46 + 42 = 88
-
-8 + 91 + 91 + 91 + 88 = 369
-```
-
-The center-1 cluster is:
-
-```text
-10 + 81 = 91
-28 + 63 = 91
-19 + 72 = 91
-54 + 41 = 95
-
-1 + 91 + 91 + 91 + 95 = 369
-```
-
-## Generation Formula
-
-In the current arrangement, the three ordinary 91 complement pairs for a center value `n` follow this form:
-
-```text
-(n + 9)  + (82 - n) = 91
-(n + 27) + (64 - n) = 91
-(n + 18) + (73 - n) = 91
-```
-
-The remaining pair is placed so that its sum is `96 - n`. These correction pairs assign the sums 87, 88, ..., 95 exactly once across centers 9 through 1.
+The nine numbers belonging to residue class r (mod 9), {r, r+9, ..., r+72}, are spread one per palace across the nine palaces, and in the palace whose center is r only r itself (the center) remains of them.
 
 ## Interpretation
 
-Nakseo Gugudo is not merely a diagram whose octagonal surrounding sums happen to match. Because the Lo Shu center numbers are different, one pair in each surrounding octagon is designed to compensate for the center value.
-
-In short:
+Nakseo Gugudo is not merely a diagram whose surrounding sums happen to be equal. It takes the nine numbers of the central Nakseo (Lo Shu) magic square as reference points of the mod-9 residue classes, and arranges the 72 outer numbers as a transversal such that no palace carries its own residue while carrying every other residue exactly once.
 
 ```text
-each center cluster = three 91 complement pairs + one center-correction pair
-correction-pair sum = 96 - center
-center + eight surrounding numbers = 369
+each cluster = a complete mod-9 transversal set (9 numbers, residues 0–8 once each)
+cluster sum = 369 = 9 x 41
 ```
 
-Nakseo Gugudo is therefore an expanded Lo Shu magic square that partitions all numbers from 1 to 81 into nine clusters of 369. Its construction is explained by combining 91 complement pairs with the correction-pair sequence 87 through 95.
+The four corrected values above (47, 19, 31, 30) are precisely the values required by this mod-9 transversal rule. In other words, the gakdeuk sum 369 of the original diagram and the mod-9 structure are equivalent constraints, and the MILP reconstruction restores both simultaneously.
 
-## Reproducible Script
-
-`analyze_nakseo_gugudo.py` verifies the structure from data.
+## Reproduction scripts
 
 ```bash
-python3 analyze_nakseo_gugudo.py
+python3 reconstruct_milp.py       # source transcription -> transcription-error correction (scipy MILP)
+python3 analyze_nakseo_gugudo.py  # verifies 369 sums, 1..81, loshu 15, mod-9 transversal structure
+python3 visualize.py              # regenerates the diagram image (PNG/SVG)
 ```
-
-The script checks:
-
-- whether 1 through 81 are used exactly once
-- whether every center cluster totals 369
-- whether every cluster has three 91 complement pairs and one `96 - center` correction pair
-- whether the Lo Shu center square has row, column, and diagonal sums of 15
