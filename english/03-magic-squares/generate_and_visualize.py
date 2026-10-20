@@ -104,8 +104,8 @@ ORIGINALS = {
         [99, 82, 79, 62, 59, 42, 39, 22, 19,  2],
         [ 3, 18, 23, 38, 43, 58, 63, 78, 83, 98],
         [97, 84, 77, 64, 57, 44, 37, 24, 17,  4],
-        [ 5, 86, 75, 66, 55, 46, 35, 26, 15, 96],
-        [95, 16, 25, 36, 45, 56, 65, 76, 85,  6],
+        [ 5, 16, 25, 36, 45, 56, 65, 76, 85, 96],
+        [95, 86, 75, 66, 55, 46, 35, 26, 15, 6],
         [14,  7, 34, 27, 54, 47, 74, 67, 94, 87],
         [88, 93, 68, 73, 48, 53, 28, 33,  8, 13],
         [12,  9, 32, 29, 52, 49, 72, 69, 92, 89],
@@ -161,12 +161,10 @@ def generate_corrected_10x10():
     m06[4, 7] = 59
     m06[5, 2] = 32
     
-    # 4. Baekjado correction: Correct errors in the 8 corner cells to restore semi-magic structure and tens-place symmetry
+    # 4. Baekjado correction: Correct errors in 24 cells to restore semi-magic structure and tens-place symmetry
     m07 = ORIGINALS["baekjado_original"].copy()
-    m07[4, 0] = 96
-    m07[4, 9] = 5
-    m07[5, 0] = 6
-    m07[5, 9] = 95
+    m07[4] = [96, 86, 75, 66, 55, 46, 35, 26, 15, 5]
+    m07[5] = [6, 16, 25, 36, 45, 56, 65, 76, 85, 95]
     m07[6, 0] = 87
     m07[6, 9] = 14
     m07[7, 0] = 13

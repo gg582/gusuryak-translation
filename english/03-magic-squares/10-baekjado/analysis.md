@@ -26,20 +26,30 @@ Order: 10×10
 
 ## Differences between the source array and the rearrangement
 
-- **Changed cells**: 14
+- **Changed cells**: 24
 
 | Coordinates (Row, Col) | Original Manuscript Value | Reconstructed Value | Numerical Error (Reconstructed - Original) |
 | :---: | :---: | :---: | :---: |
 | (Row 5, Col 1) | 5 | 96 | +91 |
 | (Row 5, Col 2) | 16 | 86 | +70 |
 | (Row 5, Col 3) | 25 | 75 | +50 |
+| (Row 5, Col 4) | 36 | 66 | +30 |
+| (Row 5, Col 5) | 45 | 55 | +10 |
+| (Row 5, Col 6) | 56 | 46 | -10 |
+| (Row 5, Col 7) | 65 | 35 | -30 |
 | (Row 5, Col 8) | 76 | 26 | -50 |
 | (Row 5, Col 9) | 85 | 15 | -70 |
+| (Row 5, Col 10) | 96 | 5 | -91 |
 | (Row 6, Col 1) | 95 | 6 | -89 |
 | (Row 6, Col 2) | 86 | 16 | -70 |
 | (Row 6, Col 3) | 75 | 25 | -50 |
+| (Row 6, Col 4) | 66 | 36 | -30 |
+| (Row 6, Col 5) | 55 | 45 | -10 |
+| (Row 6, Col 6) | 46 | 56 | +10 |
+| (Row 6, Col 7) | 35 | 65 | +30 |
 | (Row 6, Col 8) | 26 | 76 | +50 |
 | (Row 6, Col 9) | 15 | 85 | +70 |
+| (Row 6, Col 10) | 6 | 95 | +89 |
 | (Row 7, Col 1) | 14 | 87 | +73 |
 | (Row 7, Col 10) | 87 | 14 | -73 |
 | (Row 8, Col 1) | 88 | 13 | -75 |
