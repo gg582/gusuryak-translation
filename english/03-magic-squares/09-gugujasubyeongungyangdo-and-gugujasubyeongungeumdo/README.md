@@ -30,7 +30,7 @@
 
 # Commentary
 
-If the mother-number diagrams (母數圖) of 07 and 08 are diagrams that place the ordered pairs (a, b), then the child-number diagram (子數圖) of 09 is a diagram that places in each cell their product a×b, that is, the nine-nine number (九九數). Just as the mother-number diagrams make 90 in every row and column, the child-number diagrams make 225 in every row and column. The 81 cells contain the 81 products of the nine-nine multiplication table (one for each ordered pair (a,b)) exactly once each — literally **九九八十一** (nine-nine eighty-one).
+If the mother-number diagrams (母數圖) of 07 and 08 are diagrams that place the ordered pairs (a, b), then the child-number diagram (子數圖) of 09 is a diagram that places the products a×b of the multiplication table, that is, the nine-nine numbers (九九數). A cell does not, however, hold the product of the pair in the same cell of the mother-number diagram. Just as the mother-number diagrams make 90 in every row and column, the child-number diagrams make 225 in every row and column. The 81 cells contain the 81 products of the nine-nine multiplication table (one for each ordered pair (a,b)) exactly once each — literally **九九八十一** (nine-nine eighty-one).
 
 Below are the results of verifying the two diagrams and analyzing their structure (`../analyze_zisu.py`, `../visualize_zisu.py`).
 
