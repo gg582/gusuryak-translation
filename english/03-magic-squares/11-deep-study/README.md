@@ -3,7 +3,7 @@
 This document gathers every square in the *Gusuryak*, computes its properties, and compares it with the main families studied in the magic-square tradition.
 
 - Transcriptions: [`squares.py`](squares.py), copied from the latest corrected transcriptions in the repository and wiki.
-- Computation: [`deep_study.py`](deep_study.py). It checks each of the 33 claims made below and stops if a change in the transcriptions breaks one.
+- Computation: [`deep_study.py`](deep_study.py). It checks each of the 35 claims made below and stops if a change in the transcriptions breaks one.
 - Generated table: [`properties.md`](properties.md)
 
 ```
@@ -34,7 +34,7 @@ python deep_study.py
 | Pandiagonal | none |
 | Compact | Baekjado original (2×2 sum 202) |
 | Embedded centre | Oodo yang (3×3), Haengsudo yang (3×3), Yeoksudo yin (4×4), Gusudo and Gusu yin diagram (central palace) |
-| Compound | Gusudo (every palace magic), Gugujasu Byeongung yang (every palace magic), Gusu yin diagram (every palace semi-magic) |
+| Compound | Gusudo (every palace magic), Gugujasu Byeongung yang (every palace magic), Gusu yin diagram (every palace semi-magic), Yukyukdo 1 and 2 (2×2 block sums form a Lo Shu) |
 | Latin decomposition | Gugumosu Byeongung yang (orthogonal Latin pair → order-9 magic square) |
 | Half-orthogonal Latin pair | Baekja Saengseong Sunsudo and Gyosudo (50 ordered pairs × 2) |
 
@@ -60,7 +60,8 @@ Up to rotation and reflection, the Lo Shu is the only order-3 magic square on 1�
 
 - For orders that leave remainder 2 on division by 4, such as 6, no associative and no pandiagonal magic squares exist. Neither example is either.
 - In example 2, 16 of the 18 complementary pairs are centrally placed, so it comes as close as possible to the impossible associative square. In example 1, 6 pairs are mirrored within a row and 12 lie elsewhere.
-- Rotation, reflection, complement and row/column rearrangement do not turn one example into the other. Even every affine map of positions over ℤ₆, with or without the complement 37 − v, fails to send example 1 to example 2, so the two are independent solutions.
+- Both examples follow one construction. Divide the square into nine 2×2 blocks and let L be the Lo Shu number at the block's position; every cell is v = L + 9k with k ∈ {0, 1, 2, 3}. Each block holds L, L+9, L+18, L+27 once, so it sums to 4L+54, and the nine block sums again form a Lo Shu. The k array is a magic square in which every row, column and diagonal sums to 9, giving line sums 2×15 + 9×9 = 111. Enlarging the Lo Shu to block size puts the Yukyukdo in the same family as the Gusudo (3.8).
+- The two examples use the same four numbers in every block and differ only in the placement of k inside the blocks. Rotation, reflection, complement and row/column rearrangement do not turn one into the other, nor does any affine map of positions over ℤ₆, with or without the complement 37 − v.
 
 ### 3.5 Haengsudo (order 7)
 

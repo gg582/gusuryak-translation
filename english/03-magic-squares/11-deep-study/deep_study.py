@@ -249,6 +249,12 @@ def verify_findings():
     F["baekja_orig_two_broken_diagonal_sums"] = len({int(sum(O[i, (i + s) % 10] for i in range(10))) for s in range(10)}
                                                      | {int(sum(O[i, (s - i) % 10] for i in range(10))) for s in range(10)}) == 2
     F["yukyuk_no_affine_map"] = not yukyuk_affine_maps()
+    for k in ("YUKYUK_1", "YUKYUK_2"):
+        D = arr(k) - np.kron(L, np.ones((2, 2), int))
+        kk = D // 9
+        F[f"{k.lower()}_lo_shu_blocks"] = ((D % 9 == 0).all()
+                                           and all(sorted(kk[2 * i:2 * i + 2, 2 * j:2 * j + 2].flatten()) == [0, 1, 2, 3] for i in range(3) for j in range(3))
+                                           and properties(kk)["magic"] and properties(kk)["const"] == 9)
     F["oo_not_siamese"] = all(relation(siamese(5), arr(k)) == "none" for k in ("OO_YANG", "OO_EUM"))
     for k, v in F.items():
         assert v, k

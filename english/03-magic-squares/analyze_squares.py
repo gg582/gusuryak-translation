@@ -311,10 +311,9 @@ def describe_generation_rule(name, data):
     n = data["order"]
     if name == "Yukyukdo (Six-Six Board, 六六圖)":
         return (
-            "6×6 magic square. The two examples are different arrangements but both have the same magic constant 111. "
-            "The first example is a normal magic square with row/column/diagonal sums of 111. "
-            "The second example is also a normal magic square with row/column/diagonal sums of 111. "
-            "The two examples are not related by 90° rotation or reflection; they are different isomorphic forms."
+            "Two normal 6×6 magic squares. In both, every row, column and diagonal sums to 111. "
+            "Rotation and reflection do not carry one to the other, but they share the same construction (v = L + 9k): "
+            "each 2×2 block holds the Lo Shu number L together with L+9, L+18 and L+27."
         )
     elif name == "Gusudo (Nine Palace, 九數圖)":
         return (
