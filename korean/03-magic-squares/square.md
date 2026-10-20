@@ -187,6 +187,7 @@
 - [백자생성순수도 분석](04-baekjasaengseong-sunsu/analysis.md)
 - [백자생성교수도 분석](05-baekjasaengseong-gyosu/analysis.md)
 - [백자음양자모착종도 분석](06-baekjayin-yang-jamo-chakjong/analysis.md)
+- [방진 심층 연구와 마방진 계열 대조](11-deep-study/README.md)
 
 순수도와 교수도는 순서쌍 전사이며, 마방진 검산 대상이 아니다. 두 도안 모두
 50종의 순서쌍이 각각 두 번 나타나는 10차 50-직교 라틴방진 쌍이다.

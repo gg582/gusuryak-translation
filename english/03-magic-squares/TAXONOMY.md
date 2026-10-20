@@ -4,7 +4,7 @@
 | --- | --- | --- | --- | --- |
 | Yukyukdo | X | X | O | Normal 1–36 magic square |
 | Gusudo | X | X | O | Normal 1–81 compound magic square |
-| Baekjajasuyin-yang-chakjong | O | O | X | Yin and yang bases recorded separately |
+| Baekjajasuyin-yang-chakjong | O | X | X | Yin and yang bases recorded separately; child = 10 − parent, so dependent |
 | Baekjasaengseong-sunsu | O | 50-orthogonal | X | Ordered-pair grid; 180° rotational symmetry |
 | Baekjasaengseong-gyosu | O | 50-orthogonal | X | Ordered-pair grid; 1–100 test is not applicable |
 | Baekjayin-yang-jamo-chakjong | X | X | X | Complete 1–100 permutation |

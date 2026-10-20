@@ -193,6 +193,7 @@ as supplied; only Baekjado has a separately documented rearrangement:
 - [Baekjasaengseong-sunsu analysis](04-baekjasaengseong-sunsu/analysis.md)
 - [Baekjasaengseong-gyosu analysis](05-baekjasaengseong-gyosu/analysis.md)
 - [Baekjayin-yang-jamo-chakjong analysis](06-baekjayin-yang-jamo-chakjong/analysis.md)
+- [In-depth study and comparison with magic-square families](11-deep-study/README.md)
 
 Sunsu-do and Gyosu-do are order-ten 50-orthogonal Latin-square pairs recorded
 as ordered pairs, not magic-square verification targets. The child and mother diagrams
