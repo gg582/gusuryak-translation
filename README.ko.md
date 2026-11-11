@@ -97,7 +97,8 @@
 │   │   ├── misc-interesting-points.md        # 흥미로운 탐구 포인트
 │   │   ├── saodo-sajagakdeuk-ojagakdeuk-interchange.md  # 사오도 ↔ 사자/오자 변환
 │   │   ├── saodo-chiljagakdeuk-generalization/  # Π(p, q, T) 프레임워크
-│   │   └── gakdeuk-principle-shared-properties/ # 각득 퍼즐 공유 특성
+│   │   ├── gakdeuk-principle-shared-properties/ # 각득 퍼즐 공유 특성
+│   │   └── wood-product-audit/              # 木與木相摩 곱셈 해석 전수 검증
 │   ├── 05-extra-five/                        # 추가 5종
 │   │   ├── gichaek-yong-paldo/
 │   │   ├── beomsu-yong-odo/
@@ -143,7 +144,8 @@
     │   ├── misc-interesting-points.md
     │   ├── 사오도-사자각득-오자각득-상호변환.md
     │   ├── 사오도와-칠자각득의-일반화/
-    │   └── 각득 원리를 따르는 퍼즐들의 공유 특성 및 일반화/
+    │   ├── 각득 원리를 따르는 퍼즐들의 공유 특성 및 일반화/
+    │   └── 목-곱셈-검증/
     ├── 05-extra-five/                        # 추가 5종
     │   ├── 기책용팔도/
     │   ├── 범수용오도/
@@ -328,6 +330,7 @@ Siamese식 지역 규칙 검토와 함께, 최종 재구 도안에서 출발해 
 | 사오도–칠자각득 일반화 | `english/04-unification/saodo-chiljagakdeuk-generalization/` | `korean/04-unification/사오도와-칠자각득의-일반화/` |
 | 각득 원리 공유 특성 | `english/04-unification/gakdeuk-principle-shared-properties/` | `korean/04-unification/각득 원리를 따르는 퍼즐들의 공유 특성 및 일반화/` |
 | 사오도 ↔ 사자/오자 변환 | `english/04-unification/saodo-sajagakdeuk-ojagakdeuk-interchange.md` | `korean/04-unification/사오도-사자각득-오자각득-상호변환.md` |
+| 木與木相摩 곱셈 해석 검증 | `english/04-unification/wood-product-audit/` | `korean/04-unification/목-곱셈-검증/` |
 | 흥미로운 탐구 포인트 | `english/04-unification/misc-interesting-points.md` | `korean/04-unification/misc-interesting-points.md` |
 
 핵심 사실:

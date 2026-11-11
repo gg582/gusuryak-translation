@@ -101,7 +101,8 @@ A few puzzles here are especially fun to revisit from a modern combinatorics per
 │   │   ├── misc-interesting-points.md          # Open questions and observations
 │   │   ├── saodo-sajagakdeuk-ojagakdeuk-interchange.md # Saodo ↔ Saja/Oja conversion
 │   │   ├── saodo-chiljagakdeuk-generalization/ # Π(p, q, T) framework
-│   │   └── gakdeuk-principle-shared-properties/# Shared properties of Gakdeuk puzzles
+│   │   ├── gakdeuk-principle-shared-properties/# Shared properties of Gakdeuk puzzles
+│   │   └── wood-product-audit/                # Test of the 木與木相摩 multiplicative reading
 │   ├── 05-extra-five/                          # Five additional Gakdeuk-style diagrams
 │   │   ├── gichaek-yong-paldo/
 │   │   ├── beomsu-yong-odo/
@@ -147,7 +148,8 @@ A few puzzles here are especially fun to revisit from a modern combinatorics per
     │   ├── misc-interesting-points.md
     │   ├── 사오도-사자각득-오자각득-상호변환.md
     │   ├── 사오도와-칠자각득의-일반화/
-    │   └── 각득 원리를 따르는 퍼즐들의 공유 특성 및 일반화/
+    │   ├── 각득 원리를 따르는 퍼즐들의 공유 특성 및 일반화/
+    │   └── 목-곱셈-검증/
     ├── 05-extra-five/                          # 추가 5종
     │   ├── 기책용팔도/
     │   ├── 범수용오도/
@@ -349,6 +351,7 @@ Parameterized frameworks that contain the earlier puzzles as special cases.
 | Saodo–Chiljagakdeuk generalization | `english/04-unification/saodo-chiljagakdeuk-generalization/` | `korean/04-unification/사오도와-칠자각득의-일반화/` |
 | Gakdeuk-principle shared properties | `english/04-unification/gakdeuk-principle-shared-properties/` | `korean/04-unification/각득 원리를 따르는 퍼즐들의 공유 특성 및 일반화/` |
 | Saodo ↔ Saja/Oja interchange | `english/04-unification/saodo-sajagakdeuk-ojagakdeuk-interchange.md` | `korean/04-unification/사오도-사자각득-오자각득-상호변환.md` |
+| 木與木相摩 multiplicative-reading audit | `english/04-unification/wood-product-audit/` | `korean/04-unification/목-곱셈-검증/` |
 | Miscellaneous interesting points | `english/04-unification/misc-interesting-points.md` | `korean/04-unification/misc-interesting-points.md` |
 
 Key facts:
