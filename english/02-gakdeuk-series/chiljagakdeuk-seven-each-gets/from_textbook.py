@@ -3,7 +3,7 @@ import matplotlib.pyplot as plt
 from matplotlib import font_manager
 
 
-TITLE = "Chiljagakdeuk (Seven-Each-Gets)\nSeven groups, each on its own"
+TITLE = "Hado Chilodo (河圖七五圖)\nseven numbers each obtain 126"
 OUTPUT_STEM = "七子各得_예시"
 
 EXAMPLE_GROUPS = [
@@ -15,11 +15,11 @@ EXAMPLE_GROUPS = [
 ]
 
 GROUP_POSITIONS = [
-    (0.0, 2.4),
-    (-2.4, 0.0),
+    (0.0, 2.75),
+    (-2.6, 0.0),
     (0.0, 0.0),
-    (2.4, 0.0),
-    (0.0, -2.4),
+    (2.6, 0.0),
+    (0.0, -2.75),
 ]
 
 SLOT_OFFSETS = [
@@ -101,8 +101,8 @@ def main():
         draw_group(ax, values, center, start)
 
     ax.set_aspect("equal")
-    ax.set_xlim(-4, 4)
-    ax.set_ylim(-4, 4)
+    ax.set_xlim(-4.1, 4.1)
+    ax.set_ylim(-4.4, 4.2)
     ax.axis("off")
     ax.set_title(TITLE, fontsize=16)
 
