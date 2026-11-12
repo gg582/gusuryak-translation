@@ -12,9 +12,9 @@
 |---|---|
 | 一六水 二七火 三八木 四九金 五十土 | 1 and 6 are Water, 2 and 7 Fire, 3 and 8 Wood, 4 and 9 Metal, 5 and 10 Earth. |
 | 此圖水土相涵 | In this diagram Water and Earth are steeped in each other. |
-| 金火相守 | Metal and Fire keep to each other (stay together). |
-| 兩木相摩 | The two Woods rub against each other. |
-| 傳曰 | It is handed down: |
+| 金火相守 | Metal and Fire keep company. |
+| 兩木相摩 | The two Woods rub together. |
+| 傳曰 | As the tradition has it, |
 | 木與木相摩則然 | when wood rubs against wood, it catches fire; |
 | 金與火相守則流 | when metal stays with fire, it (melts and) flows. |
 
