@@ -28,7 +28,7 @@ The surprising thing is that each color appears exactly four times. Twenty divid
 
 ![Chiljagakdeuk base layout](./assets/base_layout.png)
 
-The real fun of Chiljagakdeuk lies in the **direction sums**. The seven numbers in each direction all add up to **120**, just as each row of a Sudoku sums to 45. Furthermore, the five center numbers contain 1, 2, 3, 4, and 5 exactly once, so the remainders modulo 5 are completely covered.
+The real fun of Chiljagakdeuk lies in the **direction sums**. The seven numbers in each direction all add up to **126**, just as each row of a Sudoku sums to 45. Furthermore, the five center numbers contain 1, 2, 3, 4, and 5 exactly once, so the remainders modulo 5 are completely covered.
 
 ---
 
@@ -66,7 +66,7 @@ Can we go further? The two puzzles can be captured in one formula.
 - **q**: the number of surrounding slots in each direction
 - **T**: the target sum for each direction (cluster)
 
-Chiljagakdeuk is `Π(5, 6, 120)`: five directions, six surrounding slots, sum 120. It fits perfectly.
+Chiljagakdeuk is `Π(5, 6, 126)`: five directions, six surrounding slots, sum 126. It fits perfectly.
 
 What about Saodo? It has five color groups, each with four elements, so we can view it as one center plus three surroundings. Thus it is `Π(5, 3, T_d)`, where `T_d` differs by direction (34, 38, 42, 46, 50). It can be called a **non-uniform example** within the same family.
 
@@ -137,7 +137,7 @@ What would be good about including such puzzles in a school mathematics textbook
 
 ### 8.2 Sums and Invariants
 
-The fact that the sum of 1 through 20 is 210, or that each direction in Chiljagakdeuk sums to 120, naturally introduces the important mathematical concept of an **invariant**.
+The fact that the sum of 1 through 20 is 210, or that each direction in Chiljagakdeuk sums to 126, naturally introduces the important mathematical concept of an **invariant**.
 
 ### 8.3 Mathematical Thinking Through Puzzles
 

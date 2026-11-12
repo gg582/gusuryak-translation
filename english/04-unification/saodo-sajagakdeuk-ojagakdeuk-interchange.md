@@ -137,7 +137,7 @@ Within this framework, Sajagakdeuk and Ojagakdeuk are positioned as follows.
 
 | Puzzle | p | q | T | Reading |
 |---|---|---|---|---|
-| Chiljagakdeuk | 5 | 6 | 120 | 5 clusters, 7 elements each, sum 120 |
+| Chiljagakdeuk | 5 | 6 | 126 | 5 clusters, 7 elements each, sum 126 |
 | Sajagakdeuk (wuxing classes) | 5 | 3 | 34, 38, 42, 46, 50 | 5 wuxing classes, 4 elements each, arithmetic progression |
 | Ojagakdeuk (wuxing classes) | 5 | 6 or 7 | 99, 105, 112, 119, 126 | 5 wuxing classes, 6–7 elements, arithmetic progression |
 

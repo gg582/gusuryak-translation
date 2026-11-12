@@ -176,37 +176,37 @@ Per-cluster rotation analysis: Chiljagakdeuk (Seven-Each-Gets)
 ============================================================
 
 Cluster: C1
-  Cyclic order (7 elements): 2 -> 29 -> 1 -> 24 -> 34 -> 11 -> 19
-  Sum: 120
-  Residue pattern (mod 5): F-M-W-M-M-W-M
+  Cyclic order (7 elements): 2 -> 7 -> 24 -> 34 -> 11 -> 19 -> 29
+  Sum: 126
+  Residue pattern (mod 5): F-F-M-M-W-M-M
   No nontrivial rotational invariance.
   Note: center=2, direction=top
 
 Cluster: C2
-  Cyclic order (7 elements): 3 -> 6 -> 33 -> 23 -> 13 -> 34 -> 8
-  Sum: 120
-  Residue pattern (mod 5): Wd-W-Wd-Wd-Wd-M-Wd
+  Cyclic order (7 elements): 3 -> 18 -> 33 -> 23 -> 13 -> 28 -> 8
+  Sum: 126
+  Residue pattern (mod 5): Wd-Wd-Wd-Wd-Wd-Wd-Wd
   No nontrivial rotational invariance.
   Note: center=3, direction=left
 
 Cluster: C3
-  Cyclic order (7 elements): 5 -> 22 -> 7 -> 20 -> 30 -> 26 -> 10
-  Sum: 120
-  Residue pattern (mod 5): E-F-F-E-E-W-E
+  Cyclic order (7 elements): 5 -> 31 -> 20 -> 12 -> 26 -> 10 -> 22
+  Sum: 126
+  Residue pattern (mod 5): E-W-E-F-W-E-F
   No nontrivial rotational invariance.
   Note: center=5, direction=center
 
 Cluster: C4
-  Cyclic order (7 elements): 4 -> 15 -> 28 -> 9 -> 18 -> 32 -> 14
-  Sum: 120
-  Residue pattern (mod 5): M-E-Wd-M-Wd-F-M
+  Cyclic order (7 elements): 4 -> 15 -> 27 -> 9 -> 25 -> 32 -> 14
+  Sum: 126
+  Residue pattern (mod 5): M-E-F-M-E-F-M
   No nontrivial rotational invariance.
   Note: center=4, direction=right
 
 Cluster: C5
-  Cyclic order (7 elements): 1 -> 35 -> 16 -> 21 -> 24 -> 6 -> 17
-  Sum: 120
-  Residue pattern (mod 5): W-E-W-W-M-W-F
+  Cyclic order (7 elements): 1 -> 16 -> 21 -> 30 -> 6 -> 17 -> 35
+  Sum: 126
+  Residue pattern (mod 5): W-W-W-E-W-F-E
   No nontrivial rotational invariance.
   Note: center=1, direction=bottom
 

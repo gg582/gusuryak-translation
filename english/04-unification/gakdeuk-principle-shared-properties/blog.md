@@ -26,7 +26,7 @@ The core rule of Gakdeuk puzzles is that **"each one obtains."**
 |:---:|:---:|:---:|
 | Ojagakdeuk | 5 | 65 |
 | Yukjagakdeuk | 6 | 63 |
-| Chiljagakdeuk | 7 | 120 |
+| Chiljagakdeuk | 7 | 126 |
 | Paljagakdeuk | 8 | 164 |
 | Gujagakdeuk | 9 | 207 |
 

@@ -18,11 +18,11 @@ from collections import Counter
 CLUSTER_SPACING = 3.3
 
 CLUSTERS = [
-    {"id": "C1", "dir": "top",    "pos": (0.0, CLUSTER_SPACING),  "center": 2,  "slots": [29, 1, 24, 34, 11, 19]},
-    {"id": "C2", "dir": "left",   "pos": (-CLUSTER_SPACING, 0.0), "center": 3,  "slots": [6, 33, 23, 13, 34, 8]},
-    {"id": "C3", "dir": "center", "pos": (0.0, 0.0),              "center": 5,  "slots": [22, 7, 20, 30, 26, 10]},
-    {"id": "C4", "dir": "right",  "pos": (CLUSTER_SPACING, 0.0),  "center": 4,  "slots": [15, 28, 9, 18, 32, 14]},
-    {"id": "C5", "dir": "bottom", "pos": (0.0, -CLUSTER_SPACING), "center": 1,  "slots": [35, 16, 21, 24, 6, 17]},
+    {"id": "C1", "dir": "top",    "pos": (0.0, CLUSTER_SPACING),  "center": 2,  "slots": [7, 24, 34, 11, 19, 29], "start": 90},
+    {"id": "C2", "dir": "left",   "pos": (-CLUSTER_SPACING, 0.0), "center": 3,  "slots": [18, 33, 23, 13, 28, 8], "start": 120},
+    {"id": "C3", "dir": "center", "pos": (0.0, 0.0),              "center": 5,  "slots": [31, 20, 12, 26, 10, 22], "start": 120},
+    {"id": "C4", "dir": "right",  "pos": (CLUSTER_SPACING, 0.0),  "center": 4,  "slots": [15, 27, 9, 25, 32, 14], "start": 120},
+    {"id": "C5", "dir": "bottom", "pos": (0.0, -CLUSTER_SPACING), "center": 1,  "slots": [16, 21, 30, 6, 17, 35], "start": 90},
 ]
 
 SLOT_ANGLES = np.linspace(90, 90 - 360, 7)[:-1] * np.pi / 180
@@ -57,7 +57,7 @@ def draw_base_layout(save_path="figures/base_layout.png"):
     ax.axis('off')
     ax.set_facecolor('#FDFBF7')
     fig.patch.set_facecolor('#FDFBF7')
-    ax.set_title("Seven-Each-Gets Puzzle: Base Layout\n5 clusters, sum 120 each",
+    ax.set_title("Seven-Each-Gets Puzzle: Base Layout\n5 clusters, sum 126 each",
                  fontsize=15, fontweight='bold', color='#2C3E50', pad=10)
 
     for cluster in CLUSTERS:
@@ -76,7 +76,7 @@ def draw_base_layout(save_path="figures/base_layout.png"):
 
         # peripheral slots
         for i, value in enumerate(cluster["slots"]):
-            angle = SLOT_ANGLES[i]
+            angle = np.radians(cluster.get("start", 90) - 60 * i)
             x = cx + SLOT_RADIUS * np.cos(angle)
             y = cy + SLOT_RADIUS * np.sin(angle)
             color = GROUP_COLORS[residue(value)]
@@ -180,7 +180,7 @@ def draw_cluster_structure(save_path="figures/cluster_structure.png"):
         ax.add_patch(circ)
         ax.text(x, y, f"s{i+1}", fontsize=10, ha='center', va='center', fontweight='bold')
 
-    ax.text(0, -2.0, "Σ(center + s1+...+s6) = 120", fontsize=12,
+    ax.text(0, -2.0, "Σ(center + s1+...+s6) = 126", fontsize=12,
             ha='center', va='center', color='#2C3E50', fontweight='bold')
 
     ax.set_xlim(-2, 2)
@@ -300,9 +300,8 @@ def draw_direction_graph(save_path="figures/direction_graph.png"):
 if __name__ == "__main__":
     draw_base_layout("figures/base_layout.png")
     # Also update the copy used by the first blog post.
-    draw_base_layout("../../first-post/assets/base_layout.png")
+    draw_base_layout("../../../english/00-first-post/assets/base_layout.png")
     draw_residue_distribution()
     draw_cluster_structure()
-    draw_duplication_graph()
     draw_direction_graph()
     print("All visualizations generated.")

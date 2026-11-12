@@ -57,7 +57,7 @@ python gakdeuk_solver.py --n 5 --max 24 --sum 65 --missing 3 10 22 --num-shared 
 python gakdeuk_solver.py --n 6 --max 20 --sum 63 --max-multiplicity 3 --num-shared 8
 
 # 누락 수를 MILP가 자동 선택 (칠자각득 유사)
-python gakdeuk_solver.py --n 7 --max 35 --sum 120 \
+python gakdeuk_solver.py --n 7 --max 35 --sum 126 \
     --auto-missing --missing-count 4 --missing-sum 95 --required 1 2 3 4 5
 
 # 육자각득 유사: 벌집 인접 + 쌍별 공유 정점 수 + 상하 대칭 + 시각화

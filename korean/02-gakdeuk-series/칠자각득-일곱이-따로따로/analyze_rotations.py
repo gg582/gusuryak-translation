@@ -41,11 +41,11 @@ from rotation_analysis import (
 CLUSTER_SPACING = 3.3
 
 CLUSTERS = [
-    {"id": "C1", "dir": "상",  "pos": (0.0, CLUSTER_SPACING),  "center": 2,  "slots": [29, 1, 24, 34, 11, 19]},
-    {"id": "C2", "dir": "좌",  "pos": (-CLUSTER_SPACING, 0.0), "center": 3,  "slots": [6, 33, 23, 13, 34, 8]},
-    {"id": "C3", "dir": "중",  "pos": (0.0, 0.0),              "center": 5,  "slots": [22, 7, 20, 30, 26, 10]},
-    {"id": "C4", "dir": "우",  "pos": (CLUSTER_SPACING, 0.0),  "center": 4,  "slots": [15, 28, 9, 18, 32, 14]},
-    {"id": "C5", "dir": "하",  "pos": (0.0, -CLUSTER_SPACING), "center": 1,  "slots": [35, 16, 21, 24, 6, 17]},
+    {"id": "C1", "dir": "상",  "pos": (0.0, CLUSTER_SPACING),  "center": 2,  "slots": [7, 24, 34, 11, 19, 29], "start": 90},
+    {"id": "C2", "dir": "좌",  "pos": (-CLUSTER_SPACING, 0.0), "center": 3,  "slots": [18, 33, 23, 13, 28, 8], "start": 120},
+    {"id": "C3", "dir": "중",  "pos": (0.0, 0.0),              "center": 5,  "slots": [31, 20, 12, 26, 10, 22], "start": 120},
+    {"id": "C4", "dir": "우",  "pos": (CLUSTER_SPACING, 0.0),  "center": 4,  "slots": [15, 27, 9, 25, 32, 14], "start": 120},
+    {"id": "C5", "dir": "하",  "pos": (0.0, -CLUSTER_SPACING), "center": 1,  "slots": [16, 21, 30, 6, 17, 35], "start": 90},
 ]
 
 OUTPUT_DIR = Path("figures")

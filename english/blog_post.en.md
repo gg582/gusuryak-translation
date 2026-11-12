@@ -26,14 +26,14 @@
 
 | Cluster | Center | Peripheral slots | Sum |
 |---|---|---|---|
-| C₁ (top) | 2 | 29, 1, 24, 34, 11, 19 | 120 |
-| C₂ (left) | 3 | 6, 33, 23, 13, 34, 8 | 120 |
-| C₃ (center) | 5 | 22, 7, 20, 30, 26, 10 | 120 |
-| C₄ (right) | 4 | 15, 28, 9, 18, 32, 14 | 120 |
-| C₅ (bottom) | 1 | 35, 16, 21, 24, 6, 17 | 120 |
+| C₁ (top) | 2 | 7, 24, 34, 11, 19, 29 | 126 |
+| C₂ (left) | 3 | 18, 33, 23, 13, 28, 8 | 126 |
+| C₃ (center) | 5 | 31, 20, 12, 26, 10, 22 | 126 |
+| C₄ (right) | 4 | 15, 27, 9, 25, 32, 14 | 126 |
+| C₅ (bottom) | 1 | 16, 21, 30, 6, 17, 35 | 126 |
 
 - 5 clusters, 7 elements each (1 center + 6 peripheral slots).
-- Per-cluster sum `T = 120`.
+- Per-cluster sum `T = 126`.
 - Center set `{1,2,3,4,5}` forms a complete residue system modulo 5.
 
 ---
@@ -45,7 +45,7 @@ Comparing the two diagrams reveals the following shared structure.
 1. **Five directions**: Saodo's five color classes correspond to Chiljagakdeuk's five clusters.
 2. **Mod-5 residue classification**: both puzzles rely on a modulo-5 partition.
 3. **Weight function**: each element is assigned a natural-number label.
-4. **Sum invariant**: Saodo has global sum 210; Chiljagakdeuk has per-direction sum 120.
+4. **Sum invariant**: Saodo has global sum 210; Chiljagakdeuk has per-direction sum 126.
 5. **Geometric placement**: the positions of the circular marks are part of the data.
 
 Differences are also clear. Chiljagakdeuk has an explicit center-periphery split and connecting edges, while Saodo has no edges and no explicit center concept in the original text.
@@ -85,7 +85,7 @@ The two puzzles map as follows.
 
 | Puzzle | p | q | T |
 |---|---|---|---|
-| Chiljagakdeuk | 5 | 6 | 120 |
+| Chiljagakdeuk | 5 | 6 | 126 |
 | Saodo (color classes) | 5 | 3 | 34, 38, 42, 46, 50 |
 
 ---
@@ -119,12 +119,12 @@ Both puzzles have five centers forming a complete residue system of `ℤ/5ℤ`.
 ### 5.2 Sum invariants
 
 - Saodo: `Σ_{v∈M} W(v) = 210 = 1 + 2 + … + 20`.
-- Chiljagakdeuk: `∀d ∈ D, W(K(d)) + Σ_{s∈S(d)} W(s) = 120`.
+- Chiljagakdeuk: `∀d ∈ D, W(K(d)) + Σ_{s∈S(d)} W(s) = 126`.
 
 ### 5.3 Duplication and placement
 
 - Saodo: all 20 numbers are distinct.
-- Chiljagakdeuk: 1, 6, 24, 34 each appear twice; 31 distinct values.
+- Chiljagakdeuk: 1–35 each used once (an exact partition, 5 × 126 = 630).
 
 ### 5.4 Geometry
 
@@ -154,11 +154,11 @@ SAODO = {
 
 # Chiljagakdeuk clusters
 CHILJA = {
-    "top":    {"center": 2,  "periphery": [29, 1, 24, 34, 11, 19]},
-    "left":   {"center": 3,  "periphery": [6, 33, 23, 13, 34, 8]},
-    "center": {"center": 5,  "periphery": [22, 7, 20, 30, 26, 10]},
-    "right":  {"center": 4,  "periphery": [15, 28, 9, 18, 32, 14]},
-    "bottom": {"center": 1,  "periphery": [35, 16, 21, 24, 6, 17]},
+    "top":    {"center": 2,  "periphery": [7, 24, 34, 11, 19, 29]},
+    "left":   {"center": 3,  "periphery": [18, 33, 23, 13, 28, 8]},
+    "center": {"center": 5,  "periphery": [31, 20, 12, 26, 10, 22]},
+    "right":  {"center": 4,  "periphery": [15, 27, 9, 25, 32, 14]},
+    "bottom": {"center": 1,  "periphery": [16, 21, 30, 6, 17, 35]},
 }
 
 
@@ -201,7 +201,7 @@ if __name__ == "__main__":
 Output:
 
 ```text
-Chiljagakdeuk: {'p': 5, 'centers_complete': True, 'q_uniform': True, 'sum_uniform': True, 'T': 120}
+Chiljagakdeuk: {'p': 5, 'centers_complete': True, 'q_uniform': True, 'sum_uniform': True, 'T': 126}
 Saodo:         {'p': 5, 'centers_complete': True, 'q_uniform': True, 'q': 3, 'sum_uniform': False, 'sums': [34, 38, 42, 46, 50]}
 ```
 
@@ -237,4 +237,4 @@ This post synthesizes results from the following projects.
 
 ## 9. Closing
 
-Saodo and Chiljagakdeuk may look like unrelated diagrams, but they can both be understood as different instances of the same family `Π(5, q, T)`. Chiljagakdeuk is the strict uniform case `Π(5, 6, 120)`, while Saodo is the non-uniform case `Π(5, 3, T_d)`. By translating traditional diagrams into modern combinatorial language, we move beyond interpretation and obtain precise mathematical problems and generalizations.
+Saodo and Chiljagakdeuk may look like unrelated diagrams, but they can both be understood as different instances of the same family `Π(5, q, T)`. Chiljagakdeuk is the strict uniform case `Π(5, 6, 126)`, while Saodo is the non-uniform case `Π(5, 3, T_d)`. By translating traditional diagrams into modern combinatorial language, we move beyond interpretation and obtain precise mathematical problems and generalizations.

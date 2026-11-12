@@ -65,11 +65,11 @@ FAMILIES: Final[tuple[EachGetsFamily, ...]] = (
         k=5,
         m=7,
         vertex_range=(1, 35),
-        total_sum=535,  # based on unique values
-        subset_sum=120,
-        duplicated_sum=600,
-        duplicated_values=(1, 6, 24, 34),
-        note="Center 1 + periphery 6, 4 duplicated values",
+        total_sum=630,
+        subset_sum=126,
+        duplicated_sum=630,
+        duplicated_values=(),
+        note="Center 1 + periphery 6, exact partition of 1..35",
     ),
     EachGetsFamily(
         name="Eight-each-gets",

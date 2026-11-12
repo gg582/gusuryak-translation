@@ -4,7 +4,8 @@
 Per-cluster rotation analysis for Chiljagakdeuk (Seven-Each-Gets).
 
 Each of the 5 clusters has a center value + 6 peripheral slots arranged
-clockwise from 12 o'clock (SLOT_ANGLES).  We treat each cluster as a 7-cycle
+clockwise from a starting vertex: the top vertex for the top and bottom
+clusters, the left vertex of the top edge for the left, centre and right clusters.  We treat each cluster as a 7-cycle
 (center, then slots 0..5) and report opposite-pair sums, mod-5 residue patterns,
 cluster invariants, and global rotational symmetries of the cross layout.
 """
@@ -43,11 +44,11 @@ from rotation_analysis import (
 CLUSTER_SPACING = 3.3
 
 CLUSTERS = [
-    {"id": "C1", "dir": "top",    "pos": (0.0, CLUSTER_SPACING),  "center": 2,  "slots": [29, 1, 24, 34, 11, 19]},
-    {"id": "C2", "dir": "left",   "pos": (-CLUSTER_SPACING, 0.0), "center": 3,  "slots": [6, 33, 23, 13, 34, 8]},
-    {"id": "C3", "dir": "center", "pos": (0.0, 0.0),              "center": 5,  "slots": [22, 7, 20, 30, 26, 10]},
-    {"id": "C4", "dir": "right",  "pos": (CLUSTER_SPACING, 0.0),  "center": 4,  "slots": [15, 28, 9, 18, 32, 14]},
-    {"id": "C5", "dir": "bottom", "pos": (0.0, -CLUSTER_SPACING), "center": 1,  "slots": [35, 16, 21, 24, 6, 17]},
+    {"id": "C1", "dir": "top",    "pos": (0.0, CLUSTER_SPACING),  "center": 2,  "slots": [7, 24, 34, 11, 19, 29], "start": 90},
+    {"id": "C2", "dir": "left",   "pos": (-CLUSTER_SPACING, 0.0), "center": 3,  "slots": [18, 33, 23, 13, 28, 8], "start": 120},
+    {"id": "C3", "dir": "center", "pos": (0.0, 0.0),              "center": 5,  "slots": [31, 20, 12, 26, 10, 22], "start": 120},
+    {"id": "C4", "dir": "right",  "pos": (CLUSTER_SPACING, 0.0),  "center": 4,  "slots": [15, 27, 9, 25, 32, 14], "start": 120},
+    {"id": "C5", "dir": "bottom", "pos": (0.0, -CLUSTER_SPACING), "center": 1,  "slots": [16, 21, 30, 6, 17, 35], "start": 90},
 ]
 
 OUTPUT_DIR = Path("figures")

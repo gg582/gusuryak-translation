@@ -74,7 +74,7 @@ That is, the set of center labels is exactly `{1,2,3,4,5}`.
 ∃ T ∈ ℕ,  ∀d ∈ D:  W(K(d)) + Σ_{s∈S(d)} W(s) = T
 ```
 
-For Chiljagakdeuk, `T = 120`.
+For Chiljagakdeuk, `T = 126`.
 
 ### Rule C5. Explicit center-periphery edges
 
@@ -213,13 +213,13 @@ Both puzzles can be placed in a single parameterized family.
 - `q`: number of peripheral slots per direction.
 - `T`: target sum for each direction (cluster).
 
-Chiljagakdeuk is `Π(5, 6, 120)`.
+Chiljagakdeuk is `Π(5, 6, 126)`.
 
 Viewed by color class, Saodo is `Π(5, 3, T_d)` where `T_d` varies by direction. Thus Saodo is another example of the same family with a **non-uniform parameter setting**.
 
 | Puzzle | p | q | T |
 |---|---|---|---|
-| Chiljagakdeuk | 5 | 6 | 120 (same for all directions) |
+| Chiljagakdeuk | 5 | 6 | 126 (same for all directions) |
 | Saodo (color classes) | 5 | 3 | 34, 38, 42, 46, 50 (direction-dependent) |
 
 ---
@@ -247,6 +247,6 @@ Saodo has no explicit edges. Suggest a minimal edge set `E` that creates a Chilj
 ## 9. Summary
 
 - Saodo and Chiljagakdeuk are special cases of a common framework `Π(p, q, T)`.
-- Chiljagakdeuk has the strict structure `Π(5, 6, 120)`.
+- Chiljagakdeuk has the strict structure `Π(5, 6, 126)`.
 - Saodo has the non-uniform structure `Π(5, 3, T_d)`; it belongs to the same family but does not follow the strict rule of Chiljagakdeuk.
 - Therefore, the claim "Saodo follows the rule of Chiljagakdeuk" is justified only as far as **weak skeletal sharing** is concerned; the stronger claim of **structural identity** is false.

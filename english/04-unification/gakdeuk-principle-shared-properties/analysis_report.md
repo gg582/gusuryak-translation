@@ -20,11 +20,11 @@ This report extracts the structural properties shared by these Gakdeuk families 
 |:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---:|:---|
 | Ojagakdeuk | 五子各得 | 5 | 5 | 21 of 1–24 | 265 | 65 | 325 | 60 | Cheonsuyongodo, subset sum = 65 |
 | Yukjagakdeuk | 六子各得 | 6 | 5 | 1–20 | 210 | 63 | 315 | 105 | Jisuyongyukdo, intersecting honeycomb hexagons |
-| Chiljagakdeuk | 七子各得 | 7 | 5 | 1–35 (31 unique) | 535 | 120 | 600 | 65 | Center 1 + periphery 6, 4 duplicates |
+| Chiljagakdeuk | 七子各得 | 7 | 5 | 1–35 | 630 | 126 | 630 | 0 | Center 1 + periphery 6, exact partition |
 | Paljagakdeuk | 八子各得 | 8 | 5 | 1–40 | 820 | 164 | 820 | 0 | 3×3 grid minus center, 8 characters |
 | Gujagakdeuk | 九子各得 | 9 | 5 | 1–45 | 1035 | 207 | 1035 | 0 | Full 3×3 grid, 9 characters |
 
-\* Chiljagakdeuk has duplicated values (1, 6, 24, 34), so the unique-vertex sum is 535, while the duplication-inclusive total is 600 = 5×120. Hence the duplication amount is D = 600 − 535 = 65.
+\* Chiljagakdeuk uses 1–35 once each, so T = 5 × 126 = 630 and D = 0.
 
 ---
 
@@ -60,7 +60,7 @@ The most salient property of the Gakdeuk family is that **all subsets have the s
 | Family | Subset sum `S` | Average `S/n` |
 |:---:|:---:|:---:|
 | Yukjagakdeuk | 63 | 10.5 |
-| Chiljagakdeuk | 120 | ≈17.14 |
+| Chiljagakdeuk | 126 | 18 |
 | Paljagakdeuk | 164 | 20.5 |
 | Gujagakdeuk | 207 | 23.0 |
 
@@ -69,7 +69,7 @@ The average `S/n` coincides with the average of the used number range (or the du
 - Paljagakdeuk: average of 1–40 = 20.5 = 164/8
 - Gujagakdeuk: average of 1–45 = 23.0 = 207/9
 - Yukjagakdeuk: duplication-inclusive average = 315/30 = 10.5 = 63/6
-- Chiljagakdeuk: duplication-inclusive average = 600/35 ≈ 17.14 = 120/7
+- Chiljagakdeuk: average = 630/35 = 18 = 126/7
 
 Therefore, the sum invariant `S` is generalized as:
 
@@ -94,7 +94,7 @@ k·S = T + D
 | Yukjagakdeuk | 315 | 210 | 105 | 8 shared vertices, degree 3 |
 | Paljagakdeuk | 820 | 820 | 0 | 12 inter-palace edges, no vertex sharing |
 | Gujagakdeuk | 1035 | 1035 | 0 | 12 inter-palace edges, no vertex sharing |
-| Chiljagakdeuk | 600 | 535 (unique) | 65 | 4 duplicated values (1, 6, 24, 34) |
+| Chiljagakdeuk | 630 | 630 | 0 | none (exact partition) |
 
 Yukjagakdeuk achieves direct connections between subsets through shared vertices; Paljagakdeuk and Gujagakdeuk connect palaces by edges without sharing vertices. Chiljagakdeuk has a weaker connection through duplicated numerical values between subsets.
 
@@ -123,7 +123,7 @@ Moreover, each subset sum `S` often coincides with the middle term (Wood group s
 - Yukjagakdeuk: S = 63 differs from the Wood group sum 42. Instead it equals the mean of 1–20 (10.5) times the six elements of one hexagon (10.5 × 6 = 63), i.e. 6/4 of the Wood group sum 42.
 - Paljagakdeuk: S = 164 = Wood group sum 164 (exact match)
 - Gujagakdeuk: S = 207 = Wood group sum 207 (exact match)
-- Chiljagakdeuk: S = 120, while the full 5×7 Wood group sum is 126. 120 = 126 − 6.
+- Chiljagakdeuk: S = 126, the sum of the Wood class 3, 8, …, 33, which is exactly the left cluster.
 
 The fact that `S` matches the Wood group sum in Paljagakdeuk and Gujagakdeuk allows the interpretation that they are representatives of the generalization family corresponding to "M0 = 3" (Wood).
 
@@ -163,9 +163,9 @@ Ojagakdeuk (Cheonsuyongodo) also has the subset sum invariant **65**, placing fi
 
 This shows that the Gakdeuk principle is not realized only through "equal subset sums" but can also appear as a **spatially symmetric, axis-centered sum invariant**.
 
-### 4.2 Chiljagakdeuk: Center-Periphery Split and Duplicated Values
+### 4.2 Chiljagakdeuk: Center-Periphery Split and Complement Pairs
 
-Chiljagakdeuk splits each cluster into **1 center + 6 periphery** numbers. A distinctive feature is that the centers are `{1, 2, 3, 4, 5}`, forming a complete residue system modulo 5. In addition, four values (1, 6, 24, 34) appear in two clusters each, creating a duplication structure different from the other families.
+Chiljagakdeuk splits each cluster into **1 center + 6 periphery** numbers. A distinctive feature is that the centers are `{1, 2, 3, 4, 5}`, forming a complete residue system modulo 5. The left cluster is exactly the Wood class 3, 8, …, 33, and each other cluster holds two complement pairs summing to 36 (Fire–Metal at top and right, Water–Earth at centre and bottom) plus three numbers summing to 54, the same pair assignment as in the Hado Saodo.
 
 ### 4.3 Gujagakdeuk · Paljagakdeuk: The 3×3 Grid Family
 
@@ -275,7 +275,7 @@ Generalization according to subset size `n`:
 |:---:|:---|:---:|:---:|:---:|
 | 5 | Ojagakdeuk | 1–24 (21 numbers) | — | — |
 | 6 | Yukjagakdeuk | 1–20 | 63 | 10.5 |
-| 7 | Chiljagakdeuk | 1–35 | 120 | ≈17.14 |
+| 7 | Chiljagakdeuk | 1–35 | 126 | 18 |
 | 8 | Paljagakdeuk | 1–40 | 164 | 20.5 |
 | 9 | Gujagakdeuk | 1–45 | 207 | 23.0 |
 

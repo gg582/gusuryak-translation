@@ -20,11 +20,11 @@ FIVE_PHASE_LABELS = {
 
 # ---- Seven-each-gets (Chiljagakdeuk) data -------------------------------
 SEVEN_EACH_GETS_CLUSTERS = {
-    "top":    {"center": 2,  "periphery": [29, 1, 24, 34, 11, 19]},
-    "left":   {"center": 3,  "periphery": [6, 33, 23, 13, 34, 8]},
-    "center": {"center": 5,  "periphery": [22, 7, 20, 30, 26, 10]},
-    "right":  {"center": 4,  "periphery": [15, 28, 9, 18, 32, 14]},
-    "bottom": {"center": 1,  "periphery": [35, 16, 21, 24, 6, 17]},
+    "top":    {"center": 2,  "periphery": [7, 24, 34, 11, 19, 29]},
+    "left":   {"center": 3,  "periphery": [18, 33, 23, 13, 28, 8]},
+    "center": {"center": 5,  "periphery": [31, 20, 12, 26, 10, 22]},
+    "right":  {"center": 4,  "periphery": [15, 27, 9, 25, 32, 14]},
+    "bottom": {"center": 1,  "periphery": [16, 21, 30, 6, 17, 35]},
 }
 
 
@@ -72,7 +72,7 @@ def check_four_five_way_against_rule():
 
 def compare_parameters():
     print("=== Parameter comparison Π(p, q, T) ===")
-    print("Seven-each-gets: Π(5, 6, 120)")
+    print("Seven-each-gets: Π(5, 6, 126)")
     print("Four-five-way color classes: Π(5, 3, T_d) where T_d varies")
     print()
 

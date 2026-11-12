@@ -64,11 +64,11 @@ FAMILIES: Final[tuple[EachGetsFamily, ...]] = (
         k=5,
         m=7,
         vertex_range=(1, 35),
-        total_sum=535,  # 고유 값 기준
-        subset_sum=120,
-        duplicated_sum=600,
-        duplicated_values=(1, 6, 24, 34),
-        note="중심 1 + 주변 6, 중복 값 4개",
+        total_sum=630,
+        subset_sum=126,
+        duplicated_sum=630,
+        duplicated_values=(),
+        note="중심 1 + 주변 6, 1..35 정확 분할",
     ),
     EachGetsFamily(
         name="팔자각득",

@@ -45,7 +45,7 @@ Parameterized puzzle family:
 
 | Puzzle | p | q | T |
 |---|---|---|---|
-| Chiljagakdeuk | 5 | 6 | 120 (same for all directions) |
+| Chiljagakdeuk | 5 | 6 | 126 (same for all directions) |
 | Saodo (color classes) | 5 | 3 | 34, 38, 42, 46, 50 (direction-dependent) |
 
 ---
@@ -80,6 +80,6 @@ Parameterized puzzle family:
 
 Output of `compare_structures.py`:
 
-- Chiljagakdeuk: 5 directions, centers `{1,2,3,4,5}`, 6 peripheral slots each, all cluster sums equal 120.
+- Chiljagakdeuk: 5 directions, centers `{1,2,3,4,5}`, 6 peripheral slots each, all cluster sums equal 126.
 - Saodo: centers `{1,2,3,4,5}` form a complete mod-5 residue system, but each class has only 3 peripheral slots and cluster sums are 34/38/42/46/50.
 - Thus Saodo is confirmed to be a non-uniform parameter setting `Π(5, 3, T_d)`.

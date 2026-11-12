@@ -57,7 +57,7 @@ python gakdeuk_solver.py --n 5 --max 24 --sum 65 --missing 3 10 22 --num-shared 
 python gakdeuk_solver.py --n 6 --max 20 --sum 63 --max-multiplicity 3 --num-shared 8
 
 # Let the MILP choose missing numbers automatically (Chiljagakdeuk-like)
-python gakdeuk_solver.py --n 7 --max 35 --sum 120 \
+python gakdeuk_solver.py --n 7 --max 35 --sum 126 \
     --auto-missing --missing-count 4 --missing-sum 95 --required 1 2 3 4 5
 
 # Yukjagakdeuk-like: honeycomb adjacency + pairwise shared vertex counts + up-down symmetry + visualization

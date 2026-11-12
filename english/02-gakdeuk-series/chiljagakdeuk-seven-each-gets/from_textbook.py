@@ -4,14 +4,14 @@ from matplotlib import font_manager
 
 
 TITLE = "Chiljagakdeuk (Seven-Each-Gets)\nSeven groups, each on its own"
-OUTPUT_STEM = "chiljagakdeuk_example"
+OUTPUT_STEM = "七子各得_예시"
 
 EXAMPLE_GROUPS = [
-    [29, 1, 24, 34, 11, 19, 2],
-    [6, 33, 23, 13, 34, 8, 3],
-    [22, 7, 20, 30, 26, 10, 5],
-    [15, 28, 9, 18, 32, 14, 4],
-    [35, 16, 21, 24, 6, 17, 1],
+    [7, 24, 34, 11, 19, 29, 2],
+    [18, 33, 23, 13, 28, 8, 3],
+    [31, 20, 12, 26, 10, 22, 5],
+    [15, 27, 9, 25, 32, 14, 4],
+    [16, 21, 30, 6, 17, 35, 1],
 ]
 
 GROUP_POSITIONS = [
@@ -53,11 +53,22 @@ def setup_font():
     plt.rcParams["ps.fonttype"] = 42
 
 
-def draw_group(ax, values, center):
+import math
+
+
+def slot_offsets(start_deg, r=0.75):
+    # centre last; six vertices clockwise from the starting vertex
+    return [(r * math.cos(math.radians(start_deg - 60 * i)), r * math.sin(math.radians(start_deg - 60 * i))) for i in range(6)] + [(0.0, 0.0)]
+
+
+GROUP_STARTS = [90, 120, 120, 120, 90]  # top/bottom: top vertex; left/centre/right: left vertex of top edge
+
+
+def draw_group(ax, values, center, start=90):
     cx, cy = center
     ax.add_patch(plt.Circle((cx, cy), 1.1, fill=False, linewidth=1.8))
 
-    for value, (dx, dy) in zip(values, SLOT_OFFSETS):
+    for value, (dx, dy) in zip(values, slot_offsets(start)):
         x = cx + dx
         y = cy + dy
 
@@ -86,8 +97,8 @@ def main():
 
     fig, ax = plt.subplots(figsize=(8, 8))
 
-    for values, center in zip(EXAMPLE_GROUPS, GROUP_POSITIONS):
-        draw_group(ax, values, center)
+    for values, center, start in zip(EXAMPLE_GROUPS, GROUP_POSITIONS, GROUP_STARTS):
+        draw_group(ax, values, center, start)
 
     ax.set_aspect("equal")
     ax.set_xlim(-4, 4)
