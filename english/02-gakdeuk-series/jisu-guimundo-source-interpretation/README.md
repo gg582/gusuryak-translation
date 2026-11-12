@@ -1,5 +1,7 @@
 # Jisu-guimun-do Source Text Interpretation and Mod-Based Group Analysis
 
+> An overview (structure, construction, source text, numbers made and used, congruence reading) is in [overview.en.md](overview.en.md).
+
 > **Translation procedure**: The classical Chinese source text in this document was processed in the order **Classical Chinese → Korean (first-pass translation) → English (second-pass translation)**. The Korean is a first-pass translation that follows the grammatical flow of the original, and the English is a second-pass translation based on that Korean interpretation.
 
 ---
