@@ -1,17 +1,19 @@
-# The Hado Saodo source text, reinterpreted: 水土相滲 · 金火相守 · 兩木相摩
+# The Hado Saodo source text, reinterpreted: 水土相涵 · 金火相守 · 兩木相摩
 
 ## 1. Source text
 
 > 一六水 二七火 三八木 四九金 五十土
-> 此圖水土相滲 金火相守 兩木相摩
+> 此圖水土相涵 金火相守 兩木相摩
 > 傳曰 木與木相摩則然 金與火相守則流
+
+Collation note (2026-11-12): the print (vol. 2, p.138 of the NLK digitised copy) has **涵** (氵 + 函), not 滲. Earlier versions of this note read 相滲.
 
 ## 2. Literal translation
 
 | Source | Translation |
 |---|---|
 | 一六水 二七火 三八木 四九金 五十土 | 1 and 6 are Water, 2 and 7 Fire, 3 and 8 Wood, 4 and 9 Metal, 5 and 10 Earth. |
-| 此圖水土相滲 | In this diagram Water and Earth seep into each other. |
+| 此圖水土相涵 | In this diagram Water and Earth are steeped in each other. |
 | 金火相守 | Metal and Fire keep to each other (stay together). |
 | 兩木相摩 | The two Woods rub against each other. |
 | 傳曰 | It is handed down: |
@@ -43,8 +45,8 @@ These are the five palaces (2×2 blocks) of the Hado Saodo, as laid out in the s
 |---|---|---|---|---|
 | Top | 19, 2, 7, 14 | (2,19), (7,14) | Fire 2, Metal 2 | 金火相守 |
 | Right | 4, 17, 12, 9 | (4,17), (9,12) | Fire 2, Metal 2 | 金火相守 |
-| Centre | 5, 16, 11, 10 | (5,16), (10,11) | Water 2, Earth 2 | 水土相滲 |
-| Bottom | 15, 1, 6, 20 | (1,20), (6,15) | Water 2, Earth 2 | 水土相滲 |
+| Centre | 5, 16, 11, 10 | (5,16), (10,11) | Water 2, Earth 2 | 水土相涵 |
+| Bottom | 15, 1, 6, 20 | (1,20), (6,15) | Water 2, Earth 2 | 水土相涵 |
 | Left | 13, 8, 18, 3 | (3,18), (8,13) | Wood 4 | 兩木相摩 |
 
 Every palace sums to 42, and every palace splits exactly into two complement pairs with sum 21.
@@ -57,7 +59,7 @@ Because `21 ≡ 1 (mod 5)`, the involution `n ↦ 21 − n` acts on the phase la
 
 This involution has exactly three orbit types, and the three phrases list all three of them:
 
-1. **水土相滲**: Water pairs with Earth. The centre and bottom palaces are of this type.
+1. **水土相涵**: Water pairs with Earth. The centre and bottom palaces are of this type.
 2. **金火相守**: Metal pairs with Fire. The top and right palaces are of this type.
 3. **兩木相摩**: Wood is the **unique fixed point** of the involution, so its partner is again Wood. That is why "two Woods" form a pair, and all four Wood numbers sit together in the left palace.
 
@@ -77,7 +79,7 @@ One proposed reading takes 相摩 as multiplication: "the product of Wood-group 
 
 | Pair type | Pair product n·(21−n) mod 5 | Product of the palace's four numbers mod 5 |
 |---|---|---|
-| 水土 (相滲) | Earth | Earth |
+| 水土 (相涵) | Earth | Earth |
 | 火金 (相守) | Wood | Metal |
 | 木木 (相摩) | Metal | Water (3⁴ ≡ 1) |
 

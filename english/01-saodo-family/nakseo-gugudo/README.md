@@ -8,7 +8,9 @@ Nakseo Gugudo (낙서구구도) is a 1–81 magic diagram built on the 3×3 cent
 8 1 6
 ```
 
-(On the diagram the palaces are placed in the order obtained by flipping the Nakseo array above vertically: 八·一·六 / 三·五·七 / 四·九·二.)
+(On the diagram the palaces are placed exactly as the Nakseo array above: 四·九·二 / 三·五·七 / 八·一·六. Earlier versions stated a vertically flipped layout; collation with the print corrected this.)
+
+> **Collation with the print (2026-11-12)**: all 72 ring cells were read from enlarged crops of the NLK digitised copy, vol. 2 p.147 (400 ppi). Numerals are printed with their tops pointing away from the palace centre (left/right cells turned 90°, bottom cells 180°). Read that way, all 72 agree with the table below. The four corrected cells are confirmed in the print: 47 has the hooked 七 as its lower element (as in 77 on the same page, unlike the 二 of 42), and 30 (卅) is worn but is the only free residue-3 value. **The ring order of palace 六** had its two bottom cells and its two left cells exchanged. The print reads 38, 79, 14, 63, 22, 46, 30, 71. The set of numbers is unchanged, so the sums and the mod-9 structure are unaffected.
 
 ## Total sum and target constant
 
@@ -32,7 +34,7 @@ surrounding sum = 369 - n
 
 ## Transcribing the source diagram and correcting transcription errors
 
-The original diagram has every one of the nine palaces' numbers inscribed correctly. The placement data is a transcription of this diagram from the upper-left palace onward, each palace in the order center number then ring (clockwise from the upper-left cell). During transcription four cells were miscopied, and `reconstruct_milp.py` corrects them back to the original values subject to the constraints (every palace sums to 369, each of 10..81 used exactly once, centers fixed).
+The original diagram has every one of the nine palaces' numbers inscribed correctly. The placement data is a transcription of this diagram from palace 四 onward, each palace in the order center number then ring (clockwise from the upper-left cell). During transcription four cells were miscopied, and `reconstruct_milp.py` corrects them back to the original values subject to the constraints (every palace sums to 369, each of 10..81 used exactly once, centers fixed).
 
 | Palace | Transcription error | Value inscribed in the original |
 |---|---|---|
@@ -47,7 +49,7 @@ The original diagram has every one of the nine palaces' numbers inscribed correc
 |---|---|---:|---:|
 | 八 (8) | 16, 51, 56, 27, 64, 32, 40, 75 | 361 | 369 |
 | 一 (1) | 69, 34, 77, 12, 53, 58, 45, 20 | 368 | 369 |
-| 六 (6) | 38, 79, 14, 63, 46, 22, 71, 30 | 363 | 369 |
+| 六 (6) | 38, 79, 14, 63, 22, 46, 30, 71 | 363 | 369 |
 | 三 (3) | 11, 76, 60, 36, 19, 68, 52, 44 | 366 | 369 |
 | 五 (5) | 29, 24, 62, 37, 70, 81, 48, 13 | 364 | 369 |
 | 七 (7) | 74, 26, 55, 31, 42, 50, 66, 18 | 362 | 369 |

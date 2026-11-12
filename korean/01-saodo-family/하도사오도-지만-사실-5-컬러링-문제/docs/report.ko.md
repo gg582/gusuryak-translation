@@ -129,7 +129,7 @@ P = (C, L, Θ, X, D, G, R, I)
 - `docs/detailed_analysis.ko.md` / `detailed_analysis.en.md` — 상세 특성 분석
 - `docs/reconstruction_policy.ko.md` / `reconstruction_policy.en.md` — 보존적 원문 데이터 재현 정책 및 스크립트
 - `figures/math_problems.ko.md` / `math_problems.en.md` — 산학 서적에서 추출한 현대 조합론 문제
-- `docs/source_text_reinterpretation.ko.md` / `source_text_reinterpretation.en.md` — 원문(水土相滲 · 金火相守 · 兩木相摩) 직역과 보수쌍 재해석, 목×목 곱셈 해석 검증
+- `docs/source_text_reinterpretation.ko.md` / `source_text_reinterpretation.en.md` — 원문(水土相涵 · 金火相守 · 兩木相摩) 직역과 보수쌍 재해석, 목×목 곱셈 해석 검증
 
 ### 코드
 

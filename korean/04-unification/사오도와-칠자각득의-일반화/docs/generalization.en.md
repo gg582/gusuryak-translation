@@ -1,5 +1,7 @@
 # Generalization of Saodo and Chiljagakdeuk: Does Saodo Follow the Rule of Chiljagakdeuk?
 
+> **Reading corrected (2026-11-12)**: in the print (NLK digitised copy, vol. 2 pp.138–139) the annotation of 河圖七五圖 is **七子各得一百二十六數**. The 六 after the column break had been missed, giving 120. With 126, 5 × 126 = 630 = 1+…+35, an exact partition using 1–35 once each. The data in this document (sum 120) uses 1, 6, 24, 34 twice and omits 12, 25, 27, 31, so it is **not the original diagram**. The printed counters are badly worn; only the five centres (2, 3, 5, 4, 1) are legible. What follows is kept only as an analysis of that incorrect table.
+
 > This document unifies the Hado (Saodo) puzzle and the Chiljagakdeuk puzzle within a single abstract framework, and formally verifies to what extent Saodo satisfies the structural rule of Chiljagakdeuk. Traditional terminology is excluded; only modern combinatorial and discrete-mathematical language is used.
 
 ---

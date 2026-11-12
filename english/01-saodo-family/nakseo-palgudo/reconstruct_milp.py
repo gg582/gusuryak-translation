@@ -3,6 +3,12 @@
 """
 MILP reconstruction for Nakseo Palgudo (오팔정전도 五八井田圖).
 
+HYPOTHESIS ONLY (collated 2026-11-12): the print (NLK digitised copy, vol. 2
+p.146) is clean and every counter is legible; it equals the observed layout,
+with well sums 164 x5, 160, 163, 165, 168. The 6 cells this script changes
+are not misprints. The output shows the nearest layout in which all nine
+wells sum to 164, not the original diagram.
+
 Hard constraints:
 - the 7x7 well-field keeps its 9 empty centers fixed
 - each of the nine 3x3 wells (center hole + 8 surrounding cells) sums to 164
@@ -27,7 +33,7 @@ TARGET_SUM = 164
 N = 7
 CENTERS = [(r, c) for r in (1, 3, 5) for c in (1, 3, 5)]
 
-# Observed placement copied from visualize.py (guessed cells included).
+# Observed placement = the print, every cell verified against the scan (2026-11-12).
 OBSERVED = [
     [5, 11, 30, 25, 4, 32, 9],
     [36, None, 17, None, 33, None, 28],

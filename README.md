@@ -221,7 +221,7 @@ Diagrams in which a set of numbers is split into clusters, each cluster having t
 | Jisuguimundo 9-hex (地數龜文圖) | `english/02-gakdeuk-series/jisuguimundo-9hex-interpretation/` | `korean/02-gakdeuk-series/지수귀문도-9hex-원문해석/` |
 
 Key facts:
-- **Chiljagakdeuk**: 5 clusters of 7 numbers, each summing to 120.
+- **Chiljagakdeuk**: 5 clusters of 7 numbers. The print annotation is 七子各得一百二十六數 (126; 5 × 126 = 630 = 1+…+35). The repository's sum-120 table repeats 1, 6, 24, 34 and is not the original (corrected 2026-11-12); the printed counters are too worn to transcribe.
 - **Gujagakdeuk**: 5 full 3×3 grids of 9 numbers, each summing to 207; every palace has corner sum 92.
 - **Paljagakdeuk**: 5 clusters of 8 numbers, each summing to 164; each cluster forms an 8-cycle.
 - **Ojagakdeuk**: 21 numbers from `1..24` (omitting 3, 10, 22) placed in the Cheonsu-yongodo form, total sum 265, with left/right region sums both equal to 86.
@@ -359,7 +359,7 @@ Key facts:
 
 | Puzzle | p | q | T |
 |--------|---|---|---|
-| Chiljagakdeuk | 5 | 6 | 120 (uniform) |
+| Chiljagakdeuk | 5 | 6 | 126 per the print annotation (the repository's 120 table is wrong) |
 | Saodo color classes | 5 | 3 | 34, 38, 42, 46, 50 (variable) |
 
 - The shared-properties directory unifies the whole Gakdeuk family (Gujagakdeuk, Ojagakdeuk, Yukjagakdeuk, Chiljagakdeuk, Paljagakdeuk) through common invariants such as `S = n × μ` and the duplication equation `5S = T + D`, and provides a MILP solver for searching new placements.
@@ -472,8 +472,8 @@ The historical diagrams themselves are small, concrete objects: verifying any st
 | **Nakseo Chilgudo (Chiljagakdeuk)** | Verify every palace sums to 224 | **P** | 9 palaces × 7 numbers. |
 | **Nakseo Chilgudo** | Decide whether 1..63 can be partitioned into nine 7-element blocks, each summing to 224, with fixed Luoshu centers | **Conditional / not proved here** | Equal-sum set partition with fixed elements; the current data is a corrupted witness. |
 | **Nakseo Chilgudo** | Find the corrected partition given in `korean/01-saodo-family/낙서칠구도/chiljagakdeuk.md` | **Conditional / not proved here** | Solved by MILP while preserving 50 of 54 surrounding numbers. |
-| **Chiljagakdeuk** | Verify the 5 clusters of 7 numbers each sum to 120 | **P** | O(35) additions. |
-| **Chiljagakdeuk** | Decide existence of a `Π(5, 6, 120)` placement | **Conditional / not proved here** | Multiway number partitioning with repetition and mod-5 center constraints. |
+| **Chiljagakdeuk** | Verify the 5 clusters of 7 numbers each sum to 126 | **P** | O(35) additions. |
+| **Chiljagakdeuk** | Decide existence of a `Π(5, 6, 126)` placement | **Conditional / not proved here** | Multiway number partitioning with repetition and mod-5 center constraints. |
 | **Chiljagakdeuk** | Find a valid placement | **Conditional / not proved here** | Solved by the MILP solver for the known instance; general search is NP-hard. |
 | **Gujagakdeuk** | Verify the five 3×3 grids sum to 207 and corner sums to 92 | **P** | Direct checks. |
 | **Gujagakdeuk** | Decide existence of a placement satisfying the grid / corner-sum constraints | **Conditional / not proved here** | Exact-cover over 3×3 sub-grids with shared cells. |

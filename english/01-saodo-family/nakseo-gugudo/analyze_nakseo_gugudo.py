@@ -14,14 +14,16 @@ class Cluster:
 
 
 # Ring values are ordered clockwise from the upper-left circle.
+# Palace layout and palace-6 ring order collated with the print
+# (NLK digitised copy, vol. 2 p.147) on 2026-11-12: 四九二/三五七/八一六.
 # Transcribed from the source diagram and corrected back to the original
 # values by reconstruct_milp.py (4 transcription errors: 四+47,
 # 三 71->19, 七 3->31, 六 38->30).
 CLUSTERS: tuple[tuple[Cluster, ...], ...] = (
     (
-        Cluster("upper-left", 8, (16, 51, 56, 27, 64, 32, 40, 75)),
-        Cluster("upper-center", 1, (69, 34, 77, 12, 53, 58, 45, 20)),
-        Cluster("upper-right", 6, (38, 79, 14, 63, 46, 22, 71, 30)),
+        Cluster("upper-left", 4, (15, 80, 61, 23, 28, 72, 39, 47)),
+        Cluster("upper-center", 9, (49, 57, 17, 73, 41, 25, 65, 33)),
+        Cluster("upper-right", 2, (54, 43, 67, 10, 59, 21, 78, 35)),
     ),
     (
         Cluster("middle-left", 3, (11, 76, 60, 36, 19, 68, 52, 44)),
@@ -29,9 +31,9 @@ CLUSTERS: tuple[tuple[Cluster, ...], ...] = (
         Cluster("middle-right", 7, (74, 26, 55, 31, 42, 50, 66, 18)),
     ),
     (
-        Cluster("lower-left", 4, (15, 80, 61, 23, 28, 72, 39, 47)),
-        Cluster("lower-center", 9, (49, 57, 17, 73, 41, 25, 65, 33)),
-        Cluster("lower-right", 2, (54, 43, 67, 10, 59, 21, 78, 35)),
+        Cluster("lower-left", 8, (16, 51, 56, 27, 64, 32, 40, 75)),
+        Cluster("lower-center", 1, (69, 34, 77, 12, 53, 58, 45, 20)),
+        Cluster("lower-right", 6, (38, 79, 14, 63, 22, 46, 30, 71)),
     ),
 )
 

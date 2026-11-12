@@ -29,21 +29,22 @@ def get_korean_font():
 KOREAN_FONT = get_korean_font()
 
 # 1. 7x7 격자 위 배열 정의 (행, 열 좌표는 0~6 index)
-# 9개 우물(井, 3x3 블록의 중심 공백) 각각의 주변 8칸 합이 164가 되도록
-# reconstruct_milp.py가 복원한 배열이다. 기존 관측값에서 6칸만 교정되었다.
+# 인쇄본(국립중앙도서관 디지털본 2권 p.146) 값 그대로다(2026-11-12 대조).
+# 우물 합은 164가 다섯, 160·163·165·168이 하나씩이다. MILP 6칸 교정값은
+# 선명한 인쇄와 어긋나므로 reconstruct_milp.py에 가설로만 남긴다.
 grid_data = [
     # 1행 (index 0)
-    [5, 11, 30, 25, 9, 32, 13],
+    [5, 11, 30, 25, 4, 32, 9],
     # 2행 (index 1)
-    [36, None, 17, None, 29, None, 28],
+    [36, None, 17, None, 33, None, 28],
     # 3행 (index 2)
-    [1, 40, 24, 18, 12, 37, 4],
+    [1, 40, 24, 18, 12, 29, 13],
     # 4행 (index 3)
     [27, None, 23, None, 19, None, 16],
     # 5행 (index 4)
     [8, 26, 15, 22, 31, 10, 35],
     # 6행 (index 5)
-    [33, None, 38, None, 20, None, 2],
+    [37, None, 38, None, 20, None, 2],
     # 7행 (index 6)
     [7, 34, 3, 14, 21, 39, 6]
 ]
@@ -99,7 +100,7 @@ def draw_ojungto():
     }
     if KOREAN_FONT is not None:
         title_kwargs["fontproperties"] = KOREAN_FONT
-    plt.title("오팔정전도 (五八井田圖) 복원 도안", **title_kwargs)
+    plt.title("낙서팔구도 (洛書八九圖) 인쇄본 배열", **title_kwargs)
     
     ax.set_xlim(0, 7)
     ax.set_ylim(0, 7)

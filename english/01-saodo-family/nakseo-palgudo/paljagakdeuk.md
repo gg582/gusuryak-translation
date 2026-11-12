@@ -2,7 +2,9 @@
 
 Nakseo Palgudo (洛書八九圖) is drawn in the form of the **O-pal-jeong-jeon-do (五八井田圖)**, the Five-Eight Well-Field Diagram.
 On a 7×7 well-field (井田) grid, the nine well (井) positions are left empty, and the integers from 1 to 40 are placed in the surrounding cells.
-Like an Easter egg built into the name, it has the **palja-gakdeuk** structure: **each well obtains 8 cells (八子), and every well reaches the same sum of 164.**
+Like an Easter egg built into the name, it appears to be designed as a **palja-gakdeuk** structure: **each well obtains 8 cells (八子), and every well reaches the same sum of 164.**
+
+> **Collation with the print (2026-11-12)**: NLK digitised copy, vol. 2 p.146 is cleanly printed and all 40 counters are legible. The printed values equal the original observed layout. They use 1–40 once each, but only five wells sum to 164; the others give 160, 163, 165, 168. The 6-cell MILP correction in Section 3 contradicts the legible print, so it is **a hypothesis, not a restoration**. The 164 structure may be what the diagram intended, but the print does not satisfy it.
 
 ---
 
@@ -57,19 +59,21 @@ The per-cell duplication degrees are as follows.
 ## 3. Placing the nine wells: each well obtains eight numbers
 
 On the 7×7 grid, the nine wells are 3×3 blocks centered at (odd, odd) coordinates, and their center cells are empty.
-The arrangement reconstructed by `reconstruct_milp.py` (the `grid_data` in `visualize.py`) satisfies the following.
+The `grid_data` in `visualize.py` is the print. Its well sums are (top row first) 164, 163, 160 / 164, 164, 165 / 168, 164, 164.
+
+`reconstruct_milp.py` finds the nearest hypothetical arrangement that satisfies the following.
 
 - The integers 1 to 40 are used exactly once.
 - The 8 cells surrounding each of the nine wells all sum to **164**.
 
-The reconstruction corrects only **6 cells** of the observed arrangement. The corrections form two 3-cycles.
+This hypothetical arrangement changes **6 cells** of the print. The corrections form two 3-cycles.
 
 ```
 (0,4): 4 -> 9,  (0,6): 9 -> 13,  (2,6): 13 -> 4
 (1,4): 33 -> 29, (2,5): 29 -> 37, (5,0): 37 -> 33
 ```
 
-In the observed arrangement the well sums were 160, 163, 164, 164, 164, 165, 168; after the correction all nine become 164.
+All six of these cells (四, 九, 十三, 卅三, 廿九, 卅七) are clearly legible in the print, so the change does not fix a printing error; it fits the 164 hypothesis.
 
 ---
 
@@ -114,11 +118,11 @@ The essence of palja-gakdeuk is that all well sums stay at 164 even where neighb
 | Viewpoint | Summary |
 |---|---|
 | Combinatorial structure | 40 numbers → 9 wells, 8 cells per well |
-| Invariant | every well sums to 164 |
+| Invariant | designed well sum 164 (the print meets it in 5 of 9 wells) |
 | Generation principle | fair share: grand total × 8/40 |
 | Spatial structure | 7×7 well-field grid, nine empty well centers |
 | Overlap | 72 used / 40 made, 32 simple overlap positions |
 | Numbers in the name | 八 = cell count, 五八 = 40 = number count |
 
 Nakseo Palgudo is a combinatorial design that packs the integers 1 to 40 into nine wells, 8 cells each with overlaps, under the name palja-gakdeuk.
-164 is the exact share of the whole that each well receives, and the MILP reconstruction restores that design by changing only 6 cells of the observed arrangement.
+164 is the exact share of the whole that each well receives, The print meets that share in only 5 of the 9 wells. The MILP shows only that changing 6 cells would make all nine equal to 164.

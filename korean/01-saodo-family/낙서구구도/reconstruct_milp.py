@@ -38,7 +38,7 @@ PALACES = [
     ("七", 7, [74, 26, 55, 3, 42, 50, 66, 18], [1, 2, 3, 4, 5, 6, 7, 8]),
     ("八", 8, [16, 51, 56, 27, 64, 32, 40, 75], [1, 2, 3, 4, 5, 6, 7, 8]),
     ("一", 1, [69, 34, 77, 12, 53, 58, 45, 20], [1, 2, 3, 4, 5, 6, 7, 8]),
-    ("六", 6, [38, 79, 14, 63, 46, 22, 71, 38], [1, 2, 3, 4, 5, 6, 7, 8]),
+    ("六", 6, [38, 79, 14, 63, 22, 46, 38, 71], [1, 2, 3, 4, 5, 6, 7, 8]),
 ]
 
 VALUES = list(range(10, 82))
@@ -52,10 +52,13 @@ def slot_index(palace_idx: int, ring_slot: int) -> int:
 
 def solve() -> dict[tuple[int, int], int]:
     costs = np.ones(N_VARS)
+    seen: set[int] = set()
     for pi, (_, _, reads, slots) in enumerate(PALACES):
         for value, s in zip(reads, slots):
             if value in VALUES:
-                costs[slot_index(pi, s) * len(VALUES) + (value - 10)] = 0.0
+                # A value transcribed twice is trusted at its first occurrence.
+                costs[slot_index(pi, s) * len(VALUES) + (value - 10)] = 0.5 if value in seen else 0.0
+                seen.add(value)
 
     rows = []
     lb = []

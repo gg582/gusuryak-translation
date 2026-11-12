@@ -130,7 +130,7 @@ or direct-transmission claim is made here.
 - `docs/detailed_analysis.ko.md` / `detailed_analysis.en.md` — detailed property autopsy
 - `docs/reconstruction_policy.ko.md` / `reconstruction_policy.en.md` — conservative source-data reconstruction policy and script
 - `figures/math_problems.ko.md` / `math_problems.en.md` — modern combinatorial problems extracted from mathematical texts
-- `docs/source_text_reinterpretation.ko.md` / `source_text_reinterpretation.en.md` — literal translation of the source text (水土相滲 · 金火相守 · 兩木相摩), complement-pair reinterpretation, and a test of the Wood×Wood multiplicative reading
+- `docs/source_text_reinterpretation.ko.md` / `source_text_reinterpretation.en.md` — literal translation of the source text (水土相涵 · 金火相守 · 兩木相摩), complement-pair reinterpretation, and a test of the Wood×Wood multiplicative reading
 
 ### Code
 
