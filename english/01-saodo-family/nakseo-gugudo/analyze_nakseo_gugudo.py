@@ -14,8 +14,7 @@ class Cluster:
 
 
 # Ring values are ordered clockwise from the upper-left circle.
-# Palace layout and palace-6 ring order collated with the print
-# (NLK digitised copy, vol. 2 p.147) on 2026-11-12: 四九二/三五七/八一六.
+# Palace layout as printed: 四九二/三五七/八一六.
 # Transcribed from the source diagram and corrected back to the original
 # values by reconstruct_milp.py (4 transcription errors: 四+47,
 # 三 71->19, 七 3->31, 六 38->30).

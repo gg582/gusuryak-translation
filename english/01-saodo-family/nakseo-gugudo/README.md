@@ -8,9 +8,7 @@ Nakseo Gugudo (낙서구구도) is a 1–81 magic diagram built on the 3×3 cent
 8 1 6
 ```
 
-(On the diagram the palaces are placed exactly as the Nakseo array above: 四·九·二 / 三·五·七 / 八·一·六. Earlier versions stated a vertically flipped layout; collation with the print corrected this.)
-
-> **Collation with the print (2026-11-12)**: all 72 ring cells were read from enlarged crops of the NLK digitised copy, vol. 2 p.147 (400 ppi). Numerals are printed with their tops pointing away from the palace centre (left/right cells turned 90°, bottom cells 180°). Read that way, all 72 agree with the table below. The four corrected cells are confirmed in the print: 47 has the hooked 七 as its lower element (as in 77 on the same page, unlike the 二 of 42), and 30 (卅) is worn but is the only free residue-3 value. **The ring order of palace 六** had its two bottom cells and its two left cells exchanged. The print reads 38, 79, 14, 63, 22, 46, 30, 71. The set of numbers is unchanged, so the sums and the mod-9 structure are unaffected.
+(On the diagram the palaces are placed exactly as the Nakseo array above: 四·九·二 / 三·五·七 / 八·一·六.)
 
 ## Total sum and target constant
 

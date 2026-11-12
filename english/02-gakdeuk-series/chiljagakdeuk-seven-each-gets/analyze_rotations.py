@@ -1,6 +1,4 @@
 #!/usr/bin/env python3
-# Reading corrected (2026-11-12): the print annotation is 七子各得一百二十六數 (126). The
-# sum-120 table used here repeats 1, 6, 24, 34 and is not the original diagram. Kept as a record.
 # -*- coding: utf-8 -*-
 """
 Per-cluster rotation analysis for Chiljagakdeuk (Seven-Each-Gets).

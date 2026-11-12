@@ -46,24 +46,23 @@ if CJK_FONT is not None:
     plt.rcParams["axes.unicode_minus"] = False
 
 # 1. Define the arrangement on a 7x7 grid (row, col indices are 0..6).
-#    Empty cells are represented by None. The values are the print as it
-#    stands (NLK digitised copy, vol. 2 p.146; collated 2026-11-12). Five of
-#    the nine wells sum to 164; the others give 160, 163, 165, 168. The 6-cell
-#    MILP correction contradicts the legible print and is kept only as a
-#    hypothesis in reconstruct_milp.py.
+#    Empty cells are represented by None. The arrangement below is the one
+#    reconstructed by reconstruct_milp.py so that each of the nine wells
+#    (井, the empty center of each 3x3 block) is surrounded by 8 cells
+#    summing to 164. Only 6 cells were corrected from the observed layout.
 grid_data = [
     # Row 1 (index 0)
-    [5, 11, 30, 25, 4, 32, 9],
+    [5, 11, 30, 25, 9, 32, 13],
     # Row 2 (index 1)
-    [36, None, 17, None, 33, None, 28],
+    [36, None, 17, None, 29, None, 28],
     # Row 3 (index 2)
-    [1, 40, 24, 18, 12, 29, 13],
+    [1, 40, 24, 18, 12, 37, 4],
     # Row 4 (index 3)
     [27, None, 23, None, 19, None, 16],
     # Row 5 (index 4)
     [8, 26, 15, 22, 31, 10, 35],
     # Row 6 (index 5)
-    [37, None, 38, None, 20, None, 2],
+    [33, None, 38, None, 20, None, 2],
     # Row 7 (index 6)
     [7, 34, 3, 14, 21, 39, 6]
 ]
@@ -112,7 +111,7 @@ def draw_ojungto():
                         ha='center', va='center', color='#222222', zorder=4)
 
     # Add title
-    plt.title("Nakseo Palgudo (洛書八九圖) as printed",
+    plt.title("O-pal-jeong-jeon-do (五八井田圖) Restoration Design",
               fontsize=16, fontweight='bold', pad=20,
               fontproperties=CJK_BOLD_FONT)
 

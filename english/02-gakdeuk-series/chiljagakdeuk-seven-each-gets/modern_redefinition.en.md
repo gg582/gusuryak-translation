@@ -1,7 +1,5 @@
 # Modern Combinatorial Redefinition of the Chiljagakdeuk (七子各得) Puzzle
 
-> **Reading corrected (2026-11-12)**: in the print (NLK digitised copy, vol. 2 pp.138–139) the annotation of 河圖七五圖 is **七子各得一百二十六數**. The 六 after the column break had been missed, giving 120. With 126, 5 × 126 = 630 = 1+…+35, an exact partition using 1–35 once each. The data in this document (sum 120) uses 1, 6, 24, 34 twice and omits 12, 25, 27, 31, so it is **not the original diagram**. The printed counters are badly worn; only the five centres (2, 3, 5, 4, 1) are legible. What follows is kept only as an analysis of that incorrect table.
-
 > This document avoids traditional terminology and redefines the diagram using only observed data and modern combinatorial / discrete-mathematical language.
 
 ---

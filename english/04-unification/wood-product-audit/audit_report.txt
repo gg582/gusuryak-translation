@@ -84,17 +84,17 @@ complement-pair product n·(C−n) mod 5 (C≡1): 水土→Ea, 火金→Wo, 木�
   complement involution σ(r)=C−r: Fi↔Me, Wo↔Wo, Ea↔Wa
   partner of 木: Wo  (Wood is self-complementary)
        (1,1): Wa3 Fi1 Me1 Ea3        pairs 水土 水土 水土 火金    rest -  ∏ mod5=Ea
-       (1,2): Fi2 Wo2 Me2 Ea2        pairs 火金             rest [30, 25, 4, 33, 18, 12]  ∏ mod5=Ea
-       (1,3): Fi2 Wo3 Me3            pairs 火金 火金 木木       rest [4, 33]  ∏ mod5=Fi
+       (1,2): Fi2 Wo1 Me3 Ea2        pairs 火金 火金          rest [30, 25, 9, 18]  ∏ mod5=Ea
+       (1,3): Fi3 Wo2 Me3            pairs 火金 火金 火金 木木    rest -  ∏ mod5=Wo
        (2,1): Wa2 Fi1 Wo2 Me1 Ea2    pairs 水土 水土          rest [24, 27, 23, 8]  ∏ mod5=Ea
        (2,2): Wa1 Fi2 Wo2 Me2 Ea1    pairs 木木 火金          rest [24, 12, 15, 31]  ∏ mod5=Ea
-       (2,3): Wa2 Fi1 Wo1 Me2 Ea2    pairs 水土 火金          rest [13, 19, 16, 35]  ∏ mod5=Ea
-       (3,1): Wa1 Fi2 Wo3 Me1 Ea1    pairs 木木 火金 水土       rest [8, 37]  ∏ mod5=Ea
+       (2,3): Wa2 Fi2 Me2 Ea2        pairs 火金 水土          rest [12, 19, 16, 35]  ∏ mod5=Ea
+       (3,1): Wa1 Fi1 Wo4 Me1 Ea1    pairs 木木 火金 木木 水土    rest -  ∏ mod5=Ea
        (3,2): Wa2 Fi1 Wo2 Me1 Ea2    pairs 木木 水土          rest [15, 22, 31, 14]  ∏ mod5=Ea
        (3,3): Wa3 Fi1 Me1 Ea3        pairs 火金 水土 水土 水土    rest -  ∏ mod5=Ea
-  pair types: {'水土': 11, '火金': 8, '木木': 4}  / palaces fully split 2/9
+  pair types: {'水土': 11, '火金': 10, '木木': 5}  / palaces fully split 4/9
   Wood·Wood pairs in palaces: 10; product mod5=Fire 0/10, (product mod N)∈Fire 0/10, (product mod C)∈Fire 4/10  [base rate 0.20]
-  palaces with ≥2 Woods that also hold Fire: 6/6 ((1,2)+Fi, (1,3)+Fi, (2,1)+Fi, (2,2)+Fi, (3,1)+Fi, (3,2)+Fi)
+  palaces with ≥2 Woods that also hold Fire: 5/5 ((1,3)+Fi, (2,1)+Fi, (2,2)+Fi, (3,1)+Fi, (3,2)+Fi)
 
 === Beomsu Yongodo 範數用五圖  (1..9, complement sum C=10, C mod 5=0) ===
   complement involution σ(r)=C−r: Wa↔Me, Fi↔Wo, Ea↔Ea
@@ -183,6 +183,18 @@ complement-pair product n·(C−n) mod 5 (C≡1): 水土→Ea, 火金→Wo, 木�
   Wood·Wood pairs in palaces: 5; product mod5=Fire 0/5, (product mod N)∈Fire 0/5, (product mod C)∈Fire 0/5  [base rate 0.21]
   palaces with ≥2 Woods that also hold Fire: 2/3 (top, left+Fi, right+Fi)
 
+=== Hado Chilodo 河圖七五圖 (article table)  (1..35, complement sum C=36, C mod 5=1) ===
+  complement involution σ(r)=C−r: Fi↔Me, Wo↔Wo, Ea↔Wa
+  partner of 木: Wo  (Wood is self-complementary)
+         top: Wa2 Fi1 Me4            pairs 火金             rest [29, 1, 24, 11, 19]  ∏ mod5=Fi
+        left: Wa1 Wo5 Me1            pairs 木木 木木          rest [6, 34, 8]  ∏ mod5=Fi
+      centre: Wa1 Fi2 Ea4            pairs 水土             rest [5, 22, 7, 20, 30]  ∏ mod5=Ea
+       right: Fi1 Wo2 Me3 Ea1        pairs 火金             rest [15, 28, 9, 18, 14]  ∏ mod5=Ea
+      bottom: Wa4 Fi1 Me1 Ea1        pairs 水土             rest [16, 21, 24, 6, 17]  ∏ mod5=Ea
+  pair types: {'火金': 2, '木木': 2, '水土': 2}  / palaces fully split 0/5
+  Wood·Wood pairs in palaces: 11; product mod5=Fire 0/11, (product mod N)∈Fire 0/11, (product mod C)∈Fire 1/11  [base rate 0.16]
+  palaces with ≥2 Woods that also hold Fire: 1/2 (left, right+Fi)
+
 === Hado Palodo 河圖八五圖  (1..40, complement sum C=41, C mod 5=1) ===
   complement involution σ(r)=C−r: Fi↔Me, Wo↔Wo, Ea↔Wa
   partner of 木: Wo  (Wood is self-complementary)
@@ -227,7 +239,7 @@ Nakseo Sagudo 洛書四九圖                           1      O       8      0 
 Jungui Yongyukdo 重儀用六圖                        2      -       3      0      1      2  {'水水': 2, '土火': 4, '木金': 2}
 Nakseo Ogudo 洛書五九圖                            4      -       1      0      0      0  {'水木': 2}
 Nakseo Chilgudo 洛書七九圖                         4      -       6      0      0      0  {'土金': 6, '火火': 4, '水木': 9}
-Nakseo Palgudo 洛書八九圖                          1      O      10      0      0      4  {'水土': 11, '火金': 8, '木木': 4}
+Nakseo Palgudo 洛書八九圖                          1      O      10      0      0      4  {'水土': 11, '火金': 10, '木木': 5}
 Beomsu Yongodo 範數用五圖                          0      -       0      0      0      0  {'火木': 2, '水金': 2}
 Jangchaek Yongchildo 章策用七圖                    0      -       1      0      0      0  {'火木': 3, '土土': 1, '水金': 1}
 Jungsang Yonggudo 重象用九圖 (source)              4      -       6      0      1      1  {'火火': 1, '土金': 2, '水木': 2}
@@ -235,11 +247,12 @@ Nakseo Gugudo 洛書九九圖 (reading)                 1      O       7      0 
 Huchaek Yonggudo 侯策用九圖 (corrected)            3      -       5      0      1      3  {'土木': 14, '水火': 15, '金金': 7}
 Junggwae Yongpaldo 重卦用八圖                      0      -       5      0      1      0  {'火木': 13, '水金': 11, '土土': 4}
 Gichaek Yongpaldo 奇策用八圖                       0      -       5      0      0      0  {'火木': 4, '土土': 2, '水金': 2}
+Hado Chilodo 河圖七五圖 (article table)            1      O      11      0      0      1  {'火金': 2, '木木': 2, '水土': 2}
 Hado Palodo 河圖八五圖                             1      O      28      0      0      9  {'火金': 4, '木木': 4, '水土': 4}
 Hado Guodo 河圖九五圖                              1      O      21      0      0      8  {'火金': 6, '木木': 3, '水土': 7}
 Cheonsu Yongodo 天數用五圖 (revised)               2      -       1      0      0      1  {'土火': 2, '水水': 2, '木金': 1}
 
-Wood·Wood pairs in palaces, total 113; with Fire product (mod 5): 0
-(product mod N) is a Fire number of the diagram: 8, (product mod C): 33, expected (base-rate weighted) ≈ 22.8
+Wood·Wood pairs in palaces, total 124; with Fire product (mod 5): 0
+(product mod N) is a Fire number of the diagram: 8, (product mod C): 34, expected (base-rate weighted) ≈ 24.5
 
 Nakseo Yukgodo (1..270, C=271≡1): Wood is self-complementary — antipodal pairs v+v'=271 are only of types 水土, 火金, 木木 (holds without layout data).

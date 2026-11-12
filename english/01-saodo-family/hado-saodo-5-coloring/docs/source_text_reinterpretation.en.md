@@ -6,8 +6,6 @@
 > 此圖水土相涵 金火相守 兩木相摩
 > 傳曰 木與木相摩則然 金與火相守則流
 
-Collation note (2026-11-12): the print (vol. 2, p.138 of the NLK digitised copy) has **涵** (氵 + 函), not 滲. Earlier versions of this note read 相滲.
-
 ## 2. Literal translation
 
 | Source | Translation |

@@ -1,5 +1,3 @@
-# 판독 정정 (2026-11-12): 인쇄본 주기는 七子各得一百二十六數(126)다. 여기의 합 120 표는
-# 1, 6, 24, 34를 두 번씩 쓰는 잘못된 표이며 원도가 아니다. 분석 기록으로만 남긴다.
 from pathlib import Path
 import matplotlib.pyplot as plt
 from matplotlib import font_manager
